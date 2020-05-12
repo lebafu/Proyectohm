@@ -61,16 +61,23 @@ class UsersController extends Controller
         public function update(Request $request,$id)
     {
 
+    	//dd($id);
         $user=User::findorfail($id);
-        $nombre_actual=$user->name;
-        $user->name=$request->get('name');
-        $user->email=$request->get('email');
-        $user->password=Hash::make($request->get('password'));
-        $user->tipo_usuario=$request->get('tipo_usuario');
-        $user->sexo=$request->get('sexo');
-        $user->save();
+        //$nombre_actual=$user->name;
+        $user->name=$request->input('name');
+        $user->email=$request->input('email');
+        $user->password=Hash::make($request->input('password'));
+        $user->tipo_usuario=$request->input('tipo_usuario');
+        $user->sexo=$request->input('sexo');
+        $user->update();
         echo json_enconde($user);
          //$email=$request->get('email');
      
+    }
+
+    public function destroy($id)
+    {
+    $user= User::find($id);
+    $user->delete();
     }
 }
