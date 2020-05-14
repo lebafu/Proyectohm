@@ -27,7 +27,7 @@ class AuthController extends Controller
         $credentials = request(['email', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['El email o contraseña no existen o coinciden' => 'Unauthorized'], 401);
         }
 
         return $this->respondWithToken($token);

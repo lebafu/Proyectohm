@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import {Route, RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
@@ -18,7 +17,8 @@ import { ResponseResetComponent } from './components/password/response-reset/res
 const routes: Route[]=[
 {path:'', component: HomeComponent},
 {path:'users',component:UsersComponent},
-{path:'alumno-form', component: AlumnoFormComponent}
+{path:'alumno-form', component: AlumnoFormComponent},
+{path:'signup',component: SignupComponent},
 ];
 
 
@@ -38,6 +38,8 @@ const routes: Route[]=[
   imports: [
     BrowserModule,
     AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
     RouterModule.forRoot(routes),
   ],
   providers: [],
