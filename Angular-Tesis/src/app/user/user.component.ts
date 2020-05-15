@@ -1,17 +1,15 @@
-import {Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {UsersService} from 'src/services/users.service';
 import {User} from 'src/interfaces/user';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 
-
-
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-user',
+  templateUrl: './user.component.html',
+  styleUrls: ['./user.component.css']
 })
-export class SignupComponent implements OnInit {
+export class UserComponent implements OnInit {
 	user:User= {
 		name:null,
 		password:null,
@@ -19,18 +17,13 @@ export class SignupComponent implements OnInit {
 		tipo_usuario:null,
 		director_escuela:null,
 		remember_token:null,
-	}
-
-
-  constructor(private usersService: UsersService){ 
-  	
-  }
+}
+  constructor(private usersService: UsersService) { }
 
   ngOnInit(): void {
-
   }
 
-  saveAlumno(){
+  /*saveAlumno(){
   	this.usersService.save(this.user).subscribe((data)=>{
   	alert('Alumno Guardado');
   	console.log(data);
@@ -38,7 +31,5 @@ export class SignupComponent implements OnInit {
   	console.log(error);
   	alert('Ocurrio un error');
   });
-  }
-
-
+  }*/
 }

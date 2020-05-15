@@ -1,4 +1,7 @@
-<div class="container">
+<div class="mt-4 col-8 offset-2">
+	<div class="card">
+		<div class="card-header"><i aria-hidden="true"><FONT FACE="arial">Registro de Alumno</FONT></i>
+		<div class="card-body">
 <form>
   <div class="form-group">
     <label for="nombre_completo">Nombre Completo</label>
@@ -13,9 +16,9 @@
     <label for="password">Password</label>
     <input type="password" class="form-control" id="password" name="password">
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+   <div class="form-group">
+    <label for="password_check">Password</label>
+    <input type="password" class="form-control" id="password_check" name="password_check">
   </div>
   <div class="form-group">
   <label for="sexo">Selecciona sexo:</label>
@@ -24,9 +27,11 @@
     <option>Femenino</option>
   </select>
 </div>
-  <button type="Enviar" class="btn btn-primary">Enviar</button>
+  <button (click)="saveAlumno()" class="btn btn-primary">Guardar</button>
 </form>
-
-
 </div>
+</div>
+</div>
+
+
 
