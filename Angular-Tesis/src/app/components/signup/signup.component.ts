@@ -31,6 +31,7 @@ export class SignupComponent implements OnInit {
   }
 
   saveAlumno(){
+    console.log(this.user);
   	this.usersService.save(this.user).subscribe((data)=>{
   	alert('Alumno Guardado');
   	console.log(data);

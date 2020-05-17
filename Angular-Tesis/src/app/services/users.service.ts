@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
 import {User} from 'src/interfaces/user';
-import { SignupComponent } from '../components/signup/signup.component';
+import { SignupComponent } from 'src/app/components/signup/signup.component';
 
 
 @Injectable({
