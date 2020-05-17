@@ -4,34 +4,31 @@
 		<div class="card-body">
 <form>
   <div class="form-group">
-    <label for="nombre_completo">Nombre Completo</label>
-    <input type="text" class="form-control" id="nombre_completo" name="nombre_completo" aria-describedby="nombre_completoHelp">
-     <small id="nombre_completoHelp" class="form-text text-muted">Usted debe ingresar 2 nombres y 2 apellidos</small>
+    <label for="name">Nombre Completo</label>
+    <input [(ngModel)]="user.name" type="text" class="form-control" id="name" [ngModelOptions]="{standalone: true}" aria-describedby="nameHelp">
+     <small id="nameHelp" class="form-text text-muted">Usted debe ingresar 2 nombres y 2 apellidos</small>
   </div>
    <div class="form-group">
     <label for="email">Email</label>
-    <input type="email" class="form-control" id="email">
+    <input [(ngModel)]="user.email" type="email" class="form-control" id="email" [ngModelOptions]="{standalone: true}">
   </div>
   <div class="form-group">
     <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" name="password">
+    <input [(ngModel)]="user.password" type="password" class="form-control" id="password" [ngModelOptions]="{standalone: true}">
   </div>
    <div class="form-group">
     <label for="password_check">Password</label>
-    <input type="password" class="form-control" id="password_check" name="password_check">
+    <input [(ngModel)]="user.password_check" type="password" class="form-control" id="password_check" [ngModelOptions]="{standalone: true}">
   </div>
   <div class="form-group">
-  <label for="sexo">Selecciona sexo:</label>
-  <select class="form-control" id="sexo">
-    <option>Masculino</option>
-    <option>Femenino</option>
-  </select>
-</div>
-  <button (click)="saveAlumno()" type=submit class="btn btn-primary">Guardar</button>
+    <label for="sexo">Sexo</label>
+    <input [(ngModel)]="user.sexo" type="text" class="form-control" id="sexo" value="Masculino" [ngModelOptions]="{standalone: true}">
+  </div>
+  <button (click)="saveAlumno()"  class="btn btn-primary">Guardar</button>
 </form>
 </div>
 </div>
-</div>
+
 
 
 

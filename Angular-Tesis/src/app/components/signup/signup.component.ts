@@ -7,23 +7,23 @@ import {ActivatedRoute} from '@angular/router';
 
 
 @Component({
-  selector: 'app-signup',
+  selector: 'app-components-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-	user:User= {
+	user: User= {
 		name:null,
+		email:null,
 		password:null,
 		sexo:null,
-		tipo_usuario:null,
 		director_escuela:null,
 		remember_token:null,
 	}
 
 
   constructor(private usersService: UsersService){ 
-  	
+  	console.log(usersService);
   }
 
   ngOnInit(): void {

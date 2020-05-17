@@ -29,12 +29,12 @@ class UsersController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
+        /*$request->validate([
             'name' => 'required|string',
             'email' => 'required|string|unique:users',
             'password' => 'required|string',
             'tipo_usuario' => 'required|integer',
-        ]);
+        ]);*/
  
        $ultimo_id=DB::table('users')->max('id');
        /*$user=new User;
@@ -67,7 +67,7 @@ class UsersController extends Controller
         $user->name=$request->input('name');
         $user->email=$request->input('email');
         $user->password=Hash::make($request->input('password'));
-        $user->tipo_usuario=$request->input('tipo_usuario');
+        $user->tipo_usuario=1,
         $user->sexo=$request->input('sexo');
         $user->update();
         echo json_enconde($user);
