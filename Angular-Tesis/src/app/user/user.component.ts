@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {UsersService} from 'src/services/users.service';
-import {User} from 'src/interfaces/user';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 
@@ -23,7 +23,7 @@ export class UserComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  /*saveAlumno(){
+  saveAlumno(){
   	this.usersService.save(this.user).subscribe((data)=>{
   	alert('Alumno Guardado');
   	console.log(data);
@@ -31,5 +31,5 @@ export class UserComponent implements OnInit {
   	console.log(error);
   	alert('Ocurrio un error');
   });
-  }*/
+  }
 }
