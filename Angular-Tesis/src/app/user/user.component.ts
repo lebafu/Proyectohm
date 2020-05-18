@@ -10,16 +10,9 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-	/*user:User= {
-		name:null,
-		email:null,
-		password:null,
-		password_check:null,
-		sexo:null,
-	};*/
 	users: User[];
   constructor(private usersService: UsersService) {
-	  this.usersService;
+	  this.getUsers();
    }
 
   ngOnInit(): void {

@@ -1,4 +1,5 @@
-<script> function SomeDeleteRowFunction(o) { //no clue what to put here? var p=o.parentNode.parentNode; p.parentNode.removeChild(p); } </script>
+<script> function SomeDeleteRowFunction(o) { }
+</script>
  <table class="table">
 
   <thead class="thead-dark">
@@ -15,10 +16,10 @@
       <td>{{user.name}}</td>
       <td>{{user.email}}</td>
       <td>{{user.tipo_usuario}}</td>
-      <td><a class="btn btn-primary btn-sm" routerLink="/cinesshow/{{cine.id}}">Ver</a>
-      <a class="btn btn-primary btn-sm" routerLink="/formcines/{{cine.id}}">Editar</a>
-      <a class="btn btn-primary btn-sm btn-danger" (click)="delete(cine.id)">Eliminar</a>
-        <!--<a class="btn btn-danger" id="table">Eliminar</a>--></td>
+      <!--<td><a class="btn btn-primary btn-sm" routerLink="/cinesshow/{{user.id}}">Ver</a>
+      <a class="btn btn-primary btn-sm" routerLink="/formcines/{{user.id}}">Editar</a>
+      <a class="btn btn-primary btn-sm btn-danger" (click)="delete(user.id)">Eliminar</a>
+        <a class="btn btn-danger" id="table">Eliminar</a></td>-->
     </tr>
    </tbody>
 </table>

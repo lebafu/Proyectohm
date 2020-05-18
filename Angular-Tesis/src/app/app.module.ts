@@ -18,6 +18,7 @@ const routes: Route[]=[
 {path:'', component: HomeComponent},
 {path:'alumno-form', component: AlumnoFormComponent},
 {path:'signup',component: SignupComponent},
+{path:'users', component: UserComponent},
 ];
 
 
