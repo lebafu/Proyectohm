@@ -16,14 +16,13 @@ export class SignupComponent implements OnInit {
 		name:null,
 		email:null,
 		password:null,
+		password_check:null,
 		sexo:null,
-		director_escuela:null,
-		remember_token:null,
 	}
 
 
   constructor(private usersService: UsersService){ 
-  	console.log(usersService);
+  	//console.log(usersService);
   }
 
   ngOnInit(): void {

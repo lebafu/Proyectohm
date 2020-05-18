@@ -12,6 +12,9 @@ export class UsersService {
   API_ENDPOINT = 'http://localhost:8000/api';
   constructor(private httpClient:HttpClient) {  }
   
+  get(){
+  	return this.httpClient.get('http://localhost:8000/api' + '/users');
+  }
   save(user:User){
   const headers=new HttpHeaders({'Content-Type':'application/json'});
   return this.httpClient.post(this.API_ENDPOINT + '/users', user,{headers: headers});

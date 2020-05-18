@@ -52,7 +52,7 @@ class UsersController extends Controller
             'name' => $request->name,
             'email' =>$request->email,
             'password' =>Hash::make($request->password),
-            'tipo_usuario' => $request->tipo_usuario,
+            'tipo_usuario' => 1,
             'sexo' => $request->sexo
         ]);
 
@@ -67,7 +67,7 @@ class UsersController extends Controller
         $user->name=$request->input('name');
         $user->email=$request->input('email');
         $user->password=Hash::make($request->input('password'));
-        $user->tipo_usuario=1,
+        $user->tipo_usuario=$request->input('tipo_usuario');
         $user->sexo=$request->input('sexo');
         $user->update();
         echo json_enconde($user);

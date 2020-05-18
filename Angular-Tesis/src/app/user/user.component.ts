@@ -10,25 +10,27 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-	user:User= {
+	/*user:User= {
 		name:null,
+		email:null,
 		password:null,
+		password_check:null,
 		sexo:null,
-		director_escuela:null,
-		remember_token:null,
-}
-  constructor(private usersService: UsersService) { }
+	};*/
+	users: User[];
+  constructor(private usersService: UsersService) {
+	  this.usersService;
+   }
 
   ngOnInit(): void {
   }
-
-  saveAlumno(){
-  	this.usersService.save(this.user).subscribe((data)=>{
-  	alert('Alumno Guardado');
-  	console.log(data);
-  },(error)=>{
-  	console.log(error);
-  	alert('Ocurrio un error');
-  });
+   getUsers(){
+    this.usersService.get().subscribe((data: User[])=>{
+      this.users=data;
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
   }
+ 
 }

@@ -1,1 +1,24 @@
-<p>user works!</p>
+<script> function SomeDeleteRowFunction(o) { //no clue what to put here? var p=o.parentNode.parentNode; p.parentNode.removeChild(p); } </script>
+ <table class="table">
+
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Email/th>
+      <th scope="col">Tipo usuario</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.email}}</td>
+      <td>{{user.tipo_usuario}}</td>
+      <td><a class="btn btn-primary btn-sm" routerLink="/cinesshow/{{cine.id}}">Ver</a>
+      <a class="btn btn-primary btn-sm" routerLink="/formcines/{{cine.id}}">Editar</a>
+      <a class="btn btn-primary btn-sm btn-danger" (click)="delete(cine.id)">Eliminar</a>
+        <!--<a class="btn btn-danger" id="table">Eliminar</a>--></td>
+    </tr>
+   </tbody>
+</table>
