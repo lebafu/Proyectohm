@@ -40,4 +40,4 @@ Route::get('/users/create', 'UsersController@create');
 Route::get('users/{id}', 'UsersController@show');
 Route::post('/users','UsersController@store');
 Route::put('/actualizarusers{users}','UsersController@update');
-Route::delete('/eliminarusers{users}','UsersController@destroy');
+Route::delete('/users/{id}','UsersController@destroy');

@@ -1,0 +1,30 @@
+<div class="mt-4 col-8 offset-2">
+	<div class="card">
+		<div class="card-header"><i aria-hidden="true"><FONT FACE="arial">Registro de Alumno</FONT></i>
+		<div class="card-body">
+<form>
+  <div class="form-group">
+    <label for="name">Nombre Completo</label>
+    <input [(ngModel)]="user.name" type="text" class="form-control" id="name" [ngModelOptions]="{standalone: true}" aria-describedby="nameHelp">
+     <small id="nameHelp" class="form-text text-muted">Usted debe ingresar 2 nombres y 2 apellidos</small>
+  </div>
+   <div class="form-group">
+    <label for="email">Email</label>
+    <input [(ngModel)]="user.email" type="email" class="form-control" id="email" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input [(ngModel)]="user.password" type="password" class="form-control" id="password" [ngModelOptions]="{standalone: true}">
+  </div>
+   <div class="form-group">
+    <label for="password_check">Password</label>
+    <input [(ngModel)]="user.password_check" type="password" class="form-control" id="password_check" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <label for="sexo">Sexo</label>
+    <input [(ngModel)]="user.sexo" type="text" class="form-control" id="sexo" value="Masculino" [ngModelOptions]="{standalone: true}">
+  </div>
+  <button (click)="saveAlumno()"  class="btn btn-primary" routerLink="/">Guardar</button>
+</form>
+</div>
+</div>

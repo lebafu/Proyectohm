@@ -14,12 +14,15 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { RequestResetComponent } from './components/password/request-reset/request-reset.component';
 import { ResponseResetComponent } from './components/password/response-reset/response-reset.component';
 import { UserComponent } from './user/user.component';
+import { UsersshowComponent } from './usersshow/usersshow.component';
+import { UserseditComponent } from './usersedit/usersedit.component';
 const routes: Route[]=[
 {path:'', component: HomeComponent},
 {path:'alumno-form', component: AlumnoFormComponent},
 {path:'signup',component: SignupComponent},
 {path:'users', component: UserComponent},
-{path:'users/:id', component: UserComponent},
+{path:'users/:id', component: UserseditComponent},
+{path:'usersshow/:id',component: UsersshowComponent}
 ];
 
 
@@ -34,7 +37,9 @@ const routes: Route[]=[
     ProfileComponent,
     RequestResetComponent,
     ResponseResetComponent,
-    UserComponent
+    UserComponent,
+    UsersshowComponent,
+    UserseditComponent
   ],
   imports: [
     BrowserModule,

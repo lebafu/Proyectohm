@@ -1,36 +1,29 @@
-import {Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {UsersService} from 'src/app/services/users.service';
 import {User} from 'src/app/interfaces/user';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 
 
-
 @Component({
-  selector: 'app-components-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.css']
+  selector: 'app-usersedit',
+  templateUrl: './usersedit.component.html',
+  styleUrls: ['./usersedit.component.css']
 })
-export class SignupComponent implements OnInit {
-	user: User= {
+export class UserseditComponent implements OnInit {
+  user: User= {
 		name:null,
 		email:null,
 		password:null,
 		password_check:null,
 		sexo:null,
 	}
-
-
-  constructor(private usersService: UsersService){ 
-	  //console.log(usersService);
-
-  }
+  constructor() { }
 
   ngOnInit(): void {
-
   }
 
-  saveAlumno(){
+  saveUser(){
     console.log(this.user);
   	this.usersService.save(this.user).subscribe((data)=>{
   	alert('Alumno Guardado');
@@ -40,6 +33,4 @@ export class SignupComponent implements OnInit {
   	alert('Ocurrio un error');
   });
   }
-
-
 }

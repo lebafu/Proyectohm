@@ -4,6 +4,7 @@ import {User} from 'src/app/interfaces/user';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 
+
 @Component({
   selector: 'app-user',
   templateUrl: './user.component.html',
@@ -26,9 +27,11 @@ export class UserComponent implements OnInit {
     });
   }
 
+ 
+
   delete=function(id){
     if(confirm('¿Seguro que deseas eliminar este usuario?')){
-    this.cineService.delete(id).subscribe((data) => {
+    this.usersService.delete(id).subscribe((data) => {
          alert('Usuario eliminado con exito');
          console.log(data);
          this.getUsers();
