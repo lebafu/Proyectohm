@@ -1,12 +1,14 @@
 <script> function SomeDeleteRowFunction(o) { }
 </script>
+<style type="text/css">
+  .fa:before { color:black; }
+</style>
  <table class="table">
-
   <thead class="thead-dark">
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Nombre</th>
-      <th scope="col">Email/th>
+      <th scope="col">Email</th>
       <th scope="col">Tipo usuario</th>
     </tr>
   </thead>
@@ -16,10 +18,10 @@
       <td>{{user.name}}</td>
       <td>{{user.email}}</td>
       <td>{{user.tipo_usuario}}</td>
-      <!--<td><a class="btn btn-primary btn-sm" routerLink="/cinesshow/{{user.id}}">Ver</a>
-      <a class="btn btn-primary btn-sm" routerLink="/formcines/{{user.id}}">Editar</a>
-      <a class="btn btn-primary btn-sm btn-danger" (click)="delete(user.id)">Eliminar</a>
-        <a class="btn btn-danger" id="table">Eliminar</a></td>-->
+      <td><a class="btn btn-primary btn-sm" routerLink="/usersshow/{{user.id}}"><i class="fa fa-eye" aria-hidden="true"></i>
+      </a>
+      <a class="btn btn-primary btn-sm" routerLink="/users/{{user.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+      <a class="btn btn-primary btn-sm btn-danger" (click)="delete(user.id)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
     </tr>
    </tbody>
 </table>

@@ -35,9 +35,9 @@ Route::group([
 
 //Route::resource('users','UsersController');
 Route::get('users', 'UsersController@index');
-Route::get('/users{users}', 'UsersController@edit');
+Route::get('users{users}', 'UsersController@edit');
 Route::get('/users/create', 'UsersController@create');
-Route::get('/usersmostrar/{id}', 'UsersController@show');
+Route::get('users/{id}', 'UsersController@show');
 Route::post('/users','UsersController@store');
 Route::put('/actualizarusers{users}','UsersController@update');
 Route::delete('/eliminarusers{users}','UsersController@destroy');

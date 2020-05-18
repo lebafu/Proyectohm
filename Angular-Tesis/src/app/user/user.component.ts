@@ -25,5 +25,15 @@ export class UserComponent implements OnInit {
     alert('Ocurrió un error');
     });
   }
+
+  delete=function(id){
+    if(confirm('¿Seguro que deseas eliminar este usuario?')){
+    this.cineService.delete(id).subscribe((data) => {
+         alert('Usuario eliminado con exito');
+         console.log(data);
+         this.getUsers();
+       });
+      }
+   }
  
 }

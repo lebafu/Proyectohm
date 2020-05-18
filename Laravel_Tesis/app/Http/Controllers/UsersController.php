@@ -75,6 +75,12 @@ class UsersController extends Controller
      
     }
 
+    public function show($id){
+    
+        $users=DB::table('users')->where('id','=',$id)->get();
+        foreach($users as $user);
+        echo json_encode($user);
+    }
     public function destroy($id)
     {
     DB::table('users')->where('id','=',$id)->delete();
