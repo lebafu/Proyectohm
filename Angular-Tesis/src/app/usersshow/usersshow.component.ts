@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit } from '@angular/core';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
+import {Observable} from 'rxjs';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-usersshow',
@@ -6,10 +10,38 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./usersshow.component.css']
 })
 export class UsersshowComponent implements OnInit {
-
-  constructor() { }
+  user: User= {
+		name:null,
+		email:null,
+		password:null,
+		password_check:null,
+    sexo:null,
+  };
+  id: any;
+  editing: boolean =false;
+  users: User[];
+  constructor(private usersService: UsersService, private activatedRoute: ActivatedRoute) {
+    this.id=this.activatedRoute.snapshot.params['id'];
+        this.editing=true;
+        this.usersService.get().subscribe((data: User[])=>{
+        this.users=data;
+        this.user=this.users.find((u)=>{return u.id==this.id})
+         }, (error)=>{
+          console.log(error);
+         });
+   }
 
   ngOnInit(): void {
   }
+  showUser(){
+  }
 
+  getUsers(){
+    this.usersService.get().subscribe((data: User[])=>{
+      this.users=data;
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
+  }
 }
