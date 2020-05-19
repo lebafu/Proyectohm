@@ -14,7 +14,8 @@ export class UsersshowComponent implements OnInit {
 		name:null,
 		email:null,
 		password:null,
-		password_check:null,
+    password_check:null,
+    tipo_usuario:null,
     sexo:null,
   };
   id: any;

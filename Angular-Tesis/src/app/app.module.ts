@@ -16,6 +16,7 @@ import { ResponseResetComponent } from './components/password/response-reset/res
 import { UserComponent } from './user/user.component';
 import { UsersshowComponent } from './usersshow/usersshow.component';
 import { UserseditComponent } from './usersedit/usersedit.component';
+
 const routes: Route[]=[
 {path:'', component: HomeComponent},
 {path:'alumno-form', component: AlumnoFormComponent},
@@ -39,7 +40,7 @@ const routes: Route[]=[
     ResponseResetComponent,
     UserComponent,
     UsersshowComponent,
-    UserseditComponent
+    UserseditComponent,
   ],
   imports: [
     BrowserModule,

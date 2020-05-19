@@ -16,7 +16,8 @@ export class UserseditComponent implements OnInit{
 		email:null,
 		password:null,
 		password_check:null,
-		sexo:null,
+    sexo:null,
+    tipo_usuario:null,
   };
   id: any;
   editing: boolean =false;

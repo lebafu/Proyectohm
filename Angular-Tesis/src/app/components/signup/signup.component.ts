@@ -11,13 +11,17 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
+
+
 export class SignupComponent implements OnInit {
+	lista_sexos:string[]=["Masculino","Femenino"];
 	user: User= {
 		name:null,
 		email:null,
 		password:null,
 		password_check:null,
 		sexo:null,
+		tipo_usuario:null,
 	}
 
 
