@@ -62,15 +62,13 @@ class UsersController extends Controller
     {
 
     	//dd($id);
-        $user=User::findorfail($id);
+        $user=User::find($id);
         //$nombre_actual=$user->name;
         $user->name=$request->input('name');
         $user->email=$request->input('email');
-        $user->password=Hash::make($request->input('password'));
-        $user->tipo_usuario=$request->input('tipo_usuario');
         $user->sexo=$request->input('sexo');
         $user->update();
-        echo json_enconde($user);
+        //echo json_enconde($user);
          //$email=$request->get('email');
      
     }

@@ -39,5 +39,5 @@ Route::get('users{users}', 'UsersController@edit');
 Route::get('/users/create', 'UsersController@create');
 Route::get('users/{id}', 'UsersController@show');
 Route::post('/users','UsersController@store');
-Route::put('/actualizarusers{users}','UsersController@update');
+Route::put('/users/{users}','UsersController@update');
 Route::delete('/users/{id}','UsersController@destroy');

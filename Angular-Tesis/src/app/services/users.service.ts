@@ -21,7 +21,7 @@ export class UsersService {
 
   }
  
-  put(user :User){
+  put(user:User){
     const headers= new HttpHeaders({'Content-Type':'application/json'});
     return this.httpClient.put(this.API_ENDPOINT +'/users/' + user.id, user,{headers:headers});
   }

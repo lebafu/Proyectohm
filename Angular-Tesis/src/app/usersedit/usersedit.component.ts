@@ -10,27 +10,59 @@ import {ActivatedRoute} from '@angular/router';
   templateUrl: './usersedit.component.html',
   styleUrls: ['./usersedit.component.css']
 })
-export class UserseditComponent implements OnInit {
+export class UserseditComponent implements OnInit{
   user: User= {
 		name:null,
 		email:null,
 		password:null,
 		password_check:null,
 		sexo:null,
-	}
-  constructor() { }
+  };
+  id: any;
+  editing: boolean =false;
+  users: User[];
+  constructor(private usersService: UsersService, private activatedRoute: ActivatedRoute) {
+    this.id=this.activatedRoute.snapshot.params['id'];
+    console.log(this.id);
+    if(this.id){
+        this.editing=true;
+        this.usersService.get().subscribe((data: User[])=>{
+        this.users=data;
+        this.user=this.users.find((u)=>{return u.id==this.id})
+        console.log(this.user);
+         }, (error)=>{
+          console.log(error);
+         });
+    }else{
+      this.editing=false;
+    }   
+
+
+   }
 
   ngOnInit(): void {
   }
 
-  saveUser(){
-    console.log(this.user);
-  	this.usersService.save(this.user).subscribe((data)=>{
-  	alert('Alumno Guardado');
-  	console.log(data);
-  },(error)=>{
-  	console.log(error);
-  	alert('Ocurrio un error');
-  });
+  editUser(){
+    console.log(this.editing);
+    if(this.editing==true){
+      this.usersService.put(this.user).subscribe((data) => {
+      alert('Usuario Actualizado');
+      console.log(data);
+      this.getUsers();
+    }, (error) => {
+  console.log(error);
+  alert('Ocurrio  un error al editar');
+});
+  }
+  }
+
+  getUsers(){
+    this.usersService.get().subscribe((data: User[])=>{
+      this.users=data;
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
   }
 }
