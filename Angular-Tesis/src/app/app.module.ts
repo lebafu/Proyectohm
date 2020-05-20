@@ -16,6 +16,12 @@ import { ResponseResetComponent } from './components/password/response-reset/res
 import { UserComponent } from './user/user.component';
 import { UsersshowComponent } from './usersshow/usersshow.component';
 import { UserseditComponent } from './usersedit/usersedit.component';
+import { Navbar00Component } from './components/navbar00/navbar00.component';
+import { Navbar10Component } from './components/navbar10/navbar10.component';
+import { Navbar20Component } from './components/navbar20/navbar20.component';
+import { Navbar21Component } from './components/navbar21/navbar21.component';
+import { Navbar30Component } from './components/navbar30/navbar30.component';
+import { Navbar40Component } from './components/navbar40/navbar40.component';
 
 const routes: Route[]=[
 {path:'', component: HomeComponent},
@@ -41,6 +47,12 @@ const routes: Route[]=[
     UserComponent,
     UsersshowComponent,
     UserseditComponent,
+    Navbar00Component,
+    Navbar10Component,
+    Navbar20Component,
+    Navbar21Component,
+    Navbar30Component,
+    Navbar40Component,
   ],
   imports: [
     BrowserModule,
