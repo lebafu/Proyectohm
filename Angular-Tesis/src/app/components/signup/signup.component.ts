@@ -1,49 +1,46 @@
-import {Component, OnInit } from '@angular/core';
-import {UsersService} from 'src/app/services/users.service';
-import {User} from 'src/app/interfaces/user';
-import {Observable} from 'rxjs';
-import {ActivatedRoute} from '@angular/router';
-
-
+import { Component, OnInit } from '@angular/core';
+import { JarwisService } from '../../services/jarwis.service';
+import { TokenService } from '../../services/token.service';
+import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-components-signup',
+  selector: 'app-signup',
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css']
 })
-
-
 export class SignupComponent implements OnInit {
 	lista_sexos:string[]=["Masculino","Femenino"];
-	user: User= {
-		name:null,
-		email:null,
-		password:null,
-		password_check:null,
-		sexo:null,
-		tipo_usuario:null,
-	}
+  public form = {
+    email: null,
+    name: null,
+    password: null,
+	password_confirmation: null,
+	sexo:null,
+  }
+  public error = [];
 
+  constructor(
+    private Jarwis: JarwisService,
+    private Token: TokenService,
+    private router: Router
+  ) { }
 
-  constructor(private usersService: UsersService){ 
-	  //console.log(usersService);
-
+  onSubmit() {
+    this.Jarwis.signup(this.form).subscribe(
+      data => this.handleResponse(data),
+      error => this.handleError(error)
+    );
+  }
+  handleResponse(data) {
+    this.Token.handle(data.access_token);
+    this.router.navigateByUrl('/profile');
   }
 
-  ngOnInit(): void {
-
+  handleError(error) {
+    this.error = error.error.errors;
   }
 
-  saveAlumno(){
-    console.log(this.user);
-  	this.usersService.save(this.user).subscribe((data)=>{
-  	alert('Alumno Guardado');
-  	console.log(data);
-  },(error)=>{
-  	console.log(error);
-  	alert('Ocurrio un error');
-  });
+  ngOnInit() {
   }
-
 
 }

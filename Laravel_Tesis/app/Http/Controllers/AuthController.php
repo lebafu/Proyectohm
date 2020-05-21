@@ -81,4 +81,28 @@ class AuthController extends Controller
             'user' => auth()->user()->name
         ]);
     }
+
+    //Registro de alumno
+    public function signup(Request $request){
+        $ultimo_id=DB::table('users')->max('id');
+        /*$user=new User;
+        $user->id=$ultimo_id+1;
+        $user->name=$request->get('name');
+        $user->email=$request->get('email');
+        $user->password=Hash::make($request->get('password'));
+        $user->tipo_usuario=$request->get('tipo_usuario');
+        $user->sexo=$request->get('sexo');
+        $user->save();
+        echo json_encode($user);*/
+       $ultimo_id=DB::table('users')->max('id');
+       $user=new User();
+       $user=$ultimo_id+1;
+       $user->name=$request->get('name');
+       $user->email=$request->get('email');
+       $user->password=$request->get('password');
+       $user->sexo=$request->get('sexo');
+       $user->tipo_usuario=1;
+       $user->save();
+        
+    }
 }

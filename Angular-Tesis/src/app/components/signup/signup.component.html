@@ -1,36 +1,59 @@
 <div class="mt-4 col-8 offset-2">
-	<div class="card">
-		<div class="card-header"><i aria-hidden="true"><FONT FACE="arial">Registro de Alumno</FONT></i>
-		<div class="card-body">
-<form>
-  <div class="form-group">
-    <label for="name">Nombre Completo</label>
-    <input [(ngModel)]="user.name" type="text" class="form-control" id="name" [ngModelOptions]="{standalone: true}" aria-describedby="nameHelp">
-     <small id="nameHelp" class="form-text text-muted">Usted debe ingresar 2 nombres y 2 apellidos</small>
-  </div>
-   <div class="form-group">
-    <label for="email">Email</label>
-    <input [(ngModel)]="user.email" type="email" class="form-control" id="email" [ngModelOptions]="{standalone: true}">
-  </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input [(ngModel)]="user.password" type="password" class="form-control" id="password" [ngModelOptions]="{standalone: true}">
-  </div>
-   <div class="form-group">
-    <label for="password_check">Password</label>
-    <input [(ngModel)]="user.password_check" type="password" class="form-control" id="password_check" [ngModelOptions]="{standalone: true}">
-  </div>
-  <div class="form-group">
-    <label for="sexo">Sexo</label>
-      <select name="sexo" [(ngModel)]="user.sexo" [ngModelOptions]="{standalone: true}" class="form-control">
-      <option [value]="item" *ngFor="let item of lista_sexos">{{item}} </option>
-      </select>
-  </div>
-  <button (click)="saveAlumno()"  class="btn btn-primary" routerLink="/">Guardar</button>
-</form>
-</div>
-</div>
+  <div class="card">
+    <div class="card-header">Registro de Alumno</div>
+    <div class="card-body">
+      <form #signupForm=ngForm (ngSubmit)="onSubmit()">
+        <div class="form-group row">
+          <label for="inputName3" class="col-sm-2 col-form-label">Nombre Completo</label>
+          <div class="col-sm-10">
+          <input type="text" name="name" class="form-control" id="name" placeholder="Nombre Completo" [(ngModel)]="form.name" required>
+          </div>
+        </div>
 
+        <div class="form-group row">
+          <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
+          <div class="col-sm-10">
+            <input type="email" name="email" class="form-control" id="inputEmail3" placeholder="Email" [(ngModel)]="form.email" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputPasswordConfirmation3" class="col-sm-2 col-form-label">Password</label>
+          <div class="col-sm-10">
+            <input type="password" name="password" class="form-control" id="inputPasswordConfirmation3" placeholder="Confirm Password"
+              [(ngModel)]="form.password" required>
+          </div>
+        </div>
+
+        <div class="form-group row">
+          <label for="inputPassword3" class="col-sm-2 col-form-label">Confirm Password</label>
+          <div class="col-sm-10">
+            <input type="password" name="password_confirmation" class="form-control" id="inputPassword3" placeholder="Password" [(ngModel)]="form.password_confirmation"
+              required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <label for="sexo" class="col-sm-2 col-form-label">Sexo</label>
+          <div class="col-sm-10">
+            <select name="sexo" [(ngModel)]="form.sexo" [ngModelOptions]="{standalone: true}" class="form-control" required>
+            <option [value]="item" *ngFor="let item of lista_sexos">{{item}} </option>
+            </select>
+        </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-10 offset-2">
+
+            <button type="submit" class="btn btn-primary" [disabled]="!signupForm.valid">Sign Up</button>
+
+            <a routerLink="/login" class="btn btn-info float-right">Sign in</a>
+
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
 
 
 

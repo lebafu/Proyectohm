@@ -22,6 +22,12 @@ import { Navbar20Component } from './components/navbar20/navbar20.component';
 import { Navbar21Component } from './components/navbar21/navbar21.component';
 import { Navbar30Component } from './components/navbar30/navbar30.component';
 import { Navbar40Component } from './components/navbar40/navbar40.component';
+import { JarwisService } from './services/jarwis.service';
+import { TokenService } from './services/token.service';
+import { AuthService } from './services/auth.service';
+import { AfterLoginService } from './services/after-login.service';
+import { BeforeLoginService } from './services/before-login.service';
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 
 const routes: Route[]=[
 {path:'', component: HomeComponent},
@@ -60,8 +66,11 @@ const routes: Route[]=[
     FormsModule,
     HttpClientModule,
     RouterModule.forRoot(routes),
+    SnotifyModule,
   ],
-  providers: [],
+  providers:  [JarwisService, TokenService, AuthService, AfterLoginService, BeforeLoginService,
+    { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
+    SnotifyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
