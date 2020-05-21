@@ -2,33 +2,34 @@
 
 namespace App\Http\Controllers;
 
+use JWTAuth;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+
+use App\User;
 
 class AuthController extends Controller
 {
-    /**
-     * Create a new AuthController instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth:api', ['except' => ['login']]);
-    }
 
     /**
      * Get a JWT via given credentials.
      *
      * @return \Illuminate\Http\JsonResponse
      */
-    public function login()
+    public function login(Request $request)
     {
-        $credentials = request(['email', 'password']);
+        $input = $request->only('email', 'password');
+            $token = null;
 
-        if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['El email o contraseña no existen o coinciden' => 'Unauthorized'], 401);
-        }
+            if (!$token = JWTAuth::attempt($input)) {
+                return response()->json([[
+                    'estado' => false,
+                    'mensaje' => 'Email o Contrasena invalida, intente nuevamente'
+                ]], 401);
+            }
 
         return $this->respondWithToken($token);
     }
@@ -84,7 +85,7 @@ class AuthController extends Controller
 
     //Registro de alumno
     public function signup(Request $request){
-        $ultimo_id=DB::table('users')->max('id');
+        $ultimo_id=DB::table('users')->max('id'); 
         /*$user=new User;
         $user->id=$ultimo_id+1;
         $user->name=$request->get('name');
@@ -94,15 +95,22 @@ class AuthController extends Controller
         $user->sexo=$request->get('sexo');
         $user->save();
         echo json_encode($user);*/
-       $ultimo_id=DB::table('users')->max('id');
        $user=new User();
-       $user=$ultimo_id+1;
-       $user->name=$request->get('name');
-       $user->email=$request->get('email');
-       $user->password=$request->get('password');
-       $user->sexo=$request->get('sexo');
-       $user->tipo_usuario=1;
+       $user->id=$ultimo_id+1;
+       $user->name=$request->name;
+       $user->email=$request->email;
+       $user->password=Hash::make($request->password);
+       $user->sexo=$request->sexo;
+       $user->tipo_usuario=1; 
+       //echo json_encode($user);
        $user->save();
-        
+
+       return response()->json([[
+        'estado'   =>  true,
+        'mensaje' => 'Usuario registrado correctamente',
+        'data' =>  $user
+    ]], 200);
     }
 }
+
+

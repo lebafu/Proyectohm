@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {HttpHeaders} from '@angular/common/http';
 
 @Injectable()
 export class JarwisService {
@@ -9,7 +10,8 @@ export class JarwisService {
 
   signup(data) {
     console.log(data);
-    return this.http.post(`${this.baseUrl}/signup`, data)
+    const headers=new HttpHeaders({'Content-Type':'application/json'});
+    return this.http.post(`${this.baseUrl}/signup`, data,{headers: headers})
   }
 
   login(data) {
