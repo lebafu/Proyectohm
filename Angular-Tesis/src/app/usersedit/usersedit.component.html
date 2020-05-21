@@ -14,7 +14,11 @@
   </div>
   <div class="form-group">
     <label for="sexo">Sexo</label>
-    <input [(ngModel)]="user.sexo" type="text" class="form-control" id="sexo" value="Masculino" [ngModelOptions]="{standalone: true}">
+    <div class="col-sm-10">
+      <select name="sexo" [(ngModel)]="user.sexo" [ngModelOptions]="{standalone: true}" class="form-control" required="required">
+      <option [value]="item" *ngFor="let item of lista_sexos">{{item}} </option>
+      </select>
+  </div>
   </div>
   <button (click)="editUser()"  class="btn btn-primary">Guardar</button>
 </form>

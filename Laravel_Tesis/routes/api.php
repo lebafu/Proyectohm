@@ -19,8 +19,8 @@ Route::group(['middleware' => []], function () {
     Route::post('/login', 'AuthController@login'); 
     Route::post('/signup', 'AuthController@signup');
 });
-Route::post('login', [ 'as' => 'login', 'uses' => 'AuthController@login']); 
-/*
+//Route::post('login', [ 'as' => 'login', 'uses' => 'AuthController@login']); 
+
 //Route::resource('users','UsersController');
 Route::get('users', 'UsersController@index');
 Route::get('users{users}', 'UsersController@edit');
@@ -29,4 +29,3 @@ Route::get('users/{id}', 'UsersController@show');
 Route::post('/users','UsersController@store');
 Route::put('/users/{users}','UsersController@update');
 Route::delete('/users/{id}','UsersController@destroy');
-*/
