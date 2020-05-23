@@ -2,9 +2,7 @@
 	<div class="card">
 		<div class="card-header"><i class="fa fa-user" aria-hidden="true"><FONT FACE="arial">Iniciar Sesión</FONT></i>
 		<div class="card-body">
-<form #loginForm=ngForm (ngsubmit)="onSubmit()">
-  <div class="alert alert-danger" [hidden]="!error"></div>
-  {{error}}
+<form #loginForm=ngForm (ngSubmit)="onSubmit()">
   <div class="form-group row">
     <label for="email" class="col-sm-2 col-form-label">Email</label>
     <div class="col-sm-10">
@@ -19,7 +17,7 @@
   </div>
   <div class="form-group row">
     <div class="col-sm-10">
-      <button type="submit" class="btn btn-primary"[disabled]="!loginForm.valid">Sign In</button>
+      <button type="submit" class="btn btn-primary">Sign In</button>
 
       <button routerLink="signup" class="btn btn-info float-right">Sign Up</button>
   

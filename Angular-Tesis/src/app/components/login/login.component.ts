@@ -1,4 +1,3 @@
-  
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { JarwisService } from '../../services/jarwis.service';
@@ -41,7 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   handleError(error) {
-    this.error = error.error.error;
+    this.error = error.error.errors;
   }
   ngOnInit() {
   }

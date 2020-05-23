@@ -15,7 +15,9 @@ export class JarwisService {
   }
 
   login(data) {
-    return this.http.post(`${this.baseUrl}/login`, data)
+    console.log(data);
+    const headers=new HttpHeaders({'Content-Type':'application/json'});
+    return this.http.post(`${this.baseUrl}/login`, data,{headers:headers})
   }
 
   sendPasswordResetLink(data) {

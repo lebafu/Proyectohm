@@ -46,13 +46,22 @@ class UsersController extends Controller
        $user->sexo=$request->get('sexo');
        $user->save();
        echo json_encode($user);*/
+       if($request->tipo_usuario=="Administrador"){
+           $num=0;
+       }elseif($request->tipo_usuario=="Profesor"){
+           $num=2;
+       }elseif($request->tipo_usuario=="Director de Tesis"){
+           $num=3;
+       }elseif($request->tipo_usuario=="Secretaria"){
+           $num=4;
+       }
       $ultimo_id=DB::table('users')->max('id');
         DB::table('users')->insert([
         	'id' => $ultimo_id+1,
             'name' => $request->name,
             'email' =>$request->email,
             'password' =>Hash::make($request->password),
-            'tipo_usuario' => 1,
+            'tipo_usuario' => $num,
             'sexo' => $request->sexo
         ]);
 
