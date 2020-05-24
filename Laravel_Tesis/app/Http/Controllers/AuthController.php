@@ -19,6 +19,9 @@ class AuthController extends Controller
      *
      * @return \Illuminate\Http\JsonResponse
      */
+
+    
+
     public function login(Request $request)
     {
         $input = $request->only('email', 'password');
@@ -30,7 +33,7 @@ class AuthController extends Controller
                     'mensaje' => 'Email o Contrasena invalida, intente nuevamente'
                 ]], 401);
             }
-
+        
         return $this->respondWithToken($token);
     }
 

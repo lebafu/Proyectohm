@@ -38,7 +38,8 @@ const routes: Route[]=[
 {path:'users', component: UserComponent},
 {path:'users/:id', component: UserseditComponent},
 {path:'usersshow/:id',component: UsersshowComponent},
-{path:'userscreate',component:UserscreateComponent}
+{path:'userscreate',component:UserscreateComponent},
+{path:'navbar', component:NavbarComponent}
 
 ];
 

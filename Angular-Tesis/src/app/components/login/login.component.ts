@@ -22,7 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private Jarwis: JarwisService,
     private Token: TokenService,
-    private router: Router
+    private router: Router,
+    //private Auth: AuthService,
   ) { }
 
   onSubmit() {
