@@ -6,6 +6,7 @@ import {ProfileComponent} from './components/profile/profile.component';
 import {RequestResetComponent} from './components/password/request-reset/request-reset.component';
 import {ResponseResetComponent} from './components/password/response-reset/response-reset.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
+import {RepositorioComponent} from './components/repositorio/repositorio.component';
 
 const routes: Routes = [
 {
@@ -33,7 +34,10 @@ const routes: Routes = [
 	path:'response-password',
 	component:LoginComponent
 },
-
+{
+	path:'repositorio',
+	component:RepositorioComponent
+},
 
 ];
 

@@ -34,9 +34,31 @@ export class LoginComponent implements OnInit {
     );
   }
   handleResponse(data) {
-    console.log(data.access_token);
+    console.log(data);
     this.Token.handle(data.access_token);
-    this.router.navigateByUrl('/profile');
+    if(data.tipo_usuario==0){
+      this.router.navigateByUrl('/admin');
+      }else{
+        if(data.tipo_usuario==1){
+          this.router.navigateByUrl('/estudiante');
+        }else{
+          if(data.tipo_usuario==2 && data.director_escuela==0){
+            this.router.navigateByUrl('/profesor');
+          }else{
+              if(data.tipo_usuario==2 && data.director_escuela==1){
+                this.router.navigateByUrl('/director_escuela');
+          }else{
+            if(data.tipo_usuario==3){
+              this.router.navigateByUrl('/coordinador_tesis');
+            }else{
+              if(data.tipo_usuario==4){
+                this.router.navigateByUrl('/secretaria');
+              }
+        }
+      }
+    }
+  }
+      }
   }
 
   handleError(error) {

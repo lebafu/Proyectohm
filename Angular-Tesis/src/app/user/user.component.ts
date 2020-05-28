@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersService} from 'src/app/services/users.service';
 import {User} from 'src/app/interfaces/user';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
+import { TokenService } from '../../services/token.service';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 
@@ -11,8 +14,10 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
-	users: User[];
-  constructor(private usersService: UsersService) {
+  users: User[];
+  public loggedIn: boolean;
+  constructor(
+    private usersService: UsersService) {
 	  this.getUsers();
    }
 
