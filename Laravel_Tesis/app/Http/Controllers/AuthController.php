@@ -24,16 +24,12 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $input = $request->only('email', 'password');
-            $token = null;
+        $credentials = request(['email', 'password']);
 
-            if (!$token = JWTAuth::attempt($input)) {
-                return response()->json([[
-                    'estado' => false,
-                    'mensaje' => 'Email o Contrasena invalida, intente nuevamente'
-                ]], 401);
-            }
-        
+        if (!$token = auth()->attempt($credentials)) {
+            return response()->json(['error' => 'Email or password does\'t exist'], 401);
+        }
+
         return $this->respondWithToken($token);
     }
 
@@ -108,11 +104,7 @@ class AuthController extends Controller
        //echo json_encode($user);
        $user->save();
 
-       return response()->json([[
-        'estado'   =>  true,
-        'mensaje' => 'Usuario registrado correctamente',
-        'data' =>  $user
-    ]], 200);
+       return $this->login($request);
     }
 }
 
