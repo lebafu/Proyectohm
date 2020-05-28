@@ -26,6 +26,7 @@ export class SignupComponent implements OnInit {
   ) { }
 
   onSubmit() {
+    console.log(this.form);
     this.Jarwis.signup(this.form).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
@@ -33,6 +34,7 @@ export class SignupComponent implements OnInit {
   }
   handleResponse(data) {
     this.Token.handle(data.access_token);
+    console.log(data.access_token);
     this.router.navigateByUrl('/profile');
   }
 

@@ -27,13 +27,14 @@ export class LoginComponent implements OnInit {
   ) { }
 
   onSubmit() {
-    //console.log(this.form);
+   //console.log(this.form);
     this.Jarwis.login(this.form).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
     );
   }
   handleResponse(data) {
+    console.log(data.access_token);
     this.Token.handle(data.access_token);
     this.router.navigateByUrl('/profile');
   }

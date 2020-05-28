@@ -31,52 +31,51 @@ import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { UserscreateComponent } from './userscreate/userscreate.component';
 
 const routes: Route[]=[
-{path:'', component: HomeComponent},
-{path:'alumno-form', component: AlumnoFormComponent},
-{path:'signup',component: SignupComponent},
-{path:'login', component: LoginComponent},
-{path:'users', component: UserComponent},
-{path:'users/:id', component: UserseditComponent},
-{path:'usersshow/:id',component: UsersshowComponent},
-{path:'userscreate',component:UserscreateComponent},
-{path:'navbar', component:NavbarComponent}
-
-];
-
-
-@NgModule({
-  declarations: [
-    AppComponent,
-    AlumnoFormComponent,
-    HomeComponent,
-    LoginComponent,
-    NavbarComponent,
-    SignupComponent,
-    ProfileComponent,
-    RequestResetComponent,
-    ResponseResetComponent,
-    UserComponent,
-    UsersshowComponent,
-    UserseditComponent,
-    Navbar00Component,
-    Navbar10Component,
-    Navbar20Component,
-    Navbar21Component,
-    Navbar30Component,
-    Navbar40Component,
-    UserscreateComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    FormsModule,
-    HttpClientModule,
-    RouterModule.forRoot(routes),
-    SnotifyModule,
-  ],
-  providers:  [JarwisService, TokenService, AuthService, AfterLoginService, BeforeLoginService,
-    { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
-    SnotifyService],
-  bootstrap: [AppComponent]
-})
-export class AppModule { }
+  {path:'', component: HomeComponent},
+  {path:'alumno-form', component: AlumnoFormComponent},
+  {path:'signup',component: SignupComponent},
+  {path:'login', component: LoginComponent},
+  {path:'users', component: UserComponent},
+  {path:'users/:id', component: UserseditComponent},
+  {path:'usersshow/:id',component: UsersshowComponent},
+  {path:'userscreate',component:UserscreateComponent},
+  
+  ];
+  
+  
+  @NgModule({
+    declarations: [
+      AppComponent,
+      AlumnoFormComponent,
+      HomeComponent,
+      LoginComponent,
+      NavbarComponent,
+      SignupComponent,
+      ProfileComponent,
+      RequestResetComponent,
+      ResponseResetComponent,
+      UserComponent,
+      UsersshowComponent,
+      UserseditComponent,
+      Navbar00Component,
+      Navbar10Component,
+      Navbar20Component,
+      Navbar21Component,
+      Navbar30Component,
+      Navbar40Component,
+      UserscreateComponent,
+    ],
+    imports: [
+      BrowserModule,
+      AppRoutingModule,
+      FormsModule,
+      HttpClientModule,
+      RouterModule.forRoot(routes),
+      SnotifyModule,
+    ],
+    providers:  [JarwisService, TokenService, AuthService, AfterLoginService, BeforeLoginService,
+      { provide: 'SnotifyToastConfig', useValue: ToastDefaults },
+      SnotifyService],
+    bootstrap: [AppComponent]
+  })
+  export class AppModule { }
