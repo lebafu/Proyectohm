@@ -30,6 +30,7 @@ import { BeforeLoginService } from './services/before-login.service';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { UserscreateComponent } from './userscreate/userscreate.component';
 import { RepositorioComponent } from './components/repositorio/repositorio.component';
+import { AsignarDirectorEscuelaComponent } from './components/asignar-director-escuela/asignar-director-escuela.component';
 
 const routes: Route[]=[
   {path:'', component: HomeComponent},
@@ -47,6 +48,7 @@ const routes: Route[]=[
   {path:'director_escuela', component: Navbar21Component},
   {path:'coordinador_tesis', component: Navbar30Component},
   {path:'secretaria', component: Navbar40Component},
+  {path:'asignar_director_escuela',component: AsignarDirectorEscuelaComponent}
   ];
   
   
@@ -72,6 +74,7 @@ const routes: Route[]=[
       Navbar40Component,
       UserscreateComponent,
       RepositorioComponent,
+      AsignarDirectorEscuelaComponent,
     ],
     imports: [
       BrowserModule,

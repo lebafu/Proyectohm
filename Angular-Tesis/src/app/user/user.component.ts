@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {UsersService} from 'src/app/services/users.service';
 import {User} from 'src/app/interfaces/user';
-import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
-import { TokenService } from '../../services/token.service';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 

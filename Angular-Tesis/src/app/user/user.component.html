@@ -21,14 +21,17 @@
         <a class="nav-link" href="#">Area de Tesis</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Asignar Director Escuela</a>
+        <a class="nav-link" routerLink="/asignar_director_escuela">Asignar Director Escuela</a>
       </li>
     </ul>
   </div>
   <div>
-    <a class="navbar-brand" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
   </div>
 </nav>
+<div class="mt-4 col-8 offset-2">
+  <div class="card">
+    <div class="card-header">Registrar Usuario</div>
+    <div class="card-body">
 <body class="container">
  <table class="table">
   <thead class="thead-dark">
@@ -51,3 +54,6 @@
    </tbody>
 </table>
 </body>
+</div>
+</div>
+</div>
