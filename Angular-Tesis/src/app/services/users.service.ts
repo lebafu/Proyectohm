@@ -15,12 +15,20 @@ export class UsersService {
   get(){
   	return this.httpClient.get('http://localhost:8000/api' + '/users');
   }
+  get_Profes(){
+  	return this.httpClient.get('http://localhost:8000/api' + '/profesores');
+  }
+
   save(user:User){
   const headers=new HttpHeaders({'Content-Type':'application/json'});
   return this.httpClient.post(this.API_ENDPOINT + '/users', user,{headers: headers});
 
   }
- 
+ save_profesor(user:User){
+  const headers=new HttpHeaders({'Content-Type':'application/json'});
+  return this.httpClient.post(this.API_ENDPOINT + '/profesores', user,{headers: headers});
+ }
+
   put(user:User){
     const headers= new HttpHeaders({'Content-Type':'application/json'});
     return this.httpClient.put(this.API_ENDPOINT +'/users/' + user.id, user,{headers:headers});

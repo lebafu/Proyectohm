@@ -26,9 +26,11 @@ Route::group(['middleware' => []], function () {
 
 //Route::resource('users','UsersController');
 Route::get('users', 'UsersController@index');
+Route::get('profesores', 'UsersController@profesores');
 Route::get('users{users}', 'UsersController@edit');
 Route::get('/users/create', 'UsersController@create');
 Route::get('users/{id}', 'UsersController@show');
 Route::post('/users','UsersController@store');
+Route::post('/profesores','UsersController@director_escuela');
 Route::put('/users/{users}','UsersController@update');
 Route::delete('/users/{id}','UsersController@destroy');

@@ -30,8 +30,8 @@ import { BeforeLoginService } from './services/before-login.service';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 import { UserscreateComponent } from './userscreate/userscreate.component';
 import { RepositorioComponent } from './components/repositorio/repositorio.component';
-import { AsignarDirectorEscuelaComponent } from './components/asignar-director-escuela/asignar-director-escuela.component';
-
+import { AsignardirectorescuelaComponent } from './components/asignardirectorescuela/asignardirectorescuela.component';
+import { AreatesisComponent } from './components/areatesis/areatesis.component';
 const routes: Route[]=[
   {path:'', component: HomeComponent},
   {path:'alumno-form', component: AlumnoFormComponent},
@@ -48,7 +48,8 @@ const routes: Route[]=[
   {path:'director_escuela', component: Navbar21Component},
   {path:'coordinador_tesis', component: Navbar30Component},
   {path:'secretaria', component: Navbar40Component},
-  {path:'asignar_director_escuela',component: AsignarDirectorEscuelaComponent}
+  {path:'asignardirectorescuela',component:AsignardirectorescuelaComponent},
+  {path:'areatesis', component: AreatesisComponent}
   ];
   
   
@@ -74,7 +75,8 @@ const routes: Route[]=[
       Navbar40Component,
       UserscreateComponent,
       RepositorioComponent,
-      AsignarDirectorEscuelaComponent,
+      AsignardirectorescuelaComponent,
+      AreatesisComponent,
     ],
     imports: [
       BrowserModule,

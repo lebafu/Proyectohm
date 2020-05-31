@@ -92,4 +92,10 @@ class UsersController extends Controller
     {
     DB::table('users')->where('id','=',$id)->delete();
     }
+
+    public function profesores(){
+        $profesores=DB::table('users')->where('tipo_usuario','=',2)->get();
+        echo json_encode($profesores);
+        //return response()->json([$profesores]);
+    }
 }
