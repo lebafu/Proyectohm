@@ -31,6 +31,6 @@ Route::get('users{users}', 'UsersController@edit');
 Route::get('/users/create', 'UsersController@create');
 Route::get('users/{id}', 'UsersController@show');
 Route::post('/users','UsersController@store');
-Route::post('/profesores','UsersController@director_escuela');
+Route::post('/director_escuela','UsersController@asignar_director_escuela');
 Route::put('/users/{users}','UsersController@update');
 Route::delete('/users/{id}','UsersController@destroy');

@@ -67,10 +67,40 @@ class UsersController extends Controller
 
        }
 
+       public function asignar_director_escuela(Request $request)
+       {
+        
+        /*$director_escuela_existe=DB::table('users')->where('director_escuela','=',1)->get();
+        dd($director_escuela_existe);
+        if($director_escuela_existe->isEmpty()==true) //No existe director de escuela
+        {
+        $id=$director_escuela_existe->id;
+        $user=User::find($id);
+        $user->director_escuela=1;
+        $user->save();
+        //dd($user);
+        }else{
+            if($director_escuela_existe->isEmpty()==false) //Ya existe director_escuela;
+            {
+             //dd($director_escuela);
+             DB::table('users')->where('director_escuela','=',1)->update(['director_escuela' => 0]);
+             $id=$director_escuela_existe->id;
+            $user=User::find($id);
+             $user->director_escuela=1;
+             //dd($user->director_escuela);
+             $user->save();
+            }
+        }*/
+        DB::table('users')->where('director_escuela','=',1)->update(['director_escuela' => 0]);
+        
+        //$profe=DB::table('users')->where('name','=', $request->name)->get();
+        DB::table('users')->where('name','=',$request->name)->update(['director_escuela'=>1]);
+
+
+    }
         public function update(Request $request,$id)
     {
 
-    	//dd($id);
         $user=User::find($id);
         //$nombre_actual=$user->name;
         $user->name=$request->input('name');

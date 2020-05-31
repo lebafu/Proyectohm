@@ -24,15 +24,17 @@ export class UsersService {
   return this.httpClient.post(this.API_ENDPOINT + '/users', user,{headers: headers});
 
   }
- save_profesor(user:User){
-  const headers=new HttpHeaders({'Content-Type':'application/json'});
-  return this.httpClient.post(this.API_ENDPOINT + '/profesores', user,{headers: headers});
- }
 
   put(user:User){
     const headers= new HttpHeaders({'Content-Type':'application/json'});
     return this.httpClient.put(this.API_ENDPOINT +'/users/' + user.id, user,{headers:headers});
   }
+ 
+  update_director_escuela(data){
+    console.log(data);
+    const headers= new HttpHeaders({'Content-Type':'application/json'});
+      return this.httpClient.post(this.API_ENDPOINT +'/director_escuela',data,{headers:headers});
+   }                                                  
 
 show(id){
     return this.httpClient.get('http://localhost:8000/api' + '/users/' + id)

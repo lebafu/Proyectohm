@@ -12,14 +12,13 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class AsignardirectorescuelaComponent implements OnInit {
   profes: User[];
-  profe: User= {
-		name:null,
-		email:null,
-		password:null,
-		password_check:null,
-    sexo:null,
-    tipo_usuario:null,
-  };
+  public profe = {
+    email: null,
+    name: null,
+    password: null,
+	password_confirmation: null,
+	sexo:null,
+  }
   constructor(
     private usersService: UsersService) {
 	  this.getUsers();
@@ -36,11 +35,12 @@ export class AsignardirectorescuelaComponent implements OnInit {
     });
   }
   UpdateDirectorEscuela(){
-    this.usersService.save(this.profe).subscribe(()=>{
-      alert('Usuario guardado');
+    this.usersService.update_director_escuela(this.profe).subscribe(()=>{
+      console.log(this.profe);
+      alert('Director Escuela Guardado');
     console.log(this.profe);
   },(error)=>{
-    alert('Ocurrió un error');
+    alert('Ocurrió un error csm');
   });
 }
 }
