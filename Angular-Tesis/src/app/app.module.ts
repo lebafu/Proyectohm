@@ -32,6 +32,8 @@ import { UserscreateComponent } from './userscreate/userscreate.component';
 import { RepositorioComponent } from './components/repositorio/repositorio.component';
 import { AsignardirectorescuelaComponent } from './components/asignardirectorescuela/asignardirectorescuela.component';
 import { AreatesisComponent } from './components/areatesis/areatesis.component';
+import { AreaTesisshowComponent } from './area-tesisshow/area-tesisshow.component';
+import { AreatesisshowComponent } from './components/areatesisshow/areatesisshow.component';
 const routes: Route[]=[
   {path:'', component: HomeComponent},
   {path:'alumno-form', component: AlumnoFormComponent},
@@ -77,6 +79,8 @@ const routes: Route[]=[
       RepositorioComponent,
       AsignardirectorescuelaComponent,
       AreatesisComponent,
+      AreaTesisshowComponent,
+      AreatesisshowComponent,
     ],
     imports: [
       BrowserModule,

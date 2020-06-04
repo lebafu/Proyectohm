@@ -7,8 +7,13 @@ import {RequestResetComponent} from './components/password/request-reset/request
 import {ResponseResetComponent} from './components/password/response-reset/response-reset.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {RepositorioComponent} from './components/repositorio/repositorio.component';
+import {AreatesisComponent } from './components/areatesis/areatesis.component';
 
 const routes: Routes = [
+{
+	path:'areatesis',
+	component:AreatesisComponent,
+},
 {
 	path:'navbar',
 	component:NavbarComponent

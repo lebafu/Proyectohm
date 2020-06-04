@@ -18,7 +18,7 @@
         <a class="nav-link" routerLink="/userscreate">Crear Usuario</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Area de Tesis</a>
+        <a class="nav-link" href="/areatesis">Area de Tesis</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="/asignar_director_escuela">Asignar Director Escuela</a>
@@ -38,12 +38,13 @@
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Nombre</th>
+      <th scope="col">Acción</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let  of users">
-      <td>{{areas_tesis.id}}</td>
-      <td>{{areas_tesis.area_tesis}}</td>
+    <tr *ngFor="let area_tesis of areas_tesis">
+      <td>{{area_tesis.id}}</td>
+      <td>{{area_tesis.area_tesis}}</td>
       <!--<td><a class="btn btn-primary btn-sm" routerLink="/area_tesisshow/{{area_tesis.id}}"><i class="fa fa-eye" aria-hidden="true"></i>
       </a>
       <a class="btn btn-primary btn-sm" routerLink="/area_tesis/{{area_tesis.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>

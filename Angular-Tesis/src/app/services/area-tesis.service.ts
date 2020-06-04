@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {HttpHeaders} from '@angular/common/http';
+import { Area_Tesis } from '../interfaces/area_tesis';
 
 
 @Injectable({
@@ -15,15 +16,15 @@ export class AreaTesisService {
         return this.httpClient.get('http://localhost:8000/api' + '/area_tesis');
       }
     
-      save(data){
+      save(areas_tesis:Area_Tesis){
       const headers=new HttpHeaders({'Content-Type':'application/json'});
-      return this.httpClient.post(this.API_ENDPOINT + '/area_tesis', data,{headers: headers});
+      return this.httpClient.post(this.API_ENDPOINT + '/area_tesis', areas_tesis,{headers: headers});
     
       }
     
-      put(user:User){
+      put(areas_tesis:Area_Tesis){
         const headers= new HttpHeaders({'Content-Type':'application/json'});
-        return this.httpClient.put(this.API_ENDPOINT +'/area_tesis/' + user.id, user,{headers:headers});
+        return this.httpClient.put(this.API_ENDPOINT +'/area_tesis/' + areas_tesis.id,areas_tesis,{headers:headers});
       }
                                                    
     show(id){
