@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AreaTesisService} from 'src/app/services/area-tesis.service';
-import {Area_Tesis} from 'src/app/interfaces/area_tesis';
+import {Areas} from 'src/app/interfaces/area_tesis';
 import { Router } from '@angular/router';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
@@ -13,16 +13,17 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./areatesis.component.css']
 })
 export class AreatesisComponent implements OnInit {
-  area: Area_Tesis[];
+  areas_tesis: Areas[];
   constructor(private areatesisService: AreaTesisService) { 
-
+    this.getArea_Tesis();
   }
 
   ngOnInit(): void {
   }
   getArea_Tesis(){
     this.areatesisService.get().subscribe((data)=>{
-      this.area = data;
+      console.log(data);
+      this.areas_tesis = data;
     }, (error)=>{
     console.log(error);
     alert('Ocurrió un error');
