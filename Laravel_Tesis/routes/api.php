@@ -34,3 +34,10 @@ Route::post('/users','UsersController@store');
 Route::post('/director_escuela','UsersController@asignar_director_escuela');
 Route::put('/users/{users}','UsersController@update');
 Route::delete('/users/{id}','UsersController@destroy');
+
+
+Route::get('area_tesis', 'Area_TesisController@index');
+Route::get('area_tesis{area_tesis}', 'Area_TesisController@edit');
+Route::get('/area_tesis/create', 'Area_TesisController@create');
+Route::get('area_tesis/{id}', 'Area_TesisController@show');
+Route::post('/area_tesis','Area_TesisController@store');
