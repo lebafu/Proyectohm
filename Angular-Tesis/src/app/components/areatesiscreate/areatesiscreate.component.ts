@@ -10,7 +10,9 @@ import {Area_Tesis} from 'src/app/interfaces/area_tesis';
 export class AreatesiscreateComponent implements OnInit {
 
   constructor(private areastesisService:AreasTesisService) { }
-  area_tesis: Area_Tesis;
+  area_tesis: Area_Tesis= {
+		area_tesis:null,
+  };
   areas_tesis:Area_Tesis[];
   ngOnInit(): void {
   }
@@ -24,7 +26,7 @@ export class AreatesiscreateComponent implements OnInit {
     alert('Ocurrió un error');
   });
 }
-getUsers(){
+getArea_Tesis(){
   this.areastesisService.get().subscribe((data: Area_Tesis[])=>{
     this.areas_tesis=data;
   }, (error)=>{
