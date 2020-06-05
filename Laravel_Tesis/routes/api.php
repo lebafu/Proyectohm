@@ -37,6 +37,7 @@ Route::delete('/users/{id}','UsersController@destroy');
 
 
 Route::get('area_tesis', 'Area_TesisController@index');
+Route::put('/area_tesis/{area_tesis}','Area_TesisController@update');
 Route::get('area_tesis{area_tesis}', 'Area_TesisController@edit');
 Route::get('/area_tesis/create', 'Area_TesisController@create');
 Route::get('area_tesis{id}', 'Area_TesisController@show');

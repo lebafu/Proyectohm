@@ -65,7 +65,6 @@ class Area_TesisController extends Controller
     public function destroy($id)
     {
     	DB::table('area_tesis')->where('id','=',$id )->delete();
-        return back()->with('status','La tesis ha sido eliminada con exito');
     }
 
     /*public function update($id, Request $request)
