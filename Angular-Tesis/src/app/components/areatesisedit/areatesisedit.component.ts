@@ -40,7 +40,7 @@ export class AreatesiseditComponent implements OnInit {
     console.log(this.editing);
     if(this.editing==true){
       this.areastesisService.put(this.area_tesis).subscribe((data) => {
-      alert('Usuario Actualizado');
+      alert('Area de Tesis se ha Actualizado');
       console.log(data);
       this.getUsers();
     }, (error) => {
