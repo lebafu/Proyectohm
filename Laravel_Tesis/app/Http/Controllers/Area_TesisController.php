@@ -80,31 +80,19 @@ class Area_TesisController extends Controller
 
     public function store(Request $request)
     {
-    	//dd($request);
-    	$request->validate([
-    		'area_tesis'=>'required|string']);
-    	$id=Auth::id();
-    	$user=User::find($id);
-        //dd($request->area_tesis);
-    	if($user->tipo_usuario!=0 or $id==null){
-             dd($request->area_tesis);
-    		return view('tesis.sinpermiso');
-    	}else{
-    		$findarea=DB::table('area_tesis')->where('area_tesis','=',$request->area_tesis)->first();
-            //dd($request->area_tesis);
-            //dd($findarea);
-    		if($findarea==null)
-    		{
-                //dd($request->area_tesis);
     		DB::table('area_tesis')->insert([
     			'area_tesis' => $request->area_tesis]);
-
-    		return view('adminhome');
-    		}else{
-    			return view('area_tesis.create');
-    		}
+            //return view('adminhome');
+    
     	}
     	
+
+    public function show($id)
+    {
+    
+        $areas_tesis=DB::table('area_tesis')->where('id','=',$id)->get();
+        foreach($areas_tesis as $area_tesis);
+        echo json_encode($area_tesis);
     }
 
 }

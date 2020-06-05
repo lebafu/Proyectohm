@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { AreatesisshowComponent } from './areatesisshow.component';
+import { AreatesiseditComponent } from './areatesisedit.component';
 
-describe('AreatesisshowComponent', () => {
-  let component: AreatesisshowComponent;
-  let fixture: ComponentFixture<AreatesisshowComponent>;
+describe('AreatesiseditComponent', () => {
+  let component: AreatesiseditComponent;
+  let fixture: ComponentFixture<AreatesiseditComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ AreatesisshowComponent ]
+      declarations: [ AreatesiseditComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(AreatesisshowComponent);
+    fixture = TestBed.createComponent(AreatesiseditComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

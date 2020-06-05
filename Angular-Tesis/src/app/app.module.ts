@@ -32,8 +32,9 @@ import { UserscreateComponent } from './userscreate/userscreate.component';
 import { RepositorioComponent } from './components/repositorio/repositorio.component';
 import { AsignardirectorescuelaComponent } from './components/asignardirectorescuela/asignardirectorescuela.component';
 import { AreatesisComponent } from './components/areatesis/areatesis.component';
-import { AreaTesisshowComponent } from './area-tesisshow/area-tesisshow.component';
-import { AreatesisshowComponent } from './components/areatesisshow/areatesisshow.component';
+import { AreatesiseditComponent } from './components/areatesisedit/areatesisedit.component';
+import { AreatesiscreateComponent } from './components/areatesiscreate/areatesiscreate.component';
+
 const routes: Route[]=[
   {path:'', component: HomeComponent},
   {path:'alumno-form', component: AlumnoFormComponent},
@@ -51,7 +52,9 @@ const routes: Route[]=[
   {path:'coordinador_tesis', component: Navbar30Component},
   {path:'secretaria', component: Navbar40Component},
   {path:'asignardirectorescuela',component:AsignardirectorescuelaComponent},
-  {path:'areatesis', component: AreatesisComponent}
+  {path:'areatesis', component: AreatesisComponent},
+  {path:'areatesiscreate',component: AreatesiscreateComponent},
+  {path:'areatesisedit/:id',component: AreatesiseditComponent}
   ];
   
   
@@ -79,8 +82,8 @@ const routes: Route[]=[
       RepositorioComponent,
       AsignardirectorescuelaComponent,
       AreatesisComponent,
-      AreaTesisshowComponent,
-      AreatesisshowComponent,
+      AreatesiseditComponent,
+      AreatesiscreateComponent,
     ],
     imports: [
       BrowserModule,

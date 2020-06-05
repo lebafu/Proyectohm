@@ -45,14 +45,14 @@
     <tr *ngFor="let area_tesis of areas_tesis">
       <td>{{area_tesis.id}}</td>
       <td>{{area_tesis.area_tesis}}</td>
-      <!--<td><a class="btn btn-primary btn-sm" routerLink="/area_tesisshow/{{area_tesis.id}}"><i class="fa fa-eye" aria-hidden="true"></i>
-      </a>
-      <a class="btn btn-primary btn-sm" routerLink="/area_tesis/{{area_tesis.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
-      <a class="btn btn-primary btn-sm btn-danger" (click)="delete(area_tesis.id)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>-->
+      <td>
+      <a class="btn btn-primary btn-sm" routerLink="/areatesisedit/{{area_tesis.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+      <a class="btn btn-primary btn-sm btn-danger" (click)="delete(area_tesis.id)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
     </tr>
    </tbody>
 </table>
 </body>
 </div>
+<a class="btn btn-primary btn-sm" routerLink="/areatesiscreate">Crear</a>
 </div>
 </div>

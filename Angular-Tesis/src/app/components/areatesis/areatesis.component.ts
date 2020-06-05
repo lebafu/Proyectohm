@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {AreaTesisService} from 'src/app/services/area-tesis.service';
+import {AreasTesisService} from 'src/app/services/area-tesis.service';
 import {Area_Tesis} from 'src/app/interfaces/area_tesis';
 import { Router } from '@angular/router';
 import {Observable} from 'rxjs';
@@ -14,14 +14,14 @@ import {ActivatedRoute} from '@angular/router';
 export class AreatesisComponent implements OnInit {
   areas_tesis: Area_Tesis[];
   public loggedIn: boolean;
-  constructor(private areatesisService: AreaTesisService) { 
+  constructor(private areastesisService: AreasTesisService) { 
     this.getArea_Tesis();
   }
 
   ngOnInit(): void {
   }
   getArea_Tesis(){
-    this.areatesisService.get().subscribe((data: Area_Tesis[])=>{
+    this.areastesisService.get().subscribe((data: Area_Tesis[])=>{
       console.log(data);
       this.areas_tesis = data;
     }, (error)=>{
@@ -30,5 +30,14 @@ export class AreatesisComponent implements OnInit {
     });
   }
 
+  delete=function(id){
+    if(confirm('¿Seguro que deseas eliminar esta area de Tesis?')){
+    this.areastesisService.delete(id).subscribe((data) => {
+         alert('Area de Tesis eliminado con exito');
+         console.log(data);
+         this.getArea_Tesis();
+       });
+      }
+   }
  
 }

@@ -7,7 +7,7 @@ import { Area_Tesis } from '../interfaces/area_tesis';
 @Injectable({
   providedIn: 'root'
 })
-export class AreaTesisService {
+export class AreasTesisService{
 
       API_ENDPOINT = 'http://localhost:8000/api';
       constructor(private httpClient:HttpClient) {  }
@@ -16,9 +16,9 @@ export class AreaTesisService {
         return this.httpClient.get('http://localhost:8000/api' + '/area_tesis');
       }
     
-      save(areas_tesis:Area_Tesis){
+      save(area_tesis:Area_Tesis){
       const headers=new HttpHeaders({'Content-Type':'application/json'});
-      return this.httpClient.post(this.API_ENDPOINT + '/area_tesis', areas_tesis,{headers: headers});
+      return this.httpClient.post(this.API_ENDPOINT + '/area_tesis', area_tesis,{headers: headers});
     
       }
     
