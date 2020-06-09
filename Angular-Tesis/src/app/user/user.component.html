@@ -47,13 +47,14 @@
       <td>{{user.name}}</td>
       <td>{{user.email}}</td>
       <td>
+        <a class="btn btn-primary btn-sm" routerLink="/usersshow/{{user.id}}"><i class="fa fa-eye" aria-hidden="true"></i>
+        </a>
       <a class="btn btn-primary btn-sm" routerLink="/users/{{user.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
       <a class="btn btn-primary btn-sm btn-danger" (click)="delete(user.id)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
     </tr>
    </tbody>
 </table>
 </body>
-<a class="btn btn-primary btn-sm">Crear</a>
 </div>
 </div>
 </div>
