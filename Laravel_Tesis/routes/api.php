@@ -43,3 +43,5 @@ Route::get('/area_tesis/create', 'Area_TesisController@create');
 Route::get('area_tesis{id}', 'Area_TesisController@show');
 Route::post('/area_tesis','Area_TesisController@store');
 Route::delete('/area_tesis/{id}','Area_TesisController@destroy');
+
+Route::get('/index_al_sec', 'TesisController@index_al_sec');

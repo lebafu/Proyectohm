@@ -34,6 +34,7 @@ import { AsignardirectorescuelaComponent } from './components/asignardirectoresc
 import { AreatesisComponent } from './components/areatesis/areatesis.component';
 import { AreatesiseditComponent } from './components/areatesisedit/areatesisedit.component';
 import { AreatesiscreateComponent } from './components/areatesiscreate/areatesiscreate.component';
+import { ListaAlumnosTesisSecretariaComponent } from './components/lista-alumnos-tesis-secretaria/lista-alumnos-tesis-secretaria.component';
 
 const routes: Route[]=[
   {path:'', component: HomeComponent},
@@ -54,7 +55,8 @@ const routes: Route[]=[
   {path:'asignardirectorescuela',component:AsignardirectorescuelaComponent},
   {path:'areatesis', component: AreatesisComponent},
   {path:'areatesiscreate',component: AreatesiscreateComponent},
-  {path:'areatesisedit/:id',component: AreatesiseditComponent}
+  {path:'areatesisedit/:id',component: AreatesiseditComponent},
+  {path:'lista-alumnos-tesis-secretaria', component:ListaAlumnosTesisSecretariaComponent}
   ];
   
   
@@ -84,6 +86,7 @@ const routes: Route[]=[
       AreatesisComponent,
       AreatesiseditComponent,
       AreatesiscreateComponent,
+      ListaAlumnosTesisSecretariaComponent,
     ],
     imports: [
       BrowserModule,
