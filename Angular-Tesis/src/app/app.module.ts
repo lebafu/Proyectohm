@@ -35,6 +35,9 @@ import { AreatesisComponent } from './components/areatesis/areatesis.component';
 import { AreatesiseditComponent } from './components/areatesisedit/areatesisedit.component';
 import { AreatesiscreateComponent } from './components/areatesiscreate/areatesiscreate.component';
 import { ListaAlumnosTesisSecretariaComponent } from './components/lista-alumnos-tesis-secretaria/lista-alumnos-tesis-secretaria.component';
+import {PdfViewerModule} from 'ng2-pdf-viewer';
+import { VerPdfConstanciaComponent } from './components/ver-pdf-constancia/ver-pdf-constancia.component';
+import { VerPdfActaComponent } from './components/ver-pdf-acta/ver-pdf-acta.component';
 
 const routes: Route[]=[
   {path:'', component: HomeComponent},
@@ -56,7 +59,9 @@ const routes: Route[]=[
   {path:'areatesis', component: AreatesisComponent},
   {path:'areatesiscreate',component: AreatesiscreateComponent},
   {path:'areatesisedit/:id',component: AreatesiseditComponent},
-  {path:'lista-alumnos-tesis-secretaria', component:ListaAlumnosTesisSecretariaComponent}
+  {path:'lista-alumnos-tesis-secretaria', component:ListaAlumnosTesisSecretariaComponent},
+  {path:'ver_pdf_constancia',component:  VerPdfConstanciaComponent },
+  {path:'ver_pdf_acta', component: VerPdfActaComponent}
   ];
   
   
@@ -87,6 +92,8 @@ const routes: Route[]=[
       AreatesiseditComponent,
       AreatesiscreateComponent,
       ListaAlumnosTesisSecretariaComponent,
+      VerPdfConstanciaComponent,
+      VerPdfActaComponent,
     ],
     imports: [
       BrowserModule,
@@ -95,6 +102,7 @@ const routes: Route[]=[
       HttpClientModule,
       RouterModule.forRoot(routes),
       SnotifyModule,
+      PdfViewerModule,
     ],
     providers:  [JarwisService, TokenService, AuthService, AfterLoginService, BeforeLoginService,
       { provide: 'SnotifyToastConfig', useValue: ToastDefaults },

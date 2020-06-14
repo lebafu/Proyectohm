@@ -1,5 +1,6 @@
 export interface Tesis
 {
+    id_pk?:number;
     id?:number;
     nombre_completo:string;
     nombre_completo2:string;
