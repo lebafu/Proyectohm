@@ -7,15 +7,9 @@ import {PdfViewerModule} from 'ng2-pdf-viewer';
   selector: 'app-lista-alumnos-tesis-secretaria',
   templateUrl: './lista-alumnos-tesis-secretaria.component.html',
   styleUrls: ['./lista-alumnos-tesis-secretaria.component.css'],
-  template: `
-  <pdf-viewer [src]="pdfSrc" 
-              [render-text]="true"
-              style="display: block;"
-  ></pdf-viewer>`
 })
 export class ListaAlumnosTesisSecretariaComponent implements OnInit {
   tesistas:Tesis[];
-  pdfSrc="C:\Users\LI\Documents\GitHub\Proyectohm\Laravel_Tesis\public\constancia_ex/{{tesis.constancia_ex}}";
   constructor(private tesisService:TesisService) {
     this.getTesis();
    }

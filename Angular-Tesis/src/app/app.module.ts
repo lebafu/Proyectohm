@@ -38,6 +38,8 @@ import { ListaAlumnosTesisSecretariaComponent } from './components/lista-alumnos
 import {PdfViewerModule} from 'ng2-pdf-viewer';
 import { VerPdfConstanciaComponent } from './components/ver-pdf-constancia/ver-pdf-constancia.component';
 import { VerPdfActaComponent } from './components/ver-pdf-acta/ver-pdf-acta.component';
+import { FechaPresentacionCreateComponent } from './components/fecha-presentacion-create/fecha-presentacion-create.component';
+import { FechaPresentacionEditComponent } from './components/fecha-presentacion-edit/fecha-presentacion-edit.component';
 
 const routes: Route[]=[
   {path:'', component: HomeComponent},
@@ -61,7 +63,9 @@ const routes: Route[]=[
   {path:'areatesisedit/:id',component: AreatesiseditComponent},
   {path:'lista-alumnos-tesis-secretaria', component:ListaAlumnosTesisSecretariaComponent},
   {path:'ver_pdf_constancia',component:  VerPdfConstanciaComponent },
-  {path:'ver_pdf_acta', component: VerPdfActaComponent}
+  {path:'ver_pdf_acta', component: VerPdfActaComponent},
+  {path:'fecha_presentacion/:id', component: FechaPresentacionCreateComponent},
+  {path:'fecha_presentacion_edit/:id', component: FechaPresentacionEditComponent},
   ];
   
   
@@ -94,6 +98,8 @@ const routes: Route[]=[
       ListaAlumnosTesisSecretariaComponent,
       VerPdfConstanciaComponent,
       VerPdfActaComponent,
+      FechaPresentacionCreateComponent,
+      FechaPresentacionEditComponent,
     ],
     imports: [
       BrowserModule,

@@ -19,7 +19,7 @@ class TesisController extends Controller
         
          // dd($tesis);
           //dd($tesis->id);
-          return view('tesis.fecha_presentacion',compact('tesis'));  
+          //return view('tesis.fecha_presentacion',compact('tesis'));  
      
         }
      
@@ -31,7 +31,7 @@ class TesisController extends Controller
              //dd($tesis);
              $todas_tesis=DB::table('tesis')->get();
              DB::table('tesis')->where('id_pk', $id)->update(['fecha_presentacion_tesis' => $request->fecha_presentacion_tesis]);
-             return view('secretariahome'); 
+             //return view('secretariahome'); 
              
         }
         //Se guarda la fecha seleccionada//
@@ -41,8 +41,7 @@ class TesisController extends Controller
           $tesista = DB::table('tesis')->where('id_pk','=',$id)->get();
           foreach($tesista as $tesis);
           $pathToFile =public_path().'\constancia_ex/'.$tesis->constancia_ex;
-          dd($pathToFile);
-          return response()->json([($pathToFile)]);
+          return response()->file($pathToFile);
   
       }
 
