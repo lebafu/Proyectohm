@@ -66,6 +66,7 @@ const routes: Route[]=[
   {path:'ver_pdf_acta', component: VerPdfActaComponent},
   {path:'fecha_presentacion/:id', component: FechaPresentacionCreateComponent},
   {path:'fecha_presentacion_edit/:id', component: FechaPresentacionEditComponent},
+  
   ];
   
   

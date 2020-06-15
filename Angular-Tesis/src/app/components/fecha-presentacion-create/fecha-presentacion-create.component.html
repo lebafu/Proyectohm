@@ -3,6 +3,18 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.0-alpha14/js/tempusdominus-bootstrap-4.min.js"></script>
 
+<script>
+  $(function () {
+      $('#datetimepicker2').datetimepicker({
+          locale: 'es',
+          format: 'YYYY-MM-DD HH:mm',   
+          enabledHours: [15, 16, 17, 18, 19, 20],
+          daysOfWeekDisabled: [0],
+          stepping:60
+      });
+  });
+</script>
+
 <nav class="navbar navbar-expand-lg" style="background-color:#000a49">
     <a class="navbar-brand" href="/secretaria">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,16 +31,17 @@
       </ul>
     </div>
   </nav>
-  <div class="mt-0 col-12 offset-0">
+  <div class="mt-2 col-8 offset-2">
     <div class="card">
       <div class="card-header">Crear Fecha Presentacion</div>
       <div class="card-body">
         <form>
             <div class="form-group">
-              <label for="fecha_presentacion_tesis">Fecha Presentacion</label>
-              <input type="text" class="form-control datetimepicker-input" id="fecha_presentacion_tesis" aria-describedby="fechapresentacionHelp" data-target="#datatimepicker2">
-              <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker"></div>
-              <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+              <label for="fecha presentacion tesis">Fecha Presentacion</label>
+              <div class="input-group date" data-target-input="nearest" NgTempusdominusBootstrap>
+          
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
               <small id="fechapresentacionHelp" class="form-text text-muted">La hora seleccionada será entre 15 y 20 hrs, de Lunes a Sábado</small>
             </div>
             <button type="submit" class="btn btn-primary">Enviar</button>
@@ -37,15 +50,3 @@
     </div>
 </div>
 
-
-<script>
-    $(function () {
-        $('#datetimepicker2').datetimepicker({
-            locale: 'es',
-            format: 'YYYY-MM-DD HH:mm',   
-            enabledHours: [15, 16, 17, 18, 19, 20],
-            daysOfWeekDisabled: [0],
-            stepping:60
-        });
-    });
-</script>
