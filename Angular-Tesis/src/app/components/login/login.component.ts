@@ -11,7 +11,7 @@ import { AuthService } from '../../services/auth.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-
+  nombre_usuario:string;
   public form = {
     email: null,
     password: null
@@ -36,6 +36,7 @@ export class LoginComponent implements OnInit {
   handleResponse(data) {
     console.log(data);
     this.Token.handle(data.access_token);
+    this.nombre_usuario=data.user;
     if(data.tipo_usuario==0){
       this.router.navigateByUrl('/admin');
       }else{

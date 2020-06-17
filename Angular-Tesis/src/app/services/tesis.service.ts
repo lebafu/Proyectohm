@@ -15,7 +15,11 @@ export class TesisService {
   	return this.httpClient.get('http://localhost:8000/api' + '/index_al_sec');
   }
 
-  get_url_constancia_ex(){
-    return this.httpClient.get('')
+  //get_url_constancia_ex(){
+   // return this.httpClient.get('')
+  //}
+
+  getRepositorio(){           
+  	return this.httpClient.get('http://localhost:8000/api' + '/repositorio_tesis');
   }
 }

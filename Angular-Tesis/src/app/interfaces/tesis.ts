@@ -40,4 +40,6 @@ export interface Tesis
     codigo_postal2:number;
     avance_general:number;
     reunion:number,
+    abstract_res:string;
+    titulo:string;
 }

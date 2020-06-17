@@ -12,4 +12,27 @@
     <a class="navbar-brand" routerLink="/login">Login</a>
     <a class="navbar-brand" routerLink="/signup">Register</a>
   </nav>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">Repositorio de Tesis</div>
+      <table class="table table-bordered">
+          
+        <tr *ngFor="let tes of tesis">
+             <p><a href="/">{{tes.titulo}}</a></p>
+             <p *ngIf="tes.nombre_completo2==null">{{tes.nombre_completo}}</p>
+             <p *ngIf="tes.nombre_completo2!=null">{{tes.nombre_completo}} y {{tes.nombre_completo2}}</p>
+             <p>{{tes.abstract_res}}</p>
+            
+             <p><a *ngIf="tes.publicar==1" target="_blank" class="btn btn-primary">Ver PDF</a></p>
+             <p><a href="/" target="_blank" class="btn btn-primary"><span class="fa fa-print"></span>Descargar PDF</a></p> Al añadir target="_blank", permite que se habra una pestaña nueva con la ruta especificada
+          </tr>
+       </table>
+       </div>
+       </div>
+       <!--<a href="{{ url('') }}" class="btn btn-default">Volver a home</a> -->
+       </div>
+       </div>
+  
 

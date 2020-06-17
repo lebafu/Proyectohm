@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use DB;
 use Illuminate\Http\Request;
+use Str;
 
 class TesisController extends Controller
 {
@@ -53,5 +54,149 @@ class TesisController extends Controller
         return response()->file($pathToFile);
 
     }
+
+    public function repositorio_tesis(Request $request)
+    {
+        //Para usar la funcion now(), se modifico en app/config/app.php 'timezone' => 'UTC' a 'America/Santiago', para que tome la hora del pais. 
+        //dd($request);
+        //$palabra=$request->get('palabra');
+        //dd($request);
+        $nombre_completo=$request->get('nombre_completo');
+        $nombre_tesis=$request->get('nombre_tesis');
+        $abstract=$request->get('abstract');
+         $tesis=DB::table('tesis')->where('fecha_presentacion_tesis','<',now())->where('nota_tesis','>=',4)->get();
+        //dd($tesis);
+        if($nombre_completo==null and $nombre_tesis==null and $abstract==null)
+        {
+            $tesis=DB::table('tesis')->where('fecha_presentacion_tesis','<',now())->where('nota_tesis','>=',4)->get();
+            //dd($tesis);
+            foreach($tesis as $tes)
+            {
+                $var_titulo=$tes->nombre_tesis;
+                $tes->titulo=Str::limit($var_titulo,100);
+                $var=$tes->abstract;
+                $tes->abstract_res=Str::limit($var,309); //variable para cortar string y mostrarlo en la vista
+            }
+             //return view('tesis.repositorio_tesis',compact('tesis'));
+        }else{
+            if($nombre_completo==null and $nombre_tesis!=null and $abstract!=null)
+            {
+                foreach($tesis as $tes)
+            {
+                $var_titulo=$tes->nombre_tesis;
+                $tes->titulo=Str::limit($var_titulo,100);
+                $var=$tes->abstract;
+                $tes->abstract_res=Str::limit($var,309);
+            }
+               $tesis=DB::table('tesis')->where('fecha_presentacion_tesis','<',now())->where('nota_tesis','>=',4)
+                ->where('nombre_tesis','like',"%$nombre_tesis%")
+                ->where('abstract','like',"%$abstract%")->get();
+             //return view('tesis.repositorio_tesis',compact('tesis'));
+            }else{
+                    if($nombre_completo==null and $nombre_tesis==null and $abstract!=null)
+                    {
+                         $tesis=DB::table('tesis')->where('fecha_presentacion_tesis','<',now())
+                         ->where('abstract','like',"%$abstract%")
+                         ->get();
+                        
+                        foreach($tesis as $tes)
+                        {
+                             $var_titulo=$tes->nombre_tesis;
+                             $tes->titulo=Str::limit($var_titulo,100);
+                             $var=$tes->abstract;
+                             $tes->abstract_res=Str::limit($var,309);
+                        }
+                         //return view('tesis.repositorio_tesis',compact('tesis'));
+                    }else{
+                            if($nombre_completo==null and $nombre_tesis!=null and $abstract!=null)
+                            {
+                                 $tesis=DB::table('tesis')->where('fecha_presentacion_tesis','<',now())
+                                  ->where('nombre_tesis','like',"%$nombre_tesis%")->where('nota_tesis','>=',4)
+                                 ->where('abstract','like',"%$abstract%")
+                                 ->get();
+                                foreach($tesis as $tes)
+                                {
+                                    $var_titulo=$tes->nombre_tesis;
+                                    $tes->titulo=Str::limit($var_titulo,100);
+                                    $var=$tes->abstract;
+                                    $tes->abstract_res=Str::limit($var,309);
+                                }
+                                 //return view('tesis.repositorio_tesis',compact('tesis'));
+                            }else{
+                                if($nombre_completo!=null and $nombre_tesis==null and $abstract==null)
+                                {
+                                     $tesis=DB::table('tesis')->where('fecha_presentacion_tesis','<',now())
+                                     ->where('nombre_completo','like',"%$nombre_completo%")->where('nota_tesis','>=',4)
+                                    ->get();
+                                    //dd($request);
+                                    //dd($tesis);
+                                foreach($tesis as $tes)
+                                {
+                                    $var_titulo=$tes->nombre_tesis;
+                                    $tes->titulo=Str::limit($var_titulo,100);
+                                    $var=$tes->abstract;
+                                   $tes->abstract_res=Str::limit($var,309);
+                                }
+                                 //return view('tesis.repositorio_tesis',compact('tesis'));
+                                }else{
+                                    if($nombre_completo==null and $nombre_tesis!=null and $abstract==null)
+                                    {
+                                         $tesis=DB::table('tesis')->where('fecha_presentacion_tesis','<',now())
+                                         ->where('nota_tesis','>=',4)
+                                         ->where('nombre_tesis','like',"%$nombre_tesis%")->get();
+                                         //dd($tesis);
+                                             foreach($tesis as $tes)
+                                            {
+                                             $var_titulo=$tes->nombre_tesis;
+                                             $tes->titulo=Str::limit($var_titulo,100);
+                                             $var=$tes->abstract;
+                                             $tes->abstract_res=Str::limit($var,309);
+                                            }
+                                             return view('tesis.repositorio_tesis',compact('tesis'));
+                                    }else{
+                                        if($nombre_completo!=null and $nombre_tesis!=null and $abstract==null)
+                                        {
+                                        $tesis=DB::table('tesis')->where('fecha_presentacion_tesis','<',now())
+                                        ->where('nota_tesis','>=',4)
+                                         ->where('nombre_completo','like',"%$nombre_completo%")
+                                         ->where('nombre_tesis','like',"%$nombre_tesis%")->get();;
+                                        }
+                                            foreach($tesis as $tes)
+                                            {
+                                                $var_titulo=$tes->nombre_tesis;
+                                                $tes->titulo=Str::limit($var_titulo,100);
+                                                $var=$tes->abstract;
+                                                $tes->abstract_res=Str::limit($var,309);
+                                            }
+                                            //return view('tesis.repositorio_tesis',compact('tesis'));
+                                            
+
+                                    }
+                                        }
+
+                                }
+                            }
+                    }      
+            }
+        $tesis=DB::table('tesis')->where('fecha_presentacion_tesis','<',now())
+        
+        ->where('nombre_completo','like',"%$nombre_completo%")
+        ->where('nombre_tesis','like',"%$nombre_tesis%")
+        ->where('abstract','like',"%$abstract%")
+        //->nombre_completo($nombre_completo)
+        //->nombre_tesis($nombre_tesis)
+        //->abstract($abstract)
+        //->paginate(7);
+        ->get();
+        foreach($tesis as $tes)
+        {
+        $var_titulo=$tes->nombre_tesis;
+        $tes->titulo=Str::limit($var_titulo,100);
+        $var=$tes->abstract;
+        $tes->abstract_res=Str::limit($var,309);
+        }
+        echo json_encode($tesis);
+    }
+
   
 }
