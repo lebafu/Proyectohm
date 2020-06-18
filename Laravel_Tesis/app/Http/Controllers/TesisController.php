@@ -198,5 +198,11 @@ class TesisController extends Controller
         echo json_encode($tesis);
     }
 
+        public function show($id){
+            $tesistas=DB::table('tesis')->where('id',$id)->get();
+            foreach($tesistas as $tesis);
+            echo json_encode($tesis);
+        }
+    
   
 }

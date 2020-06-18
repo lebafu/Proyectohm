@@ -40,6 +40,7 @@ import { VerPdfConstanciaComponent } from './components/ver-pdf-constancia/ver-p
 import { VerPdfActaComponent } from './components/ver-pdf-acta/ver-pdf-acta.component';
 import { FechaPresentacionCreateComponent } from './components/fecha-presentacion-create/fecha-presentacion-create.component';
 import { FechaPresentacionEditComponent } from './components/fecha-presentacion-edit/fecha-presentacion-edit.component';
+import { RepositorioShowComponent } from './components/repositorio-show/repositorio-show.component';
 
 
 const routes: Route[]=[
@@ -67,7 +68,7 @@ const routes: Route[]=[
   {path:'ver_pdf_acta', component: VerPdfActaComponent},
   {path:'fecha_presentacion/:id', component: FechaPresentacionCreateComponent},
   {path:'fecha_presentacion_edit/:id', component: FechaPresentacionEditComponent},
-  
+  {path:'mostrar_repositorio_detalle/:id',component:RepositorioShowComponent}
   ];
   
   
@@ -102,6 +103,7 @@ const routes: Route[]=[
       VerPdfActaComponent,
       FechaPresentacionCreateComponent,
       FechaPresentacionEditComponent,
+      RepositorioShowComponent,
     ],
     imports: [
       BrowserModule,

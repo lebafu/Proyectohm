@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg" style="background-color:#000a49">
+    <a class="navbar-brand" href="#">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="navbar-brand" routerLink="/repositorio">Repositorio <span class="sr-only">(current)</span></a>
+      </ul>
+    </div>
+    <a class="navbar-brand" routerLink="/login">Login</a>
+<a class="navbar-brand" routerLink="/signup">Register</a>
+  </nav>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">Informacion detallada de Tesis</div>
+          <div class="card-body">
+<table class="table table-bordered">
+       <b>Autor:</b> <!--Con <b></b> se pone la letra en negrita en html-->
+       <p>{{tesis.nombre_completo}}</p>
+       <p *ngIf="tesis.nombre_completo2!=null">y {{tesis.nombre_completo2}}</p>
+       <b>Profesor Guia:</b>
+       <p>{{tesis.profesor_guia}}</p>
+       <b>Abstract:</b>
+       <p align="justify">{{tesis.abstract}}</p>
+       <p align="justify" *ngIf="tesis.publicar==1"><b>Documento PDF</b></p>
+       
+       <p><a href="/verPDF/tesis.id}}" class="btn btn-primary"><span class="fa fa-print"></span>Ver PDF</a></p>
+       <p align="justify" *ngIf="tesis.publicar!=1"><b>Documento PDF sin permisos para descargar</b></p>
+       <a href="/repositorio" >Volver a Repositorio</a> 
+ </table>
+ </div>
+</div>
+</div>
+</div>
+</div>
