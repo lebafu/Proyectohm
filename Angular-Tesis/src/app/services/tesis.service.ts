@@ -22,4 +22,8 @@ export class TesisService {
   getRepositorio(){           
   	return this.httpClient.get('http://localhost:8000/api' + '/repositorio_tesis');
   }
+
+  getAlumno(){           
+  	return this.httpClient.get('http://localhost:8000/api' + '/tesis_alumno_solicitud');
+  }
 }

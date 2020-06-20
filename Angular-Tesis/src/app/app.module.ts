@@ -41,6 +41,12 @@ import { VerPdfActaComponent } from './components/ver-pdf-acta/ver-pdf-acta.comp
 import { FechaPresentacionCreateComponent } from './components/fecha-presentacion-create/fecha-presentacion-create.component';
 import { FechaPresentacionEditComponent } from './components/fecha-presentacion-edit/fecha-presentacion-edit.component';
 import { RepositorioShowComponent } from './components/repositorio-show/repositorio-show.component';
+import { CrearTesisComponent } from './components/crear-tesis/crear-tesis.component';
+import { Index1TesisComponent } from './components/index1-tesis/index1-tesis.component';
+import { Index2InscritaTesisComponent } from './components/index2-inscrita-tesis/index2-inscrita-tesis.component';
+import { Index2SolTesisComponent } from './components/index2-sol-tesis/index2-sol-tesis.component';
+import { Index3SolTesisComponent } from './components/index3-sol-tesis/index3-sol-tesis.component';
+import { Index3InscritaTesisComponent } from './components/index3-inscrita-tesis/index3-inscrita-tesis.component';
 
 
 const routes: Route[]=[
@@ -68,7 +74,8 @@ const routes: Route[]=[
   {path:'ver_pdf_acta', component: VerPdfActaComponent},
   {path:'fecha_presentacion/:id', component: FechaPresentacionCreateComponent},
   {path:'fecha_presentacion_edit/:id', component: FechaPresentacionEditComponent},
-  {path:'mostrar_repositorio_detalle/:id',component:RepositorioShowComponent}
+  {path:'mostrar_repositorio_detalle/:id',component:RepositorioShowComponent},
+  {path:'tesis_alumno_solicitud',component:Index1TesisComponent}
   ];
   
   
@@ -104,6 +111,12 @@ const routes: Route[]=[
       FechaPresentacionCreateComponent,
       FechaPresentacionEditComponent,
       RepositorioShowComponent,
+      CrearTesisComponent,
+      Index1TesisComponent,
+      Index2InscritaTesisComponent,
+      Index2SolTesisComponent,
+      Index3SolTesisComponent,
+      Index3InscritaTesisComponent,
     ],
     imports: [
       BrowserModule,
