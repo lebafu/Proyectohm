@@ -19,6 +19,10 @@ export class TesisService {
    // return this.httpClient.get('')
   //}
 
+  getTitulados(){
+  	return this.httpClient.get('http://localhost:8000/api' + '/index_titulados_sec');
+  }
+
   getRepositorio(){           
   	return this.httpClient.get('http://localhost:8000/api' + '/repositorio_tesis');
   }

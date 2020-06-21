@@ -10,6 +10,7 @@ import {User} from 'src/app/interfaces/user';
 export class UserscreateComponent implements OnInit {
   lista_sexos:string[]=["Masculino","Femenino"];
   tipos_usuarios:string[]=["Administrador","Profesor","Director de Tesis","Secretaria"];
+  grados_academicos:string[]=["Ing.","Mg.","Dr."];
   user: User= {
 		name:null,
 		email:null,
@@ -17,6 +18,7 @@ export class UserscreateComponent implements OnInit {
 		password_check:null,
     sexo:null,
     tipo_usuario:null,
+    grado_academico:null,
   };
   users: User[];
   constructor(private usersService: UsersService) { }

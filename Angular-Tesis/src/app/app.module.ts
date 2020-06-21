@@ -47,6 +47,7 @@ import { Index2InscritaTesisComponent } from './components/index2-inscrita-tesis
 import { Index2SolTesisComponent } from './components/index2-sol-tesis/index2-sol-tesis.component';
 import { Index3SolTesisComponent } from './components/index3-sol-tesis/index3-sol-tesis.component';
 import { Index3InscritaTesisComponent } from './components/index3-inscrita-tesis/index3-inscrita-tesis.component';
+import { TituladosSecComponent } from './components/titulados-sec/titulados-sec.component';
 
 
 const routes: Route[]=[
@@ -75,7 +76,8 @@ const routes: Route[]=[
   {path:'fecha_presentacion/:id', component: FechaPresentacionCreateComponent},
   {path:'fecha_presentacion_edit/:id', component: FechaPresentacionEditComponent},
   {path:'mostrar_repositorio_detalle/:id',component:RepositorioShowComponent},
-  {path:'tesis_alumno_solicitud',component:Index1TesisComponent}
+  {path:'tesis_alumno_solicitud',component:Index1TesisComponent},
+  {path: 'titulados-sec', component:TituladosSecComponent}
   ];
   
   
@@ -117,6 +119,7 @@ const routes: Route[]=[
       Index2SolTesisComponent,
       Index3SolTesisComponent,
       Index3InscritaTesisComponent,
+      TituladosSecComponent,
     ],
     imports: [
       BrowserModule,

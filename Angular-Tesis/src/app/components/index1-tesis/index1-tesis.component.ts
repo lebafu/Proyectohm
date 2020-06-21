@@ -13,7 +13,7 @@ export class Index1TesisComponent implements OnInit {
   tesistas:Tesis[];
   ngOnInit(): void {
   }
-  getRepositorio_Tesis(){
+  get_tesis_alumno(){
     this.tesisService.getAlumno().subscribe((data: Tesis[])=>{
     alert(data);
       console.log(data);

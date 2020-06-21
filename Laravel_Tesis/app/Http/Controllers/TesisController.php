@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 use App\User;
 use App\Tesis;
-use DB;
 use Illuminate\Http\Request;
 use Str;
-use Auth;
 use JWTAuth;
+
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class TesisController extends Controller
 {
@@ -241,11 +243,17 @@ class TesisController extends Controller
         echo json_encode($tesis);
     }
 
+        public function index_titulados_sec(){
+            $tesistas=DB::table('tesis')->where('estado1','=',4)->where('estado2','=',1)->where('nota_tesis','>=',4)->select('tesis.id_pk','tesis.id','tesis.nombre_completo','tesis.nombre_completo2','tesis.profesor_guia')->get();
+            echo json_encode($tesistas);
+        }
+
         public function show($id){
             $tesistas=DB::table('tesis')->where('id',$id)->get();
             foreach($tesistas as $tesis);
             echo json_encode($tesis);
         }
     
+        
   
 }

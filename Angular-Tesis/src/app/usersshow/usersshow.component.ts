@@ -17,6 +17,7 @@ export class UsersshowComponent implements OnInit {
     password_check:null,
     tipo_usuario:null,
     sexo:null,
+    grado_academico:null,
   };
   id: any;
   editing: boolean =false;

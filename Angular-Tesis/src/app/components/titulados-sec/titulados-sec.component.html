@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg" style="background-color:#000a49">
+    <a class="navbar-brand text-white" href="/secretaria">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link text-white" href="lista-alumnos-tesis-secretaria">Lista alumnos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#">Titulados</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-12">
+        <div class="card">
+          <div class="card-header">Titulados</div>
+            <div class="card-body">
+              <div class="form-group">
+              <button type="submit" class="btn btn-default">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+   <table class="table table-bordered">
+          <tr>
+           
+            <th>ID</th>
+            <th>Estudiantes</th>
+            <th>Profesor Guia</th>
+            <th>Informacion</th>
+            <th>Memorandum de Titulados</th>
+          </tr>
+          <tr *ngFor="let tesis of tesistas">
+            <td>{{tesis.id_pk}}</td>
+            <td>{{tesis.nombre_completo}}
+                <a *ngIf="tesis.nombre_completo2!=null">
+            y {{tesis.nombre_completo2}}
+                </a></td>
+            <td>{{tesis.profesor_guia}}</td>
+  
+            <td><a class="btn btn-primary btn-sm" href="/recopilacion_inf/{{tesis.id_pk}}" id="descargaPDF" ><span class="fa fa-print fa-sm"> </span></a>
+                
+              
+                <a *ngIf="tesis.nombre_completo2!=null" class="btn btn-primary btn-sm" href="/recopilacion_inf2/{{tesis.id_pk}}" id="descargaPDF" ><span class="fa fa-print fa-sm"> </span></a>
+                
+            </td>
+  
+             <td><a href="tesis/createnummemotitulados{{tesis.id_pk}}" class="btn btn-simple btn-primary btn-sm">Memo titulo</a></td>
+        </tr>
+       </table>
+       </div>
+       </div>
+       </div>
+       </div>
+              <a href="secretaria" class="btn btn-default">Volver a home</a>
+       </div>
+  
