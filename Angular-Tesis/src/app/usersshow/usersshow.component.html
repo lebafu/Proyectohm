@@ -10,11 +10,11 @@
 <p>{{user.email}}</p>
 
 <b>Tipo Usuario </b>
-<p *ngIf="user.tipo_usuario == 0">Administrador</p>
-<p *ngIf="user.tipo_usuario == 1">Alumno</p>
-<p *ngIf="user.tipo_usuario == 2">Profesor</p>
-<p *ngIf="user.tipo_usuario == 3">Director de Tesis</p>
-<p *ngIf="user.tipo_usuario == 4">Secretaria</p>
+<p *ngIf="user.tipo_usuario == '0'">Administrador</p>
+<p *ngIf="user.tipo_usuario == '1'">Alumno</p>
+<p *ngIf="user.tipo_usuario == '2'">Profesor</p>
+<p *ngIf="user.tipo_usuario == '3'">Director de Tesis</p>
+<p *ngIf="user.tipo_usuario == '4'">Secretaria</p>
 
 <b>Sexo</b>
 <p>{{user.sexo}}</p>

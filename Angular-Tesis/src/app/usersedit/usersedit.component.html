@@ -45,6 +45,16 @@
       </select>
   </div>
   </div>
+  <a *ngIf="user.tipo_usuario =='Profesor'">
+    <div class="form-group row">
+      <label for="grado_academico" class="col-sm-2 col-form-label">Grado Academico</label>
+      <div class="col-sm-10">
+        <select name="grado_academico" [(ngModel)]="user.grado_academico" [ngModelOptions]="{standalone: true}" class="form-control" required="required">
+        <option [value]="item" *ngFor="let item of grados_academicos">{{item}} </option>
+        </select>
+    </div>
+    </div>
+  </a>
   <button (click)="editUser()"  class="btn btn-primary">Guardar</button>
 </form>
 </div>

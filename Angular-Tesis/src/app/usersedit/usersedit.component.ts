@@ -12,6 +12,8 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class UserseditComponent implements OnInit{
   lista_sexos:string[]=["Masculino","Femenino"];
+  tipos_usuarios:string[]=["Administrador","Profesor","Director de Tesis","Secretaria"];
+  grados_academicos:string[]=["Ing.","Mg.","Dr."];
   user: User= {
 		name:null,
 		email:null,

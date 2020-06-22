@@ -6,6 +6,6 @@ export interface User
 	password:string;
 	password_check:string;
 	sexo:string;
-	tipo_usuario:number;
+	tipo_usuario:string;
 	grado_academico:string;
 }
