@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\User;
+use App\Grado_Academico;
 use Illuminate\Http\Request;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\Redirect;
@@ -44,8 +45,8 @@ class UsersController extends Controller
        $user->password=Hash::make($request->get('password'));
        $user->tipo_usuario=$request->get('tipo_usuario');
        $user->sexo=$request->get('sexo');
-       $user->save();
-       echo json_encode($user);*/
+       $user->save();*/
+       echo json_encode($request);
        if($request->tipo_usuario=="Administrador"){
            $num=0;
        }elseif($request->tipo_usuario=="Profesor"){
@@ -64,8 +65,14 @@ class UsersController extends Controller
             'tipo_usuario' => $num,
             'sexo' => $request->sexo
         ]);
-
+        if($request->grado_academico!=null){
+            DB::table('grado_academico_profesor_planta')->insert([
+                'id'=> $ultimo_id+1,
+                'estado'=> 1,
+                'grado_academico' => $request->grado_academico
+        ]);
        }
+    }
 
        public function asignar_director_escuela(Request $request)
        {
@@ -100,13 +107,32 @@ class UsersController extends Controller
     }
         public function update(Request $request,$id)
     {
+        if($request->tipo_usuario=="Administrador"){
+            $num=0;
+        }elseif($request->tipo_usuario=="Profesor"){
+            $num=2;
+        }elseif($request->tipo_usuario=="Director de Tesis"){
+            $num=3;
+        }elseif($request->tipo_usuario=="Secretaria"){
+            $num=4;
+        }
 
         $user=User::find($id);
         //$nombre_actual=$user->name;
         $user->name=$request->input('name');
         $user->email=$request->input('email');
+        $user->tipo_usuario=$num;
         $user->sexo=$request->input('sexo');
         $user->update();
+
+         if($request->grado_academico!=null){
+            DB::table('grado_academico_profesor_planta')->where('id',$id)->update([
+                'grado_academico' => $request->grado_academico
+        ]);
+       }
+       if($num==0 or $num==4){
+           DB::table('grado_academico_profesor_planta')->where('id','=',$id)->delete();
+       }
         //echo json_enconde($user);
          //$email=$request->get('email');
      
@@ -114,7 +140,7 @@ class UsersController extends Controller
 
     public function show($id){
     
-        $users=DB::table('users')->where('id','=',$id)->get();
+        $users=DB::table('users')->where('id','=',$id)->join('grado_academico_profesor_planta','users.id','=','grado_academico_profesor_planta.id')->get();
         foreach($users as $user);
         echo json_encode($user);
     }

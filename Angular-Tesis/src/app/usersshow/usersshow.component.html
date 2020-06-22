@@ -16,6 +16,11 @@
 <p *ngIf="user.tipo_usuario == '3'">Director de Tesis</p>
 <p *ngIf="user.tipo_usuario == '4'">Secretaria</p>
 
+
+<p *ngIf="user.tipo_usuario == '2'">
+	<b>Grado academico</b></p>
+	<p *ngIf="user.tipo_usuario == '2'">{{user.grado_academico}}</p>
+
 <b>Sexo</b>
 <p>{{user.sexo}}</p>
 </form>
