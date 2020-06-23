@@ -48,6 +48,22 @@ import { Index2SolTesisComponent } from './components/index2-sol-tesis/index2-so
 import { Index3SolTesisComponent } from './components/index3-sol-tesis/index3-sol-tesis.component';
 import { Index3InscritaTesisComponent } from './components/index3-inscrita-tesis/index3-inscrita-tesis.component';
 import { TituladosSecComponent } from './components/titulados-sec/titulados-sec.component';
+import { ComunidadComponent } from './components/comunidad/comunidad.component';
+import { EmpresaComponent } from './components/empresa/empresa.component';
+import { FondoconcursableComponent } from './components/fondoconcursable/fondoconcursable.component';
+import { ProyectoComponent } from './components/proyecto/proyecto.component';
+import { ComunidadcreateComponent } from './components/comunidadcreate/comunidadcreate.component';
+import { EmpresacreateComponent } from './components/empresacreate/empresacreate.component';
+import { FondoconcursablecreateComponent } from './components/fondoconcursablecreate/fondoconcursablecreate.component';
+import { ProyectocreateComponent } from './components/proyectocreate/proyectocreate.component';
+import { ComunidadeditComponent } from './components/comunidadedit/comunidadedit.component';
+import { EmpresaeditComponent } from './components/empresaedit/empresaedit.component';
+import { FondoconcursableeditComponent } from './components/fondoconcursableedit/fondoconcursableedit.component';
+import { ProyectoeditComponent } from './components/proyectoedit/proyectoedit.component';
+import { ComunidadshowComponent } from './components/comunidadshow/comunidadshow.component';
+import { EmpresashowComponent } from './components/empresashow/empresashow.component';
+import { FondoconcursableshowComponent } from './components/fondoconcursableshow/fondoconcursableshow.component';
+import { ProyectoshowComponent } from './components/proyectoshow/proyectoshow.component';
 
 
 const routes: Route[]=[
@@ -120,6 +136,22 @@ const routes: Route[]=[
       Index3SolTesisComponent,
       Index3InscritaTesisComponent,
       TituladosSecComponent,
+      ComunidadComponent,
+      EmpresaComponent,
+      FondoconcursableComponent,
+      ProyectoComponent,
+      ComunidadcreateComponent,
+      EmpresacreateComponent,
+      FondoconcursablecreateComponent,
+      ProyectocreateComponent,
+      ComunidadeditComponent,
+      EmpresaeditComponent,
+      FondoconcursableeditComponent,
+      ProyectoeditComponent,
+      ComunidadshowComponent,
+      EmpresashowComponent,
+      FondoconcursableshowComponent,
+      ProyectoshowComponent,
     ],
     imports: [
       BrowserModule,
