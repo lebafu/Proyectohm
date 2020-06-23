@@ -14,4 +14,19 @@ export class ProyectosService {
   get(){
     return this.httpClient.get('http://localhost:8000/api' + '/proyectos');
   }
+
+  save(proyecto:Proyecto){
+    const headers=new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.post(this.API_ENDPOINT + '/proyectos',proyecto,{headers: headers});
+  
+    }
+  
+    put(proyectos:Proyecto){
+      const headers= new HttpHeaders({'Content-Type':'application/json'});
+      return this.httpClient.put(this.API_ENDPOINT +'/proyecto/' + proyectos.id,proyectos,{headers:headers});
+    }
+    delete(id)
+    {
+     return this.httpClient.delete(this.API_ENDPOINT+ '/proyecto/' + id);
+    }
 }

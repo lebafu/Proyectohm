@@ -18,14 +18,15 @@ export class ProyectocreateComponent implements OnInit {
   }
   SaveProyecto(){
     console.log(this.proyecto);
-    this.proyectosService.save(this.proyectos).subscribe(()=>{
+    this.proyectosService.save(this.proyecto).subscribe(()=>{
       alert('Proyectos Guardado');
+      this.getProyecto();
     console.log(this.proyectos);
   },(error)=>{
     alert('Ocurrió un error');
   });
 }
-getArea_Tesis(){
+getProyecto(){
   this.proyectosService.get().subscribe((data: Proyecto[])=>{
     this.proyectos=data;
   }, (error)=>{

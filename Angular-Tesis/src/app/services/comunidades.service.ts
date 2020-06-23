@@ -14,4 +14,20 @@ export class ComunidadesService {
   get(){
     return this.httpClient.get('http://localhost:8000/api' + '/comunidades');
   }
+
+  save(comunidad:Comunidad){
+    const headers=new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.post(this.API_ENDPOINT + '/comunidades', comunidad,{headers: headers});
+  
+    }
+  
+    put(comunidades:Comunidad){
+      const headers= new HttpHeaders({'Content-Type':'application/json'});
+      return this.httpClient.put(this.API_ENDPOINT +'/comunidad/' + comunidades.id,comunidades,{headers:headers});
+    }
+
+    delete(id)
+    {
+     return this.httpClient.delete(this.API_ENDPOINT+ '/comunidad/' + id);
+    }
 }

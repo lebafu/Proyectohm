@@ -14,4 +14,20 @@ export class FondosConcursablesService {
   get(){
     return this.httpClient.get('http://localhost:8000/api' + '/fondos_concursables');
   }
+
+  save(fondo_concursable:FondoConcursable){
+    const headers=new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.post(this.API_ENDPOINT + '/fondos_concursables', fondo_concursable,{headers: headers});
+  
+    }
+  
+    put(fondos_concursables:FondoConcursable){
+      const headers= new HttpHeaders({'Content-Type':'application/json'});
+      return this.httpClient.put(this.API_ENDPOINT +'/fondo_concursable/' + fondos_concursables.id,fondos_concursables,{headers:headers});
+    }
+
+    delete(id)
+    {
+     return this.httpClient.delete(this.API_ENDPOINT+ '/fondo_concursable/' + id);
+    }
 }

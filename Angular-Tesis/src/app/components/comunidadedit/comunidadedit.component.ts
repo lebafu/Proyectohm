@@ -34,5 +34,26 @@ export class ComunidadeditComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  getComunidad(){
+    this.comunidadesService.get().subscribe((data: Comunidad[])=>{
+      console.log(data);
+      this.comunidades = data;
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
+  }
+  EditComunidad(){
+    console.log(this.editing);
+    if(this.editing==true){
+      this.comunidadesService.put(this.comunidad).subscribe((data) => {
+      alert('Area de Tesis se ha Actualizado');
+      console.log(data);
+      this.getComunidad();
+    }, (error) => {
+  console.log(error);
+  alert('Ocurrio  un error al editar');
+});
+  }
+  }
 }

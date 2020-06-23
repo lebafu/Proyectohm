@@ -16,7 +16,7 @@ export class FondoconcursablecreateComponent implements OnInit {
   fondos_concursables:FondoConcursable[];
   ngOnInit(): void {
   }
-  SaveFondo(){
+  SaveFondo_Concursable(){
     console.log(this.fondo_concursable);
     this.fondosconcursablesService.save(this.fondo_concursable).subscribe(()=>{
       alert('Fondo Concursable Guardado');

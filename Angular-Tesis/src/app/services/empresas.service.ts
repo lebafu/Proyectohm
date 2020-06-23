@@ -15,4 +15,20 @@ export class EmpresasService {
     return this.httpClient.get('http://localhost:8000/api' + '/empresas');
   }
 
+  save(empresa:Empresa){
+    const headers=new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.post(this.API_ENDPOINT + '/empresas',empresa,{headers: headers});
+  
+    }
+  
+    put(empresas:Empresa){
+      const headers= new HttpHeaders({'Content-Type':'application/json'});
+      return this.httpClient.put(this.API_ENDPOINT +'/empresa/' + empresas.id,empresas,{headers:headers});
+    }
+    
+    delete(id)
+    {
+     return this.httpClient.delete(this.API_ENDPOINT+ '/empresa/' + id);
+    }
+
 }

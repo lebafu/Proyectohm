@@ -32,5 +32,26 @@ export class EmpresaeditComponent implements OnInit {
  
   ngOnInit(): void {
   }
+  EditEmpresa(){
+    console.log(this.editing);
+    if(this.editing==true){
+      this.empresasService.put(this.empresa).subscribe((data) => {
+      alert('Empresa se ha Actualizado');
+      console.log(data);
+      this.getEmpresa();
+    }, (error) => {
+  console.log(error);
+  alert('Ocurrio  un error al editar');
+});
+  }
+  }
 
+  getEmpresa(){
+    this.empresasService.get().subscribe((data: Empresa[])=>{
+      this.empresas=data;
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
+  }
 }
