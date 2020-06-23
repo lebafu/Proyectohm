@@ -93,8 +93,22 @@ const routes: Route[]=[
   {path:'fecha_presentacion_edit/:id', component: FechaPresentacionEditComponent},
   {path:'mostrar_repositorio_detalle/:id',component:RepositorioShowComponent},
   {path:'tesis_alumno_solicitud',component:Index1TesisComponent},
-  {path: 'titulados-sec', component:TituladosSecComponent}
-  ];
+  {path: 'titulados-sec', component:TituladosSecComponent},
+  {path: 'comunidades', component:ComunidadComponent},
+  {path: 'empresas', component: EmpresaComponent},
+  {path: 'fondosconcursables', component:FondoconcursableComponent},
+  {path: 'proyectos', component:ProyectoComponent},
+  {path: 'comunidad_create', component:ComunidadcreateComponent},
+  {path: 'empresa_create', component: EmpresacreateComponent},
+  {path: 'fondosconcursables_create', component:FondoconcursablecreateComponent},
+  {path: 'proyectos_create', component:ProyectocreateComponent},
+  {path: 'comunidades/:id', component:ComunidadeditComponent},
+  {path: 'empresas/:id', component:EmpresaeditComponent},
+  {path: 'fondosconcursables/:id',component:FondoconcursableeditComponent},
+  {path: 'proyectos/:id', component:ProyectoComponent},
+  {path: 'comunidades_show/:id', component:ComunidadshowComponent},
+  {path: 'empresas_show/:id', component: EmpresaeditComponent},
+  {path: 'proyecto_show/:id', component:ProyectoComponent}]
   
   
   @NgModule({
