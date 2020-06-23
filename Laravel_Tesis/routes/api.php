@@ -55,3 +55,34 @@ Route::put('/update_fecha_presentacion/{tesis}','TesisController@update_fecha_pr
 Route::get('/repositorio_tesis', 'TesisController@repositorio_tesis');
 Route::get('/mostrar_tesis/{id_pk}', 'TesisController@mostrar_tesis')->name('tesis.show');
 Route::get('/tesis_alumno_solicitud', 'TesisController@index1')->name('tesis.index1');
+
+
+Route::get('/comunidades', 'ComunidadController@index');
+Route::get('/empresas', 'EmpresasController@index');
+Route::get('/fondos_concursables', 'Fondo_concursableController@index');
+Route::get('/proyectos', 'ProyectoController@index');
+
+Route::post('/comunidades', 'ComunidadController@store');
+Route::post('/empresas', 'EmpresasController@store');
+Route::post('/fondos_concursables', 'Fondo_concursableController@store');
+Route::post('/proyectos', 'ProyectoController@store');
+
+Route::get('/comunidad{comunidad}', 'ComunidadController@edit');
+Route::get('/empresa{empresas}', 'EmpresasController@edit');
+Route::get('/fondo_concursable{fondo_concursables}', 'Fondo_concursableController@edit');
+Route::get('/proyecto{proyectos}', 'EmpresasController@edit');
+
+Route::put('/comunidad/{comunidad}','ComunidadController@update');
+Route::put('/empresa/{empresa}','EmpresasController@update');
+Route::put('/fondo_concursable/{fondo_concursable}','Fondo_concursableController@update');
+Route::put('/proyecto/{proyecto}','ProyectosController@update');
+
+Route::get('/comunidad{id}', 'ComunidadController@show');
+Route::get('/empresa{id}', 'EmpresasController@show');
+Route::get('/fondo_concursable{id}', 'Fondo_concursableController@show');
+Route::get('/proyecto{id}', 'ProyectoController@show');
+
+Route::delete('/comunidad/{id}','ComunidadController@destroy');
+Route::delete('/empresa/{id}','EmpresasController@destroy');
+Route::delete('/fondo_concursable/{id}','Fondo_concursableController@destroy');
+Route::delete('/proyecto/{id}','ProyectoController@destroy');

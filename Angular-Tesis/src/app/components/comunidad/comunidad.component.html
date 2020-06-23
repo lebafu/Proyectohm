@@ -43,7 +43,33 @@
   <h3>Navbar With Dropdown</h3>
   <p>This example adds a dropdown menu in the navbar.</p>
 </div>
-
+<div class="mt-1 col-10 offset-1">
+    <div class="card">
+      <div class="card-header">Lista de Comunidades</div>
+      <div class="card-body">
+  <body class="container">
+   <table class="table table-bordered">
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Acción</th>
+      </tr>
+    <tbody>
+      <tr *ngFor="let comunidad of comunidades">
+        <td>{{comunidad.id}}</td>
+        <td>{{comunidad.nombre}}</td>
+        <td>
+        <a class="btn btn-primary btn-sm" routerLink="/comunidadedit/{{comunidad.id}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+        <a class="btn btn-primary btn-sm btn-danger" (click)="delete(comunidad.id)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
+      </tr>
+     </tbody>
+  </table>
+  </body>
+  </div>
+  <a class="btn btn-primary btn-sm" routerLink="/areatesiscreate">Crear</a>
+  </div>
+  </div>
+  
 </body>
 </html>
 
