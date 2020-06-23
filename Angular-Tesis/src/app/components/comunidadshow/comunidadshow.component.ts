@@ -9,7 +9,7 @@ import {Comunidad} from 'src/app/interfaces/comunidad';
 })
 export class ComunidadshowComponent implements OnInit {
 
-  constructor() { }
+  constructor(private comunidadesService: ComunidadesService) { }
 
   ngOnInit(): void {
   }

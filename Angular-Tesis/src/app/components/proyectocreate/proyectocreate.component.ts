@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {ProyectosService} from 'src/app/services/proyectos.service';
+import {Proyecto} from 'src/app/interfaces/proyecto';
 
 @Component({
   selector: 'app-proyectocreate',
@@ -7,9 +9,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProyectocreateComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private proyectosService: ProyectosService) { }
+  proyecto: Proyecto= {
+		nombre:null,
+  };
+  proyectos:Proyecto[];
   ngOnInit(): void {
   }
+  SaveProyecto(){
+    console.log(this.proyecto);
+    this.proyectosService.save(this.proyectos).subscribe(()=>{
+      alert('Proyectos Guardado');
+    console.log(this.proyectos);
+  },(error)=>{
+    alert('Ocurrió un error');
+  });
+}
+getArea_Tesis(){
+  this.proyectosService.get().subscribe((data: Proyecto[])=>{
+    this.proyectos=data;
+  }, (error)=>{
+  console.log(error);
+  alert('Ocurrió un error');
+  });
+}
 
 }
