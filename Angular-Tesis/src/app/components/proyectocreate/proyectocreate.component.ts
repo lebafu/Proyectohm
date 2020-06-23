@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {ProyectosService} from 'src/app/services/proyectos.service';
 import {Proyecto} from 'src/app/interfaces/proyecto';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-proyectocreate',
@@ -9,7 +10,7 @@ import {Proyecto} from 'src/app/interfaces/proyecto';
 })
 export class ProyectocreateComponent implements OnInit {
 
-  constructor(private proyectosService: ProyectosService) { }
+  constructor(private proyectosService: ProyectosService,private router: Router) { }
   proyecto: Proyecto= {
 		nombre:null,
   };
@@ -19,8 +20,8 @@ export class ProyectocreateComponent implements OnInit {
   SaveProyecto(){
     console.log(this.proyecto);
     this.proyectosService.save(this.proyecto).subscribe(()=>{
-      alert('Proyectos Guardado');
-      this.getProyecto();
+      alert('Proyecto Guardado');
+      this.router.navigateByUrl('/proyectos');
     console.log(this.proyectos);
   },(error)=>{
     alert('Ocurrió un error');

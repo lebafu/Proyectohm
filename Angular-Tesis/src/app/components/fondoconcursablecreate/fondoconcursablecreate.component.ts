@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FondosConcursablesService} from 'src/app/services/fondos-concursables.service';
 import {FondoConcursable} from 'src/app/interfaces/fondoconcursable';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-fondoconcursablecreate',
@@ -9,7 +10,7 @@ import {FondoConcursable} from 'src/app/interfaces/fondoconcursable';
 })
 export class FondoconcursablecreateComponent implements OnInit {
 
-  constructor(private fondosconcursablesService: FondosConcursablesService) { }
+  constructor(private fondosconcursablesService: FondosConcursablesService,private router: Router) { }
   fondo_concursable: FondoConcursable= {
 		nombre:null,
   };
@@ -21,6 +22,7 @@ export class FondoconcursablecreateComponent implements OnInit {
     this.fondosconcursablesService.save(this.fondo_concursable).subscribe(()=>{
       alert('Fondo Concursable Guardado');
     console.log(this.fondo_concursable);
+    this.router.navigateByUrl('/fondosconcursables');
   },(error)=>{
     alert('Ocurrió un error');
   });
