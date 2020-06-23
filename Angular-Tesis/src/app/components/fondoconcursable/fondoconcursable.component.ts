@@ -9,14 +9,15 @@ import {FondoConcursable} from 'src/app/interfaces/fondoconcursable';
 })
 export class FondoconcursableComponent implements OnInit {
   fondos_concursables:FondoConcursable[];
-  constructor(private fondosconcursablesService: FondosConcursablesService) { }
+  constructor(private fondosconcursablesService: FondosConcursablesService) {
+    this.getFondosConcursables();
+   }
 
   ngOnInit(): void {
   }
   getFondosConcursables(){
     this.fondosconcursablesService.get().subscribe((data:FondoConcursable[])=>{
       console.log(data);
-      alert(data);
       this.fondos_concursables = data;
     }, (error)=>{
     console.log(error);
