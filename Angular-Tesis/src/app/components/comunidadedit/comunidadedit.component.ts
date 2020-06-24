@@ -47,7 +47,7 @@ export class ComunidadeditComponent implements OnInit {
     console.log(this.editing);
     if(this.editing==true){
       this.comunidadesService.put(this.comunidad).subscribe((data) => {
-      alert('Area de Tesis se ha Actualizado');
+      alert('Comunidad se ha Actualizado');
       console.log(data);
       this.getComunidad();
     }, (error) => {

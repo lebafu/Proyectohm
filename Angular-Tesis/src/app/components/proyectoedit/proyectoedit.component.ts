@@ -39,7 +39,6 @@ export class ProyectoeditComponent implements OnInit {
       this.proyectosService.put(this.proyecto).subscribe((data) => {
       alert('Proyecto se ha Actualizado');
       console.log(data);
-      this.getProyecto();
     }, (error) => {
   console.log(error);
   alert('Ocurrio  un error al editar');
@@ -49,6 +48,7 @@ export class ProyectoeditComponent implements OnInit {
 
   getProyecto(){
     this.proyectosService.get().subscribe((data: Proyecto[])=>{
+      console.log(data);
       this.proyectos=data;
     }, (error)=>{
     console.log(error);

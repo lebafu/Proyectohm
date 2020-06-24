@@ -25,10 +25,11 @@ class ProyectoController extends Controller
     public function update(Request $request,$id)
     {
         $proyecto=Proyecto::findorfail($id);
-        $nombre_actual=$proyecto->nombre;
         $proyecto->nombre=$request->nombre;
         $proyecto->update();
+        //echo "Hola desde Update";
     }
+   
 
     public function show($id)
     {

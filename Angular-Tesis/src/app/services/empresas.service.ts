@@ -22,6 +22,7 @@ export class EmpresasService {
     }
   
     put(empresas:Empresa){
+      console.log(empresas);
       const headers= new HttpHeaders({'Content-Type':'application/json'});
       return this.httpClient.put(this.API_ENDPOINT +'/empresa/' + empresas.id,empresas,{headers:headers});
     }

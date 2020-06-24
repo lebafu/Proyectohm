@@ -21,10 +21,14 @@ export class ProyectosService {
   
     }
   
+  
+
     put(proyectos:Proyecto){
+      console.log(proyectos);
       const headers= new HttpHeaders({'Content-Type':'application/json'});
       return this.httpClient.put(this.API_ENDPOINT +'/proyecto/' + proyectos.id,proyectos,{headers:headers});
     }
+
     delete(id)
     {
      return this.httpClient.delete(this.API_ENDPOINT+ '/proyecto/' + id);

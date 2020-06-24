@@ -61,7 +61,6 @@ import { EmpresaeditComponent } from './components/empresaedit/empresaedit.compo
 import { FondoconcursableeditComponent } from './components/fondoconcursableedit/fondoconcursableedit.component';
 import { ProyectoeditComponent } from './components/proyectoedit/proyectoedit.component';
 import { ComunidadshowComponent } from './components/comunidadshow/comunidadshow.component';
-import { EmpresashowComponent } from './components/empresashow/empresashow.component';
 import { FondoconcursableshowComponent } from './components/fondoconcursableshow/fondoconcursableshow.component';
 import { ProyectoshowComponent } from './components/proyectoshow/proyectoshow.component';
 
@@ -102,12 +101,11 @@ const routes: Route[]=[
   {path: 'empresa_create', component: EmpresacreateComponent},
   {path: 'fondoconcursable_create', component:FondoconcursablecreateComponent},
   {path: 'proyecto_create', component:ProyectocreateComponent},
-  {path: 'comunidades/:id', component:ComunidadeditComponent},
-  {path: 'empresas/:id', component:EmpresaeditComponent},
-  {path: 'fondosconcursables/:id',component:FondoconcursableeditComponent},
-  {path: 'proyectos/:id', component:ProyectoComponent},
+  {path: 'comunidad/:id', component:ComunidadeditComponent},
+  {path: 'empresa/:id', component:EmpresaeditComponent},
+  {path: 'fondoconcursable/:id',component:FondoconcursableeditComponent},
+  {path: 'proyecto/:id', component:ProyectoeditComponent},
   {path: 'comunidades_show/:id', component:ComunidadshowComponent},
-  {path: 'empresas_show/:id', component: EmpresaeditComponent},
   {path: 'proyecto_show/:id', component:ProyectoComponent}]
   
   
@@ -163,7 +161,6 @@ const routes: Route[]=[
       FondoconcursableeditComponent,
       ProyectoeditComponent,
       ComunidadshowComponent,
-      EmpresashowComponent,
       FondoconcursableshowComponent,
       ProyectoshowComponent,
     ],

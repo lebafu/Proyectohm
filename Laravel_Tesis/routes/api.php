@@ -75,12 +75,12 @@ Route::get('/proyecto{proyectos}', 'EmpresasController@edit');
 Route::put('/comunidad/{comunidad}','ComunidadController@update');
 Route::put('/empresa/{empresa}','EmpresasController@update');
 Route::put('/fondo_concursable/{fondo_concursable}','Fondo_concursableController@update');
-Route::put('/proyecto/{proyecto}','ProyectosController@update');
+Route::put('/proyecto/{proyecto}','ProyectoController@update');
 
 Route::get('/comunidad{id}', 'ComunidadController@show');
 Route::get('/empresa{id}', 'EmpresasController@show');
 Route::get('/fondo_concursable{id}', 'Fondo_concursableController@show');
-Route::get('/proyecto{id}', 'ProyectoController@show');
+Route::get('/proyecto/{id}', 'ProyectoController@show');
 
 Route::delete('/comunidad/{id}','ComunidadController@destroy');
 Route::delete('/empresa/{id}','EmpresasController@destroy');
