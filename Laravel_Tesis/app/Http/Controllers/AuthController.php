@@ -78,12 +78,19 @@ class AuthController extends Controller
             'access_token' => $token,
             'token_type' => 'bearer',
             'expires_in' => auth()->factory()->getTTL() * 60,
+            'id' => auth()->user()->id,
             'user' => auth()->user()->name,
             'tipo_usuario' => auth()->user()->tipo_usuario,
             'director_escuela' => auth()->user()->director_escuela,
         ]);
     }
 
+    public function obtener_id(){
+    return response()->json([
+        'id' => auth()->user()->id;
+    ]);
+    }
+    
     //Registro de alumno
     public function signup(Request $request){
         $ultimo_id=DB::table('users')->max('id'); 

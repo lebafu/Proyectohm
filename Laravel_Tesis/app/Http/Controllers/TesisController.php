@@ -17,8 +17,8 @@ class TesisController extends Controller
 
     public function index1()
     {
-        $id=auth()->user()->id;
-        $alumno=User::findorfail($id);
+       
+        $alumno=User::findorfail(auth()->user()->id);
         $profes=DB::table('users')->where('tipo_usuario','=',2)->get();
         //dd($id);
         if($id==null){

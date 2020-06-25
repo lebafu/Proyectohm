@@ -43,4 +43,9 @@ show(id){
 {
  return this.httpClient.delete(this.API_ENDPOINT+ '/users/' + id);
 }
+
+obtener_id(){
+  const headers=new HttpHeaders({'Content-Type':'application/json'});
+  return this.httpClient.post(this.API_ENDPOINT + '/obtener_user',{headers:headers});
+}
 }

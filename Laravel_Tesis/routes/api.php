@@ -86,3 +86,5 @@ Route::delete('/comunidad/{id}','ComunidadController@destroy');
 Route::delete('/empresa/{id}','EmpresasController@destroy');
 Route::delete('/fondo_concursable/{id}','Fondo_concursableController@destroy');
 Route::delete('/proyecto/{id}','ProyectoController@destroy');
+
+Route::post('/obtener_user','UsersController@obtener_user');

@@ -1,26 +1,21 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+
 <nav class="navbar navbar-expand-lg" style="background-color:#000a49">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand text-white" href="#">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <li class="nav-item">
+          <a class="nav-link text-white" RouterLink="/tesis_alumno_solicitud">Ver Tesis</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/tesis_alumno_solicitud">Ver Tesis</a>
+          <a class="nav-link text-white" RouterLink="/crear-tesis">Crear Tesis</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/crear-tesis">Crear Tesis</a>
-        </li>
-       
-      </ul>
+       </ul>
     </div>
   </nav>
-
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-
 
 <div class="container">
   <div class="row justify-content-center">
@@ -40,9 +35,10 @@
           <th>Nota Pendiente</th>
           <th>Nota Prorroga</th>
         <tr *ngFor="let tesis of tesistas">
-        <!--<td><a *ngIf="tesis.nombre_completo==user.name || tesis.nombre_completo2==user.name"></a></td>
-          <td>{{$tesis.id_pk}}</td>
-          <td><a *ngIf="((tesis.estado1>=2 || tesis.estado2==1) && (tesis.nota_tesis==null))" href="/generar_formulario_inscripcion_tesis/{{tesis->id_pk)}}">Formulario Inscripción</a>
+        <!--<td><a *ngIf="tesis.nombre_completo==user.name || tesis.nombre_completo2==user.name"></a></td>-->
+          <td>{{tesis.id_pk}}</td>
+          <td>{{tesis.profesor_guia}}</td>
+          <!--<td><a *ngIf="tesis.estado1>=2 || tesis.estado2==1) && (tesis.nota_tesis==null" href="/generar_formulario_inscripcion_tesis/{{tesis->id_pk)}}">Formulario Inscripción</a>
          </td>
           <td>{{$tesis.profesor_guia}}</td>
           <td>{{$tesis.tipo}}</td>
@@ -52,12 +48,12 @@
          <td><a *ngIf="tesis.estado1==1 && tesis.estado2==null && tesis.estado3==2">Rechazado por Profesor</a></td>
          <td><a *ngIf="tesis.estado1==4">Inscrita</a></td>
          <td><a *ngIf="tesis.estado1==5">Rechazada Por Coordinador</a></td>
-         <td><a *ngIf="tesis.nota_pendiente!=null && tesis.nota_prorroga==null && tesis.estado6==1 && tesis.estado7==null and (tesis.nota_tesis==null)" >
+         <td><a *ngIf="tesis.nota_pendiente!=null && tesis.nota_prorroga==null && tesis.estado6==1 && tesis.estado7==null and tesis.nota_tesis==null" >
             <td>{{$tesis.nota_pendiente}}</td>
             <td><a href="/pedir_nota_prorroga/{{$tesis.id_pk}}">Pedir nota</a></td>
              <td><a href="/vista_subir_archivo/{{$tesis.id_pk}}">Subir constancia</a><td>
          </a></td>
-         <a *ngIf="tesis.nota_pendiente!=null && tesis.nota_prorroga==null and tesis.estado6!=null and tesis.estado7==null and (tesis.nota_tesis>4 || tesis.nota_tesis==null)"><td>En espera</td>
+         <a *ngIf="tesis.nota_pendiente!=null && tesis.nota_prorroga==null and tesis.estado6!=null and tesis.estado7==null and (tesis.nota_tesis>4 || tesis.nota_tesis==null"><td>En espera</td>
             <td><a href="/vista_subir_archivo/{{tesis->id_pk}}">Subir constancia</a><td></a>
         <a *ngIf="(tesis.nota_pendiente==null && tesis.estado1==4 && tesis.nota_prorroga==null && (tesis.nota_tesis==null))"><td>
             <a href="/pedir_nota_pendiente/$tesis.id_pk)}}">Pedir nota Pendiente</a>
@@ -70,16 +66,12 @@
             <td>  </td>
             <td>  </td>
           </a>
-         
-          <a *ngIf="(tesis.nota_pendiente!=null && tesis.nota_pendiente!=null && tesis.estado6==1 && tesis.estado7!=1 && (tesis.nota_tesis==null))">
+          <a *ngIf="tesis.nota_pendiente!=null && tesis.nota_pendiente!=null && tesis.estado6==1 && tesis.estado7!=1 && tesis.nota_tesis==null)">
             <td>{{tesis.nota_pendiente}}</td>
-             <td><a href="{{url('/pedir_nota_prorroga/'.$tesis->id_pk)}}">Pedir nueva nota de Prorroga</a></td>
+             <td><a href="/pedir_nota_prorroga/{{tesis->id_pk}}">Pedir nueva nota de Prorroga</a></td>
           <td>En Espera</td>
           <td><a href="/vista_subir_archivo{{tesis.id_pk)}}">Subir constancia</a></td>
           </a>
-         
-         
-    
          <a *ngIf="(tesis.nota_prorroga!=null && tesis.nota_pendiente!=null && tesis.estado6==1 && tesis.estado7==1 && (tesis.nota_tesis==null))">
           <td>{{tesis.nota_pendiente}}</td>
           <td>{{tesis.nota_prorroga}}<a href="/pedir_nota_prorroga/$tesis.id_pk)}}">Pedir nota</a></td>
@@ -88,13 +80,12 @@
          <a *ngIf="tesis.nota_prorroga!=null  && tesis.nota_pendiente!=null && tesis.estado6==1 && tesis.estado7==1 && tesis.nota_tesis!=null">
            <td>{{$tesis.nota_pendiente}}</td>
            <td>{{tesis.nota_prorroga}}</td>
-        </a>
-          <a href="/tesismostrar/{{tesis.id_pk}}" class="btn btn-info" style="width:25px; height:25px;margin:1px"><span class="fa fa-eye fa-xs" style="float:left; margin-left:-8px" ></span></a>-->
+        </a>-->
+          <a href="/tesismostrar/{{tesis.id_pk}}" class="btn btn-info">Ver</a>
         </tr>
      </table>
      </div>
      </div>
-    
      </div>
      <a href="/estudiante" class="btn btn-default">Volver a home</a>
      </div>

@@ -5,7 +5,6 @@ import {Route, RouterModule} from '@angular/router';
 import {HttpClientModule} from '@angular/common/http';
 import {FormsModule} from '@angular/forms';
 import { AppComponent } from './app.component';
-import { AlumnoFormComponent } from './alumno-form/alumno-form.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -67,7 +66,6 @@ import { ProyectoshowComponent } from './components/proyectoshow/proyectoshow.co
 
 const routes: Route[]=[
   {path:'', component: HomeComponent},
-  {path:'alumno-form', component: AlumnoFormComponent},
   {path:'signup',component: SignupComponent},
   {path:'login', component: LoginComponent},
   {path:'users', component: UserComponent},
@@ -75,12 +73,12 @@ const routes: Route[]=[
   {path:'usersshow/:id',component: UsersshowComponent},
   {path:'userscreate',component:UserscreateComponent},
   {path:'repositorio',component:RepositorioComponent},
-  {path:'admin' ,component: Navbar00Component},
-  {path:'estudiante', component: Navbar10Component},
-  {path:'profesor', component: Navbar20Component},
-  {path:'director_escuela', component: Navbar21Component},
-  {path:'coordinador_tesis', component: Navbar30Component},
-  {path:'secretaria', component: Navbar40Component},
+  {path:'admin/:id' ,component: Navbar00Component},
+  {path:'estudiante/:id', component: Navbar10Component},
+  {path:'profesor/:id', component: Navbar20Component},
+  {path:'director_escuela/:id', component: Navbar21Component},
+  {path:'coordinador_tesis/:id', component: Navbar30Component},
+  {path:'secretaria/:id', component: Navbar40Component},
   {path:'asignardirectorescuela',component:AsignardirectorescuelaComponent},
   {path:'areatesis', component: AreatesisComponent},
   {path:'areatesiscreate',component: AreatesiscreateComponent},
@@ -112,7 +110,6 @@ const routes: Route[]=[
   @NgModule({
     declarations: [
       AppComponent,
-      AlumnoFormComponent,
       HomeComponent,
       LoginComponent,
       NavbarComponent,

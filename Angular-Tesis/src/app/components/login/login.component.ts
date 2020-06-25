@@ -12,6 +12,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class LoginComponent implements OnInit {
   nombre_usuario:string;
+  id:number;
   public form = {
     email: null,
     password: null
@@ -36,24 +37,25 @@ export class LoginComponent implements OnInit {
   handleResponse(data) {
     console.log(data);
     this.Token.handle(data.access_token);
+    this.id=data.id;
     this.nombre_usuario=data.user;
     if(data.tipo_usuario==0){
-      this.router.navigateByUrl('/admin');
+      this.router.navigateByUrl('/admin/'+ data.id);
       }else{
         if(data.tipo_usuario==1){
-          this.router.navigateByUrl('/estudiante');
+          this.router.navigateByUrl('/estudiante/'+ data.id);
         }else{
           if(data.tipo_usuario==2 && data.director_escuela==0){
-            this.router.navigateByUrl('/profesor');
+            this.router.navigateByUrl('/profesor/'+ data.id);
           }else{
               if(data.tipo_usuario==2 && data.director_escuela==1){
-                this.router.navigateByUrl('/director_escuela');
+                this.router.navigateByUrl('/director_escuela/'+ data.id);
           }else{
             if(data.tipo_usuario==3){
-              this.router.navigateByUrl('/coordinador_tesis');
+              this.router.navigateByUrl('/coordinador_tesis/'+ data.id);
             }else{
               if(data.tipo_usuario==4){
-                this.router.navigateByUrl('/secretaria');
+                this.router.navigateByUrl('/secretaria/'+ data.id);
               }
         }
       }

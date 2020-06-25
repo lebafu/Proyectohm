@@ -12,6 +12,7 @@ use Closure;
 use Session;
 use Auth;
 use DB;
+use JWTAuth;
 
 class UsersController extends Controller
 {
@@ -153,5 +154,12 @@ class UsersController extends Controller
         $profesores=DB::table('users')->where('tipo_usuario','=',2)->get();
         echo json_encode($profesores);
         //return response()->json([$profesores]);
+    }
+
+    public function obtener_user(){
+        return response()->json([
+            'id' => auth()->user()->id,
+            'name' => auth()->user()->name
+        ]);
     }
 }
