@@ -85,9 +85,11 @@ class AuthController extends Controller
         ]);
     }
 
-    public function obtener_id(){
+    public function obtener_user(){
     return response()->json([
-        'id' => auth()->user()->id;
+        'id' => auth()->user()->id,
+        'name' => auth()->user->name,
+        'tipo_usuario' =>auth()->user->tipo_usuario,
     ]);
     }
     
@@ -115,6 +117,47 @@ class AuthController extends Controller
 
        return $this->login($request);
     }
+
+    public function index1()
+    {
+        $user_data=JWTAuth::toUser($request->token);
+        $id=$user_data->id;
+        $alumno=User::findorfail($id);
+        echo json_encode($alumno);
+        $profes=DB::table('users')->where('tipo_usuario','=',2)->get();
+        //dd($id);
+        if($id==null){
+            return('tesis.sinpermiso');
+        }
+        $user=User::findorfail($id);
+        //dd($user);
+        $tesistas=DB::table('tesis')->where('nombre_completo','=',$user->name)->orwhere('nombre_completo2','=',$user->name)->paginate(7);
+        //dd($tesistas);
+
+          $j=0;
+          foreach($tesistas as $tesista);
+        $area_tesis=DB::table('area_tesis')->get();
+        $empresas=DB::table('empresas')->get();
+        $comunidads=DB::table('comunidad')->get();
+        $fcs=DB::table('fondo_concursable')->get();
+        $proyectos=DB::table('proyectos')->get();
+        //dd($area_tesis);
+        //dd($nota_tesis);
+        //dd($tesistas->isEmpty());
+        //En caso de que no hayan tesis inscritas, ocurre que se redirecciona al formulario de inscribir tesis.
+        if($tesistas->isEmpty()==true){
+        //return view('tesis.create',compact('alumno','profes','area_tesis','empresas','comunidads','fcs','proyectos'));
+        }else{
+            //dd($tesistas->isEmpty());
+            if($tesistas->isEmpty()==false){
+                //En caso de que si haya tesis inscritas para el alumno logueado, se mostrará la lista con las tesis inscritas de este alumno.
+            //return view('tesis.index1',compact('tesistas','user'));
+                }
+        }
+        echo json_encode($tesistas);
+
+    }
+
 }
 
 

@@ -1,24 +1,27 @@
 <?php
 
 namespace App\Http\Controllers;
+use JWTAuth;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\Controller;
 use App\User;
 use App\Tesis;
 use Illuminate\Http\Request;
-use Str;
-use JWTAuth;
-
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Str;
+
 
 class TesisController extends Controller
 {
-    //
+ 
 
     public function index1()
     {
-       
-        $alumno=User::findorfail(auth()->user()->id);
+        $user=JWTAuth::toUser();
+        echo json_encode($user);
+        $alumno=User::findorfail($id);
+        //echo json_encode($alumno);
         $profes=DB::table('users')->where('tipo_usuario','=',2)->get();
         //dd($id);
         if($id==null){
@@ -49,13 +52,15 @@ class TesisController extends Controller
             //return view('tesis.index1',compact('tesistas','user'));
                 }
         }
-        echo json_encode($tesistas);
+        //echo json_encode($tesistas);
 
     }
 
+    
+
     public function index_al_sec(){
         $tesistas=DB::table('tesis')->where('estado1','=',4)->where('estado2','=',1)->get();
-        echo json_encode($tesistas);
+        //echo json encode($tesistas);
         }
 
         public function fecha_presentacion($id)

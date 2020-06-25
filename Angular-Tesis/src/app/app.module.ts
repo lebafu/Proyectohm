@@ -62,6 +62,7 @@ import { ProyectoeditComponent } from './components/proyectoedit/proyectoedit.co
 import { ComunidadshowComponent } from './components/comunidadshow/comunidadshow.component';
 import { FondoconcursableshowComponent } from './components/fondoconcursableshow/fondoconcursableshow.component';
 import { ProyectoshowComponent } from './components/proyectoshow/proyectoshow.component';
+import { CrearTesisAlumnoComponent } from './crear-tesis-alumno/crear-tesis-alumno.component';
 
 
 const routes: Route[]=[
@@ -89,7 +90,7 @@ const routes: Route[]=[
   {path:'fecha_presentacion/:id', component: FechaPresentacionCreateComponent},
   {path:'fecha_presentacion_edit/:id', component: FechaPresentacionEditComponent},
   {path:'mostrar_repositorio_detalle/:id',component:RepositorioShowComponent},
-  {path:'tesis_alumno_solicitud',component:Index1TesisComponent},
+  {path:'tesis_alumno_solicitud/:id',component:Index1TesisComponent},
   {path: 'titulados-sec', component:TituladosSecComponent},
   {path: 'comunidades', component:ComunidadComponent},
   {path: 'empresas', component: EmpresaComponent},
@@ -160,6 +161,7 @@ const routes: Route[]=[
       ComunidadshowComponent,
       FondoconcursableshowComponent,
       ProyectoshowComponent,
+      CrearTesisAlumnoComponent,
     ],
     imports: [
       BrowserModule,

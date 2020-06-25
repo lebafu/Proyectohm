@@ -1,5 +1,6 @@
 <?php
 
+
 namespace App\Http\Controllers;
 use App\User;
 use App\Grado_Academico;
@@ -12,7 +13,7 @@ use Closure;
 use Session;
 use Auth;
 use DB;
-use JWTAuth;
+
 
 class UsersController extends Controller
 {
