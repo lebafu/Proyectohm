@@ -44,6 +44,21 @@
         <a class="navbar-brand text-white" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
       </div>
     </nav>
-    
+    <div class="mt-4 col-8 offset-2">
+      <div class="card">
+        <div class="card-header">Bienvenido Administrador!!!!!</div>
+        <div class="card-body">
+         <h2><b>Sistema de Tesis</b></h2> 
+        <p>Podrás realizar las siguientes tareas:</p>
+        <div>-Ver Lista de Usuarios del Sistema(CRUD).</div><br>
+        <div>-Podrá crear todo tipo de usuarios menos al Alumno que se registra directamente.<div><br>
+        <div>-CRUD sobre Area de Tesis.</div><br>
+        <div>-Seleccionar a Director de Escuela.</div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+  
     
     <router-outlet></router-outlet>
