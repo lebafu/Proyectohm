@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient} from '@angular/common/http';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
 
 
 
@@ -27,8 +27,15 @@ export class TesisService {
   	return this.httpClient.get('http://localhost:8000/api' + '/repositorio_tesis');
   }
 
-  getAlumno(){          
-    return this.httpClient.get('http://localhost:8000/api' + '/tesis_alumno_solicitud'
-    );
+  getAlumno(id){     
+    //let headers=new HttpHeaders({
+     // "Content-Type": "application/json",
+     // "Authorization": "Bearer" + tok
+    //});
+    console.log(id);
+    return this.httpClient.get('http://localhost:8000/api' + '/tesis_alumno_solicitud/'+ id)
+    
   }
+
+ 
 }

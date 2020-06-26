@@ -19,7 +19,7 @@ export class TokenService {
   get() {
     return localStorage.getItem('token');
   }
-
+  
   remove() {
     localStorage.removeItem('token');
   }

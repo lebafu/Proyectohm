@@ -84,14 +84,6 @@ class AuthController extends Controller
             'director_escuela' => auth()->user()->director_escuela,
         ]);
     }
-
-    public function obtener_user(){
-    return response()->json([
-        'id' => auth()->user()->id,
-        'name' => auth()->user->name,
-        'tipo_usuario' =>auth()->user->tipo_usuario,
-    ]);
-    }
     
     //Registro de alumno
     public function signup(Request $request){
@@ -111,6 +103,7 @@ class AuthController extends Controller
        $user->email=$request->email;
        $user->password=Hash::make($request->password);
        $user->sexo=$request->sexo;
+       $user->token=$request->token;
        $user->tipo_usuario=1; 
        //echo json_encode($user);
        $user->save();
@@ -120,10 +113,12 @@ class AuthController extends Controller
 
     public function index1()
     {
-        $user_data=JWTAuth::toUser($request->token);
-        $id=$user_data->id;
+        //$user_data=JWTAuth::toUser($this->respondWithToken($token));
+        $user=$this->me();
+        echo json_encode($user);
+        $id=$user->id;
         $alumno=User::findorfail($id);
-        echo json_encode($alumno);
+        //echo json_encode($alumno);
         $profes=DB::table('users')->where('tipo_usuario','=',2)->get();
         //dd($id);
         if($id==null){

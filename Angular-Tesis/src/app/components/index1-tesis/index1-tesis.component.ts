@@ -13,12 +13,19 @@ import { TokenService } from '../../services/token.service';
   styleUrls: ['./index1-tesis.component.css']
 })
 export class Index1TesisComponent implements OnInit {
-
-  constructor(private Jarwis: JarwisService,private tesisService:TesisService,private usersService:UsersService,private Token: TokenService,
-    private router: Router) { }
   tesistas:Tesis[];
-  id:number;
+  id:string;
   user:User;
+  tok:string;
+  constructor(private Jarwis: JarwisService,private tesisService:TesisService,private usersService:UsersService,private Token: TokenService,
+    private router: Router) {
+      this.id=localStorage.getItem('id');
+      this.tok=localStorage.getItem('token');
+      console.log(this.id);
+      console.log(this.tok);
+     this.get_tesis_alumno(this.id);
+     }
+  
   ngOnInit(): void {
   }
 
@@ -29,8 +36,8 @@ export class Index1TesisComponent implements OnInit {
 }*/
 
 
-  get_tesis_alumno(){
-    this.tesisService.getAlumno().subscribe((data: Tesis[])=>{
+  get_tesis_alumno(id){
+    this.tesisService.getAlumno(id).subscribe((data: Tesis[])=>{
     //alert(data);
       console.log(data);
       this.tesistas = data;

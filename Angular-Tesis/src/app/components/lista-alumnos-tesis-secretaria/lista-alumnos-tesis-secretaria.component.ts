@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {TesisService} from 'src/app/services/tesis.service';
 import {Tesis} from 'src/app/interfaces/tesis';
 import {PdfViewerModule} from 'ng2-pdf-viewer';
+import { TokenService } from '../../services/token.service';
 
 @Component({
   selector: 'app-lista-alumnos-tesis-secretaria',
@@ -10,7 +11,9 @@ import {PdfViewerModule} from 'ng2-pdf-viewer';
 })
 export class ListaAlumnosTesisSecretariaComponent implements OnInit {
   tesistas:Tesis[];
-  constructor(private tesisService:TesisService) {
+  t:string;
+
+  constructor(private tesisService:TesisService, private Token:TokenService) {
     this.getTesis();
    }
 

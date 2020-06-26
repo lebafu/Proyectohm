@@ -90,7 +90,7 @@ const routes: Route[]=[
   {path:'fecha_presentacion/:id', component: FechaPresentacionCreateComponent},
   {path:'fecha_presentacion_edit/:id', component: FechaPresentacionEditComponent},
   {path:'mostrar_repositorio_detalle/:id',component:RepositorioShowComponent},
-  {path:'tesis_alumno_solicitud/:id',component:Index1TesisComponent},
+  {path:'tesis_alumno_solicitud',component:Index1TesisComponent},
   {path: 'titulados-sec', component:TituladosSecComponent},
   {path: 'comunidades', component:ComunidadComponent},
   {path: 'empresas', component: EmpresaComponent},
@@ -105,7 +105,8 @@ const routes: Route[]=[
   {path: 'fondoconcursable/:id',component:FondoconcursableeditComponent},
   {path: 'proyecto/:id', component:ProyectoeditComponent},
   {path: 'comunidades_show/:id', component:ComunidadshowComponent},
-  {path: 'proyecto_show/:id', component:ProyectoComponent}]
+  {path: 'proyecto_show/:id', component:ProyectoComponent},
+  {path: 'crear_tesis', component:CrearTesisAlumnoComponent}]
   
   
   @NgModule({

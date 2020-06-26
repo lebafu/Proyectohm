@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Tesis } from 'src/app/interfaces/tesis';
+
 
 @Component({
   selector: 'app-crear-tesis',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./crear-tesis.component.css']
 })
 export class CrearTesisComponent implements OnInit {
+  tesis:Tesis;
 
   constructor() { }
 

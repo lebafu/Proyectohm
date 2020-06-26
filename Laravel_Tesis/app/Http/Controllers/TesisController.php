@@ -16,11 +16,10 @@ class TesisController extends Controller
 {
  
 
-    public function index1()
+    public function index1($id)
     {
-        $user=JWTAuth::toUser();
-        echo json_encode($user);
-        $alumno=User::findorfail($id);
+        //echo json_encode('HOLA');
+        $user=User::findorfail($id);
         //echo json_encode($alumno);
         $profes=DB::table('users')->where('tipo_usuario','=',2)->get();
         //dd($id);
@@ -29,7 +28,7 @@ class TesisController extends Controller
         }
         $user=User::findorfail($id);
         //dd($user);
-        $tesistas=DB::table('tesis')->where('nombre_completo','=',$user->name)->orwhere('nombre_completo2','=',$user->name)->paginate(7);
+        $tesistas=DB::table('tesis')->where('nombre_completo','=',$user->name)->orwhere('nombre_completo2','=',$user->name)->get();
         //dd($tesistas);
 
           $j=0;
@@ -52,7 +51,7 @@ class TesisController extends Controller
             //return view('tesis.index1',compact('tesistas','user'));
                 }
         }
-        //echo json_encode($tesistas);
+        echo json_encode($tesistas);
 
     }
 
@@ -60,7 +59,8 @@ class TesisController extends Controller
 
     public function index_al_sec(){
         $tesistas=DB::table('tesis')->where('estado1','=',4)->where('estado2','=',1)->get();
-        //echo json encode($tesistas);
+        //echo json_encode($tesistas);
+          echo json_encode($tesistas);
         }
 
         public function fecha_presentacion($id)

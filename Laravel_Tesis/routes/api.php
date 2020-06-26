@@ -54,7 +54,7 @@ Route::put('/update_fecha_presentacion/{tesis}','TesisController@update_fecha_pr
 
 Route::get('/repositorio_tesis', 'TesisController@repositorio_tesis');
 Route::get('/mostrar_tesis/{id_pk}', 'TesisController@mostrar_tesis')->name('tesis.show');
-Route::get('/tesis_alumno_solicitud', 'TesisController@index1')->name('tesis.index1');
+Route::get('/tesis_alumno_solicitud/{id}', 'TesisController@index1')->name('tesis.index1');
 
 
 Route::get('/comunidades', 'ComunidadController@index');
