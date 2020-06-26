@@ -63,6 +63,7 @@ import { ComunidadshowComponent } from './components/comunidadshow/comunidadshow
 import { FondoconcursableshowComponent } from './components/fondoconcursableshow/fondoconcursableshow.component';
 import { ProyectoshowComponent } from './components/proyectoshow/proyectoshow.component';
 import { CrearTesisAlumnoComponent } from './crear-tesis-alumno/crear-tesis-alumno.component';
+import { ShowtesisalumnoComponent } from './showtesisalumno/showtesisalumno.component';
 
 
 const routes: Route[]=[
@@ -106,9 +107,9 @@ const routes: Route[]=[
   {path: 'proyecto/:id', component:ProyectoeditComponent},
   {path: 'comunidades_show/:id', component:ComunidadshowComponent},
   {path: 'proyecto_show/:id', component:ProyectoComponent},
-  {path: 'crear_tesis', component:CrearTesisAlumnoComponent}]
-  
-  
+  {path: 'crear_tesis', component:CrearTesisAlumnoComponent},
+  {path: 'tesismostrar/:id', component: ShowtesisalumnoComponent},
+]
   @NgModule({
     declarations: [
       AppComponent,
@@ -163,6 +164,7 @@ const routes: Route[]=[
       FondoconcursableshowComponent,
       ProyectoshowComponent,
       CrearTesisAlumnoComponent,
+      ShowtesisalumnoComponent,
     ],
     imports: [
       BrowserModule,
