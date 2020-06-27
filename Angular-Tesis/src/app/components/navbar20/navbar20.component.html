@@ -65,8 +65,12 @@ body {
 }
 </style>
    <div class="navbar" style="background-color:#000a49"> 
-      <a class="navbar-brand text-white" href="#">Home</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <a class="navbar-brand text-white">Home</a>
+      <a class="navbar-brand text-white" routerLink="/comunidades">Comunidad</a>
+      <a class="navbar-brand text-white" routerLink="/fondosconcursables">Fondos Concursables</a>
+      <a class="navbar-brand text-white" routerLink="/empresas">Empresas</a>
+      <a class="navbar-brand text-white" routerLink="/proyectos">Proyectos</a>
+     <!--<a> <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -104,8 +108,8 @@ body {
             </div>
           </li>
         </ul>
-      </div>
-      <!--<a class="navbar-brand text-white" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>-->
+      </div>-->
+      <a class="navbar-brand text-white" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
     </div>
     <div class="mt-4 col-8 offset-2">
       <div class="card">

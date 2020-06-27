@@ -23,7 +23,7 @@ export class ShowtesisalumnoComponent implements OnInit {
           console.log(error);
          });
    }
-
+ 
    ngOnInit(): void {
   }
  
