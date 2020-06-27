@@ -20,7 +20,9 @@ class UsersController extends Controller
 	public function index()
     {
         
-        $users=DB::table('users')->get();
+        $users=DB::table('users')
+        ->join('grado_academico_profesor_planta','users.id','=','grado_academico_profesor_planta.id')
+        ->get();
         echo json_encode($users);
     }
 
@@ -142,9 +144,9 @@ class UsersController extends Controller
 
     public function show($id){
     
-        $users=DB::table('users')->where('id','=',$id)->join('grado_academico_profesor_planta','users.id','=','grado_academico_profesor_planta.id')->get();
-        foreach($users as $user);
-        echo json_encode($user);
+        $users=DB::table('users')->join('grado_academico_profesor_planta','users.id','=','grado_academico_profesor_planta.id')
+        ->get();
+        echo json_encode($users);
     }
     public function destroy($id)
     {

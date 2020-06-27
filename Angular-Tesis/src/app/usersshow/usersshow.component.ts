@@ -26,8 +26,10 @@ export class UsersshowComponent implements OnInit {
     this.id=this.activatedRoute.snapshot.params['id'];
         this.editing=true;
         this.usersService.get().subscribe((data: User[])=>{
+        console.log(data);
         this.users=data;
         this.user=this.users.find((u)=>{return u.id==this.id})
+        console.log(this.user);
          }, (error)=>{
           console.log(error);
          });

@@ -1,6 +1,39 @@
-<div class="mt-4 col-8 offset-2">
+<style>
+    /* Este es para los elementos en general */
+    .navbar-light .navbar-nav .nav-link {
+    color: orange;
+    }
+    /*  Este es para el elemento activo lo puedes omitir si asi deseas */
+    .navbar-light .navbar-nav .active>.nav-link  {
+     color: red;
+    }
+    </style>
+    <nav class="navbar navbar-expand-lg" style="background-color:#000a49">
+      <a class="navbar-brand text-white" href="#">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link text-white"  routerLink="/users">Lista de Usuarios</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" routerLink="/userscreate">Crear Usuario</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" href="/areatesis">Area de Tesis</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" routerLink="/asignardirectorescuela">Asignar Director Escuela</a>
+          </li>
+        </ul>
+      </div>
+      <div>
+      </div>
+    </nav><div class="mt-4 col-8 offset-2">
 	<div class="card">
-		<div class="card-header"><i aria-hidden="true"><FONT FACE="arial">Información</FONT></i>
+		<div class="card-header">Información detallado</div>
 		<div class="card-body">
 <form>
 
@@ -17,9 +50,9 @@
 <p *ngIf="user.tipo_usuario == '4'">Secretaria</p>
 
 
-<p *ngIf="user.tipo_usuario == '2'">
-	<b>Grado academico</b></p>
-	<p *ngIf="user.tipo_usuario == '2'">{{user.grado_academico}}</p>
+<p *ngIf="user.tipo_usuario == '2' || user.tipo_usuario=='3'">
+	<b>Grado academico</b><br>
+	{{user.grado_academico}}</p>
 
 <b>Sexo</b>
 <p>{{user.sexo}}</p>
@@ -27,5 +60,5 @@
 </div>
 </div>
 </div>
-</div>
+
 
