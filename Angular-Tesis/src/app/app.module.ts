@@ -64,6 +64,7 @@ import { FondoconcursableshowComponent } from './components/fondoconcursableshow
 import { ProyectoshowComponent } from './components/proyectoshow/proyectoshow.component';
 import { CrearTesisAlumnoComponent } from './crear-tesis-alumno/crear-tesis-alumno.component';
 import { ShowtesisalumnoComponent } from './showtesisalumno/showtesisalumno.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 const routes: Route[]=[
@@ -174,6 +175,7 @@ const routes: Route[]=[
       RouterModule.forRoot(routes),
       SnotifyModule,
       PdfViewerModule,
+      NgbModule,
     ],
     providers:  [JarwisService, TokenService, AuthService, AfterLoginService, BeforeLoginService,
       { provide: 'SnotifyToastConfig', useValue: ToastDefaults },

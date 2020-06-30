@@ -3,13 +3,14 @@ import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { TokenService } from '../../services/token.service';
 
+
 @Component({
   selector: 'app-navbar20',
   templateUrl: './navbar20.component.html',
   styleUrls: ['./navbar20.component.css']
 })
 export class Navbar20Component implements OnInit {
-
+  collapsed = true;
   public loggedIn: boolean;
   
   constructor(
