@@ -14,7 +14,158 @@ use Str;
 
 class TesisController extends Controller
 {
+    public function store(Request $request)
+    {
+
+    //dd($request);
+    /*$request->validate([
+        'nombre_completo' => 'required|string',
+        'rut' => 'required|string|min:11|max:12',
+        'ano_ingreso' => 'required|integer',
+        'telefono1'=> 'required|string',
+         'profesor_guia' => 'required|string',
+        'nombre_tesis' => 'required|string',
+        'area_tesis' => 'required|string',
+        'carrera' => 'required|string',
+        'tipo_vinculacion' => 'required|string',
+        'nombre_vinculacion' => 'required|string',
+        'tipo' => 'required|string',
+        'descripcion' => 'required|string',
+        'objetivos' =>'required|string',
+        'contribucion' => 'required|string'
+    ]);*/
+    if(($request->nombre_completo2==null and $request->rut2!=null and $request->ano_ingreso2!=null and $request->telefono2!=null)or($request->nombre_completo2!=null and $request->rut2==null and $request->ano_ingreso2!=null and $request->telefono2!=null)or($request->nombre_completo2!=null and $request->rut2!=null and $request->ano_ingreso2==null and $request->telefono2!=null)or($request->nombre_completo2!=null and $request->rut2!=null and $request->ano_ingreso2!=null and $request->telefono2==null)or($request->nombre_completo2!=null and $request->rut2==null and $request->ano_ingreso2==null and $request->telefono2!=null)or($request->nombre_completo2==null and $request->rut2!=null and $request->ano_ingreso2==null and $request->telefono2!=null)or($request->nombre_completo2==null and $request->rut2!=null and $request->ano_ingreso2!=null and $request->telefono2==null)or($request->nombre_completo2==null and $request->rut2==null and $request->ano_ingreso2!=null and $request->telefono2!=null)or($request->nombre_completo2==null and $request->rut2==null and $request->ano_ingreso2==null and $request->telefono2!=null)or($request->nombre_completo2==null and $request->rut2==null and $request->ano_ingreso2!=null  and $request->telefono2==null)or($request->nombre_completo2==null and $request->rut2!=null and $request->ano_ingreso2==null and $request->telefono2==null)or($request->nombre_completo2!=null and $request->rut2==null and $request->ano_ingreso2==null and $request->telefono2==null))
+    {
+    //dd($request->nombre_completo2);
+        //return json('error_campos');
+    }
+    /*$rut1=DB::table('tesis')->get();
+    $rut2=DB::table('tesis')->get();
+    $contador=0;
+    $buscar_segundo_alumno_user=DB::table('users')->where('name','=',$request->nombre_completo2)->get();
+    $buscar_segundo_alumno_tesis=DB::table('tesis')->where('nombre_completo','=',$request->nombre_completo2)->orwhere('nombre_completo2','=',$request->nombre_completo2)->get();
+    $buscar_primer_alumno_tesis=DB::table('tesis')->where('nombre_completo','=',$request->nombre_completo)->orwhere('nombre_completo2','=',$request->nombre_completo)->get();
+    $users=DB::table('users')->first();*/
  
+    
+    //Si el usuario no existe en el registro de usuario entonces no podra registrarse segundo alumno
+    //dd($buscar_segundo_alumno_user); 
+      
+
+    //buscar si el alumno ya tiene una tesis creada
+    //dd($buscar_segundo_alumno_tesis);
+    //dd($buscar_segundo_alumno_tesis->isEmpty());
+   //dd($buscar_primer_alumno_tesis);
+    //$id=Auth::id();
+    /*$user=User::findorfail($id);
+      foreach($buscar_primer_alumno_tesis as $tesista1);
+    foreach($buscar_segundo_alumno_tesis as $tesista2);
+    //dd($request);
+    if($user->tipo_usuario==1 and $request->nombre_completo2!=null and $request->rut2!=null and $request->ano_ingreso2!=null){ 
+        //dd('buscar_segundo_alumno_user'=> $buscar_segundo_alumno_user);
+        //dd($buscar_segundo_alumno_user->isEmpty());
+        //dd($buscar_segundo_alumno_user);
+        if(($buscar_segundo_alumno_user->isEmpty())==true){
+             return view('tesis.usuario_no_existe');
+            //echo 'Si son iguales';
+        }
+
+           //En caso de que el rut ya exista en la bd.
+    //dd($rut1);
+    foreach($rut1 as $rut)
+    {
+        if(($rut->rut==$request->rut2 and $tesista2->nota_tesis>4) or ($rut->rut==$request->rut2 and $tesista2->nota_tesis==null)){
+            return view('tesis.error_rut');
+        }
+    }
+
+    foreach($rut2 as $rut)
+    {
+        if(($rut->rut2==$request->rut2 and $tesista2->nota_tesis>4) or ($rut->rut2==$request->rut2 and $tesista2->nota_tesis==null)){
+            return view('tesis.error_rut');
+        }
+    }
+
+    foreach($rut1 as $rut)
+    {
+        if(($rut->rut==$request->rut2 and $tesista1->nota_tesis>4) or ($rut->rut==$request->rut2 and $tesista1->nota_tesis==null)){
+            return view('tesis.error_rut');
+        }
+    }
+
+    foreach($rut2 as $rut)
+    {
+        if(($rut->rut2==$request->rut2 and $tesista1->nota_tesis>4) or ($rut->rut2==$request->rut2 and $tesista1->nota_tesis==null)){
+            return view('tesis.error_rut');
+        }
+    }
+
+        if(($buscar_segundo_alumno_tesis->isEmpty())==false and $tesista1->nota_tesis>4){
+        return view('tesis.tesisregistrada');
+        }
+        $user->name=$request->nombre_completo;
+        $user->save();
+//dd($request);*/
+        DB::table('tesis')->insert([
+            'id' => $id,
+            'nombre_completo' => $request->nombre_completo,
+            'nombre_completo2' => $request->nombre_completo2,
+            'rut' =>$request->rut,
+            'rut2' =>$request->rut2,
+            'ano_ingreso' => $request->ano_ingreso,
+            'ano_ingreso2' => $request->ano_ingreso2,
+             'telefono1' => $request->telefono1,
+             'telefono2' => $request->telefono2,
+            'profesor_guia' =>$request->profesor_guia,
+            'nombre_tesis' => $request->nombre_tesis,
+            'area_tesis' => $request->area_tesis,
+            'carrera' => $request->carrera,
+            'tipo_vinculacion' => $request->tipo_vinculacion,
+            'nombre_vinculacion' =>$request->nombre_vinculacion,
+            'tipo'=> $request->tipo,
+            'descripcion' =>$request->descripcion,
+            'objetivos' => $request->objetivos,
+            'contribucion'=> $request->contribucion,
+        ]);
+//}
+
+    /*if($user->tipo_usuario==1 and $request->nombre_completo2==null and $request->rut2==null and $request->ano_ingreso2==null){ 
+        $user->name=$request->nombre_completo;
+        $user->save();
+    foreach($rut1 as $rut)
+    {
+        if(($rut->rut==$request->rut2 and $tesista1->nota_tesis>4) or ($rut->rut==$request->rut2 and $tesista1->nota_tesis==null)){
+            return view('tesis.error_rut');
+        }
+    }
+
+    foreach($rut2 as $rut)
+    {
+        if(($rut->rut==$request->rut2 and $tesista1->nota_tesis>4) or ($rut->rut==$request->rut2 and $tesista1->nota_tesis==null)){
+            return view('tesis.error_rut');
+        }
+    }*/
+       /* DB::table('tesis')->insert([
+            'id' => $id,
+            'nombre_completo' => $request->nombre_completo,
+            'rut' =>$request->rut,
+            'ano_ingreso' => $request->ano_ingreso,
+            'telefono1'=> $request->telefono1,
+            'profesor_guia' =>$request->profesor_guia,
+            'nombre_tesis' => $request->nombre_tesis,
+            'area_tesis' => $request->area_tesis,
+            'carrera' => $request->carrera,
+            'tipo_vinculacion' => $request->tipo_vinculacion,
+            'nombre_vinculacion' =>$request->nombre_vinculacion,
+            'tipo'=> $request->tipo,
+            'descripcion' =>$request->descripcion,
+            'objetivos' => $request->objetivos,
+            'contribucion'=> $request->contribucion,
+        ]);*/
+}
+
+//return  view('alumnohome');
+
 
     public function index1($id)
     {

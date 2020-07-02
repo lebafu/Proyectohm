@@ -36,6 +36,7 @@ Route::put('/users/{users}','UsersController@update');
 Route::delete('/users/{id}','UsersController@destroy');
 Route::get('profesores', 'UsersController@index_profesores');
 
+
 Route::get('area_tesis', 'Area_TesisController@index');
 Route::put('/area_tesis/{area_tesis}','Area_TesisController@update');
 Route::get('area_tesis{area_tesis}', 'Area_TesisController@edit');
@@ -44,6 +45,7 @@ Route::get('area_tesis{id}', 'Area_TesisController@show');
 Route::post('/area_tesis','Area_TesisController@store');
 Route::delete('/area_tesis/{id}','Area_TesisController@destroy');
 
+Route::post('/tesis','TesisController@store');
 Route::get('/index_al_sec', 'TesisController@index_al_sec');
 Route::get('/index_titulados_sec', 'TesisController@index_titulados_sec');
 Route::get('/constancia_ex_ver/{id}', 'TesisController@verPDF')->name('verPDF');

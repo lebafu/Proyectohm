@@ -12,7 +12,9 @@ import { Area_Tesis } from 'src/app/interfaces/area_tesis';
 import {Empresa} from 'src/app/interfaces/empresa';
 import {Comunidad} from 'src/app/interfaces/comunidad';
 import {Proyecto} from 'src/app/interfaces/proyecto';
-import { TYPED_NULL_EXPR } from '@angular/compiler/src/output/output_ast';
+import {TesisService} from 'src/app/services/tesis.service';
+import { TokenService } from 'src/app/services/token.service';
+
 
 @Component({
   selector: 'app-crear-tesis-alumno',
@@ -20,6 +22,11 @@ import { TYPED_NULL_EXPR } from '@angular/compiler/src/output/output_ast';
   styleUrls: ['./crear-tesis-alumno.component.css']
 })
 export class CrearTesisAlumnoComponent implements OnInit {
+  identificador:string;
+  tok:string;
+  carreras:String[]=["Ingeniería Civil Informática","Ingeniería en Informática","Ingeniería en Ejecución",];
+  tipos_vinculaciones:String[]=["Comunidad","Empresa","Fondo Concursable","Proyecto"];
+  tipos_trabajos:String[]=["Tesis","Memoria"];
   tesis:Tesis={
     nombre_completo:null,
     nombre_completo2:null,
@@ -62,20 +69,40 @@ export class CrearTesisAlumnoComponent implements OnInit {
     abstract_res:null,
     titulo:null,
   };
-  profesores:User;
+  profesores:User[];
   comunidades: Comunidad[];
   fondos_concursables: FondoConcursable[];
   empresas:Empresa[];
   proyectos:Proyecto[];
   areas_tesis:Area_Tesis[];
-  constructor(private usersService: UsersService,private areastesisService: AreasTesisService,private empresasService: EmpresasService,private fondosconcursablesService: FondosConcursablesService,private comunidadesService: ComunidadesService,private proyectosService: ProyectosService)
+  constructor(private Token: TokenService,private tesisService:TesisService,private usersService: UsersService,private areastesisService: AreasTesisService,private empresasService: EmpresasService,private fondosconcursablesService: FondosConcursablesService,private comunidadesService: ComunidadesService,private proyectosService: ProyectosService)
   { 
-
+    this.identificador=localStorage.getItem('id');
+    this.tok=localStorage.getItem('token');
+    this.getUsers();
+    this.getComunidad();
+    this.getEmpresa();
+    this.getFondosConcursables();
+    this.getProyecto();
+    this.getArea_Tesis();
   }
 
   ngOnInit(): void {
   }
 
+  //getNombreAlumno(){
+   // this.usersService(this.identificador,this.tok).subscribe((data: ))
+  //}
+
+  getUsers(){
+    this.usersService.getProfesores().subscribe((data: User[])=>{
+      console.log(data);
+      this.profesores=data;
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
+  } 
   getComunidad(){
     this.comunidadesService.get().subscribe((data: Comunidad[])=>{
       console.log(data);
@@ -127,6 +154,14 @@ export class CrearTesisAlumnoComponent implements OnInit {
     });
   }
 
+  SaveTesis(){
+    this.tesisService.save(this.tesis).subscribe(()=>{
+      alert('Tesis guardado');
+    console.log(this.tesis);
+  },(error)=>{
+    alert('Ocurrió un error');
+  });
+  }
 
 
 }

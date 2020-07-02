@@ -10,7 +10,7 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./showtesisalumno.component.css']
 })
 export class ShowtesisalumnoComponent implements OnInit {
-  tesis: Tesis;
+  tesis:Tesis;
   identificador:string;
   id: any;
   editing: boolean =false;

@@ -64,6 +64,7 @@ import { ProyectoshowComponent } from './components/proyectoshow/proyectoshow.co
 import { CrearTesisAlumnoComponent } from './crear-tesis-alumno/crear-tesis-alumno.component';
 import { ShowtesisalumnoComponent } from './showtesisalumno/showtesisalumno.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { EdittesisalumnoComponent } from './components/edittesisalumno/edittesisalumno.component';
 
 
 const routes: Route[]=[
@@ -164,6 +165,7 @@ const routes: Route[]=[
       ProyectoshowComponent,
       CrearTesisAlumnoComponent,
       ShowtesisalumnoComponent,
+      EdittesisalumnoComponent,
     ],
     imports: [
       BrowserModule,

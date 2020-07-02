@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
-
+import {Tesis} from 'src/app/interfaces/tesis';
 
 
 
@@ -35,6 +35,12 @@ export class TesisService {
     console.log(id);
     return this.httpClient.get('http://localhost:8000/api' + '/tesis_alumno_solicitud/'+ id)
     
+  }
+
+  save(tesis:Tesis)
+  {
+    const headers=new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.post(this.API_ENDPOINT + '/tesis', tesis,{headers:headers});
   }
 
   delete(id)

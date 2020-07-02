@@ -30,7 +30,7 @@ class UsersController extends Controller
     {
         $users=DB::table('users')
         ->join('grado_academico_profesor_planta','users.id','=','grado_academico_profesor_planta.id')
-        ->where('users.tipo_usuario','=',2)->get();
+        ->select('name')->where('users.tipo_usuario','=',2)->get();
         echo json_encode($users);
     }
 
@@ -58,7 +58,7 @@ class UsersController extends Controller
        $user->tipo_usuario=$request->get('tipo_usuario');
        $user->sexo=$request->get('sexo');
        $user->save();*/
-       echo json_encode($request);
+       //echo json_encode($request);
        if($request->tipo_usuario=="Administrador"){
            $num=0;
        }elseif($request->tipo_usuario=="Profesor"){
