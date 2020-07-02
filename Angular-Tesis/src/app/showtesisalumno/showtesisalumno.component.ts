@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Tesis} from 'src/app/interfaces/tesis';
 import {ActivatedRoute} from '@angular/router';
 import {TesisService} from 'src/app/services/tesis.service';
+import { TokenService } from 'src/app/services/token.service';
  
 @Component({
   selector: 'app-showtesisalumno',
@@ -10,10 +11,13 @@ import {TesisService} from 'src/app/services/tesis.service';
 })
 export class ShowtesisalumnoComponent implements OnInit {
   tesis: Tesis;
+  identificador:string;
   id: any;
   editing: boolean =false;
   tesistas:Tesis[];
-  constructor(private tesisService: TesisService, private activatedRoute: ActivatedRoute) {
+  
+  constructor(private Token: TokenService,private tesisService: TesisService, private activatedRoute: ActivatedRoute) {
+    this.identificador=localStorage.getItem('id');
     this.id=this.activatedRoute.snapshot.params['id'];
         this.editing=true;
         this.tesisService.get().subscribe((data: Tesis[])=>{
@@ -23,6 +27,8 @@ export class ShowtesisalumnoComponent implements OnInit {
           console.log(error);
          });
    }
+
+   
  
    ngOnInit(): void {
   }

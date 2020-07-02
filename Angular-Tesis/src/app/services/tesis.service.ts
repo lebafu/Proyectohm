@@ -37,5 +37,10 @@ export class TesisService {
     
   }
 
+  delete(id)
+  {
+   return this.httpClient.delete(this.API_ENDPOINT+ '/tesis/' + id);
+  }
+
  
 }

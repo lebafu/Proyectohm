@@ -48,4 +48,8 @@ obtener_id(){
   const headers=new HttpHeaders({'Content-Type':'application/json'});
   return this.httpClient.post(this.API_ENDPOINT + '/obtener_user',{headers:headers});
 }
+
+getProfesores(){
+  return this.httpClient.get('http://localhost:8000/api' + '/profesores');
+}
 }

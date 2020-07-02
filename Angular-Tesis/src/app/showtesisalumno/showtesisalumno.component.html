@@ -21,33 +21,60 @@
        </ul>
     </div>
   </nav>
-  <div class="mt-4 col-8 offset-2">
-	<div class="card">
-		<div class="card-header"><i aria-hidden="true"><FONT FACE="arial">Información</FONT></i>
-		<div class="card-body">
-<form>
-<!--
-<b>Nombre Usuario</b>
-<p>{{user.name}}</p>
-<b>Email</b>
-<p>{{user.email}}</p>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-10">
+        <div class="card">
+          <div class="card-header">Información Detallada de Tesis</div>
+          <div class="card-body">
+      <table class="table table-bordered">
+<b>Nombre Alumno</b>
+<p>{{tesis.nombre_completo}}</p>
+<a *ngIf="tesis.nombre_completo2!=null">
+<p>{{tesis.nombre_completo2}}</p>
+</a>
+<b>Rut</b>
+<p>{{tesis.rut}}</p>
+<a *ngIf="tesis.nombre_completo2!=null">
+<p>{{tesis.rut2}}</p>
+</a>
+<b>Año de Ingreso</b>
+<p>{{tesis.ano_ingreso}}</p>
+<a *ngIf="tesis.nombre_completo2!=null">
+<p>{{tesis.ano_ingreso2}}</p>
+</a>
+<b>Telefono</b>
+<p>{{tesis.telefono1}}</p>
+<a *ngIf="tesis.nombre_completo2!=null">
+<p>{{tesis.telefono2}}</p>
+</a>
 
-<b>Tipo Usuario </b>
-<p *ngIf="user.tipo_usuario == '0'">Administrador</p>
-<p *ngIf="user.tipo_usuario == '1'">Alumno</p>
-<p *ngIf="user.tipo_usuario == '2'">Profesor</p>
-<p *ngIf="user.tipo_usuario == '3'">Director de Tesis</p>
-<p *ngIf="user.tipo_usuario == '4'">Secretaria</p>
+<b>Carrera</b>
+<p>{{tesis.carrera}}</p>
 
+<b>Tipo Trabajo</b>
+<p>{{tesis.tipo}}</p>
+<b>Nombre Vinculacion</b>
+<p>{{tesis.nombre_vinculacion}}</p>
+<b>Tipo Vinculación</b>
+<p>{{tesis.tipo_vinculacion}}</p>
+<b>Nombre Tesis</b>
+<p>{{tesis.nombre_tesis}}</p>
+<b>Area Tesis</b>
+<p>{{tesis.area_tesis}}</p>
+<b>Descripción</b>
+<p>{{tesis.descripcion}}</p>
 
-<p *ngIf="user.tipo_usuario == '2'">
-	<b>Grado academico</b>
-	{{user.grado_academico}}</p>
-
-<b>Sexo</b>
-<p>{{user.sexo}}</p>
-</form>
+<b>Objetivos</b>
+<p>{{tesis.objetivos}}</p>
+<b>Contribución</b>
+<p>{{tesis.contribucion}}</p>
+<b>Fecha Petición</b>
+<p>{{tesis.fecha_peticion}}</p>
+</table>
 </div>
 </div>
 </div>
-</div>-->
+</div>
+<a routerLink="/tesis_alumno_solicitud">Volver Atrás</a>
+<a routerLink="/estudiante/{{identificador}}">Volver Home</a>

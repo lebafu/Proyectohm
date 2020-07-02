@@ -34,7 +34,7 @@ Route::post('/users','UsersController@store');
 Route::post('/director_escuela','UsersController@asignar_director_escuela');
 Route::put('/users/{users}','UsersController@update');
 Route::delete('/users/{id}','UsersController@destroy');
-
+Route::get('profesores', 'UsersController@index_profesores');
 
 Route::get('area_tesis', 'Area_TesisController@index');
 Route::put('/area_tesis/{area_tesis}','Area_TesisController@update');
@@ -55,6 +55,7 @@ Route::put('/update_fecha_presentacion/{tesis}','TesisController@update_fecha_pr
 Route::get('/repositorio_tesis', 'TesisController@repositorio_tesis');
 Route::get('/mostrar_tesis/{id_pk}', 'TesisController@mostrar_tesis')->name('tesis.show');
 Route::get('/tesis_alumno_solicitud/{id}', 'TesisController@index1')->name('tesis.index1');
+Route::delete('/tesis/{id}','TesisController@destroy');
 
 
 Route::get('/comunidades', 'ComunidadController@index');

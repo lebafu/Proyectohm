@@ -26,6 +26,14 @@ class UsersController extends Controller
         echo json_encode($users);
     }
 
+    public function index_profesores()
+    {
+        $users=DB::table('users')
+        ->join('grado_academico_profesor_planta','users.id','=','grado_academico_profesor_planta.id')
+        ->where('users.tipo_usuario','=',2)->get();
+        echo json_encode($users);
+    }
+
      public function create()
     {
         //

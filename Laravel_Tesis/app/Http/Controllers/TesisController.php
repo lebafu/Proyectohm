@@ -259,6 +259,14 @@ class TesisController extends Controller
             echo json_encode($tesis);
         }
     
+        public function delete($id)
+        {
+            DB::table('tesis')->where('id_pk','=',$id)->delete();
+        }
+
+       
+
+        
         
   
 }
