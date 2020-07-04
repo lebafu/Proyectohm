@@ -13,6 +13,7 @@ import { TokenService } from '../../services/token.service';
   styleUrls: ['./index1-tesis.component.css']
 })
 export class Index1TesisComponent implements OnInit {
+  contador:number=0;
   tesistas:Tesis[];
   id:string;
   user:User;

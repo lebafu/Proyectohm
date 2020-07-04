@@ -34,7 +34,12 @@ export class UsersService {
     console.log(data);
     const headers= new HttpHeaders({'Content-Type':'application/json'});
       return this.httpClient.post(this.API_ENDPOINT +'/director_escuela',data,{headers:headers});
-   }                                                  
+   }     
+
+ getNombreAlumno(id){
+   console.log(id);
+   return this.httpClient.get('http://localhost:8000/api' + '/user/'+id);
+ }                                             
 
 show(id){
     return this.httpClient.get('http://localhost:8000/api' + '/users/' + id)

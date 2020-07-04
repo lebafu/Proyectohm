@@ -43,10 +43,12 @@
                     <div class="card-header">Crear Tesis</div>
                     <div class="card-body">
                         <form>
+    
+
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Nombre completo</label>
                                 <div class="col-md-6">
-                                    <input [(ngModel)]="tesis.nombre_completo" id="name" type="text"  class="form-control" name="tesis.nombre_completo" required="required">
+                                    <input [(ngModel)]="tesis.nombre_completo" id="name" type="text"  class="form-control" name="nombre_completo" required="required">
                                 </div>
                             </div>
     
@@ -112,7 +114,7 @@
                                 <label for="profesor_guia" [(ngModel)]="tesis.profesor_guia" class="col-md-4 col-form-label text-md-right">Profesor guia</label>
                                 <div class="col-md-6">
                                    <select name="profesor_guia" [(ngModel)]="tesis.profesor_guia" [ngModelOptions]="{standalone: true}" class="form-control">
-                                        <option [value]="item.name" *ngFor="let item of profesores">{{item.name}} </option>
+                                        <option  [value]="item.name" *ngFor="let item of profesores">{{item.name}} </option>
                                     </select>
                                 </div>
                             </div>
@@ -128,7 +130,7 @@
                                 <label for="area_tesis" class="col-md-4 col-form-label text-md-right">Area Tesis</label>
                                 <div class="col-md-6">
                                     <select name="area_tesis" [(ngModel)]="tesis.area_tesis" [ngModelOptions]="{standalone: true}" class="form-control">
-                                        <option [value]="area_tesis" *ngFor="let area_tesis of areas_tesis">{{area_tesis.area_tesis}}</option>
+                                        <option  [value]="area_tesis.area_tesis" *ngFor="let area_tesis of areas_tesis">{{area_tesis.area_tesis}}</option>
                                     </select>
                                     <!--@foreach($area_tesis as $area_tes)
                                             @if($area_tes=="BI")
@@ -155,7 +157,7 @@
                                 <label for="tipo_vinculacion" class="col-md-4 col-form-label text-md-right">Tipo de Vinculacion</label>
                                 <div class="col-md-6">
                                      <select name="tipo_vinculacion" id="tipo_vinculacion" [(ngModel)]="tesis.tipo_vinculacion" type="text" class="form-control" required="required">
-                                    <option [value]="tipo_vinculacion" *ngFor="let tipo_vinculacion of tipos_vinculaciones">{{tipo_vinculacion}}</option>
+                                    <option     [value]="tipo_vinculacion" *ngFor="let tipo_vinculacion of tipos_vinculaciones">{{tipo_vinculacion}}</option>
                                     </select>
                                 </div>
                             </div>
@@ -165,7 +167,7 @@
                                 <label for="" class="col-md-4 col-form-label text-md-right">Nombre de Vinculacion</label>
                                 <div class="col-md-6">
                                     <select name="nombre_vinculacion" id="nombre_vinculacion" [(ngModel)]="tesis.nombre_vinculacion" type="text" class="form-control" required="required">
-                                        <option [value]="comunidad" *ngFor="let comunidad of comunidades">{{comunidad.name}}</option>
+                                        <option  [value]="comunidad.nombre" *ngFor="let comunidad of comunidades">{{comunidad.nombre}}</option>
                                     </select>
                                   </div>
                             </div>
@@ -177,7 +179,7 @@
                                 <label for="" class="col-md-4 col-form-label text-md-right">Nombre de Vinculacion</label>
                                 <div class="col-md-6">
                                     <select name="nombre_vinculacion" id="nombre_vinculacion" [(ngModel)]="tesis.nombre_vinculacion" type="text" class="form-control" required="required">
-                                        <option [value]="empresa" *ngFor="let empresa of empresas">{{empresa.name}}</option>
+                                        <option  [value]="empresa.nombre" *ngFor="let empresa of empresas">{{empresa.nombre}}</option>
                                     </select>
                                   </div>
                             </div>
@@ -188,7 +190,7 @@
                                 <label for="" class="col-md-4 col-form-label text-md-right">Nombre de Vinculacion</label>
                                 <div class="col-md-6">
                                     <select name="nombre_vinculacion" id="nombre_vinculacion" [(ngModel)]="tesis.nombre_vinculacion" type="text" class="form-control" required="required">
-                                        <option [value]="fondo_concursable" *ngFor="let fondo_concursable of fondos_concursables">{{fondo_concursable.name}}</option>
+                                        <option   [value]="fondo_concursable.nombre" *ngFor="let fondo_concursable of fondos_concursables">{{fondo_concursable.nombre}}</option>
                                     </select>
                                   </div>
                             </div>
@@ -199,7 +201,7 @@
                                 <label for="" class="col-md-4 col-form-label text-md-right">Nombre de Vinculacion</label>
                                 <div class="col-md-6">
                                     <select name="nombre_vinculacion" id="nombre_vinculacion" [(ngModel)]="tesis.nombre_vinculacion" type="text" class="form-control" required="required">
-                                        <option [value]="proyecto" *ngFor="let proyecto of proyectos">{{proyecto.name}}</option>
+                                        <option  [value]="proyecto.nombre" *ngFor="let proyecto of proyectos">{{proyecto.nombre}}</option>
                                     </select>
                                   </div>
                             </div>
@@ -209,7 +211,7 @@
                                 <label for="" class="col-md-4 col-form-label text-md-right">Tipo de trabajo</label>
                                 <div class="col-md-6">
                                     <select name="tipo" id="tipo" type="text" [(ngModel)]="tesis.tipo" class="form-control" required="required">
-                                    <option [value]="tipo" *ngFor="let tipo of tipos_trabajos" >{{tipo}}</option>
+                                    <option  [value]="tipo" *ngFor="let tipo of tipos_trabajos" >{{tipo}}</option>
                                      </select>
                                 </div>
                             </div>

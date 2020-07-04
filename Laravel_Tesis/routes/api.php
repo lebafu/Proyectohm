@@ -26,6 +26,7 @@ Route::group(['middleware' => []], function () {
 
 //Route::resource('users','UsersController');
 Route::get('users', 'UsersController@index');
+Route::get('users/{id}', 'UsersController@getNombreAlumno');
 Route::get('profesores', 'UsersController@profesores');
 Route::get('users{users}', 'UsersController@edit');
 Route::get('/users/create', 'UsersController@create');
@@ -45,7 +46,7 @@ Route::get('area_tesis{id}', 'Area_TesisController@show');
 Route::post('/area_tesis','Area_TesisController@store');
 Route::delete('/area_tesis/{id}','Area_TesisController@destroy');
 
-Route::post('/tesis','TesisController@store');
+Route::post('/tesis','TesisController@store')->name('tesis.store');
 Route::get('/index_al_sec', 'TesisController@index_al_sec');
 Route::get('/index_titulados_sec', 'TesisController@index_titulados_sec');
 Route::get('/constancia_ex_ver/{id}', 'TesisController@verPDF')->name('verPDF');
@@ -57,6 +58,7 @@ Route::put('/update_fecha_presentacion/{tesis}','TesisController@update_fecha_pr
 Route::get('/repositorio_tesis', 'TesisController@repositorio_tesis');
 Route::get('/mostrar_tesis/{id_pk}', 'TesisController@mostrar_tesis')->name('tesis.show');
 Route::get('/tesis_alumno_solicitud/{id}', 'TesisController@index1')->name('tesis.index1');
+Route::put('/tesis/{tesis}','TesisController@update');
 Route::delete('/tesis/{id}','TesisController@destroy');
 
 

@@ -17,7 +17,18 @@ use DB;
 
 class UsersController extends Controller
 {
-	public function index()
+	
+
+    public function getNombreAlumno($id)
+    {
+     $alumnos=DB::table('users')->where('id','=',$id)->get();
+     echo json_encode($alumno);
+     foreach($alumnos as $alumno);
+     
+    }
+
+
+    public function index()
     {
         
         $users=DB::table('users')

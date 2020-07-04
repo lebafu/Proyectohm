@@ -22,9 +22,10 @@ import { TokenService } from 'src/app/services/token.service';
   styleUrls: ['./crear-tesis-alumno.component.css']
 })
 export class CrearTesisAlumnoComponent implements OnInit {
+  nombre_alumno:string;
   identificador:string;
   tok:string;
-  carreras:String[]=["Ingeniería Civil Informática","Ingeniería en Informática","Ingeniería en Ejecución",];
+  carreras:String[]=["Ingeniería Civil Informática","Ingeniería en Informática","Ingeniería en Ejecución"];
   tipos_vinculaciones:String[]=["Comunidad","Empresa","Fondo Concursable","Proyecto"];
   tipos_trabajos:String[]=["Tesis","Memoria"];
   tesis:Tesis={
@@ -77,14 +78,14 @@ export class CrearTesisAlumnoComponent implements OnInit {
   areas_tesis:Area_Tesis[];
   constructor(private Token: TokenService,private tesisService:TesisService,private usersService: UsersService,private areastesisService: AreasTesisService,private empresasService: EmpresasService,private fondosconcursablesService: FondosConcursablesService,private comunidadesService: ComunidadesService,private proyectosService: ProyectosService)
   { 
-    this.identificador=localStorage.getItem('id');
-    this.tok=localStorage.getItem('token');
+    
     this.getUsers();
     this.getComunidad();
     this.getEmpresa();
     this.getFondosConcursables();
     this.getProyecto();
     this.getArea_Tesis();
+    //this.getAlumno();
   }
 
   ngOnInit(): void {
@@ -93,6 +94,19 @@ export class CrearTesisAlumnoComponent implements OnInit {
   //getNombreAlumno(){
    // this.usersService(this.identificador,this.tok).subscribe((data: ))
   //}
+
+  /*getAlumno(){
+    this.identificador=localStorage.getItem('id');
+    this.tok=localStorage.getItem('token');
+    this.usersService.getNombreAlumno(this.identificador).subscribe((data: User)=>{
+      console.log(data);
+      //this.nombre_alumno=data;
+      //console.log(this.nombre_alumno);
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
+  }*/
 
   getUsers(){
     this.usersService.getProfesores().subscribe((data: User[])=>{

@@ -39,8 +39,14 @@ export class TesisService {
 
   save(tesis:Tesis)
   {
+    console.log(tesis);
     const headers=new HttpHeaders({'Content-Type':'application/json'});
     return this.httpClient.post(this.API_ENDPOINT + '/tesis', tesis,{headers:headers});
+  }
+
+  put(tesis:Tesis){
+    const headers= new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.put(this.API_ENDPOINT +'/tesis/' + tesis.id, tesis,{headers:headers});
   }
 
   delete(id)
