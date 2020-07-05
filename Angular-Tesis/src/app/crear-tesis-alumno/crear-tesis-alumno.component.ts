@@ -85,6 +85,7 @@ export class CrearTesisAlumnoComponent implements OnInit {
     this.getFondosConcursables();
     this.getProyecto();
     this.getArea_Tesis();
+    this.getAlumno();
     //this.getAlumno();
   }
 
@@ -95,7 +96,7 @@ export class CrearTesisAlumnoComponent implements OnInit {
    // this.usersService(this.identificador,this.tok).subscribe((data: ))
   //}
 
-  /*getAlumno(){
+  getAlumno(){
     this.identificador=localStorage.getItem('id');
     this.tok=localStorage.getItem('token');
     this.usersService.getNombreAlumno(this.identificador).subscribe((data: User)=>{
@@ -106,7 +107,7 @@ export class CrearTesisAlumnoComponent implements OnInit {
     console.log(error);
     alert('Ocurrió un error');
     });
-  }*/
+  }
 
   getUsers(){
     this.usersService.getProfesores().subscribe((data: User[])=>{

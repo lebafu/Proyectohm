@@ -38,11 +38,11 @@ export class UsersService {
 
  getNombreAlumno(id){
    console.log(id);
-   return this.httpClient.get('http://localhost:8000/api' + '/user/'+id);
+   return this.httpClient.get('http://localhost:8000/api' + '/nombre_alumno/'+id);
  }                                             
 
 show(id){
-    return this.httpClient.get('http://localhost:8000/api' + '/users/' + id)
+    return this.httpClient.get('http://localhost:8000/api' + '/usersshow/');
 }
   delete(id)
 {

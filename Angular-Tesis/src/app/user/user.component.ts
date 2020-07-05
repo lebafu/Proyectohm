@@ -30,6 +30,11 @@ export class UserComponent implements OnInit {
     });
   }
 
+  showUser=function(id){
+    this.usersService.show(id).subscribe((data)=>{
+      console.log(data);
+    });
+}
  
 
   delete=function(id){

@@ -22,8 +22,9 @@ class UsersController extends Controller
     public function getNombreAlumno($id)
     {
      $alumnos=DB::table('users')->where('id','=',$id)->get();
-     echo json_encode($alumno);
      foreach($alumnos as $alumno);
+      return response()->json([
+        'nombre_completo'=> $alumno->name]);
      
     }
 
@@ -32,7 +33,7 @@ class UsersController extends Controller
     {
         
         $users=DB::table('users')
-        ->join('grado_academico_profesor_planta','users.id','=','grado_academico_profesor_planta.id')
+        ->leftjoin('grado_academico_profesor_planta','users.id','=','grado_academico_profesor_planta.id')->select('users.*','grado_academico_profesor_planta.grado_academico')
         ->get();
         echo json_encode($users);
     }
@@ -164,7 +165,11 @@ class UsersController extends Controller
     public function show($id){
     
         $users=DB::table('users')->join('grado_academico_profesor_planta','users.id','=','grado_academico_profesor_planta.id')
+        ->where('users.id','=',$id)
         ->get();
+        if($users->IsEmpty()){
+            $users=DB::table('users')->where('id','=',$id)->get();
+        }
         echo json_encode($users);
     }
     public function destroy($id)

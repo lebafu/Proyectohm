@@ -3,6 +3,7 @@ import {UsersService} from 'src/app/services/users.service';
 import {User} from 'src/app/interfaces/user';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-usersshow',
@@ -11,6 +12,7 @@ import {ActivatedRoute} from '@angular/router';
 })
 export class UsersshowComponent implements OnInit {
   user: User= {
+    id:null,
 		name:null,
 		email:null,
 		password:null,
@@ -22,7 +24,7 @@ export class UsersshowComponent implements OnInit {
   id: any;
   editing: boolean =false;
   users: User[];
-  constructor(private usersService: UsersService, private activatedRoute: ActivatedRoute) {
+  constructor(private usersService: UsersService, private activatedRoute: ActivatedRoute,private router: Router) {
     this.id=this.activatedRoute.snapshot.params['id'];
         this.editing=true;
         this.usersService.get().subscribe((data: User[])=>{
@@ -33,12 +35,25 @@ export class UsersshowComponent implements OnInit {
          }, (error)=>{
           console.log(error);
          });
+
+         
+
    }
+
 
   ngOnInit(): void {
   }
-  showUser(){
-  }
+
+    delete=function(id){
+    if(confirm('¿Seguro que deseas eliminar este usuario?')){
+    this.usersService.delete(id).subscribe((data) => {
+         alert('Usuario eliminado con exito');
+         console.log(data);
+         this.getUsers();
+       });
+      }
+   }
+
 
   getUsers(){
     this.usersService.get().subscribe((data: User[])=>{

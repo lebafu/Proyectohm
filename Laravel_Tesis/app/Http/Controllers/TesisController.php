@@ -14,6 +14,10 @@ use Str;
 
 class TesisController extends Controller
 {
+
+
+
+
     public function store(Request $request)
     {
 
@@ -26,7 +30,10 @@ class TesisController extends Controller
     }
 
         //dd($request);
-        $users=DB::table('users')->where('name','=','Raul Felipe Muñoz Heredia')->get();
+        $users=DB::table('users')->where('name','=',$request->nombre_completo)->get();
+        if($users==null){
+            response()->json([])
+        }
         //echo ($users);
         foreach($users as $user);
         $id_user=$user->id;
@@ -56,6 +63,8 @@ class TesisController extends Controller
         ]);
 
     }
+
+    
 //}
 
     /*if($user->tipo_usuario==1 and $request->nombre_completo2==null and $request->rut2==null and $request->ano_ingreso2==null){ 
