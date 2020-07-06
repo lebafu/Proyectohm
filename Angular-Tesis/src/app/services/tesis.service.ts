@@ -51,6 +51,7 @@ export class TesisService {
 
   delete(id)
   {
+    console.log(id);
    return this.httpClient.delete(this.API_ENDPOINT+ '/tesis/' + id);
   }
 

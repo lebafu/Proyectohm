@@ -32,7 +32,8 @@ class TesisController extends Controller
         //dd($request);
         $users=DB::table('users')->where('name','=',$request->nombre_completo)->get();
         if($users==null){
-            response()->json([])
+            response()->json([
+                'mensaje' => 'El alumno no existe o es incorrecto']);
         }
         //echo ($users);
         foreach($users as $user);
@@ -412,7 +413,7 @@ class TesisController extends Controller
             echo json_encode($tesis);
         }
     
-        public function delete($id)
+        public function destroy($id)
         {
             DB::table('tesis')->where('id_pk','=',$id)->delete();
         }

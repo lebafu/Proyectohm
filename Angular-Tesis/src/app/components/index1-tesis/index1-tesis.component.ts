@@ -52,7 +52,7 @@ export class Index1TesisComponent implements OnInit {
     if(confirm('¿Seguro que deseas eliminar esta Tesis?')){
     this.tesisService.delete(id).subscribe((data) => {
          alert('Tesis eliminado con exito');
-         console.log(data);
+         //console.log(data);
          this.getUsers();
        });
       }

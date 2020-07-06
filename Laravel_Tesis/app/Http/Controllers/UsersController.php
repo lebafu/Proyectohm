@@ -23,8 +23,9 @@ class UsersController extends Controller
     {
      $alumnos=DB::table('users')->where('id','=',$id)->get();
      foreach($alumnos as $alumno);
-      return response()->json([
-        'nombre_completo'=> $alumno->name]);
+     //echo json_encode($alumno->name);
+      return  response()->json([[
+        'nombre_completo'=>$alumno->name]]);
      
     }
 

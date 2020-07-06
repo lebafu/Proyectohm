@@ -99,8 +99,11 @@ export class CrearTesisAlumnoComponent implements OnInit {
   getAlumno(){
     this.identificador=localStorage.getItem('id');
     this.tok=localStorage.getItem('token');
-    this.usersService.getNombreAlumno(this.identificador).subscribe((data: User)=>{
+    this.usersService.getNombreAlumno(this.identificador).subscribe((data)=>{
       console.log(data);
+      this.nombre_alumno=data[0].nombre_completo;
+      console.log(this.nombre_alumno);
+      this.tesis.nombre_completo=this.nombre_alumno;
       //this.nombre_alumno=data;
       //console.log(this.nombre_alumno);
     }, (error)=>{
