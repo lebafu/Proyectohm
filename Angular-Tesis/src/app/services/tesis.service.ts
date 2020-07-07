@@ -55,5 +55,11 @@ export class TesisService {
    return this.httpClient.delete(this.API_ENDPOINT+ '/tesis/' + id);
   }
 
+  tesis_actual(id)
+  {
+    console.log(id);
+    return this.httpClient.get(this.API_ENDPOINT + '/tesis_actual/'+id);
+  }
+
  
 }

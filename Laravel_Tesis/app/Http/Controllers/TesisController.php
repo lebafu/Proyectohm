@@ -419,6 +419,45 @@ class TesisController extends Controller
         }
 
        
+       public function tesis_actual($id){
+            $users=DB::table('users')->where('id','=',$id)->get();
+            foreach($users as $user);
+            $cantidad=DB::table('tesis')->where('nombre_completo','=',$user->name)->orwhere('nombre_completo2','=',$user->name)->count();
+            //dd($cantidad);
+
+            $tesis=DB::table('tesis')->where('nombre_completo','=',$user->name)->orwhere('nombre_completo2','=',$user->name)->orderby('fecha_peticion','desc')->first();
+           //$cantidad=0;  
+            //dd($tesis);
+            
+            if($cantidad!=0){
+            if($tesis->nota_tesis!=null){
+            return response()->json([[
+                'cantidad' => $cantidad,
+                'fecha_peticion' => $tesis->fecha_peticion,
+                'acta_ex' => $tesistas->acta_ex,
+                'nota_tesis' => $tesis->nota_tesis,
+                'mensaje' => 'Si hay tesis',
+            ]]);
+            }else{
+                return response()->json([[
+                'cantidad' => $cantidad,
+                'fecha_peticion' => $tesis->fecha_peticion,
+                'acta_ex' => $tesis->acta_ex,
+                'nota_tesis' => -1,
+                'mensaje' => 'Si hay tesis',
+            ]]);
+            }
+           }else{
+                return response()->json([[
+                'cantidad' => $cantidad,
+                'fecha_peticion' => '-1',
+                'acta_ex' => -1,
+                'nota_tesis' => -1,
+                'mensaje' => 'No hay tesis',
+            ]]);
+            }
+            
+       }
 
         
         

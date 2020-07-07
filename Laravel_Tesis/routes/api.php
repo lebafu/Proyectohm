@@ -47,6 +47,7 @@ Route::post('/area_tesis','Area_TesisController@store');
 Route::delete('/area_tesis/{id}','Area_TesisController@destroy');
 
 Route::post('/tesis','TesisController@store')->name('tesis.store');
+Route::get('/tesis_actual/{id}','TesisController@tesis_actual')->name('tesis.tesis_actual');
 Route::get('/index_al_sec', 'TesisController@index_al_sec');
 Route::get('/index_titulados_sec', 'TesisController@index_titulados_sec');
 Route::get('/constancia_ex_ver/{id}', 'TesisController@verPDF')->name('verPDF');

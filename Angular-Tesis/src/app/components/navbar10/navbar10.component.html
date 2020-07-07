@@ -28,10 +28,11 @@
           <li class="nav-item">
             <a class="nav-link text-white" routerLink="/tesis_alumno_solicitud">Ver Tesis</a>
           </li>
+          <a *ngIf="cantidad>=0 && cantidad<=3 && nota_tesis!=-1">
           <li class="nav-item">
             <a class="nav-link text-white" routerLink="/crear_tesis">Crear Tesis</a>
           </li>
-         
+          </a>
         </ul>
       </div>
       <a class="navbar-brand text-white" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>
