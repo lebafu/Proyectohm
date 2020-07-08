@@ -25,6 +25,7 @@ export class Index1TesisComponent implements OnInit {
       console.log(this.id);
       console.log(this.tok);
      this.get_tesis_alumno(this.id);
+     this.tesis_actual();
      }
   
   ngOnInit(): void {
@@ -36,7 +37,27 @@ export class Index1TesisComponent implements OnInit {
     );
 }*/
 
+  tesis_actual(){
+    this.identificador=localStorage.getItem('id');
+    this.tok=localStorage.getItem('token');
+    console.log(this.identificador);
+    this.tesisService.tesis_actual(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.cantidad=data[0].cantidad;
+      this.nota_tesis=data[0].nota_tesis;
+      console.log(this.cantidad);
+      console.log(this.nota_tesis);
+      //console.log(this.cantidad);
+      //this.nota_tesis=data.nota_tesis;
+      //console.log(this.nota_tesis);
 
+      //this.nombre_alumno=data;
+      //console.log(this.nombre_alumno);
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
+  }
   get_tesis_alumno(id){
     this.tesisService.getAlumno(id).subscribe((data: Tesis[])=>{
     //alert(data);

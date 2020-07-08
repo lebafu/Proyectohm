@@ -434,7 +434,7 @@ class TesisController extends Controller
             return response()->json([[
                 'cantidad' => $cantidad,
                 'fecha_peticion' => $tesis->fecha_peticion,
-                'acta_ex' => $tesistas->acta_ex,
+                'acta_ex' => $tesis->acta_ex,
                 'nota_tesis' => $tesis->nota_tesis,
                 'mensaje' => 'Si hay tesis',
             ]]);
