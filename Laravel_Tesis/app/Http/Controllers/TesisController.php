@@ -205,7 +205,7 @@ class TesisController extends Controller
             //return view('tesis.index1',compact('tesistas','user'));
                 }
         }
-        echo json_encode($tesistas);
+       echo json_encode($tesistas);
 
     }
 
@@ -460,6 +460,10 @@ class TesisController extends Controller
        }
 
         
-        
+        public function getTesis($id){
+
+            $tesistas=DB::table('tesis')->where('id_pk','=',$id)->get();
+            echo json_encode($tesistas);
+        }
   
 }

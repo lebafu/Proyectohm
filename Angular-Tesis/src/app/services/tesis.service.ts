@@ -33,8 +33,12 @@ export class TesisService {
      // "Authorization": "Bearer" + tok
     //});
     console.log(id);
-    return this.httpClient.get('http://localhost:8000/api' + '/tesis_alumno_solicitud/'+ id)
+    return this.httpClient.get('http://localhost:8000/api' + '/tesis_alumno_solicitud/'+ id);
     
+  }
+
+  getTesis(id){
+    return this.httpClient.get('http://localhost:8000/api'+ '/tesis/'+ id);
   }
 
   save(tesis:Tesis)

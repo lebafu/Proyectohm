@@ -15,16 +15,14 @@ import { TokenService } from '../../services/token.service';
 export class Index1TesisComponent implements OnInit {
   contador:number=0;
   tesistas:Tesis[];
-  id:string;
+  identificador:string;
   user:User;
   tok:string;
+  cantidad:number;
+  nota_tesis:number;
   constructor(private Jarwis: JarwisService,private tesisService:TesisService,private usersService:UsersService,private Token: TokenService,
     private router: Router) {
-      this.id=localStorage.getItem('id');
-      this.tok=localStorage.getItem('token');
-      console.log(this.id);
-      console.log(this.tok);
-     this.get_tesis_alumno(this.id);
+     this.get_tesis_alumno();
      this.tesis_actual();
      }
   
@@ -58,8 +56,10 @@ export class Index1TesisComponent implements OnInit {
     alert('Ocurrió un error');
     });
   }
-  get_tesis_alumno(id){
-    this.tesisService.getAlumno(id).subscribe((data: Tesis[])=>{
+  get_tesis_alumno(){
+    this.identificador=localStorage.getItem('id');
+      this.tok=localStorage.getItem('token');
+    this.tesisService.getAlumno(this.identificador).subscribe((data: Tesis[])=>{
     //alert(data);
       console.log(data);
       this.tesistas = data;
