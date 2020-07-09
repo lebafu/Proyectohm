@@ -3,7 +3,7 @@
 <style type="text/css">
   .fa:before { color:black; }
 </style>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+<!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">-->
 
 <nav class="navbar navbar-expand-lg" style="background-color:#000a49">
     <a class="navbar-brand text-white" href="#">Home</a>
@@ -91,9 +91,9 @@
            <td>{{tesis.nota_pendiente}}</td>
            <td>{{tesis.nota_prorroga}}</td>
         </a>-->
-
+          <!--routerLink="/tesisedit/{{tesis.id_pk}}"-->
+          <a *ngIf="tesis.estado1==1 && tesis.estado2==0" class="btn btn-primary btn-sm" routerLink="/edittesisalumno/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
           <a class="btn btn-primary btn-sm" routerLink="/tesismostrar/{{tesis.id_pk}}" ><i class="fa fa-eye" aria-hidden="true"></i></a>
-          <a *ngIf="tesis.estado1==1 && tesis.estado2==0" class="btn btn-primary btn-sm" routerLink="/tesisedit/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true"></i></a>
           <a *ngIf="tesis.estado1==1 && tesis.estado2==0" class="btn btn-primary btn-sm btn-danger" (click)="delete(tesis.id_pk)"><i class="fa fa-trash" aria-hidden="true"></i></a>
                
         </tr>

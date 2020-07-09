@@ -83,10 +83,11 @@ export class EdittesisalumnoComponent implements OnInit {_
     console.log(this.id);
     if(this.id){
         this.editing=true;
-        this.tesisService.get().subscribe((data: Tesis[])=>{
+        this.tesisService.getTesis(this.id).subscribe((data: Tesis[])=>{
         this.tesistas=data;
         this.tesis=this.tesistas.find((u)=>{return u.id==this.id})
         console.log(this.tesis);
+
          }, (error)=>{
           console.log(error);
          });

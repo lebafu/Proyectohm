@@ -56,6 +56,10 @@ export class Index1TesisComponent implements OnInit {
     alert('Ocurrió un error');
     });
   }
+
+
+
+  
   get_tesis_alumno(){
     this.identificador=localStorage.getItem('id');
       this.tok=localStorage.getItem('token');
