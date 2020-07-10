@@ -15,6 +15,8 @@ import {Proyecto} from 'src/app/interfaces/proyecto';
 import { TokenService } from 'src/app/services/token.service';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
+import {UsersService} from 'src/app/services/users.service';
+
 
 @Component({
   selector: 'app-edittesisalumno',
@@ -28,48 +30,7 @@ export class EdittesisalumnoComponent implements OnInit {_
   carreras:String[]=["Ingeniería Civil Informática","Ingeniería en Informática","Ingeniería en Ejecución",];
   tipos_vinculaciones:String[]=["Comunidad","Empresa","Fondo Concursable","Proyecto"];
   tipos_trabajos:String[]=["Tesis","Memoria"];
-  tesis:Tesis={
-    nombre_completo:null,
-    nombre_completo2:null,
-    rut:null,
-    rut2:null,
-    profesor_guia:null,
-    ano_ingreso:null,
-    ano_ingreso2:null,
-    telefono1:null,
-    telefono2:null,
-    carrera:null,
-    tipo:null,
-    nombre_vinculacion:null,
-    tipo_vinculacion:null,
-    nombre_tesis:null,
-    area_tesis:null,
-    descripcion:null,
-    objetivos:null,
-    contribucion:null,
-    observacion:null,
-    estado1:null,
-    estado2:null,
-    estado3:null,
-    fecha_peticion:null,
-    nota_pendiente:null,
-    nota_prorroga:null,
-    constancia_ex:null,
-    acta_ex:null,
-    fecha_presentacion_tesis:null,
-    publicar:null,
-    abstract:null,
-    estado4:null,
-    estado5:null,
-    estado6:null,
-    estado7:null,
-    codigo_postal1:null,
-    codigo_postal2:null,
-    avance_general:null,
-    reunion:null,
-    abstract_res:null,
-    titulo:null,
-  };
+  tesis:Tesis;
   profesores:User[];
   comunidades: Comunidad[];
   fondos_concursables: FondoConcursable[];
@@ -78,16 +39,23 @@ export class EdittesisalumnoComponent implements OnInit {_
   areas_tesis:Area_Tesis[];
   id: any;
   editing: boolean =false;
-  constructor(private tesisService: TesisService, private activatedRoute: ActivatedRoute) {
+  constructor(private usersService: UsersService, private tesisService: TesisService, private areastesisService: AreasTesisService,private empresasService: EmpresasService,private fondosconcursablesService: FondosConcursablesService,private comunidadesService: ComunidadesService,private proyectosService: ProyectosService,private activatedRoute: ActivatedRoute) {
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){
         this.editing=true;
-        this.tesisService.getTesis(this.id).subscribe((data: Tesis[])=>{
-        this.tesistas=data;
-        this.tesis=this.tesistas.find((u)=>{return u.id==this.id})
+        this.tesisService.getTesis(this.id).subscribe((data)=>{
+          console.log(data);
+        this.tesis=data[0];
         console.log(this.tesis);
-
+         
+    this.getUsers();
+    this.getComunidad();
+    this.getEmpresa();
+    this.getFondosConcursables();
+    this.getProyecto();
+    this.getArea_Tesis();
+    this.editTesis();
          }, (error)=>{
           console.log(error);
          });
@@ -116,11 +84,72 @@ export class EdittesisalumnoComponent implements OnInit {_
   }
   }
 
+    getUsers(){
+    this.usersService.getProfesores().subscribe((data: User[])=>{
+      console.log(data);
+      this.profesores=data;
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
+  } 
+
    get_tesis_alumno(identificador_user){
     this.tesisService.getAlumno(identificador_user).subscribe((data: Tesis[])=>{
     //alert(data);
       console.log(data);
       this.tesistas = data;
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
+  }
+
+    getComunidad(){
+    this.comunidadesService.get().subscribe((data: Comunidad[])=>{
+      console.log(data);
+      this.comunidades = data;
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
+  }
+
+  getEmpresa(){
+    this.empresasService.get().subscribe((data: Empresa[])=>{
+      console.log(data);
+      this.empresas = data;
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
+  }
+
+  getFondosConcursables(){
+    this.fondosconcursablesService.get().subscribe((data:FondoConcursable[])=>{
+      console.log(data);
+      this.fondos_concursables = data;
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
+  }
+
+  getProyecto(){
+    this.proyectosService.get().subscribe((data:Proyecto[])=>{
+      console.log(data);
+      //alert(data);
+      this.proyectos = data;
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
+  }
+
+  getArea_Tesis(){
+    this.areastesisService.get().subscribe((data: Area_Tesis[])=>{
+      console.log(data);
+      this.areas_tesis = data;
     }, (error)=>{
     console.log(error);
     alert('Ocurrió un error');

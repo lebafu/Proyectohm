@@ -114,7 +114,8 @@
                                 <label for="profesor_guia" [(ngModel)]="tesis.profesor_guia" class="col-md-4 col-form-label text-md-right">Profesor guia</label>
                                 <div class="col-md-6">
                                    <select name="profesor_guia" [(ngModel)]="tesis.profesor_guia" [ngModelOptions]="{standalone: true}" class="form-control">
-                                        <option  [value]="item.name" *ngFor="let item of profesores">{{item.name}} </option>
+                                        <option [value]="tesis.profesor_guia">{{tesis.profesor_guia}}</option>
+                                        <option  [value]="item.name" *ngFor="let item of profesores">{{item.name}}</option>
                                     </select>
                                 </div>
                             </div>
