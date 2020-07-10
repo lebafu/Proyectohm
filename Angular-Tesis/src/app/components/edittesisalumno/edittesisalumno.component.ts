@@ -16,6 +16,7 @@ import { TokenService } from 'src/app/services/token.service';
 import {Observable} from 'rxjs';
 import {ActivatedRoute} from '@angular/router';
 import {UsersService} from 'src/app/services/users.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,8 +25,10 @@ import {UsersService} from 'src/app/services/users.service';
   styleUrls: ['./edittesisalumno.component.css']
 })
 export class EdittesisalumnoComponent implements OnInit {_
-  identificador_user:string;
+  identificador:string;
   tok:string;
+  cantidad:number;
+  nota_tesis:number;
   tesistas:Tesis[];
   carreras:String[]=["Ingeniería Civil Informática","Ingeniería en Informática","Ingeniería en Ejecución",];
   tipos_vinculaciones:String[]=["Comunidad","Empresa","Fondo Concursable","Proyecto"];
@@ -39,7 +42,7 @@ export class EdittesisalumnoComponent implements OnInit {_
   areas_tesis:Area_Tesis[];
   id: any;
   editing: boolean =false;
-  constructor(private usersService: UsersService, private tesisService: TesisService, private areastesisService: AreasTesisService,private empresasService: EmpresasService,private fondosconcursablesService: FondosConcursablesService,private comunidadesService: ComunidadesService,private proyectosService: ProyectosService,private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router,private usersService: UsersService, private tesisService: TesisService, private areastesisService: AreasTesisService,private empresasService: EmpresasService,private fondosconcursablesService: FondosConcursablesService,private comunidadesService: ComunidadesService,private proyectosService: ProyectosService,private activatedRoute: ActivatedRoute) {
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){
@@ -48,14 +51,12 @@ export class EdittesisalumnoComponent implements OnInit {_
           console.log(data);
         this.tesis=data[0];
         console.log(this.tesis);
-         
     this.getUsers();
     this.getComunidad();
     this.getEmpresa();
     this.getFondosConcursables();
     this.getProyecto();
     this.getArea_Tesis();
-    this.editTesis();
          }, (error)=>{
           console.log(error);
          });
@@ -70,18 +71,40 @@ export class EdittesisalumnoComponent implements OnInit {_
   }
 
   editTesis(){
-    this.identificador_user=localStorage.getItem('id');
     console.log(this.editing);
     if(this.editing==true){
+      console.log(this.tesis);
       this.tesisService.put(this.tesis).subscribe((data) => {
       alert('Tesis Actualizada');
-      console.log(data);
-      this.get_tesis_alumno(this.identificador_user);
+      //console.log(data);
+      //this.router.navigateByUrl('/tesis_alumno_solicitud');
     }, (error) => {
   console.log(error);
   alert('Ocurrio  un error al editar');
 });
   }
+  }
+
+   tesis_actual(){
+    this.identificador=localStorage.getItem('id');
+    this.tok=localStorage.getItem('token');
+    console.log(this.identificador);
+    this.tesisService.tesis_actual(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.cantidad=data[0].cantidad;
+      this.nota_tesis=data[0].nota_tesis;
+      console.log(this.cantidad);
+      console.log(this.nota_tesis);
+      //console.log(this.cantidad);
+      //this.nota_tesis=data.nota_tesis;
+      //console.log(this.nota_tesis);
+
+      //this.nombre_alumno=data;
+      //console.log(this.nombre_alumno);
+    }, (error)=>{
+    console.log(error);
+    alert('Ocurrió un error');
+    });
   }
 
     getUsers(){

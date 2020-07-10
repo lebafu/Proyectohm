@@ -50,7 +50,7 @@ export class TesisService {
 
   put(tesis:Tesis){
     const headers= new HttpHeaders({'Content-Type':'application/json'});
-    return this.httpClient.put(this.API_ENDPOINT +'/tesis/' + tesis.id, tesis,{headers:headers});
+    return this.httpClient.put(this.API_ENDPOINT +'/tesis/' + tesis.id_pk, tesis,{headers:headers});
   }
 
   delete(id)

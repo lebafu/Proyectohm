@@ -6,7 +6,7 @@
 <!--<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">-->
 
 <nav class="navbar navbar-expand-lg" style="background-color:#000a49">
-    <a class="navbar-brand text-white" href="#">Home</a>
+    <a class="navbar-brand text-white" routerLink="/estudiante/{{identificador}}">Home</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -108,7 +108,7 @@
 
 <!--<a *ngIf="contador<4" routerLink="/crear-tesis" class="btn-btn-default">Crear Tesis</a>-->
 
-
+<a routerLink="/tesis_alumno_solicitud" class="btn btn-default">Volver atras</a>
 <a routerLink="/estudiante/{{identificador}}" class="btn btn-default">Volver a home</a>
    
 
