@@ -93,3 +93,7 @@ Route::delete('/empresa/{id}','EmpresasController@destroy');
 Route::delete('/fondo_concursable/{id}','Fondo_concursableController@destroy');
 Route::delete('/proyecto/{id}','ProyectoController@destroy');
 
+Route::get('/tesis_comision_profesor/{id}','TesisController@tesis_comision_profesor');
+Route::get('/tesis_inscritas_profesor/{id}','TesisController@tesis_inscritas_profesor');
+Route::get('/tesis_espera_profesor/{id}', 'TesisController@tesis_espera_profesor');
+
