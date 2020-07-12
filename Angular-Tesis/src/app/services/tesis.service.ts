@@ -65,5 +65,15 @@ export class TesisService {
     return this.httpClient.get(this.API_ENDPOINT + '/tesis_actual/'+id);
   }
 
+  getTesisProfesorEspera(id){
+    return this.httpClient.get(this.API_ENDPOINT + '/tesis_espera_profesor/'+ id)
+  }
+
+    getTesisProfesorInscrita(id){
+    return this.httpClient.get(this.API_ENDPOINT + '/tesis_inscritas_profesor/'+ id)
+  }
+    getTesisProfesorComision(id){
+    return this.httpClient.get(this.API_ENDPOINT + '/tesis_comision_profesor/'+ id)
+  }
  
 }
