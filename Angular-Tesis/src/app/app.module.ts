@@ -65,8 +65,6 @@ import { CrearTesisAlumnoComponent } from './crear-tesis-alumno/crear-tesis-alum
 import { ShowtesisalumnoComponent } from './showtesisalumno/showtesisalumno.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EdittesisalumnoComponent } from './components/edittesisalumno/edittesisalumno.component';
-import { TesisEsperaProfesorComponent } from './components/tesis-espera-profesor/tesis-espera-profesor.component';
-import { TesisInscritasProfesorComponent } from './components/tesis-inscritas-profesor/tesis-inscritas-profesor.component';
 import { TesisComisionProfesorComponent } from './components/tesis-comision-profesor/tesis-comision-profesor.component';
 
 
@@ -114,9 +112,9 @@ const routes: Route[]=[
   {path: 'crear_tesis', component:CrearTesisAlumnoComponent},
   {path: 'tesismostrar/:id', component: ShowtesisalumnoComponent},
   {path: 'edittesisalumno/:id', component:EdittesisalumnoComponent},
-  {path: 'tesis_esperar_profesor/:id', component:TesisEsperaProfesorComponent},
-  {path: 'tesis_inscritas_profesor/:id', component: TesisInscritasProfesorComponent},
-  {path:  'tesis_comision_profesor/:id', component: TesisComisionProfesorComponent}
+  {path:  'tesis_comision_profesor/:id', component: TesisComisionProfesorComponent},
+  {path:  'tesis_espera_profesor/:id', component:Index2SolTesisComponent },
+  {path:  'tesis_inscrita_profesor/:id', component:Index2InscritaTesisComponent},
 ]
   @NgModule({
     declarations: [
@@ -173,8 +171,6 @@ const routes: Route[]=[
       CrearTesisAlumnoComponent,
       ShowtesisalumnoComponent,
       EdittesisalumnoComponent,
-      TesisEsperaProfesorComponent,
-      TesisInscritasProfesorComponent,
       TesisComisionProfesorComponent,
     ],
     imports: [

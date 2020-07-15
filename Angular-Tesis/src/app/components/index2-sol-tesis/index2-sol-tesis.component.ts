@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import {TesisService} from 'src/app/services/tesis.service';
+import {Tesis} from 'src/app/interfaces/tesis';
 
 
 @Component({
@@ -9,9 +10,10 @@ import {TesisService} from 'src/app/services/tesis.service';
   styleUrls: ['./index2-sol-tesis.component.css']
 })
 export class Index2SolTesisComponent implements OnInit {
-	identificador:string;
+   identificador:string;
    tesistas:Tesis[];
   constructor(private router: Router,private tesisService:TesisService) {
+  	this.identificador=localStorage.getItem('id');
   	this.getTesisProfesorEspera();
    }
 
