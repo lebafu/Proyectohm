@@ -463,7 +463,10 @@ class TesisController extends Controller
         
         public function tesis_espera_profesor($id){
 
-            $tesistas=DB::table('tesis')->leftjoin('comision','tesis.id_pk','=','comision.id')->where([['tesis.estado1','=',1],['tesis.estado2','=',null]])->orwhere([['tesis.estado1','=',2],['tesis.estado2','=',null]])->orwhere([['tesis.estado1','=',2],['tesis.estado2','=',1]])->where('tesis.id_pk','=',$id)->select('tesis.*','comision.profesor1_comision','comision.coguia','comision.profesor2_comision','comision.profesor3_comision','profesor1_externo','comision.profesor1_grado_academico','comision.sexo1','comision.correo_profe1_externo','comision.codigo_postal1','comision.institucion1','comision.profe2_externo','comision.profe2_grado_academico', 'comision.sexo2', 'comision.correo_profe2_externo','comision.codigo_postal1','comision.institucion2')->get();
+            $users=DB::table('users')->where('id','=',$id)->get();
+            foreach($users as $user);
+            //dd($user->name);
+            $tesistas=DB::table('tesis')->join('comision','tesis.id_pk','=','comision.id')->where([['tesis.profesor_guia','=',$user->name],['tesis.estado1','=',1],['tesis.estado2','=',null]])->orwhere([['tesis.profesor_guia','=',$user->name],['tesis.estado1','=',2],['tesis.estado2','=',null]])->get();
 
             echo json_encode($tesistas);
         }
