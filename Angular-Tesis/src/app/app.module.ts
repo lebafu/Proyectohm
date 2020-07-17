@@ -66,6 +66,8 @@ import { ShowtesisalumnoComponent } from './showtesisalumno/showtesisalumno.comp
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EdittesisalumnoComponent } from './components/edittesisalumno/edittesisalumno.component';
 import { TesisComisionProfesorComponent } from './components/tesis-comision-profesor/tesis-comision-profesor.component';
+import { Edittesisalumno2Component } from './components/edittesisalumno2/edittesisalumno2.component';
+import { Show2tesisalumnoComponent } from './components/show2tesisalumno/show2tesisalumno.component';
 
 
 const routes: Route[]=[
@@ -172,6 +174,8 @@ const routes: Route[]=[
       ShowtesisalumnoComponent,
       EdittesisalumnoComponent,
       TesisComisionProfesorComponent,
+      Edittesisalumno2Component,
+      Show2tesisalumnoComponent,
     ],
     imports: [
       BrowserModule,

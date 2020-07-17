@@ -1,5 +1,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<style type="text/css">
+  .fa:before { color:black; }
+</style>
 <!--<style>
   /* Este es para los elementos en general */
   .navbar-light .navbar-nav .nav-link {
@@ -141,8 +144,8 @@
            <td>{{tesis.nota_prorroga}}</td>
         </a>-->
           <!--routerLink="/tesisedit/{{tesis.id_pk}}"-->
-          <a *ngIf="tesis.estado1==1 && tesis.estado2==null" class="btn btn-primary btn-sm" routerLink="/edittesisalumno/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
-          <a *ngIf="tesis.estado1==2 && tesis.estado2==null" class="btn btn-primary btn-sm" routerLink="/edittesisalumno/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
+          <a *ngIf="tesis.estado1==1 && tesis.estado2==null" class="btn btn-primary btn-sm" routerLink="/edittesisalumno2/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
+          <a *ngIf="tesis.estado1==2 && tesis.estado2==null" class="btn btn-primary btn-sm" routerLink="/edittesisalumno2/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
           <a class="btn btn-primary btn-sm" routerLink="/tesismostrar/{{tesis.id_pk}}" ><i class="fa fa-eye" aria-hidden="true"></i></a>
           <a *ngIf="tesis.estado1==1 && tesis.estado2==null" class="btn btn-primary btn-sm btn-danger" (click)="delete(tesis.id_pk)"><i class="fa fa-trash" aria-hidden="true"></i></a>
           <a *ngIf="tesis.estado1==2 && tesis.estado2==null" class="btn btn-primary btn-sm btn-danger" (click)="delete(tesis.id_pk)"><i class="fa fa-trash" aria-hidden="true"></i></a>
@@ -159,5 +162,4 @@
 
 <!--<a *ngIf="contador<4" routerLink="/crear-tesis" class="btn-btn-default">Crear Tesis</a>-->
 
-<a routerLink="/tesis_alumno_solicitud" class="btn btn-default">Volver atras</a>
-<a routerLink="/estudiante/{{identificador}}" class="btn btn-default">Volver a home</a>
+<a routerLink="/profesor/{{identificador}}" class="btn btn-default">Volver atras</a>
