@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {TesisService} from 'src/app/services/tesis.service';
-import {Tesis} from 'src/app/interfaces/tesis';
+import {Tesis_Comision_Capitulos} from 'src/app/interfaces/tesis_comision_capitulos';
 import {User} from 'src/app/interfaces/user';
 import {AreasTesisService} from 'src/app/services/area-tesis.service';
 import {ComunidadesService} from 'src/app/services/comunidades.service';
@@ -29,11 +29,11 @@ export class Edittesisalumno2Component implements OnInit {_
   tok:string;
   cantidad:number;
   nota_tesis:number;
-  tesistas:Tesis[];
+  tesistas:Tesis_Comision_Capitulos[];
   carreras:String[]=["Ingeniería Civil Informática","Ingeniería en Informática","Ingeniería en Ejecución",];
   tipos_vinculaciones:String[]=["Comunidad","Empresa","Fondo Concursable","Proyecto"];
   tipos_trabajos:String[]=["Tesis","Memoria"];
-  tesis:Tesis;
+  tesis:Tesis_Comision_Capitulos;
   profesores:User[];
   comunidades: Comunidad[];
   fondos_concursables: FondoConcursable[];
@@ -118,7 +118,7 @@ export class Edittesisalumno2Component implements OnInit {_
   } 
 
    get_tesis_alumno(identificador_user){
-    this.tesisService.getAlumno(identificador_user).subscribe((data: Tesis[])=>{
+    this.tesisService.getAlumno(identificador_user).subscribe((data: Tesis_Comision_Capitulos[])=>{
     //alert(data);
       console.log(data);
       this.tesistas = data;

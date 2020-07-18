@@ -288,6 +288,8 @@
                                     <textarea name="contribucion" [(ngModel)]="tesis.contribucion" type="text" rows="10" cols="40" class="form-control" required="required" >Escriba aqui los objetivos</textarea>
                                  </div>
                             </div>
+
+
     
                             <a *ngIf="tesis.estado1==5">
                                 <label for="observacion" class="col-md-4 col-form-label text-md-right">Observacion</label>
@@ -295,6 +297,78 @@
                                     <textarea name="observacion" [(ngModel)]="tesis.observacion" type="text" rows="10" cols="40" class="form-control" disabled>Escriba aqui los objetivos</textarea>
                                  </div>
                             </a>
+
+                          <a *ngIf="tesis.profesor1_comision!=null">
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Profesor1 Comisión</label>
+                                <div class="col-md-6">
+                                    <select name="profesor1_comision" id="profesor1_comision" [(ngModel)]="tesis.profesor1_comision" type="text" class="form-control" required="required">
+                                        <option [value]="item.name" *ngFor="let item of profesores">{{item.name}} </option>
+                                    </select>
+                                  </div>
+                            </div>
+                          </a>
+
+                             <a *ngIf="tesis.profesor1_comision==null">
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Profesor1 Comisión</label>
+                                <div class="col-md-6">
+                                    <select name="profesor1_comision" id="profesor1_comision" [(ngModel)]="tesis.profesor1_comision" type="text" class="form-control" required="required">
+                                        <option [value]="tesis.profesor1_comision">{{tesis.profesor1_comision}}</option>
+                                        <option [value]="item.name" *ngFor="let item of profesores">{{item.name}} </option>
+                                    </select>
+                                  </div>
+                            </div>
+
+                        </a>
+
+                         <a *ngIf="tesis.profesor2_comision!=null">
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Profesor2 Comisión</label>
+                                <div class="col-md-6">
+                                    <select name="profesor2_comision" id="profesor2_comision" [(ngModel)]="tesis.profesor2_comision" type="text" class="form-control" required="required">
+                                        <option [value]="item.name" *ngFor="let item of profesores">{{item.name}} </option>
+                                    </select>
+                                  </div>
+                            </div>
+                          </a>
+
+                             <a *ngIf="tesis.profesor2_comision==null">
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Profesor2 Comisión</label>
+                                <div class="col-md-6">
+                                    <select name="profesor2_comision" id="profesor2_comision" [(ngModel)]="tesis.profesor2_comision" type="text" class="form-control" required="required">
+                                        <option [value]="tesis.profesor2_comision">{{tesis.profesor2_comision}}</option>
+                                        <option [value]="item.name" *ngFor="let item of profesores">{{item.name}} </option>
+                                    </select>
+                                  </div>
+                            </div>
+
+                        </a>
+
+                           <a *ngIf="tesis.profesor3_comision!=null">
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Profesor3 Comisión</label>
+                                <div class="col-md-6">
+                                    <select name="profesor3_comision" id="profesor3_comision" [(ngModel)]="tesis.profesor3_comision" type="text" class="form-control" required="required">
+                                        <option [value]="item.name" *ngFor="let item of profesores"><a *ngIf="tesis.profesor3_comision!=tesis.profesor2_comision && tesis.profesor3_comision!=tesis.profesor1_comision">{{item.name}}</a></option>
+                                    </select>
+                                  </div>
+                            </div>
+                          </a>
+
+                             <a *ngIf="tesis.profesor3_comision==null">
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Profesor3 Comisión</label>
+                                <div class="col-md-6">
+                                    <select name="profesor3_comision" id="profesor3_comision" [(ngModel)]="tesis.profesor3_comision" type="text" class="form-control" required="required">
+                                        <option [value]="tesis.profesor3_comision">{{tesis.profesor3_comision}}</option>
+                                        <option [value]="item.name" *ngFor="let item of profesores"><a *ngIf="tesis.profesor3_comision!=tesis.profesor2_comision && tesis.profesor3_comision!=tesis.profesor1_comision">{{item.name}}</a></option>
+                                    </select>
+                                  </div>
+                            </div>
+
+                        </a>
                             
                             <button (click)=editTesis2() class="btn btn-primary">Guardar</button>
                             

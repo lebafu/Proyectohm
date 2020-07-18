@@ -70,4 +70,5 @@
     avance_cap5:string;
     avance_cap6:string;
     fecha:string;
+    nota_tesis:string;
 }

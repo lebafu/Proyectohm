@@ -128,9 +128,9 @@
 <p>{{tesis.contribucion}}</p>
 <b>Fecha Petición</b>
 <p>{{tesis.fecha_peticion}}</p>
-<a *ngIf="tesis.profesor1_comision!=null || tesis.profesor2_comision!='Ninguno'"><b>Profesor 1 Comisión:</b><p>{{tesis.profesor1_comision}}</p></a>
-<a *ngIf="tesis.profesor2_comision!='Ninguno' || tesis.profesor2_comision!=null "><b>Profesor 2 Comisión:</b><p>{{tesis.profesor2_comision}}</p></a>
-<a *ngIf="tesis.profesor3_comision!='Ninguno'|| tesis.profesor3_comision!=null "><b>Profesor 3 Comisión:</b><p>{{tesis.profesor3_comision}}</p></a>
+<a *ngIf="tesis.profesor1_comision!=null"><b>Profesor 1 Comisión:</b><p>{{tesis.profesor1_comision}}</p></a>
+<a *ngIf="tesis.profesor2_comision!=null "><b>Profesor 2 Comisión:</b><p>{{tesis.profesor2_comision}}</p></a>
+<a *ngIf="tesis.profesor3_comision!=null "><b>Profesor 3 Comisión:</b><p>{{tesis.profesor3_comision}}</p></a>
 <a *ngIf="tesis.profesor1_externo!=null"><b>Profesor 1 Externo de la Comisión:</b><p>{{tesis.profesor1_externo}}</p></a>
 <a *ngIf="tesis.profe2_externo!=null"><b>Profesor 2 Externo de la Comisión:</b><p>{{tesis.profe2_externo}}</p></a>
 <a *ngIf="tesis.nota_tesis!=null"><b>Nota:</b><p>{{tesis.nota_tesis}}</p></a>

@@ -27,9 +27,9 @@
               Tesis
             </a>
             <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown1" class="dropdown-menu">
-              <a class="dropdown-item" href="/">Espera</a>
-              <a class="dropdown-item" href="#">Inscritas</a>
-              <a class="dropdown-item" href="#">Comision</a>
+              <a class="dropdown-item" routerLink="/tesis_espera_profesor/{{identificador}}">Espera</a>
+              <a class="dropdown-item" href="/tesis_inscrita_profesor/{{identificador}}">Inscritas</a>
+              <a class="dropdown-item" href="/tesis_comision_profesor/{{identificador}}">Comision</a>
               <a class="dropdown-item" href="#">Informes</a>
               <a class="dropdown-item" href="#">Actas</a>
             </div>
@@ -146,7 +146,7 @@
           <!--routerLink="/tesisedit/{{tesis.id_pk}}"-->
           <a *ngIf="tesis.estado1==1 && tesis.estado2==null" class="btn btn-primary btn-sm" routerLink="/edittesisalumno2/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
           <a *ngIf="tesis.estado1==2 && tesis.estado2==null" class="btn btn-primary btn-sm" routerLink="/edittesisalumno2/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
-          <a class="btn btn-primary btn-sm" routerLink="/tesismostrar/{{tesis.id_pk}}" ><i class="fa fa-eye" aria-hidden="true"></i></a>
+          <a class="btn btn-primary btn-sm" routerLink="/tesismostrar2/{{tesis.id_pk}}" ><i class="fa fa-eye" aria-hidden="true"></i></a>
           <a *ngIf="tesis.estado1==1 && tesis.estado2==null" class="btn btn-primary btn-sm btn-danger" (click)="delete(tesis.id_pk)"><i class="fa fa-trash" aria-hidden="true"></i></a>
           <a *ngIf="tesis.estado1==2 && tesis.estado2==null" class="btn btn-primary btn-sm btn-danger" (click)="delete(tesis.id_pk)"><i class="fa fa-trash" aria-hidden="true"></i></a>
                
