@@ -48,12 +48,13 @@
     profesor2_comision:string;
     profesor3_comision:string;
     profesor1_externo:string;
+    coguia:string;
     profesor1_grado_academico:string;
-    correo_profesor1_externo:string;
+    correo_profe1_externo:string;
     institucion1:string;
     sexo1:string;
     profe2_externo:string;
-    profeo2_grado_academico:string;
+    profe2_grado_academico:string;
     correo_profe2_externo:string;
     institucion2:string;
     sexo2:string;

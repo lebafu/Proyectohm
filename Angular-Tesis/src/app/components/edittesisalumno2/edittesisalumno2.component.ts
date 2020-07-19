@@ -27,6 +27,8 @@ import { Router } from '@angular/router';
 export class Edittesisalumno2Component implements OnInit {_
   identificador:string;
   tok:string;
+  coguia:string[]=["Si","No"];
+  lista_sexos:string[]=["Masculino","Femenino"];
   cantidad:number;
   nota_tesis:number;
   tesistas:Tesis_Comision_Capitulos[];
@@ -57,6 +59,7 @@ export class Edittesisalumno2Component implements OnInit {_
     this.getFondosConcursables();
     this.getProyecto();
     this.getArea_Tesis();
+    this.tesis_actual();
          }, (error)=>{
           console.log(error);
          });
@@ -87,6 +90,7 @@ export class Edittesisalumno2Component implements OnInit {_
 
    tesis_actual(){
     this.identificador=localStorage.getItem('id');
+    console.log(this.identificador);
     this.tok=localStorage.getItem('token');
     console.log(this.identificador);
     this.tesisService.tesis_actual(this.identificador).subscribe((data)=>{
