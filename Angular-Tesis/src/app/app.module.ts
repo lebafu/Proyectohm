@@ -68,6 +68,7 @@ import { EdittesisalumnoComponent } from './components/edittesisalumno/edittesis
 import { TesisComisionProfesorComponent } from './components/tesis-comision-profesor/tesis-comision-profesor.component';
 import { Edittesisalumno2Component } from './components/edittesisalumno2/edittesisalumno2.component';
 import { Show2tesisalumnoComponent } from './components/show2tesisalumno/show2tesisalumno.component';
+import { Edittesisalumno2sincamposnulosComponent } from './components/edittesisalumno2sincamposnulos/edittesisalumno2sincamposnulos.component';
 
 
 const routes: Route[]=[
@@ -179,6 +180,7 @@ const routes: Route[]=[
       TesisComisionProfesorComponent,
       Edittesisalumno2Component,
       Show2tesisalumnoComponent,
+      Edittesisalumno2sincamposnulosComponent,
     ],
     imports: [
       BrowserModule,

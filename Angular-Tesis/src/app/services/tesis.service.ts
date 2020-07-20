@@ -53,6 +53,11 @@ export class TesisService {
     return this.httpClient.put(this.API_ENDPOINT +'/tesis/' + tesis.id_pk, tesis,{headers:headers});
   }
 
+  put2(tesis:Tesis){
+    const headers= new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.put(this.API_ENDPOINT +'/tesis_editada_profesor/' + tesis.id_pk, tesis,{headers:headers});
+  }
+
   delete(id)
   {
     console.log(id);

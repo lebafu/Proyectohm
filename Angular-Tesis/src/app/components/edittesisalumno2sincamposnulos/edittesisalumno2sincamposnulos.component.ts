@@ -18,18 +18,17 @@ import {ActivatedRoute} from '@angular/router';
 import {UsersService} from 'src/app/services/users.service';
 import { Router } from '@angular/router';
 
-
 @Component({
-  selector: 'app-edittesisalumno2',
-  templateUrl: './edittesisalumno2.component.html',
-  styleUrls: ['./edittesisalumno2.component.css']
+  selector: 'app-edittesisalumno2sincamposnulos',
+  templateUrl: './edittesisalumno2sincamposnulos.component.html',
+  styleUrls: ['./edittesisalumno2sincamposnulos.component.css']
 })
-export class Edittesisalumno2Component implements OnInit {_
+export class Edittesisalumno2sincamposnulosComponent implements OnInit {
   identificador:string;
   tok:string;
   coguia:string[]=["Si","No"];
-  lista_sexos:string[]=["Masculino","Femenino"];
   listas_grados_academicos:string[]=["Dr.","Mg.","Ing."];
+  lista_sexos:string[]=["Masculino","Femenino"];
   cantidad:number;
   nota_tesis:number;
   tesistas:Tesis_Comision_Capitulos[];
@@ -185,4 +184,3 @@ export class Edittesisalumno2Component implements OnInit {_
   }
 
 }
-
