@@ -7,6 +7,7 @@ import {ComunidadesService} from 'src/app/services/comunidades.service';
 import {FondosConcursablesService} from 'src/app/services/fondos-concursables.service';
 import {EmpresasService} from 'src/app/services/empresas.service';
 import {ProyectosService} from 'src/app/services/proyectos.service';
+import {TesisComisionCapitulosService} from 'src/app/services/tesis-comision-capitulos.service';
 import {FondoConcursable} from 'src/app/interfaces/fondoconcursable';
 import { Area_Tesis } from 'src/app/interfaces/area_tesis';
 import {Empresa} from 'src/app/interfaces/empresa';
@@ -45,7 +46,7 @@ export class Edittesisalumno2Component implements OnInit {_
   areas_tesis:Area_Tesis[];
   id: any;
   editing: boolean =false;
-  constructor(private router: Router,private usersService: UsersService, private tesisService: TesisService, private areastesisService: AreasTesisService,private empresasService: EmpresasService,private fondosconcursablesService: FondosConcursablesService,private comunidadesService: ComunidadesService,private proyectosService: ProyectosService,private activatedRoute: ActivatedRoute) {
+  constructor(private router: Router,private usersService: UsersService,private tesiscomisioncapitulosService:TesisComisionCapitulosService, private tesisService: TesisService, private areastesisService: AreasTesisService,private empresasService: EmpresasService,private fondosconcursablesService: FondosConcursablesService,private comunidadesService: ComunidadesService,private proyectosService: ProyectosService,private activatedRoute: ActivatedRoute) {
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){
@@ -68,7 +69,6 @@ export class Edittesisalumno2Component implements OnInit {_
       this.editing=false;
     }   
 
-
    }
 
   ngOnInit(): void {
@@ -78,7 +78,7 @@ export class Edittesisalumno2Component implements OnInit {_
     console.log(this.editing);
     if(this.editing==true){
       console.log(this.tesis);
-      this.tesisService.put2(this.tesis).subscribe((data) => {
+      this.tesiscomisioncapitulosService.put2(this.tesis).subscribe((data) => {
       alert('Tesis Actualizada');
       //console.log(data);
       //this.router.navigateByUrl('/tesis_alumno_solicitud');

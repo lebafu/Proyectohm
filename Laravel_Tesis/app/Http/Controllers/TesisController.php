@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use App\Tesis;
+use App\Comision;
+use App\Capitulos_Tesis;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Str;
@@ -171,39 +173,14 @@ class TesisController extends Controller
         }
     }
 
+    
+
     public function update2(Request $request,$id)
     {
-        //dd($request);
-        $tesistas=DB::table('tesis')->where('id_pk',$id)->get();
-        foreach($tesistas as $tesis);
-
-        $profesor_guia=$request->get('profesor_guia');
-        $profesor1_comision=$request->get('profesor1_comision');
-        $profesor2_comision=$request->get('profesor2_comision');
-        $profesor3_comision=$request->get('profesor3_comision');
-        //Para quee el profesor no sea seleccionado 2 veces en la comision
-        if($profesor_guia!=$profesor1_comision and $profesor_guia!=$profesor2_comision and $profesor_guia!=$profesor3_comision and $profesor1_comision!=$profesor2_comision and $profesor1_comision!=$profesor3_comision and $profesor2_comision!=$profesor3_comision){
-        if($request->get('nombre_completo2')!=null){
-            $tes->nombre_completo2=$request->get('nombre_completo2');
-            DB::table('tesis')->where('id_pk',$id)->update(['nombre_completo2' =>  $tes->nombre_completo2]);
-        }
-    }else{
-            return response()->json([[
-                'mensaje' =>  'Ha ocurrido un error el nombre de algun profesor esta repetido'
-            ]],200);
-        }
-         if($request->get('rut2')!=null){
-            $tes->rut2=$request->get('rut2');
-            DB::table('tesis')->where('id_pk',$id)->update(['rut2' =>  $tes->rut2]);
-        }
-         if($request->get('ano_ingreso2')!=null){
-            $tes->ano_ingreso2=$request->get('ano_ingreso2');
-            DB::table('tesis')->where('id_pk',$id)->update(['ano_ingreso2' =>  $tes->ano_ingreso2]);
-        }
-         if($request->get('telefono2')!=null){
-            $tes->telefono2=$request->get('telefono2');
-            DB::table('tesis')->where('id_pk',$id)->update(['telefono2' =>  $tes->telefono2]);
-        }
+        echo json_encode($request);
+        //$tesis=DB::table('tesis')->where('id_pk',$id)->get();
+        //foreach($tesis as $tes);
+        $tes=Tesis::find($id);
         $tes->nombre_completo=$request->get('nombre_completo');
         DB::table('tesis')->where('id_pk',$id)->update(['nombre_completo' =>  $tes->nombre_completo]);
         $tes->rut=$request->get('rut');
@@ -213,6 +190,7 @@ class TesisController extends Controller
         $tes->telefono1=$request->get('telefono1');
         DB::table('tesis')->where('id_pk',$id)->update(['telefono1' =>  $tes->telefono1]);
         //En caso de que se ingresen los datos del segundo alumno tesista
+        
         $tes->profesor_guia=$request->get('profesor_guia');
         DB::table('tesis')->where('id_pk',$id)->update(['profesor_guia' =>  $tes->profesor_guia]);
         $tes->nombre_tesis=$request->get('nombre_tesis');
@@ -233,26 +211,8 @@ class TesisController extends Controller
         DB::table('tesis')->where('id_pk',$id)->update(['objetivos' =>  $tes->objetivos]);
         $tes->contribucion=$request->get('contribucion');
         DB::table('tesis')->where('id_pk',$id)->update(['contribucion' =>  $tes->contribucion]);
-        
-         if($tesis->estado1==1 and $tesis->estado2==null)
-         {
-                DB::table('tesis')->where('id_pk',$id)->update(['estado1' => 2]);
-                 DB::table('tesis')->where('id_pk',$id)->update(['estado1' =>null]);
-         //dd($user);
-        }
-        //dd($user);
-        //$comision=new Comision;
-        //$alumno=DB::table('users')->join('tesis','users.name','=',$tes->nombre_completo)->get();
-        //dd($alumno);
-        //$comision =new Comision;;
-        //$comision->id_profesor_guia=$profe->id;
-       //dd($id);
-        $comision=DB::table('comision')->where('id','=', $id)->get();
-        if($comision->isEmpty()==false)
-        {
         DB::table('comision')->where('id','=', $id)->delete();
-        }
-        DB::table('comision')->insert([
+       DB::table('comision')->insert([
             'id' => $id,
             'id_profesor_guia' => $profe->id,
             'nombre_alumno' =>$request->nombre_completo,
@@ -273,13 +233,9 @@ class TesisController extends Controller
             'codigo_postal2'=>$request->codigo_postal2,
             'sexo2' => $request->sexo2,
         ]);
-       
-       $caps=DB::table('capitulos')->where('id','=', $id)->get();
-       if($caps->isEmpty()==false){
-        DB::table('capitulos')->where('id','=', $id)->delete();
-        }
-       if($tes->estado1==2 and $tes->estado2==null)
-       {
+
+       DB::table('capitulos')->where('id','=', $id)->delete();
+       if($tes->estado1==2 and $tes->estado2==null){
         $fecha=now();
         //dd($request->cap1);
        DB::table('capitulos')->insert([
@@ -298,7 +254,10 @@ class TesisController extends Controller
             'avance_cap6' => 0,
             'fecha' => $fecha,
         ]);
-        }
+         }
+        //echo json_encode('hola controlador update2');
+        
+        
     }
       
    

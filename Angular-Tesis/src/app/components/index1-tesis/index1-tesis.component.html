@@ -92,9 +92,9 @@
            <td>{{tesis.nota_prorroga}}</td>
         </a>-->
           <!--routerLink="/tesisedit/{{tesis.id_pk}}"-->
-          <a *ngIf="tesis.estado1==1 && tesis.estado2==0" class="btn btn-primary btn-sm" routerLink="/edittesisalumno/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
+          <a *ngIf="tesis.estado1==1 && tesis.estado2==null" class="btn btn-primary btn-sm" routerLink="/edittesisalumno/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
           <a class="btn btn-primary btn-sm" routerLink="/tesismostrar/{{tesis.id_pk}}" ><i class="fa fa-eye" aria-hidden="true"></i></a>
-          <a *ngIf="tesis.estado1==1 && tesis.estado2==0" class="btn btn-primary btn-sm btn-danger" (click)="delete(tesis.id_pk)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+          <a *ngIf="tesis.estado1==1 && tesis.estado2==null" class="btn btn-primary btn-sm btn-danger" (click)="delete(tesis.id_pk)"><i class="fa fa-trash" aria-hidden="true"></i></a>
                
         </tr>
      </table>
