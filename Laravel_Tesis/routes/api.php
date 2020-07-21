@@ -61,6 +61,7 @@ Route::get('/tesis/{id_pk}', 'TesisController@getTesis')->name('tesis.getTesis')
 Route::get('/tesis_alumno_solicitud/{id}', 'TesisController@index1')->name('tesis.index1');
 Route::put('/tesis/{tesis}','TesisController@update');
 Route::put('/tesis_editada_profesor/{tesis}','TesisController@update2');
+Route::get('/tesis_editada_profesor/{tesis}','TesisController@getTCC');
 Route::delete('/tesis/{id}','TesisController@destroy');
 
 

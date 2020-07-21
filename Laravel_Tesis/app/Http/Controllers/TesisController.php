@@ -174,12 +174,14 @@ class TesisController extends Controller
     }
 
     
+    public function getTCC($id){
+        $tesis=DB::table('tesis')->leftjoin('comision','tesis.id_pk','=','comision.id')->leftjoin('capitulos','tesis.id_pk','=','capitulos.id')->where('tesis.id_pk','=',$id)->get();
+        echo json_encode($tesis);
+    }
 
     public function update2(Request $request,$id)
     {
-        echo json_encode($request);
-        //$tesis=DB::table('tesis')->where('id_pk',$id)->get();
-        //foreach($tesis as $tes);
+        
         $tes=Tesis::find($id);
         $tes->nombre_completo=$request->get('nombre_completo');
         DB::table('tesis')->where('id_pk',$id)->update(['nombre_completo' =>  $tes->nombre_completo]);
