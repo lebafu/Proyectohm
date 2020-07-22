@@ -79,9 +79,10 @@ export class Edittesisalumno2Component implements OnInit {_
     if(this.editing==true){
       console.log(this.tesis);
       this.tesiscomisioncapitulosService.put2(this.tesis).subscribe((data) => {
+      this.router.navigateByUrl('/tesis_espera_profesor/'+ this.identificador);
       alert('Tesis Actualizada');
       //console.log(data);
-      //this.router.navigateByUrl('/tesis_alumno_solicitud');
+      
     }, (error) => {
   console.log(error);
   alert('Ocurrio  un error al editar');

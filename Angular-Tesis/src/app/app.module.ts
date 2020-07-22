@@ -69,6 +69,7 @@ import { TesisComisionProfesorComponent } from './components/tesis-comision-prof
 import { Edittesisalumno2Component } from './components/edittesisalumno2/edittesisalumno2.component';
 import { Show2tesisalumnoComponent } from './components/show2tesisalumno/show2tesisalumno.component';
 import { Edittesisalumno2sincamposnulosComponent } from './components/edittesisalumno2sincamposnulos/edittesisalumno2sincamposnulos.component';
+import { EvaluartesisalumnoComponent } from './evaluartesisalumno/evaluartesisalumno.component';
 
 
 const routes: Route[]=[
@@ -120,7 +121,8 @@ const routes: Route[]=[
   {path:  'tesis_inscrita_profesor/:id', component:Index2InscritaTesisComponent},
   {path: 'tesismostrar2/:id', component: Show2tesisalumnoComponent},
   {path: 'edittesisalumno2/:id', component:Edittesisalumno2Component},
-
+   {path: 'edittesisalumnos2incamposnulos/:id', component:Edittesisalumno2sincamposnulosComponent},
+  {path:'evaluartesisalumno/:id', component:Edittesisalumno2Component},
 ]
   @NgModule({
     declarations: [
@@ -181,6 +183,7 @@ const routes: Route[]=[
       Edittesisalumno2Component,
       Show2tesisalumnoComponent,
       Edittesisalumno2sincamposnulosComponent,
+      EvaluartesisalumnoComponent,
     ],
     imports: [
       BrowserModule,

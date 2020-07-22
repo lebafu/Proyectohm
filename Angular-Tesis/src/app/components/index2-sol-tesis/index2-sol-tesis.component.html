@@ -150,6 +150,7 @@
           <a class="btn btn-primary btn-sm" routerLink="/tesismostrar2/{{tesis.id_pk}}" ><i class="fa fa-eye" aria-hidden="true"></i></a>
           <a *ngIf="tesis.estado1==1 && tesis.estado2==null" class="btn btn-primary btn-sm btn-danger" (click)="delete(tesis.id_pk)"><i class="fa fa-trash" aria-hidden="true"></i></a>
           <a *ngIf="tesis.estado1==2 && tesis.estado2==null" class="btn btn-primary btn-sm btn-danger" (click)="delete(tesis.id_pk)"><i class="fa fa-trash" aria-hidden="true"></i></a>
+          <!--<a *ngIf="tesis.estado1==2 && tesis.estado2==null" class="btn btn-primary btn-sm btn-danger" (click)="/evaluartesisalumno/{{tesis.id_pk}}"><i class="fa fa-check" aria-hidden="true"></i></a>-->
                
         </tr>
      </table>

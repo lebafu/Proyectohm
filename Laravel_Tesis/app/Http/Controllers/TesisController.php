@@ -114,6 +114,7 @@ class TesisController extends Controller
     public function update(Request $request,$id)
     {
         
+        //echo json_encode($request);
         $tesis=DB::table('tesis')->where('id_pk',$id)->get();
         foreach($tesis as $tes);
         //dd($tes);
@@ -179,67 +180,110 @@ class TesisController extends Controller
         echo json_encode($tesis);
     }
 
+
+
+    public function u(Request $request,$id){
+        echo json_encode($request);
+
+    }
     public function update2(Request $request,$id)
     {
-        
-        $tes=Tesis::find($id);
-        $tes->nombre_completo=$request->get('nombre_completo');
-        DB::table('tesis')->where('id_pk',$id)->update(['nombre_completo' =>  $tes->nombre_completo]);
-        $tes->rut=$request->get('rut');
-        DB::table('tesis')->where('id_pk',$id)->update(['rut' =>  $tes->rut]);
-        $tes->ano_ingreso=$request->get('ano_ingreso');
-        DB::table('tesis')->where('id_pk',$id)->update(['ano_ingreso' =>  $tes->ano_ingreso]);
-        $tes->telefono1=$request->get('telefono1');
-        DB::table('tesis')->where('id_pk',$id)->update(['telefono1' =>  $tes->telefono1]);
+        //echo json_encode($request);
+        $tes=Tesis::where('id_pk','=',$id)->get()->first();
+        //$tes[0]->nombre_completo=$request->nombre_completo;
+        $tes->nombre_completo=$request->nombre_completo;
+        $tes->rut=$request->rut;
+        $tes->ano_ingreso=$request->ano_ingreso;
+        $tes->telefono1=$request->telefono1;
+        $tes->profesor_guia=$request->profesor_guia;
+        $tes->nombre_tesis=$request->nombre_tesis;
+        $tes->area_tesis=$request->area_tesis;
+        $tes->carrera=$request->carrera;
+        $tes->tipo_vinculacion=$request->tipo_vinculacion;
+        $tes->nombre_vinculacion=$request->nombre_vinculacion;
+        $tes->tipo=$request->tipo;
+        $tes->descripcion=$request->descripcion;
+        $tes->objetivos=$request->objetivos;
+        $tes->contribucion=$request->descripcion;
+        if($tes->estado1==1 and $tes->estado2==null){
+                $tes->estado1=2;
+                $tes->estado2=null;
+       }
+        $tes->save();
+        /*DB::table('tesis')->where('id_pk',$id)->update(['nombre_completo' =>  $request->nombre_completo]);
+        //$tes[0]->rut=$request->rut;
+        DB::table('tesis')->where('id_pk',$id)->update(['rut' =>  $request->rut]);
+        //$tes[0]->ano_ingreso=$request->ano_ingreso;
+        DB::table('tesis')->where('id_pk',$id)->update(['ano_ingreso' =>  $Request->ano_ingreso]);
+        //$tes[0]->telefono1=$request->telefono1;
+        DB::table('tesis')->where('id_pk',$id)->update(['telefono1' =>  $request->telefono1]);
         //En caso de que se ingresen los datos del segundo alumno tesista
         
-        $tes->profesor_guia=$request->get('profesor_guia');
-        DB::table('tesis')->where('id_pk',$id)->update(['profesor_guia' =>  $tes->profesor_guia]);
-        $tes->nombre_tesis=$request->get('nombre_tesis');
-        DB::table('tesis')->where('id_pk',$id)->update(['nombre_tesis' =>  $tes->nombre_tesis]);
-        $tes->area_tesis=$request->get('area_tesis');
-        DB::table('tesis')->where('id_pk',$id)->update(['area_tesis' =>  $tes->area_tesis]);
-        $tes->carrera=$request->get('carrera');
-        DB::table('tesis')->where('id_pk',$id)->update(['carrera' =>  $tes->carrera]);
-        $tes->tipo_vinculacion=$request->get('tipo_vinculacion');
-        DB::table('tesis')->where('id_pk',$id)->update(['tipo_vinculacion' =>  $tes->tipo_vinculacion]);
-        $tes->nombre_vinculacion=$request->get('nombre_vinculacion');
-        DB::table('tesis')->where('id_pk',$id)->update(['nombre_vinculacion' =>  $tes->nombre_vinculacion]);
-        $tes->tipo=$request->get('tipo');
-        DB::table('tesis')->where('id_pk',$id)->update(['tipo' =>  $tes->tipo]);
-        $tes->descripcion=$request->get('descripcion');
-        DB::table('tesis')->where('id_pk',$id)->update(['descripcion' =>  $tes->descripcion]);
-        $tes->objetivos=$request->get('objetivos');
-        DB::table('tesis')->where('id_pk',$id)->update(['objetivos' =>  $tes->objetivos]);
-        $tes->contribucion=$request->get('contribucion');
-        DB::table('tesis')->where('id_pk',$id)->update(['contribucion' =>  $tes->contribucion]);
-        DB::table('comision')->where('id','=', $id)->delete();
-       DB::table('comision')->insert([
-            'id' => $id,
-            'id_profesor_guia' => $profe->id,
-            'nombre_alumno' =>$request->nombre_completo,
-            'profesor1_comision' => $request->profesor1_comision,
-            'coguia' => $request->coguia,
-            'profesor2_comision' => $request->profesor2_comision,
-            'profesor3_comision' => $request->profesor3_comision,
-            'profesor1_externo' => $request->profesor1_externo,
-            'profesor1_grado_academico' => $request->profesor1_grado_academico,
-            'correo_profe1_externo' => $request->correo_profe1_externo,
-            'profe2_externo' => $request->profesor2_externo,
-            'profe2_grado_academico' => $request->profe2_grado_academico,
-            'institucion1' => $request->institucion1,
-            'sexo1'  => $request->sexo1,
-            'codigo_postal1'=>$request->codigo_postal1,
-            'correo_profe2_externo' => $request->correo_profe2_externo,
-            'institucion2' => $request->institucion2,
-            'codigo_postal2'=>$request->codigo_postal2,
-            'sexo2' => $request->sexo2,
-        ]);
+        //$tes[0]->profesor_guia=$request->profesor_guia;
+        DB::table('tesis')->where('id_pk',$id)->update(['profesor_guia' =>  $request->profesor_guia]);
+        //$tes[0]->nombre_tesis=$request->nombre_tesis;
+        DB::table('tesis')->where('id_pk',$id)->update(['nombre_tesis' =>  $request->nombre_tesis]);
+        //$tes[0]->area_tesis=$request->area_tesis;
+        DB::table('tesis')->where('id_pk',$id)->update(['area_tesis' =>  $request->area_tesis]);
+        //$tes[0]->carrera=$request->carrera;
+        DB::table('tesis')->where('id_pk',$id)->update(['carrera' =>  $request->carrera]);
+        //$tes[0]->tipo_vinculacion=$request->tipo_vinculacion;
+        DB::table('tesis')->where('id_pk',$id)->update(['tipo_vinculacion' =>  $request->tipo_vinculacion]);
+        //$tes[0]->nombre_vinculacion=$request->nombre_vinculacion;
+        DB::table('tesis')->where('id_pk',$id)->update(['nombre_vinculacion' =>  $request->nombre_vinculacion]);
+        //$tes[0]->tipo=$request->tipo;
+        DB::table('tesis')->where('id_pk',$id)->update(['tipo' =>  $request->tipo]);
+        //$tes[0]->descripcion=$request->descripcion;
+        DB::table('tesis')->where('id_pk',$id)->update(['descripcion' =>  $request->descripcion]);
+        //$tes[0]->objetivos=$request->objetivos;
+        DB::table('tesis')->where('id_pk',$id)->update(['objetivos' =>  $request->objetivos]);
+        //$tes[0]->contribucion=$request->get->contribucion;
+        DB::table('tesis')->where('id_pk',$id)->update(['contribucion' =>  $request->contribucion]);*/
+       $profe=User::where('name','=',$tes->profesor_guia)->get()->first();
+        $com=Comision::find($id);
+        if($com!=null){
+        $com->delete();
+        }
+        if($request->coguia=="Si"){
+            $coguia=1;
+        }else{
+            $coguia=0;
+        }
+      
+        $comision=new Comision();
+        $comision->id=$id;
+        $comision->id_profesor_guia=$profe->id;
+        $comision->nombre_alumno=$request->nombre_completo;
+        $comision->profesor1_comision=$request->profesor1_comision;
+        $comision->coguia=$coguia;
+        $comision->profesor2_comision=$request->profesor2_comision;
+        $comision->profesor3_comision=$request->profesor3_comision;
+        if($request->profesor1_externo!=null){
+        $comision->profesor1_externo=$request->profesor1_externo;
+        $comision->profesor1_grado_academico=$request->profesor1_grado_academico;
+        $comision->correo_profe1_externo=$request->correo_profe1_externo;
+        $comision->sexo1=$request->sexo1;
+        $comision->institucion1=$request->institucion1;
+        $comision->codigo_postal1=$request->codigo_postal1;
+        }
+        if($request->profesor2_externo!=null){
+            $com->profe2_externo=$request->profesor2_externo;
+        $comision->profe2_grado_academico=$request->profe2_grado_academico;
+        $comision->correo_profe2_externo=$request->correo_profe2_externo;
+        $comision->sexo2=$request->sexo2;
+        $comision->institucion2=$request->institucion2;
+        $comision->codigo_postal2=$request->codigo_postal2;
+        }
 
-       DB::table('capitulos')->where('id','=', $id)->delete();
-       if($tes->estado1==2 and $tes->estado2==null){
+        $comision->save();
+        
+
         $fecha=now();
         //dd($request->cap1);
+         $cap=Capitulos_Tesis::where('id','=',$id)->get()->first();
+        if($cap!=null){
+        DB::table('capitulos')->where('id','=', $id)->delete();
+        }
        DB::table('capitulos')->insert([
             'id' => $id,
             'cap1' => $request->cap1,
@@ -256,7 +300,7 @@ class TesisController extends Controller
             'avance_cap6' => 0,
             'fecha' => $fecha,
         ]);
-         }
+         
         //echo json_encode('hola controlador update2');
         
         
