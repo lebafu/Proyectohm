@@ -10,6 +10,7 @@ import {ProyectosService} from 'src/app/services/proyectos.service';
 import {FondoConcursable} from 'src/app/interfaces/fondoconcursable';
 import { Area_Tesis } from 'src/app/interfaces/area_tesis';
 import {Empresa} from 'src/app/interfaces/empresa';
+import {TesisComisionCapitulosService} from 'src/app/services/tesis-comision-capitulos.service';
 import {Comunidad} from 'src/app/interfaces/comunidad';
 import {Proyecto} from 'src/app/interfaces/proyecto';
 import { TokenService } from 'src/app/services/token.service';
@@ -44,7 +45,7 @@ export class Edittesisalumno2sincamposnulosComponent implements OnInit {
   areas_tesis:Area_Tesis[];
   id: any;
   editing: boolean =false;
-  constructor(private router: Router,private usersService: UsersService, private tesisService: TesisService, private areastesisService: AreasTesisService,private empresasService: EmpresasService,private fondosconcursablesService: FondosConcursablesService,private comunidadesService: ComunidadesService,private proyectosService: ProyectosService,private activatedRoute: ActivatedRoute) {
+  constructor(private tesiscomisioncapitulosService:TesisComisionCapitulosService,private router: Router,private usersService: UsersService, private tesisService: TesisService, private areastesisService: AreasTesisService,private empresasService: EmpresasService,private fondosconcursablesService: FondosConcursablesService,private comunidadesService: ComunidadesService,private proyectosService: ProyectosService,private activatedRoute: ActivatedRoute) {
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){
@@ -77,7 +78,7 @@ export class Edittesisalumno2sincamposnulosComponent implements OnInit {
     console.log(this.editing);
     if(this.editing==true){
       console.log(this.tesis);
-      this.tesisService.put2(this.tesis).subscribe((data) => {
+      this.tesiscomisioncapitulosService.put2(this.tesis).subscribe((data) => {
       alert('Tesis Actualizada');
       //console.log(data);
       //this.router.navigateByUrl('/tesis_alumno_solicitud');

@@ -628,7 +628,7 @@ class TesisController extends Controller
         }
 
         public function getTesis($id){
-            $tesis=DB::table('tesis')->leftjoin('comision','tesis.id_pk','=','comision.id')->where('tesis.id_pk','=',$id)->get();
+            $tesis=DB::table('tesis')->leftjoin('comision','tesis.id_pk','=','comision.id')->leftjoin('capitulos','tesis.id_pk','=','capitulos.id')->where('tesis.id_pk','=',$id)->get();
             echo json_encode($tesis);
         }
   

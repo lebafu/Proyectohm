@@ -1,1 +1,532 @@
-<p>evaluartesisalumno works!</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<style type="text/css">
+  .fa:before { color:black; }
+</style>
+
+<!--<style>
+  /* Este es para los elementos en general */
+  .navbar-light .navbar-nav .nav-link {
+    color: orange;
+    }
+    /*  Este es para el elemento activo lo puedes omitir si asi deseas */
+    .navbar-light .navbar-nav .active>.nav-link  {
+     color: red;
+    }
+</style>
+
+/.Navbar-->
+   <nav class="navbar navbar-expand-lg" style="background-color:#000a49"> 
+    <a class="navbar-brand text-white" href="#">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav"> 
+          <li ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tesis
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown1" class="dropdown-menu">
+              <a class="dropdown-item" href="/">Espera</a>
+              <a class="dropdown-item" href="#">Inscritas</a>
+              <a class="dropdown-item" href="#">Comision</a>
+              <a class="dropdown-item" href="#">Informes</a>
+              <a class="dropdown-item" href="#">Actas</a>
+            </div>
+          </li>
+          <li ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Vinculación
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown2" class="dropdown-menu">
+              <a class="dropdown-item" routerLink="/comunidades">Comunidad</a>
+              <a class="dropdown-item" routerLink="/fondosconcursables">Fondos Concursables</a>
+              <a class="dropdown-item" routerLink="/empresas">Empresas</a>
+              <a class="dropdown-item" routerLink="/proyectos">Proyectos</a>
+            </div>
+          </li>
+          <li ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Solicitudes Notas Pendientes Profesor
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown3" class="dropdown-menu">
+              <a class="dropdown-item" href="#">Pendientes</a>
+              <a class="dropdown-item" href="#">Prorrogas</a>
+            </div>
+          </li>
+          <!--<li ngbDropdownclass="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Vinculación
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown2" class="dropdown-menu">
+              <a class="dropdown-item" href="#">Comunidades</a>
+                <a class="dropdown-item" href="#">Empresas</a>
+                <a class="dropdown-item" href="#">Fondos Concursables</a>
+                <a class="dropdown-item" href="#">Proyectos</a>
+            </div>
+          </li>
+          <li ngbDropdownToggle class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Solicitudes de Notas 
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown3" class="dropdown-menu">
+              <a class="dropdown-item" href="#">Pendientes</a>
+                <a class="dropdown-item" href="#">Prorrogas</a>
+            </div>
+          </li>-->
+        </ul>
+      </div>
+      <!--<a class="navbar-brand text-white" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>-->
+    </nav>
+     <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Crear Tesis</div>
+                    <div class="card-body">
+                        <form>
+                            <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Nombre completo</label>
+                                <div class="col-md-6">
+                                    <input [(ngModel)]="tesis.nombre_completo" id="name" type="text"  class="form-control" name="tesis.nombre_completo" required="required" disabled="disabled">
+                                </div>
+                            </div>
+    
+                             <div class="form-group row">
+                                <label for="rut" class="col-md-4 col-form-label text-md-right">Rut</label>
+                                <div class="col-md-6">
+                                    <input [(ngModel)]="tesis.rut" id="rut" type="text" placeholder="Ej:12.345.678-9" class="form-control" name="rut" required="required" disabled="disabled">
+                                </div>
+                            </div>
+    
+    
+                            <div class="form-group row">
+                                <label for="ano_ingreso" class="col-md-4 col-form-label text-md-right">Ano Ingreso</label>
+                                <div class="col-md-6">
+                                    <input id="ano_ingreso" [(ngModel)]="tesis.ano_ingreso" type="text" placeholder="Año ingreso" class="form-control" name="ano_ingreso" required="required" disabled="disabled">
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <label for="telefono1" class="col-md-4 col-form-label text-md-right">Telefono Alumno</label>
+                                <div class="col-md-6">
+                                    <input name="telefono1" id="telefono1" [(ngModel)]="tesis.telefono1" type="text" class="form-control"  required disabled="disabled">
+                                </div>
+                            </div>
+    
+                            <a *ngIf="tesis.nombre_completo2!=null">
+                             <div class="form-group row">
+                                <label for="name" class="col-md-4 col-form-label text-md-right">Nombre completo Alumno2</label>
+    
+                                 <div class="col-md-6">
+                                    <input id="nombre_completo2" type="text" [(ngModel)]="tesis.nombre_completo2" class="form-control" name="nombre_completo2" autocomplete="nombre_completo2" disabled="disabled" autofocus>
+    
+        
+                                </div>
+                             </div>
+                            </a>
+                    
+                             <a *ngIf="tesis.nombre_completo2!=null">
+                             <div class="form-group row">
+                                <label for="rut2" class="col-md-4 col-form-label text-md-right">Rut Segundo Alumno</label>
+                                <div class="col-md-6">
+                                    <input id="rut2" type="text" [(ngModel)]="tesis.rut2" placeholder="Ej:12.345.678-9" class="form-control" name="rut2" disabled="disabled">
+                                </div>
+                            </div>
+                            </a>
+                            <a *ngIf="tesis.nombre_completo2!=null">
+                             <div class="form-group row">
+                                <label for="ano_ingreso2" class="col-md-4 col-form-label text-md-right">Año Ingreso</label>
+                                <div class="col-md-6">
+                                    <input id="ano_ingreso2" [(ngModel)]="tesis.ano_ingreso2" type="text" placeholder="Año ingreso" class="form-control" name="ano_ingreso2" disabled="disabled">
+                                </div>
+                            </div>
+                             </a>
+                             <a *ngIf="tesis.nombre_completo2!=null">
+                             <div class="form-group row">
+                                <label for="telefono2" class="col-md-4 col-form-label text-md-right">Telefono Segundo Alumno</label>
+                                <div class="col-md-6">
+                                    <input id="telefono2" [(ngModel)]="tesis.telefono2"  type="text" class="form-control" name="telefono2" disabled="disabled">
+                                </div>
+                            </div>
+                            </a>
+    
+                             <div class="form-group row">
+                                <label for="profesor_guia" [(ngModel)]="tesis.profesor_guia" class="col-md-4 col-form-label text-md-right">Profesor guia</label>
+                                <div class="col-md-6">
+                                   <select name="profesor_guia" [(ngModel)]="tesis.profesor_guia" [ngModelOptions]="{standalone: true}" class="form-control" disabled="disabled">
+                                        <option [value]="tesis.profesor_guia">{{tesis.profesor_guia}}</option>
+                                        <option [value]="item.name" *ngFor="let item of profesores">{{item.name}} </option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <label for="nombre_tesis" [(ngModel)]="tesis.nombre_tesis" class="col-md-4 col-form-label text-md-right">Nombre Tesis</label>
+                                <div class="col-md-6">
+                                    <input id="nombre_tesis" type="text" placeholder="Nombre Tesis" class="form-control" [(ngModel)]="tesis.nombre_tesis" name="nombre_tesis" required="required" disabled="disabled">
+                                </div>
+                            </div>
+    
+                             <div class="form-group row">
+                                <label for="area_tesis" class="col-md-4 col-form-label text-md-right">Area Tesis</label>
+                                <div class="col-md-6">
+                                    <select name="area_tesis" [(ngModel)]="tesis.area_tesis" [ngModelOptions]="{standalone: true}" class="form-control" disabled="disabled">
+                                        <option [value]="tesis.area_tesis">{{tesis.area_tesis}}</option>
+                                        <option [value]="area_tesis" *ngFor="let area_tesis of areas_tesis">{{area_tesis.area_tesis}}</option>
+                                    </select>
+                                    <!--@foreach($area_tesis as $area_tes)
+                                            @if($area_tes=="BI")
+                                             <option value="BI">Inteligencia de negocios</option>
+                                            @elseif($area_tes=="IA")
+                                            <option value="IA">Inteligencia Artificial </option>
+                                            @else
+                                            <option value="{{$area_tes->area_tesis}}">{{$area_tes->area_tesis}}</option>
+                                            @endif 
+                                     @endforeach-->
+                                </div>
+                            </div>
+     
+                           <div class="form-group row">
+                                <label for="carrera" class="col-md-4 col-form-label text-md-right">Carrera</label>
+                                <div class="col-md-6">
+                                    <select name="carrera" id="carrera" [(ngModel)]="tesis.carrera" type="text" class="form-control" required="required" disabled="disabled">
+                                    <option [value]="carrera" *ngFor="let carrera of carreras">{{carrera}}</option>
+                                </select>
+                                </div>
+                            </div>
+    
+                            <div class="form-group row">
+                                <label for="tipo_vinculacion" class="col-md-4 col-form-label text-md-right">Tipo de Vinculacion</label>
+                                <div class="col-md-6">
+                                     <select name="tipo_vinculacion" id="tipo_vinculacion" [(ngModel)]="tesis.tipo_vinculacion" type="text" class="form-control" required="required" disabled="disabled">
+                                    <option [value]="tipo_vinculacion" *ngFor="let tipo_vinculacion of tipos_vinculaciones">{{tipo_vinculacion}}</option>
+                                    </select>
+                                </div>
+                            </div>
+    
+                            <a *ngIf="tesis.tipo_vinculacion=='Comunidad'">
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Nombre de Vinculacion</label>
+                                <div class="col-md-6">
+                                    <select name="nombre_vinculacion" id="nombre_vinculacion" [(ngModel)]="tesis.nombre_vinculacion" type="text" class="form-control" required="required" disabled="disabled">
+                                        <option [value]="tesis.nombre_vinculacion">{{tesis.nombre_vinculacion}}</option>
+                                        <option [value]="comunidad" *ngFor="let comunidad of comunidades">{{comunidad.nombre}}</option>
+                                    </select>
+                                  </div>
+                            </div>
+
+                        </a>
+
+                        <a *ngIf="tesis.tipo_vinculacion=='Empresa'">
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Nombre de Vinculacion</label>
+                                <div class="col-md-6">
+                                    <select name="nombre_vinculacion" id="nombre_vinculacion" [(ngModel)]="tesis.nombre_vinculacion" type="text" class="form-control" required="required" disabled="disabled">
+                                        <option [value]="tesis.nombre_vinculacion">{{tesis.nombre_vinculacion}}</option>
+                                        <option [value]="empresa" *ngFor="let empresa of empresas">{{empresa.nombre}}</option>
+                                    </select>
+                                  </div>
+                            </div>
+                        </a>
+
+                        <a *ngIf="tesis.tipo_vinculacion=='Fondo Concursable'">
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Nombre de Vinculacion</label>
+                                <div class="col-md-6">
+                                    <select name="nombre_vinculacion" id="nombre_vinculacion" [(ngModel)]="tesis.nombre_vinculacion" type="text" class="form-control" required="required">
+                                        <option [value]="tesis.nombre_vinculacion">{{tesis.nombre_vinculacion}}</option>
+                                        <option [value]="fondo_concursable" *ngFor="let fondo_concursable of fondos_concursables">{{fondo_concursable.nombre}}</option>
+                                    </select>
+                                  </div>
+                            </div>
+                        </a>
+
+                        <a *ngIf="tesis.tipo_vinculacion=='Proyecto'">
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Nombre de Vinculacion</label>
+                                <div class="col-md-6">
+                                    <select name="nombre_vinculacion" id="nombre_vinculacion" [(ngModel)]="tesis.nombre_vinculacion" type="text" class="form-control" required="required" disabled="disabled">
+                                        <option [value]="tesis.nombre_vinculacion">{{tesis.nombre_vinculacion}}</option>
+                                        <option [value]="proyecto" *ngFor="let proyecto of proyectos">{{proyecto.name}}</option>
+                                    </select>
+                                  </div>
+                            </div>
+                        </a>
+
+                         <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Tipo de trabajo</label>
+                                <div class="col-md-6">
+                                    <select name="tipo" id="tipo" type="text" [(ngModel)]="tesis.tipo" class="form-control" required="required" disabled="disabled">
+                                    <option [value]="tesis.nombre_vinculacion">{{tesis.nombre_vinculacion}}</option>
+                                    <option [value]="tipo" *ngFor="let tipo of tipos_trabajos" >{{tipo}}</option>
+                                     </select>
+                                </div>
+                            </div>
+    
+                           
+     
+                          <div class="form-group row">
+                                    <label for="descripcion" class="col-md-4 col-form-label text-md-right">Descripcion</label>
+                                     <div class="col-md-6">
+                                    <textarea name="descripcion" [(ngModel)]="tesis.descripcion" type="text" rows="10" cols="40" class="form-control" required="required" disabled="disabled">Descripcion</textarea>
+                                 </div>
+                            </div>
+    
+    
+                             <div class="form-group row">
+                                    <label for="objetivos" class="col-md-4 col-form-label text-md-right">Objetivos</label><div class="col-md-6">
+                                    <textarea name="objetivos" [(ngModel)]="tesis.objetivos" type="text" rows="10" cols="40" class="form-control" required="required" disabled="disabled">Escriba aqui los objetivos</textarea>
+                                 </div>
+                            </div>
+     
+    
+    
+                          <div class="form-group row">
+                                    <label for="contribucion" class="col-md-4 col-form-label text-md-right">Contribucion</label>
+                                    <div class="col-md-6">
+                                    <textarea name="contribucion" [(ngModel)]="tesis.contribucion" type="text" rows="10" cols="40" class="form-control" required="required" disabled="disabled" >Escriba aqui los objetivos</textarea>
+                                 </div>
+                            </div>
+
+
+    
+                            <a *ngIf="tesis.estado1==5">
+                                <label for="observacion" class="col-md-4 col-form-label text-md-right">Observacion</label>
+                                    <div class="col-md-6">
+                                    <textarea name="observacion" [(ngModel)]="tesis.observacion" type="text" rows="10" cols="40" class="form-control" disabled="disabled">Escriba aqui los objetivos</textarea>
+                                 </div>
+                            </a>
+
+
+                            
+                            <div class="form-group row">
+                                <label for="profesor1_comision" class="col-md-4 col-form-label text-md-right">Profesor1 Comisión</label>
+                                <div class="col-md-6">
+                                    <select name="profesor1_comision" id="profesor1_comision" [(ngModel)]="tesis.profesor1_comision" type="text" class="form-control" required="required" disabled="disabled">
+                                        <option [value]="tesis.profesor1_comision">{{tesis.profesor1_comision}}</option>
+                                        <option [value]="item.name" *ngFor="let item of profesores">{{item.name}} </option>
+                                    </select>
+                                  </div>
+                            </div>
+
+                              <div class="form-group row">
+                                <label for="tesis.coguia" class="col-md-4 col-form-label text-md-right">Coguia</label>
+                                <div class="col-md-6">
+                                  <select name="coguia" id="coguia" [(ngModel)]="tesis.coguia" type="text" class="form-control" required="required" disabled="disabled">
+                                   <option [value]="tesis.coguia">{{tesis.coguia}}</option>
+                                    <option [value]="item" *ngFor="let item of coguia">{{item}}</option>
+                                  </select>
+                                </div>
+                            </div>
+                       
+
+
+                             
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Profesor2 Comisión</label>
+                                <div class="col-md-6" >
+                                    <select name="profesor2_comision" id="profesor2_comision" [(ngModel)]="tesis.profesor2_comision" type="text" class="form-control" required="required" disabled="disabled">
+                                        <option [value]="tesis.profesor2_comision">{{tesis.profesor2_comision}}</option>
+                                        <option [value]="item.name" *ngFor="let item of profesores">{{item.name}} </option>
+                                    </select>
+                                  </div>
+                            </div>
+
+                      
+
+
+                             
+                            <div class="form-group row">
+                                <label for="" class="col-md-4 col-form-label text-md-right">Profesor3 Comisión</label>
+                                <div class="col-md-6">
+                                    <select name="profesor3_comision" id="profesor3_comision" [(ngModel)]="tesis.profesor3_comision" type="text" class="form-control" required="required" disabled="disabled">
+                                        <option [value]="tesis.profesor3_comision">{{tesis.profesor3_comision}}</option>
+                                        <option [value]="item.name" *ngFor="let item of profesores">{{item.name}}</option>
+                                    </select>
+                                  </div>
+                            </div>
+                         
+
+                          <div class="form-group row">
+                                <label for="tesis.profesor1_externo" class="col-md-4 col-form-label text-md-right">Profesor1 Externo</label>
+                                <div class="col-md-6">
+                                    <input id="profesor1_externo" [(ngModel)]="tesis.profesor1_externo" type="text" placeholder="Nombre de Profesor1 Externo" class="form-control" name="profesor1_externo" required="required" disabled="disabled">
+                                </div>
+                            </div>
+                            
+
+                            
+                          
+
+                            <a *ngIf="tesis.profesor1_externo!=null">
+                            <div class="form-group row">
+                                <label for="tesis.correo_profe1_externo" class="col-md-4 col-form-label text-md-right">Correo Profesor1 Externo</label>
+                                <div class="col-md-6">
+                                    <input id="correo_profe1_externo" [(ngModel)]="tesis.correo_profe1_externo" type="text" placeholder="Correo Profesor1 Externo" class="form-control" name="correo_profe1_externo" required="required" disabled="disabled">
+                                </div>
+                            </div>
+                            
+                            
+                            
+                            <div class="form-group row">
+                                <label for="tesis.profesor1_grado_academico" class="col-md-4 col-form-label text-md-right">Profesor1 Externo Grado Academico</label>
+                                <div class="col-md-6">
+                                    <input id="profesor1_grado_academico" [(ngModel)]="tesis.profesor1_grado_academico" type="text" placeholder="Grado Academico Profesor1 Externo" class="form-control" name="profesor1_grado_academico" disabled="disabled" >
+                                </div>
+                            </div>
+                           
+
+                              <a *ngIf="tesis.sexo1!=null">
+                            <div class="form-group row">
+                                <label for="tesis.sexo1" class="col-md-4 col-form-label text-md-right">Sexo Profesor1 Externo</label>
+                                <div class="col-md-6">
+                                     <select name="sexo1" id="sexo1" [(ngModel)]="tesis.sexo1" type="text" class="form-control" disabled="disabled" >
+                                      <option [value]="tesis.sexo1">{{tesis.sexo1}}</option>
+                                      <option [value]="item" *ngFor="let item of lista_sexos">{{item}} </option>
+                                    </select>
+                                  </div>
+                                </div>
+                            </a>
+
+                             
+                            <div class="form-group row">
+                                <label for="tesis.institucion1" class="col-md-4 col-form-label text-md-right">Institución Profesor1 Externo</label>
+                                <div class="col-md-6">
+                                     <input id="institucion1" [(ngModel)]="tesis.institucion1" type="text" placeholder="Institucion de Profesor1 Externo" class="form-control" name="institucion1" disabled="disabled" >
+                                  </div>
+                                </div>
+                            
+
+                             
+                            <div class="form-group row">
+                                <label for="tesis.codigo_postal1" class="col-md-4 col-form-label text-md-right">Codigo Postal Profesor1 Externo</label>
+                                <div class="col-md-6">
+                                     <input id="codigo_postal1" [(ngModel)]="tesis.codigo_postal1" type="text" placeholder="Codigo Postal de Profesor1 Externo" class="form-control" name="codigo_postal1" required="required">
+                                  </div>
+                                </div>
+                            </a>
+
+                           
+                           <div class="form-group row">
+                                <label for="tesis.profe2_externo" class="col-md-4 col-form-label text-md-right">Profesor2 Externo</label>
+                                <div class="col-md-6">
+                                    <input id="profe2_externo" [(ngModel)]="tesis.profe2_externo" type="text" placeholder="Nombre de Profesor2 Externo" class="form-control" name="profe2_externo" required="required" disabled="disabled" >
+                                </div>
+                            </div>
+                           
+
+                            <a *ngIf="tesis.profe2_externo!=null">
+                            <div class="form-group row">
+                                <label for="tesis.correo_profe2_externo" class="col-md-4 col-form-label text-md-right">Correo Profesor2 Externo</label>
+                                <div class="col-md-6">
+                                    <input id="correo_profe2_externo" [(ngModel)]="tesis.correo_profe2_externo" type="text" placeholder="Correo Profesor2 Externo" class="form-control" name="correo_profe2_externo" required="required" disabled="disabled" >
+                                </div>
+                            </div>
+                            
+
+                              
+                            <div class="form-group row">
+                                <label for="tesis.profe2_grado_academico" class="col-md-4 col-form-label text-md-right">Profesor2 Externo Grado Academico</label>
+                                <div class="col-md-6">
+                                    <select name="tesis.profe2_grado_academico" id="profe2_grado_academico" [(ngModel)]="tesis.profe2_grado_academico" type="text" class="form-control" required="required" disabled="disabled" >
+                                    <option [value]="item" *ngFor="let item of listas_grados_academicos">{{item}}</option>
+                                  </select>
+                                </div>
+                            </div>
+                           
+
+                            
+                            <div class="form-group row">
+                                <label for="tesis.sexo2" class="col-md-4 col-form-label text-md-right">Sexo Profesor2 Externo</label>
+                                <div class="col-md-6">
+                                     <select name="sexo2" id="sexo2" [(ngModel)]="tesis.sexo1" type="text" class="form-control" required="required" disabled="disabled" >
+                                      <option [value]="tesis.sexo2">{{tesis.sexo2}}</option>
+                                      <option [value]="item" *ngFor="let item of lista_sexos">{{item}} </option>
+                                    </select>
+                                  </div>
+                                </div>
+                           
+
+                            
+                            <div class="form-group row">
+                                <label for="tesis.institucion2" class="col-md-4 col-form-label text-md-right">Institución Profesor2 Externo</label>
+                                <div class="col-md-6">
+                                     <input id="institucion2" [(ngModel)]="tesis.institucion2" type="text" placeholder="Institucion de Profesor2 Externo" class="form-control" name="institucion2" required="required" disabled="disabled" >
+                                  </div>
+                                </div>
+                            
+
+                             
+                            <div class="form-group row">
+                                <label for="tesis.codigo_postal2" class="col-md-4 col-form-label text-md-right">Codigo Postal Profesor2 Externo</label>
+                                <div class="col-md-6">
+                                     <input id="codigo_postal2" [(ngModel)]="tesis.codigo_postal2" type="text" placeholder="Codigo Postal de Profesor2 Externo" class="form-control" name="codigo_postal2" required="required" disabled="disabled" >
+                                  </div>
+                                </div>
+                            </a>
+
+                            <a *ngIf="tesis.cap1!=null">
+                             <div class="form-group row">
+                                    <label for="tesis.cap1" class="col-md-4 col-form-label text-md-right">Cap1</label><div class="col-md-6">
+                                    <textarea name="cap1" [(ngModel)]="tesis.cap1" type="text" rows="10" cols="40" class="form-control" required="required" disabled="disabled"  >Cap1</textarea>
+                                 </div>
+                            </div>
+                          </a>
+
+                          <a *ngIf="tesis.cap2!=null">
+                             <div class="form-group row">
+                                    <label for="tesis.cap2" class="col-md-4 col-form-label text-md-right">Cap2</label><div class="col-md-6">
+                                    <textarea name="cap2" [(ngModel)]="tesis.cap2" type="text" rows="10" cols="40" class="form-control" required="required" disabled="disabled" >Cap2</textarea>
+                                 </div>
+                            </div>
+                          </a>
+
+                           <a *ngIf="tesis.cap3!=null">
+                             <div class="form-group row">
+                                    <label for="tesis.cap3" class="col-md-4 col-form-label text-md-right">Cap3</label><div class="col-md-6">
+                                    <textarea name="cap3" [(ngModel)]="tesis.cap3" type="text" rows="10" cols="40" class="form-control" disabled="disabled" >Cap3</textarea>
+                                 </div>
+                            </div>
+                          </a>
+
+                            <a *ngIf="tesis.cap4!=null">
+                             <div class="form-group row">
+                                    <label for="tesis.cap4" class="col-md-4 col-form-label text-md-right">Cap4</label><div class="col-md-6">
+                                    <textarea name="cap4" [(ngModel)]="tesis.cap4" type="text" rows="10" cols="40" class="form-control" disabled="disabled"  >Cap4</textarea>
+                                 </div>
+                            </div>
+                          </a>
+
+                          <a *ngIf="tesis.cap5!=null">
+                             <div class="form-group row">
+                                    <label for="tesis.cap5" class="col-md-4 col-form-label text-md-right">Cap5</label><div class="col-md-6">
+                                    <textarea name="cap5" [(ngModel)]="tesis.cap5" type="text" rows="10" cols="40" class="form-control" disabled="disabled"  >Cap5</textarea>
+                                 </div>
+                            </div>
+                          </a>
+
+                          <a *ngIf="tesis.cap6!=null">
+                             <div class="form-group row">
+                                    <label for="tesis.cap6" class="col-md-4 col-form-label text-md-right">Cap6</label><div class="col-md-6">
+                                    <textarea name="cap6" [(ngModel)]="tesis.cap6" type="text" rows="10" cols="40" class="form-control"  disabled="disabled" >Cap6</textarea>
+                                 </div>
+                            </div>
+                          </a>
+
+                          
+                         
+                           
+                            <button (click)="evaluarTesis()" class="btn btn-primary">Enviar a Director Escuela</button>
+                         
+                            <button (click)="rechazarTesis()" class="btn btn-primary btn-danger">Rechazar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+<a routerLink="/tesis_espera_profesor/{{identificador}}" class="btn btn-default">Volver atras</a>
+

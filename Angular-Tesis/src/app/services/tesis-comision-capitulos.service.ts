@@ -15,4 +15,15 @@ export class TesisComisionCapitulosService {
 
     return this.httpClient.put(this.API_ENDPOINT +'/tesis_editada_profesor/' + tesis.id_pk, tesis,{headers:headers});
   }
+
+ getevaluar(tesis:Tesis_Comision_Capitulos){
+    const headers= new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.post(this.API_ENDPOINT +'/tesisevaluada/' + tesis.id_pk, tesis,{headers:headers});
+  }
+
+   getrechazar(tesis:Tesis_Comision_Capitulos){
+    const headers= new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.post(this.API_ENDPOINT +'/tesisrechazada/' + tesis.id_pk, tesis,{headers:headers});
+  }
+   
 }

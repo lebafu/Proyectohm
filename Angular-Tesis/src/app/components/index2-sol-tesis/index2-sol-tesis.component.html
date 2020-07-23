@@ -145,12 +145,13 @@
         </a>-->
           <!--routerLink="/tesisedit/{{tesis.id_pk}}"-->
           <a *ngIf="tesis.estado1==1 && tesis.estado2==null" class="btn btn-primary btn-sm" routerLink="/edittesisalumno2/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
-          <a *ngIf="tesis.estado1==2 && tesis.estado2==null" class="btn btn-primary btn-sm" routerLink="/edittesisalumno2sincamposnulos/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
+          <a *ngIf="tesis.estado1==2 && tesis.estado2==null" class="btn btn-primary btn-sm" routerLink="/edittesisalumnos2incamposnulos/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
           <a *ngIf="tesis.estado1==2 && tesis.estado2==1" class="btn btn-primary btn-sm" routerLink="/edittesisalumno2sincamposnulos/{{tesis.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a>
           <a class="btn btn-primary btn-sm" routerLink="/tesismostrar2/{{tesis.id_pk}}" ><i class="fa fa-eye" aria-hidden="true"></i></a>
+          <a *ngIf="tesis.estado1==2 && tesis.estado2==null" class="btn btn-primary btn-sm" routerLink="/evaluartesisalumno/{{tesis.id_pk}}"><i class="fa fa-check" aria-hidden="true"></i></a>
           <a *ngIf="tesis.estado1==1 && tesis.estado2==null" class="btn btn-primary btn-sm btn-danger" (click)="delete(tesis.id_pk)"><i class="fa fa-trash" aria-hidden="true"></i></a>
           <a *ngIf="tesis.estado1==2 && tesis.estado2==null" class="btn btn-primary btn-sm btn-danger" (click)="delete(tesis.id_pk)"><i class="fa fa-trash" aria-hidden="true"></i></a>
-          <!--<a *ngIf="tesis.estado1==2 && tesis.estado2==null" class="btn btn-primary btn-sm btn-danger" (click)="/evaluartesisalumno/{{tesis.id_pk}}"><i class="fa fa-check" aria-hidden="true"></i></a>-->
+         
                
         </tr>
      </table>

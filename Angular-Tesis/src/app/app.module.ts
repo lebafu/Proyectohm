@@ -122,7 +122,7 @@ const routes: Route[]=[
   {path: 'tesismostrar2/:id', component: Show2tesisalumnoComponent},
   {path: 'edittesisalumno2/:id', component:Edittesisalumno2Component},
    {path: 'edittesisalumnos2incamposnulos/:id', component:Edittesisalumno2sincamposnulosComponent},
-  {path:'evaluartesisalumno/:id', component:Edittesisalumno2Component},
+  {path:'evaluartesisalumno/:id', component:EvaluartesisalumnoComponent},
 ]
   @NgModule({
     declarations: [
