@@ -631,5 +631,24 @@ class TesisController extends Controller
             $tesis=DB::table('tesis')->leftjoin('comision','tesis.id_pk','=','comision.id')->leftjoin('capitulos','tesis.id_pk','=','capitulos.id')->where('tesis.id_pk','=',$id)->get();
             echo json_encode($tesis);
         }
+
+        public function tesisevaluada($id)
+        {
+            $tesis=Tesis::where('id_pk','=',$id)->get()->first();
+            $tesis->estado1=2;
+            $tesis->estado2=null;
+            $tesis->estado3=null;
+            $tesis->update();
+        }
+
+
+         public function tesisrechazada($id)
+        {
+                $tesis=Tesis::where('id_pk','=',$id)->get()->first();
+                $tesis->estado1=1;
+                $tesis->estado2=null;
+                $tesis->estado3=1;
+                $tesis->update();
+        }
   
 }

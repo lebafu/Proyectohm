@@ -73,32 +73,34 @@ export class EvaluartesisalumnoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  evaluarTesis=function(){
+  evaluarTesis=function(id){
     console.log(this.editing);
     if(this.editing==true){
       console.log(this.tesis);
-      this.tesiscomisioncapitulosService.getevaluar(this.tesis).subscribe((data) => {
-      alert('Tesis Actualizada');
+      this.identificador=localStorage.getItem('id');
+      this.tesiscomisioncapitulosService.getevaluar(id).subscribe((data) => {
+      alert('Tesis Enviada a Director de Escuela');
       //console.log(data);
-      //this.router.navigateByUrl('/tesis_alumno_solicitud');
+      this.router.navigateByUrl('/tesis_espera_profesor/'+ this.identificador);
     }, (error) => {
   console.log(error);
-  alert('Ocurrio  un error al editar');
+  alert('Ocurrio  un error al enviar la Tesis al Director de Escuela');
 });
   }
   }
 
-    rechazarTesis=function(){
+    rechazarTesis=function(id){
     console.log(this.editing);
     if(this.editing==true){
       console.log(this.tesis);
-      this.tesiscomisioncapitulosService.getrechazar(this.tesis).subscribe((data) => {
-      alert('Tesis Actualizada');
+      this.tesiscomisioncapitulosService.getrechazar(id).subscribe((data) => {
+      alert('Tesis Ha Sido Rechazada');
+      this.router.navigateByUrl('/tesis_espera_profesor/'+ this.identificador);
       //console.log(data);
       //this.router.navigateByUrl('/tesis_alumno_solicitud');
     }, (error) => {
   console.log(error);
-  alert('Ocurrio  un error al editar');
+  alert('Ocurrio  un error al Rechazar La Tesis');
 });
   }
   }

@@ -100,3 +100,6 @@ Route::get('/tesis_comision_profesor/{id}','TesisController@tesis_comision_profe
 Route::get('/tesis_inscritas_profesor/{id}','TesisController@tesis_inscritas_profesor');
 Route::get('/tesis_espera_profesor/{id}', 'TesisController@tesis_espera_profesor');
 
+//Para formulario de evaluación Tesis profesor guia
+Route::get('/tesisevaluada/{id}','TesisController@tesisevaluada');
+Route::get('/tesisrechazada/{id}','TesisController@tesisrechazada');
