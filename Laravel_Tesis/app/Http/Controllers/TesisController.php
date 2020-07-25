@@ -603,7 +603,17 @@ class TesisController extends Controller
             $users=DB::table('users')->where('id','=',$id)->get();
             foreach($users as $user);
             //dd($user->name);
-            $tesistas=DB::table('tesis')->leftjoin('comision','tesis.id_pk','=','comision.id')->where([['tesis.profesor_guia','=',$user->name],['tesis.estado1','=',1],['tesis.estado2','=',null]])->orwhere([['tesis.profesor_guia','=',$user->name],['tesis.estado1','=',2],['tesis.estado2','=',null]])->get();
+            $tesistas=DB::table('tesis')->leftjoin('comision','tesis.id_pk','=','comision.id')->where([['tesis.profesor_guia','=',$user->name],['tesis.estado1','=',1],['tesis.estado2','=',null]])->orwhere([['tesis.profesor_guia','=',$user->name],['tesis.estado1','=',2],['tesis.estado2','=',null]])->orwhere([['tesis.profesor_guia','=',$user->name],['tesis.estado1','=',2],['tesis.estado2','=',1]])->get();
+
+            echo json_encode($tesistas);
+        }
+
+        public function tesis_espera_director_escuela($id){
+
+            $users=DB::table('users')->where('id','=',$id)->get();
+            foreach($users as $user);
+            //dd($user->name);
+            $tesistas=DB::table('tesis')->leftjoin('comision','tesis.id_pk','=','comision.id')->where([['tesis.profesor_guia','=',$user->name],['tesis.estado1','=',1],['tesis.estado2','=',null]])->orwhere([['tesis.estado1','=',2],['tesis.estado2','=',1]])->get();
 
             echo json_encode($tesistas);
         }
@@ -636,7 +646,7 @@ class TesisController extends Controller
         {
             $tesis=Tesis::where('id_pk','=',$id)->get()->first();
             $tesis->estado1=2;
-            $tesis->estado2=null;
+            $tesis->estado2=1;
             $tesis->estado3=null;
             $tesis->update();
         }

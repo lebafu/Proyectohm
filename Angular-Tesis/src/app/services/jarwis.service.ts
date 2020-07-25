@@ -11,7 +11,8 @@ export class JarwisService {
   signup(data) {
     console.log(data);
     const headers=new HttpHeaders({'Content-Type':'application/json'});
-    return this.http.post(`${this.baseUrl}/signup`, data,{headers: headers})
+    console.log(data);
+    return this.http.post('http://localhost:8000/api/signup',data,{headers: headers})
   }
 
   login(data) {

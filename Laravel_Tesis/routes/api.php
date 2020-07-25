@@ -99,6 +99,7 @@ Route::delete('/proyecto/{id}','ProyectoController@destroy');
 Route::get('/tesis_comision_profesor/{id}','TesisController@tesis_comision_profesor');
 Route::get('/tesis_inscritas_profesor/{id}','TesisController@tesis_inscritas_profesor');
 Route::get('/tesis_espera_profesor/{id}', 'TesisController@tesis_espera_profesor');
+Route::get('/tesis_espera_director_escuela/{id}', 'TesisController@tesis_espera_director_escuela');
 
 //Para formulario de evaluación Tesis profesor guia
 Route::get('/tesisevaluada/{id}','TesisController@tesisevaluada');

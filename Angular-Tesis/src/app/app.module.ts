@@ -70,6 +70,8 @@ import { Edittesisalumno2Component } from './components/edittesisalumno2/edittes
 import { Show2tesisalumnoComponent } from './components/show2tesisalumno/show2tesisalumno.component';
 import { Edittesisalumno2sincamposnulosComponent } from './components/edittesisalumno2sincamposnulos/edittesisalumno2sincamposnulos.component';
 import { EvaluartesisalumnoComponent } from './evaluartesisalumno/evaluartesisalumno.component';
+import { EdittesisalumnodirectorescuelaComponent } from './edittesisalumnodirectorescuela/edittesisalumnodirectorescuela.component';
+import { EvaluartesisalumnodirectorescuelaComponent } from './evaluartesisalumnodirectorescuela/evaluartesisalumnodirectorescuela.component';
 
 
 const routes: Route[]=[
@@ -121,9 +123,13 @@ const routes: Route[]=[
   {path:  'tesis_inscrita_profesor/:id', component:Index2InscritaTesisComponent},
   {path: 'tesismostrar2/:id', component: Show2tesisalumnoComponent},
   {path: 'edittesisalumno2/:id', component:Edittesisalumno2Component},
-   {path: 'edittesisalumnos2incamposnulos/:id', component:Edittesisalumno2sincamposnulosComponent},
+  {path:  'tesis_espera_directorescuela/:id', component:Index3SolTesisComponent},
+  {path: 'edittesisalumnos2incamposnulos/:id', component:Edittesisalumno2sincamposnulosComponent},
   {path:'evaluartesisalumno/:id', component:EvaluartesisalumnoComponent},
-]
+  {path: 'edittesisalumnodirectorescuela/:id',component:EdittesisalumnodirectorescuelaComponent},
+  {path: 'evaluartesisalumnodirectorescuela/:id',component:EvaluartesisalumnodirectorescuelaComponent},
+  ]
+
   @NgModule({
     declarations: [
       AppComponent,
@@ -184,6 +190,8 @@ const routes: Route[]=[
       Show2tesisalumnoComponent,
       Edittesisalumno2sincamposnulosComponent,
       EvaluartesisalumnoComponent,
+      EdittesisalumnodirectorescuelaComponent,
+      EvaluartesisalumnodirectorescuelaComponent,
     ],
     imports: [
       BrowserModule,

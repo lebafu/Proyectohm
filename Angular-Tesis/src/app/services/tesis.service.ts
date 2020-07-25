@@ -73,6 +73,10 @@ export class TesisService {
     return this.httpClient.get(this.API_ENDPOINT + '/tesis_actual/'+id);
   }
 
+  getTesisDirectorEscuelaEspera(id){
+    return this.httpClient.get(this.API_ENDPOINT + '/tesis_espera_director_escuela/'+ id)
+  }
+
   getTesisProfesorEspera(id){
     return this.httpClient.get(this.API_ENDPOINT + '/tesis_espera_profesor/'+ id)
   }

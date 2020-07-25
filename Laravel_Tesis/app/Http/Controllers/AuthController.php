@@ -27,7 +27,7 @@ class AuthController extends Controller
         $credentials = request(['email', 'password']);
 
         if (!$token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Email or password does\'t exist'], 401);
+            return response()->json(['error' => 'Email or password does\t exist'], 401);
         }
 
         return $this->respondWithToken($token);
@@ -103,11 +103,11 @@ class AuthController extends Controller
        $user->email=$request->email;
        $user->password=Hash::make($request->password);
        $user->sexo=$request->sexo;
-       $user->token=$request->token;
+       //$user->token=$request->token;
        $user->tipo_usuario=1; 
        //echo json_encode($user);
        $user->save();
-
+       //echo json_encode($user);
        return $this->login($request);
     }
 

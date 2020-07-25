@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { JarwisService } from '../../services/jarwis.service';
 import { TokenService } from '../../services/token.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class SignupComponent implements OnInit {
   nombre_usuario:string;
-  id:number;
+  id:string;
 	lista_sexos:string[]=["Masculino","Femenino"];
   public form = {
     email: null,
@@ -27,17 +29,19 @@ export class SignupComponent implements OnInit {
     private router: Router
   ) { }
 
-  onSubmit() {
-    console.log(this.form);
+   onSubmit() {
+   //console.log(this.form);
     this.Jarwis.signup(this.form).subscribe(
       data => this.handleResponse(data),
       error => this.handleError(error)
     );
   }
+  
   handleResponse(data) {
     console.log(data);
     this.Token.handle(data.access_token);
     this.id=data.id;
+    localStorage.setItem('id',this.id);
     this.nombre_usuario=data.user;
     if(data.tipo_usuario==0){
       this.router.navigateByUrl('/admin/'+ data.id);
@@ -72,3 +76,5 @@ export class SignupComponent implements OnInit {
   }
 
 }
+
+

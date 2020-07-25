@@ -9,6 +9,7 @@ import { TokenService } from '../../services/token.service';
   styleUrls: ['./navbar21.component.css']
 })
 export class Navbar21Component implements OnInit {
+  identificador:string;
   collapsed = true;
   public loggedIn: boolean;
   
@@ -16,7 +17,9 @@ export class Navbar21Component implements OnInit {
     private Auth: AuthService,
     private router: Router,
     private Token: TokenService
-  ) { }
+  ) { 
+      this.identificador=localStorage.getItem('id');
+  }
 
   ngOnInit() {
     this.Auth.authStatus.subscribe(value => this.loggedIn = value);
