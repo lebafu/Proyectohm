@@ -14,7 +14,7 @@
     }
     </style>
     <nav class="navbar navbar-expand-lg" style="background-color:#000a49"> 
-      <a class="navbar-brand text-white" href="#">Home</a>
+      <a class="navbar-brand text-white" routerLink="/director_escuela/{{identificador}}">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -176,5 +176,5 @@
 
 <!--<a *ngIf="contador<4" routerLink="/crear-tesis" class="btn-btn-default">Crear Tesis</a>-->
 
-<a routerLink="/profesor/{{identificador}}" class="btn btn-default">Volver a Home</a>
+<a routerLink="/director_escuela/{{identificador}}" class="btn btn-default">Volver a Home</a>
 
