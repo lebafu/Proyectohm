@@ -25,5 +25,10 @@ export class TesisComisionCapitulosService {
    
     return this.httpClient.get(this.API_ENDPOINT +'/tesisrechazada/' + id);
   }
+
+  getinscribirtesis(id){
+    const headers= new HttpHeaders({'Content-Type':'application/json'});
+    return this.httpClient.get(this.API_ENDPOINT +'/tesisevaluadainscrita/' + id);
+  }
    
 }

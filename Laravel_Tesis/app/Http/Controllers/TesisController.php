@@ -651,6 +651,14 @@ class TesisController extends Controller
             $tesis->update();
         }
 
+         public function tesisevaluadainscrita($id)
+        {
+            $tesis=Tesis::where('id_pk','=',$id)->get()->first();
+            $tesis->estado1=4;
+            $tesis->estado2=1;
+            $tesis->estado3=null;
+            $tesis->update();
+        }
 
          public function tesisrechazada($id)
         {
