@@ -74,11 +74,11 @@
       </div>
       <!--<a class="navbar-brand text-white" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>-->
     </nav>
-     <div class="container">
+ <div class="container">
   <div class="row justify-content-center">
     <div class="col-md-12"> <!--Con 12 se ocupa todo el ancho de la pantalla a lo ancho-->
       <div class="card">
-        <div class="card-header">Tesis En las que el profesor es miembro de comisión</div>
+        <div class="card-header">Tesis Inscritas del profesor</div>
           <div class="card-body">
 
     <table class="table table-bordered">
@@ -86,9 +86,9 @@
           <th>ID</th>
           <!--<th>Estudiante(s)</th>-->
           <th>Nombre Estudiante(s)</th>
-          <th>% Avance</th>
-          <th>Tipo</th>
-          <!--<th>Fecha Peticion</th>-->
+          <th>Profesor Guia</th>
+          <th>Tipo de Trabajo</th>
+          <th>Fecha Peticion</th>
         <tr *ngFor="let tesis of tesistas">
         <!--<td><a *ngIf="tesis.nombre_completo==user.name || tesis.nombre_completo2==user.name"></a></td>-->
           <td>{{tesis.id_pk}}</td>
@@ -97,8 +97,9 @@
           <a *ngIf="tesis.nombre_completo2==null">{{tesis.nombre_completo}}</a></td>
          <!--<td><a *ngIf="tesis.estado1>=2 || tesis.estado2==1) && (tesis.nota_tesis==null" href="/generar_formulario_inscripcion_tesis/{{tesis->id_pk)}}">Formulario Inscripción</a>
          </td>-->
-         <td>{{tesis.avance_general}}</td>
-          <td>{{tesis.tipo}}</td>
+         <td>{{tesis.profesor_guia}}</td>
+         <td>{{tesis.tipo}}</td>
+          <td>{{tesis.fecha_peticion}}</td>
           <!--<td>{{tesis.profesor_guia}}</td>-->
           
          <!--<td><a *ngIf="tesis.estado1!=4 && tesis.estado1!=5 && tesis.estado3!=2">Espera</a>
@@ -140,7 +141,7 @@
         </a>-->
           <!--routerLink="/tesisedit/{{tesis.id_pk}}"-->
          
-          <a class="btn btn-primary btn-sm" routerLink="/tesismostrar2/{{tesis.id_pk}}" ><i class="fa fa-eye" aria-hidden="true"></i></a>
+          <a class="btn btn-primary btn-sm" routerLink="/tesismostrar/{{tesis.id_pk}}" ><i class="fa fa-eye" aria-hidden="true"></i></a>
           <!--<a *ngIf="tesis.estado1==4 && tesis.estado2==1" class="btn btn-primary btn-sm btn-danger" (click)="delete(tesis.id_pk)"><i class="fa fa-trash" aria-hidden="true"></i></a>
                -->
         </tr>
@@ -155,4 +156,4 @@
 
 <!--<a *ngIf="contador<4" routerLink="/crear-tesis" class="btn-btn-default">Crear Tesis</a>-->
 
-<a routerLink="/profesor/{{identificador}}" class="btn btn-default">Volver atras</a>
+<a routerLink="/director_escuela/{{identificador}}" class="btn btn-default">Volver Home</a>

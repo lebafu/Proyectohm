@@ -66,6 +66,7 @@ import { ShowtesisalumnoComponent } from './showtesisalumno/showtesisalumno.comp
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { EdittesisalumnoComponent } from './components/edittesisalumno/edittesisalumno.component';
 import { TesisComisionProfesorComponent } from './components/tesis-comision-profesor/tesis-comision-profesor.component';
+import { TesisComisionDirectorescuelaComponent } from './components/tesis-comision-directorescuela/tesis-comision-directorescuela.component';
 import { Edittesisalumno2Component } from './components/edittesisalumno2/edittesisalumno2.component';
 import { Show2tesisalumnoComponent } from './components/show2tesisalumno/show2tesisalumno.component';
 import { Edittesisalumno2sincamposnulosComponent } from './components/edittesisalumno2sincamposnulos/edittesisalumno2sincamposnulos.component';
@@ -119,11 +120,13 @@ const routes: Route[]=[
   {path: 'tesismostrar/:id', component: ShowtesisalumnoComponent},
   {path: 'edittesisalumno/:id', component:EdittesisalumnoComponent},
   {path:  'tesis_comision_profesor/:id', component: TesisComisionProfesorComponent},
+  {path:  'tesis_comision_directorescuela/:id', component: TesisComisionDirectorescuelaComponent},
   {path:  'tesis_espera_profesor/:id', component:Index2SolTesisComponent },
   {path:  'tesis_inscrita_profesor/:id', component:Index2InscritaTesisComponent},
   {path: 'tesismostrar2/:id', component: Show2tesisalumnoComponent},
   {path: 'edittesisalumno2/:id', component:Edittesisalumno2Component},
   {path:  'tesis_espera_directorescuela/:id', component:Index3SolTesisComponent},
+  {path:  'tesis_inscrita_directorescuela/:id', component:Index3InscritaTesisComponent},
   {path: 'edittesisalumnos2incamposnulos/:id', component:Edittesisalumno2sincamposnulosComponent},
   {path:'evaluartesisalumno/:id', component:EvaluartesisalumnoComponent},
   {path: 'edittesisalumnodirectorescuela/:id',component:EdittesisalumnodirectorescuelaComponent},
@@ -186,6 +189,7 @@ const routes: Route[]=[
       ShowtesisalumnoComponent,
       EdittesisalumnoComponent,
       TesisComisionProfesorComponent,
+      TesisComisionDirectorescuelaComponent,
       Edittesisalumno2Component,
       Show2tesisalumnoComponent,
       Edittesisalumno2sincamposnulosComponent,
