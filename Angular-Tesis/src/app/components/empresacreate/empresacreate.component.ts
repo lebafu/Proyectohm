@@ -10,7 +10,9 @@ import {User} from 'src/app/interfaces/user';
   styleUrls: ['./empresacreate.component.css']
 })
 export class EmpresacreateComponent implements OnInit {
-
+  tipo_usuario:number;
+  director_escuela:number;
+  identificador:string;
   constructor(private empresasService: EmpresasService,private usersService: UsersService) { }
   empresa: Empresa= {
 		nombre:null,
@@ -36,5 +38,16 @@ getEmpresa(){
   alert('Ocurrió un error');
   });
 }
+
+     getProfesorDirectorEscuela(){
+   this.identificador=localStorage.getItem('id');
+   this.usersService.rol(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.tipo_usuario=data[0].tipo_usuario;
+      this.director_escuela=data[0].director_escuela;
+    
+   });
+
+  }
 
 }

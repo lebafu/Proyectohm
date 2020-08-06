@@ -11,12 +11,19 @@ import {User} from 'src/app/interfaces/user';
   styleUrls: ['./proyectocreate.component.css']
 })
 export class ProyectocreateComponent implements OnInit {
+  tipo_usuario:number;
+  director_escuela:number;
+  identificador:string;
+  constructor(private proyectosService: ProyectosService,private router: Router,private usersService: UsersService) { 
+  this.getProfesorDirectorEscuela();
 
-  constructor(private proyectosService: ProyectosService,private router: Router,private usersService: UsersService) { }
+
+  }
   proyecto: Proyecto= {
 		nombre:null,
   };
   proyectos:Proyecto[];
+
   ngOnInit(): void {
   }
   SaveProyecto(){
@@ -37,5 +44,16 @@ getProyecto(){
   alert('Ocurrió un error');
   });
 }
+
+     getProfesorDirectorEscuela(){
+   this.identificador=localStorage.getItem('id');
+   this.usersService.rol(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.tipo_usuario=data[0].tipo_usuario;
+      this.director_escuela=data[0].director_escuela;
+    
+   });
+
+  }
 
 }

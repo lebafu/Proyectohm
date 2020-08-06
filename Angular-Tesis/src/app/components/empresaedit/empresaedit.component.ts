@@ -15,6 +15,9 @@ export class EmpresaeditComponent implements OnInit {
   editing: boolean =false;
   empresas: Empresa[];
   empresa: Empresa;
+  tipo_usuario:number;
+  director_escuela:number;
+  identificador:string;
   constructor(private empresasService: EmpresasService, private activatedRoute: ActivatedRoute,private usersService: UsersService) {
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
@@ -55,5 +58,16 @@ export class EmpresaeditComponent implements OnInit {
     console.log(error);
     alert('Ocurrió un error');
     });
+  }
+
+       getProfesorDirectorEscuela(){
+   this.identificador=localStorage.getItem('id');
+   this.usersService.rol(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.tipo_usuario=data[0].tipo_usuario;
+      this.director_escuela=data[0].director_escuela;
+    
+   });
+
   }
 }

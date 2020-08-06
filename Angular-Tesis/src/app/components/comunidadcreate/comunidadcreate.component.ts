@@ -10,7 +10,9 @@ import {User} from 'src/app/interfaces/user';
   styleUrls: ['./comunidadcreate.component.css']
 })
 export class ComunidadcreateComponent implements OnInit {
-
+  tipo_usuario:number;
+  director_escuela:number
+  identificador:string;
   constructor( private comunidadesService: ComunidadesService,private usersService: UsersService) { }
   comunidad: Comunidad= {
 		nombre:null,
@@ -35,4 +37,16 @@ getComunidad(){
   alert('Ocurrió un error');
   });
 }
+
+     getProfesorDirectorEscuela(){
+   this.identificador=localStorage.getItem('id');
+   this.usersService.rol(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.tipo_usuario=data[0].tipo_usuario;
+      this.director_escuela=data[0].director_escuela;
+    
+   });
+
+  }
+
 }

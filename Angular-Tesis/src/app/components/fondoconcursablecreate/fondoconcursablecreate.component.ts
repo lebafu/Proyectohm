@@ -11,7 +11,9 @@ import {User} from 'src/app/interfaces/user';
   styleUrls: ['./fondoconcursablecreate.component.css']
 })
 export class FondoconcursablecreateComponent implements OnInit {
-
+  identificador:string;
+  tipo_usuario:number;
+  director_escuela:number;
   constructor(private fondosconcursablesService: FondosConcursablesService,private router: Router,private usersService: UsersService) { }
   fondo_concursable: FondoConcursable= {
 		nombre:null,
@@ -37,4 +39,17 @@ getArea_Tesis(){
   alert('Ocurrió un error');
   });
 }
+
+     getProfesorDirectorEscuela(){
+   this.identificador=localStorage.getItem('id');
+   this.usersService.rol(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.tipo_usuario=data[0].tipo_usuario;
+      this.director_escuela=data[0].director_escuela;
+    
+   });
+
+  }
+
+
 }

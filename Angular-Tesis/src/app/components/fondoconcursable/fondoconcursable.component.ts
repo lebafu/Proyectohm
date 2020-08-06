@@ -17,7 +17,7 @@ export class FondoconcursableComponent implements OnInit {
   constructor(private fondosconcursablesService: FondosConcursablesService,private usersService: UsersService) {
     this.identificador=localStorage.getItem('id');
     this.getFondosConcursables();
-
+    this.getProfesorDirectorEscuela();
 
    }
 
@@ -49,6 +49,7 @@ export class FondoconcursableComponent implements OnInit {
       console.log(data[0]);
       this.tipo_usuario=data[0].tipo_usuario;
       this.director_escuela=data[0].director_escuela;
+      console.log(this.tipo_usuario);
     
    });
 

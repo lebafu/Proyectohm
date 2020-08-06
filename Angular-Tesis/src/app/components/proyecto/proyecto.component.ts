@@ -17,6 +17,8 @@ export class ProyectoComponent implements OnInit {
   constructor(private proyectosService: ProyectosService,private usersService: UsersService) {
     this.identificador=localStorage.getItem('id');
     this.getProyecto();
+    this.getProfesorDirectorEscuela();
+
    }
 
 

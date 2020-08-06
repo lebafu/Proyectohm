@@ -16,6 +16,9 @@ export class ComunidadeditComponent implements OnInit {
   editing: boolean =false;
   comunidades: Comunidad[];
   comunidad:Comunidad;
+  tipo_usuario:number;
+  director_escuela:number;
+  identificador:string;
   constructor(private comunidadesService: ComunidadesService, private activatedRoute: ActivatedRoute,private usersService: UsersService) { 
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
@@ -57,5 +60,17 @@ export class ComunidadeditComponent implements OnInit {
   alert('Ocurrio  un error al editar');
 });
   }
+  }
+
+
+       getProfesorDirectorEscuela(){
+   this.identificador=localStorage.getItem('id');
+   this.usersService.rol(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.tipo_usuario=data[0].tipo_usuario;
+      this.director_escuela=data[0].director_escuela;
+    
+   });
+
   }
 }
