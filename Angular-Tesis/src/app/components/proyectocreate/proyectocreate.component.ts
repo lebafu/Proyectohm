@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ProyectosService} from 'src/app/services/proyectos.service';
 import {Proyecto} from 'src/app/interfaces/proyecto';
 import { Router } from '@angular/router';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-proyectocreate',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class ProyectocreateComponent implements OnInit {
 
-  constructor(private proyectosService: ProyectosService,private router: Router) { }
+  constructor(private proyectosService: ProyectosService,private router: Router,private usersService: UsersService) { }
   proyecto: Proyecto= {
 		nombre:null,
   };

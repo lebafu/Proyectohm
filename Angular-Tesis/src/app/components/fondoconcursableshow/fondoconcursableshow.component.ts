@@ -9,7 +9,7 @@ import {FondoConcursable} from 'src/app/interfaces/fondoconcursable';
 })
 export class FondoconcursableshowComponent implements OnInit {
 
-  constructor(private fondosconcursablesService: FondosConcursablesService) { }
+  constructor(private fondosconcursablesService: FondosConcursablesService,private usersService: UsersService) { }
 
   ngOnInit(): void {
   }

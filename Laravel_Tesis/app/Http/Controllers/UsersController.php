@@ -17,6 +17,17 @@ use DB;
 
 class UsersController extends Controller
 {
+
+     public function rol($id)
+    {
+        $users=DB::table('users')->where('id','=',$id)->get();
+        foreach($users as $user);
+        return response()->json([[
+            'tipo_usuario' => $user->tipo_usuario,
+            'director_escuela' => $user->director_escuela
+        ]]);
+
+    }
 	
 
     public function getNombreAlumno($id)

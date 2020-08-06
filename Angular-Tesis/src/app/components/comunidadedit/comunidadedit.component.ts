@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ComunidadesService} from 'src/app/services/comunidades.service';
 import {Comunidad} from 'src/app/interfaces/comunidad';
 import {ActivatedRoute} from '@angular/router';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 
 
 @Component({
@@ -14,7 +16,7 @@ export class ComunidadeditComponent implements OnInit {
   editing: boolean =false;
   comunidades: Comunidad[];
   comunidad:Comunidad;
-  constructor(private comunidadesService: ComunidadesService, private activatedRoute: ActivatedRoute) { 
+  constructor(private comunidadesService: ComunidadesService, private activatedRoute: ActivatedRoute,private usersService: UsersService) { 
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {EmpresasService} from 'src/app/services/empresas.service';
 import {Empresa} from 'src/app/interfaces/empresa';
 import {ActivatedRoute} from '@angular/router';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-empresaedit',
@@ -13,7 +15,7 @@ export class EmpresaeditComponent implements OnInit {
   editing: boolean =false;
   empresas: Empresa[];
   empresa: Empresa;
-  constructor(private empresasService: EmpresasService, private activatedRoute: ActivatedRoute) {
+  constructor(private empresasService: EmpresasService, private activatedRoute: ActivatedRoute,private usersService: UsersService) {
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){

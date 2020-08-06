@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ComunidadesService} from 'src/app/services/comunidades.service';
 import {Comunidad} from 'src/app/interfaces/comunidad';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-comunidadcreate',
@@ -9,7 +11,7 @@ import {Comunidad} from 'src/app/interfaces/comunidad';
 })
 export class ComunidadcreateComponent implements OnInit {
 
-  constructor( private comunidadesService: ComunidadesService) { }
+  constructor( private comunidadesService: ComunidadesService,private usersService: UsersService) { }
   comunidad: Comunidad= {
 		nombre:null,
   };

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FondosConcursablesService} from 'src/app/services/fondos-concursables.service';
 import {FondoConcursable} from 'src/app/interfaces/fondoconcursable';
 import {ActivatedRoute} from '@angular/router';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-fondoconcursableedit',
@@ -13,7 +15,7 @@ export class FondoconcursableeditComponent implements OnInit {
   editing: boolean =false;
   fondos_concursables: FondoConcursable[];
   fondo_concursable: FondoConcursable;
-  constructor(private fondosconcursablesService: FondosConcursablesService,private activatedRoute: ActivatedRoute) {
+  constructor(private fondosconcursablesService: FondosConcursablesService,private activatedRoute: ActivatedRoute,private usersService: UsersService) {
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){

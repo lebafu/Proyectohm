@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {FondosConcursablesService} from 'src/app/services/fondos-concursables.service';
 import {FondoConcursable} from 'src/app/interfaces/fondoconcursable';
 import { Router } from '@angular/router';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-fondoconcursablecreate',
@@ -10,7 +12,7 @@ import { Router } from '@angular/router';
 })
 export class FondoconcursablecreateComponent implements OnInit {
 
-  constructor(private fondosconcursablesService: FondosConcursablesService,private router: Router) { }
+  constructor(private fondosconcursablesService: FondosConcursablesService,private router: Router,private usersService: UsersService) { }
   fondo_concursable: FondoConcursable= {
 		nombre:null,
   };

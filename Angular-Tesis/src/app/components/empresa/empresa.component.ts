@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {EmpresasService} from 'src/app/services/empresas.service';
 import {Empresa} from 'src/app/interfaces/empresa';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-empresa',
@@ -9,7 +11,12 @@ import {Empresa} from 'src/app/interfaces/empresa';
 })
 export class EmpresaComponent implements OnInit {
   empresas:Empresa[];
-  constructor(private empresasService: EmpresasService) { 
+  identificador:string;
+  tipo_usuario:number;
+  director_escuela:number;
+  constructor(private empresasService: EmpresasService,private usersService: UsersService) { 
+    this.identificador=localStorage.getItem('id');
+    this.getProfesorDirectorEscuela();
     this.getEmpresa();
   }
 
@@ -35,5 +42,17 @@ export class EmpresaComponent implements OnInit {
        });
       }
    }
+
+     getProfesorDirectorEscuela(){
+   this.identificador=localStorage.getItem('id');
+   this.usersService.rol(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.tipo_usuario=data[0].tipo_usuario;
+      this.director_escuela=data[0].director_escuela;
+    
+   });
+
+  } 
+
 
 }

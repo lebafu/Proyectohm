@@ -57,4 +57,10 @@ obtener_id(){
 getProfesores(){
   return this.httpClient.get('http://localhost:8000/api' + '/profesores');
 }
+
+rol(id){
+  return this.httpClient.get('http://localhost:8000/api' + '/docentes/' + id);
+}
+
+
 }

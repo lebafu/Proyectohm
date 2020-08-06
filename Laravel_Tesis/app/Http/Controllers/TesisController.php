@@ -17,7 +17,7 @@ use Str;
 class TesisController extends Controller
 {
 
-
+   
 
 
     public function store(Request $request)
@@ -182,10 +182,7 @@ class TesisController extends Controller
 
 
 
-    public function u(Request $request,$id){
-        echo json_encode($request);
-
-    }
+   
     public function update2(Request $request,$id)
     {
         //echo json_encode($request);

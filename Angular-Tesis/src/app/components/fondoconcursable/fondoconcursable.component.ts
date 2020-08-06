@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FondosConcursablesService} from 'src/app/services/fondos-concursables.service';
 import {FondoConcursable} from 'src/app/interfaces/fondoconcursable';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-fondoconcursable',
@@ -8,9 +10,15 @@ import {FondoConcursable} from 'src/app/interfaces/fondoconcursable';
   styleUrls: ['./fondoconcursable.component.css']
 })
 export class FondoconcursableComponent implements OnInit {
+  identificador:string;
   fondos_concursables:FondoConcursable[];
-  constructor(private fondosconcursablesService: FondosConcursablesService) {
+  tipo_usuario:number;
+  director_escuela:number;
+  constructor(private fondosconcursablesService: FondosConcursablesService,private usersService: UsersService) {
+    this.identificador=localStorage.getItem('id');
     this.getFondosConcursables();
+
+
    }
 
   ngOnInit(): void {
@@ -34,4 +42,15 @@ export class FondoconcursableComponent implements OnInit {
        });
       }
    }
+
+     getProfesorDirectorEscuela(){
+   this.identificador=localStorage.getItem('id');
+   this.usersService.rol(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.tipo_usuario=data[0].tipo_usuario;
+      this.director_escuela=data[0].director_escuela;
+    
+   });
+
+  }
 }

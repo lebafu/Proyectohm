@@ -36,6 +36,7 @@ Route::post('/director_escuela','UsersController@asignar_director_escuela');
 Route::put('/users/{users}','UsersController@update');
 Route::delete('/users/{id}','UsersController@destroy');
 Route::get('profesores', 'UsersController@index_profesores');
+Route::get('/docentes/{id}', 'UsersController@rol');
 
 
 Route::get('area_tesis', 'Area_TesisController@index');

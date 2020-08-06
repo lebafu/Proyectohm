@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {EmpresasService} from 'src/app/services/empresas.service';
 import {Empresa} from 'src/app/interfaces/empresa';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-empresacreate',
@@ -9,7 +11,7 @@ import {Empresa} from 'src/app/interfaces/empresa';
 })
 export class EmpresacreateComponent implements OnInit {
 
-  constructor(private empresasService: EmpresasService) { }
+  constructor(private empresasService: EmpresasService,private usersService: UsersService) { }
   empresa: Empresa= {
 		nombre:null,
   };

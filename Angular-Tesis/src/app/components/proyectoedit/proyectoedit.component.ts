@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import {ProyectosService} from 'src/app/services/proyectos.service';
 import {Proyecto} from 'src/app/interfaces/proyecto';
 import {ActivatedRoute} from '@angular/router';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-proyectoedit',
@@ -13,7 +15,7 @@ export class ProyectoeditComponent implements OnInit {
   editing: boolean =false;
   proyectos: Proyecto[];
   proyecto:Proyecto;
-  constructor(private proyectosService: ProyectosService,private activatedRoute: ActivatedRoute) {
+  constructor(private proyectosService: ProyectosService,private activatedRoute: ActivatedRoute,private usersService: UsersService) {
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){

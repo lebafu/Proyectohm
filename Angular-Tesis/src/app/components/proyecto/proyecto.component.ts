@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {ProyectosService} from 'src/app/services/proyectos.service';
 import {Proyecto} from 'src/app/interfaces/proyecto';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-proyecto',
@@ -8,8 +10,12 @@ import {Proyecto} from 'src/app/interfaces/proyecto';
   styleUrls: ['./proyecto.component.css']
 })
 export class ProyectoComponent implements OnInit {
+  identificador:string;
   proyectos:Proyecto[];
-  constructor(private proyectosService: ProyectosService) {
+  tipo_usuario:number;
+  director_escuela:number;
+  constructor(private proyectosService: ProyectosService,private usersService: UsersService) {
+    this.identificador=localStorage.getItem('id');
     this.getProyecto();
    }
 
@@ -36,4 +42,16 @@ export class ProyectoComponent implements OnInit {
        });
       }
    }
+
+
+     getProfesorDirectorEscuela(){
+   this.identificador=localStorage.getItem('id');
+   this.usersService.rol(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.tipo_usuario=data[0].tipo_usuario;
+      this.director_escuela=data[0].director_escuela;
+    
+   });
+
+  }
 }
