@@ -3,104 +3,44 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App/User;
-use Mail;
+use Illuminate\Support\Str;
+use App\User;
+use Mail; //Importante incluir la clase Mail, que será la encargada del envío
+
+use DB;
 
 class ResetPasswordController extends Controller
 {
-    //
-
-    /* public function sendEmail(Request $request)
-    {
-       if(!$this->validateEmail($request->email)){
-       	return $this->failedResponse();
-       }
-
-       $this->send($request->email);
-    }
-
-    public function send( Request $request)
-    {
-
-        $token= $this->createToken($email);
-    	 Mail::send('view_email',$data,function($message)
-                    {
-                        $message->from('leonardo211294@gmail.com','UCM');//Aqui deberia ir el email del administrador
-                        //https://myaccount.google.com/lesssecureapps  colocar Si, para permitir el acceso de la aplicación y poder enviar emails.
-                        $message->subject('UCM ALERTA ACTUALIZACION DE CONTRASEÑA');
-                        $message->to($request->email);
-                    }); 
-
-    }
-
-    public function createToken($email){
-
-        $token=str_random(60);
-        $this->saveToken($token,$email);
-    }
 
 
-    public function saveToken($token,$email){
-        DB::table('password_resets')->insert([
-            'email'=> $email,
-            'token' => $token
-
-    ])
-    }
-
-    public function validateEmail($email){
-
-    	return !!User::where('email',$email)->first();
-    }
-
-    public funtion failedResponse(){
-    	return response()->json([
-    		'error' => 'Email no ha sido encontrado en la base de datos',
-    	], Response::HTTP_NOT_FOUND);
-    }
-
-     public funtion successdResponse(){
-    	return response()->json([
-    		'data' => 'El Link para actualizar la contraseña ha sido enviado a su email',
-    	], Response::HTTP_NOT_FOUND);
-    }*/
-
-
-     public function showLinkRequestForm(Request $request)
+     public function sendPasswordResetLink(Request $request)
     {   
+         //echo json_encode($request->email);
+          
          if($request->email!=null)
             {
-                    $token=$this->createToken($request->email);
-                    $users=DB::table('users')->where('email','=',$request->email)->get();
-                    foreach($users as $user)
+                   
+                      /* DB::table('password_resets')->insert([
+                         'email'=> $request->email,
+                         'token' => $token
+
+                     ]);*/
+                    $token=Str::random(60);
+                     $user=DB::table('users')->where('email','=',$request->email)->get()->first();
+                    
+                    $data=(['nombre'=> $user->name, 'email' => $user->email, 'token'=>$token]);
+                    $email=$data['email'];
+            Mail::send('view_email',$data,function($message)
                     {
-                        $usuario->name=$user->name;
-                        $usuario->email=$user->email;
-                        $usuario->token=$token;                    }
-            Mail::send('view_email',$usuario,function($message)
-                    {
-                        $message->from('leonardo211294@gmail.com');//Aqui deberia ir el email del administrador
-                        //https://myaccount.google.com/lesssecureapps  colocar Si, para permitir el acceso de la aplicación y poder enviar emails.
-                        $message->to($request->email)->subject('test Email Curso Laravel');
+                    
+                        $message->from('leonardo211294@gmail.com');
+                        $message->to($request->email)->subject('Recuperar contraseña');
                     }); 
         }
-        return view('auth.passwords.email');
+        return ('Email enviado correctamente');
     }
 
-     public function createToken($email){
-
-        $token=str_random(60);
-        $this->saveToken($token,$email);
-    }
-
-
-    public function saveToken($token,$email){
-        DB::table('password_resets')->insert([
-            'email'=> $email,
-            'token' => $token
-
-    ])
-    }
+  
 
     /**
      * Send a reset link to the given user.

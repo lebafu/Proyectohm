@@ -22,7 +22,9 @@ export class JarwisService {
   }
 
   sendPasswordResetLink(data) {
-    return this.http.post(`${this.baseUrl}/sendPasswordResetLink`, data)
+    console.log(data);
+    const headers=new HttpHeaders({'Content-Type':'application/json'});
+    return this.http.post(`${this.baseUrl}/sendPasswordResetLink`,data,{headers: headers})
   }
   
   changePassword(data) {

@@ -11,14 +11,14 @@ export class RequestResetPasswordComponent implements OnInit {
   		email:null,
   	}
   	public error = [];
-  constructor(private Jarwice:JarwisService) { 
+  constructor(private Jarwis:JarwisService) { 
 
   }
 
 
 
   onSubmit(){
-  	this.Jarwice.sendPasswordResetLink(this.form).subscribe(
+  	this.Jarwis.sendPasswordResetLink(this.form).subscribe(
   		data =>   this.handleResponse(data),
   		error => this.handleError(error)
   		);
@@ -26,7 +26,7 @@ export class RequestResetPasswordComponent implements OnInit {
 
   handleResponse(res){
   	console.log(res);
-  	this.form.email=null;
+  	  	this.form.email=null
   }
 
     handleError(error) {
