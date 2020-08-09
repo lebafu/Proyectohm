@@ -5,8 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use App\User;
-use Mail; //Importante incluir la clase Mail, que será la encargada del envío
-
+use \App\Mail\SendMail;; //Importante incluir la clase Mail, que será la encargada del envío
 use DB;
 
 class ResetPasswordController extends Controller
@@ -19,29 +18,32 @@ class ResetPasswordController extends Controller
           
          if($request->email!=null)
             {
-                   
-                      /* DB::table('password_resets')->insert([
-                         'email'=> $request->email,
-                         'token' => $token
-
-                     ]);*/
-                    $token=Str::random(60);
-                     $user=DB::table('users')->where('email','=',$request->email)->get()->first();
-                    
-                    $data=(['nombre'=> $user->name, 'email' => $user->email, 'token'=>$token]);
-                    $email=$data['email'];
-            Mail::send('view_email',$data,function($message)
-                    {
-                    
-                        $message->from('leonardo211294@gmail.com');
-                        $message->to($request->email)->subject('Recuperar contraseña');
-                    }); 
-        }
+    $user=User::where('email','=',$request->email)->get()->first();
+    //echo json_encode($user);
+    $token=Str::random(60);
+    $email=$request->email;
+    //echo json_encode($email);
+     $data = [
+        'title' => $user->name,
+        'body' => $token
+    ];
+   
+    \Mail::to($email)->send(new SendMail($data));
         return ('Email enviado correctamente');
     }
+}
 
   
+    public function obteneremail(Request $request)
+    {
+        return $request->email;
+    }
+  
+    public function returnemail(){
 
+        return $this->obteneremail();
+    }
+    
     /**
      * Send a reset link to the given user.
      *

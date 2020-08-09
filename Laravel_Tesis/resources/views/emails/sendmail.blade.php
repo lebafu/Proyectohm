@@ -6,8 +6,10 @@
 
                 <div class="card-body">                 
 <div>ACCEDA AL SIGUIENTE LINK PARA ACTUALIZAR O RECUPERAR SU CONTRASEÑA</div>
-Hola {{$usuario->name}} accede a esta ruta: 
-<a href="http://localhost:4200/{{$array['token']}}">http://localhost:4200/response-password-reset/{{$usuario->token}}</a>
+
+
+<h1>{{ $details['title'] }}</h1>
+    <a href="http://localhost:4200/{{ $details['body'] }}">http://localhost:4200/{{ $details['body'] }}</a>
 </div>
 </div>
 </div>
