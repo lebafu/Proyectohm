@@ -33,11 +33,11 @@ const routes: Routes = [
 
 {
 	path:'request-password-reset',
-	component: ResponseResetComponent
+	component: RequestResetComponent
 },
 {
-	path:'response-password',
-	component:LoginComponent
+	path:'response-password-reset',
+	component: ResponseResetComponent
 },
 {
 	path:'repositorio',

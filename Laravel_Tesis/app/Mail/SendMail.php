@@ -11,16 +11,16 @@ class SendMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $details;
+    public $data;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($data)
     {
-        $this->details=$details;
+        $this->data=$data;
     }
 
     /**
@@ -31,6 +31,6 @@ class SendMail extends Mailable
     public function build()
     {
 
-        return $this->subject('Mail From YO')->view('emails.sendmail');
+        return $this->subject('Reestablecer Contraseña')->view('emails.sendmail');
     }
 }

@@ -20,16 +20,21 @@ class ResetPasswordController extends Controller
             {
     $user=User::where('email','=',$request->email)->get()->first();
     //echo json_encode($user);
+    DB::table('password_resets')->where('email','=',$request->email)->delete();
     $token=Str::random(60);
     $email=$request->email;
     //echo json_encode($email);
      $data = [
-        'title' => $user->name,
-        'body' => $token
+        'nombre' => $user->name,
+        'email' => $user->email,
+        'token' => $token
     ];
    
     \Mail::to($email)->send(new SendMail($data));
-        return ('Email enviado correctamente');
+        return response()->json(['data' => 'El link para reestablecer contraseña ha sido enviado, por favor revise su email']);
+    }else{
+
+        return response()->json(['error'=> 'Email no encontrado en nuestra base de datos']);
     }
 }
 
