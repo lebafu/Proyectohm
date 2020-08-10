@@ -23,6 +23,8 @@ class ResetPasswordController extends Controller
     DB::table('password_resets')->where('email','=',$request->email)->delete();
     $token=Str::random(60);
     $email=$request->email;
+
+    DB::table('password_resets')->insert(['email' => $request->email, 'token'=> $token, 'created_at'=> now()]);
     //echo json_encode($email);
      $data = [
         'nombre' => $user->name,

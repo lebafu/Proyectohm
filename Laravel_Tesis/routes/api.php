@@ -23,6 +23,7 @@ Route::group(['middleware' => []], function () {
     Route::post('/me', 'AuthController@me');
    //Route::post('/sendPasswordResetLink','ResetPasswordController@sendPasswordResetLink');
    Route::post('/sendPasswordResetLink','ResetPasswordController@sendPasswordResetLink');
+   Route::post('/changePassword','ChangePasswordController@changePassword');
 });
 //Route::post('login', [ 'as' => 'login', 'uses' => 'AuthController@login']); 
 

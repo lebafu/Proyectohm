@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
+import { Router } from '@angular/router';
 import { JarwisService } from '../../services/jarwis.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class RequestResetPasswordComponent implements OnInit {
   		email:null,
   	}
   	public error = [];
-  constructor(private Jarwis:JarwisService) { 
+  constructor(private Jarwis:JarwisService,private router: Router) { 
 
   }
 
@@ -27,7 +28,8 @@ export class RequestResetPasswordComponent implements OnInit {
 
   handleResponse(res){
   	console.log(res);
-  	  	this.form.email=null
+  	  	//this.form.email=null,
+        this.router.navigateByUrl('/login');
   }
 
     handleError(error) {
