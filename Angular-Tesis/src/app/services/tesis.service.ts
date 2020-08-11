@@ -87,5 +87,10 @@ export class TesisService {
     getTesisProfesorComision(id){
     return this.httpClient.get(this.API_ENDPOINT + '/tesis_comision_profesor/'+ id)
   }
+
+  CrearDocwordListaTesisProfesor(data){
+    const headers= new HttpHeaders({'Content-Type':'application/json'});
+     return this.httpClient.post(this.API_ENDPOINT + '/crearword-lista-tesis-profesor',data,{headers:headers})
+  }
  
 }

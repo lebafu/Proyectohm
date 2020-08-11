@@ -109,3 +109,6 @@ Route::get('/tesis_espera_director_escuela/{id}', 'TesisController@tesis_espera_
 Route::get('/tesisevaluada/{id}','TesisController@tesisevaluada');
 Route::get('/tesisrechazada/{id}','TesisController@tesisrechazada');
 Route::get('/tesisevaluadainscrita/{id}','TesisController@tesisevaluadainscrita');
+
+
+Route::post(CrearDocwordListaTesisProfesor);

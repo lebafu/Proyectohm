@@ -74,6 +74,7 @@ import { EvaluartesisalumnoComponent } from './evaluartesisalumno/evaluartesisal
 import { EdittesisalumnodirectorescuelaComponent } from './edittesisalumnodirectorescuela/edittesisalumnodirectorescuela.component';
 import { EvaluartesisalumnodirectorescuelaComponent } from './evaluartesisalumnodirectorescuela/evaluartesisalumnodirectorescuela.component';
 import { RequestResetPasswordComponent } from './components/request-reset-password/request-reset-password.component';
+import { WordListaTesisProfesorComponent } from './components/word-lista-tesis-profesor/word-lista-tesis-profesor.component';
 
 
 const routes: Route[]=[
@@ -133,7 +134,7 @@ const routes: Route[]=[
   {path: 'edittesisalumnodirectorescuela/:id',component:EdittesisalumnodirectorescuelaComponent},
   {path: 'evaluartesisalumnodirectorescuela/:id',component:EvaluartesisalumnodirectorescuelaComponent},
   {path: 'request-reset-password',component:RequestResetPasswordComponent},
-  
+  {path:'wordlistaprofesor/:id',component:WordListaTesisProfesorComponent },
   ]
 
   @NgModule({
@@ -200,6 +201,7 @@ const routes: Route[]=[
       EdittesisalumnodirectorescuelaComponent,
       EvaluartesisalumnodirectorescuelaComponent,
       RequestResetPasswordComponent,
+      WordListaTesisProfesorComponent,
     ],
     imports: [
       BrowserModule,
