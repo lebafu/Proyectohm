@@ -74,23 +74,27 @@ export class TesisService {
   }
 
   getTesisDirectorEscuelaEspera(id){
-    return this.httpClient.get(this.API_ENDPOINT + '/tesis_espera_director_escuela/'+ id)
+    return this.httpClient.get(this.API_ENDPOINT + '/tesis_espera_director_escuela/'+ id);
   }
 
   getTesisProfesorEspera(id){
-    return this.httpClient.get(this.API_ENDPOINT + '/tesis_espera_profesor/'+ id)
+    return this.httpClient.get(this.API_ENDPOINT + '/tesis_espera_profesor/'+ id);
   }
 
     getTesisProfesorInscrita(id){
-    return this.httpClient.get(this.API_ENDPOINT + '/tesis_inscritas_profesor/'+ id)
+    return this.httpClient.get(this.API_ENDPOINT + '/tesis_inscritas_profesor/'+ id);
   }
     getTesisProfesorComision(id){
-    return this.httpClient.get(this.API_ENDPOINT + '/tesis_comision_profesor/'+ id)
+    return this.httpClient.get(this.API_ENDPOINT + '/tesis_comision_profesor/'+ id);
   }
 
   CrearDocwordListaTesisProfesor(data){
-    const headers= new HttpHeaders({'Content-Type':'application/json'});
-     return this.httpClient.post(this.API_ENDPOINT + '/crearword-lista-tesis-profesor',data,{headers:headers})
+    console.log(data);
+     return this.httpClient.get(this.API_ENDPOINT + '/crearword',data);
   }
  
+
+ getTesisInscrita(){
+   return this.httpClient.get(this.API_ENDPOINT + '/tesis_inscritas');
+ }
 }

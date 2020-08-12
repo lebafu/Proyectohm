@@ -17,7 +17,24 @@ use Str;
 class TesisController extends Controller
 {
 
-   
+    public function todas_tesis_inscritas(){
+
+        $tesis=Tesis::get();
+        echo json_encode($tesis);
+        //return response()->json($tesis)
+    }
+
+   public function wordlistatesisprofe(Request $request)
+    {
+    $fecha_inicio=$request->fecha_inicio;
+    $fecha_final=$request->fecha_fin;
+    $id=$request->identificacion;
+    $profesor=User::find($id);
+    $tesis=DB::table('tesis')->join('comision','tesis.id','=','comision.id')->where('tesis.estado1',4)->where('tesis.estado2',1)->whereBetween('tesis.fecha_inscripcion',[$fecha_inicio,$fecha_final])->where('tesis.profesor_guia','=',$profesor->name)->orwhere('comision.profesor1_comision','=',$profesor->name)->orwhere('comision.profesor2_comision','=',$profesor->name)->orwhere('comision.profesor3_comision','=',$profesor->name)->get();
+
+    return response()->json($tesis);
+
+     }
    
 
 

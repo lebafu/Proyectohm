@@ -69,6 +69,8 @@ Route::put('/tesis3/{tesis}','TesisController@u');
 Route::get('/tesis_editada_profesor/{id_pk}','TesisController@getTCC');
 Route::delete('/tesis/{id}','TesisController@destroy');
 
+Route::get('/tesis_inscritas','TesisController@todas_tesis_inscritas');
+
 
 Route::get('/comunidades', 'ComunidadController@index');
 Route::get('/empresas', 'EmpresasController@index');
@@ -110,5 +112,4 @@ Route::get('/tesisevaluada/{id}','TesisController@tesisevaluada');
 Route::get('/tesisrechazada/{id}','TesisController@tesisrechazada');
 Route::get('/tesisevaluadainscrita/{id}','TesisController@tesisevaluadainscrita');
 
-
-Route::post(CrearDocwordListaTesisProfesor);
+Route::get('/crearword','TesisController@wordlistatesisprofe');

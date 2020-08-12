@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <!--<style>
@@ -16,7 +14,7 @@
 /.Navbar-->
   <a *ngIf="tipo_usuario==2 && director_escuela==0">
    <nav class="navbar navbar-expand-lg" style="background-color:#000a49"> 
-    <a class="navbar-brand text-white" href="#">Home</a>
+    <a class="navbar-brand text-white" routerLink="/profesor/{{identificador}}">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -28,9 +26,9 @@
             </a>
             <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown1" class="dropdown-menu">
               <a class="dropdown-item" routerLink="/tesis_espera_profesor/{{identificador}}">Espera</a>
-              <a class="dropdown-item" href="/tesis_inscrita_profesor/{{identificador}}">Inscritas</a>
-              <a class="dropdown-item" href="/tesis_comision_profesor/{{identificador}}">Comision</a>
-              <a class="dropdown-item" href="#">Informes</a>
+              <a class="dropdown-item" routerLink="/tesis_inscrita_profesor/{{identificador}}">Inscritas</a>
+              <a class="dropdown-item" routerLink="/tesis_comision_profesor/{{identificador}}">Comision</a>
+              <a class="dropdown-item" routerLink="#">Informes</a>
               <a class="dropdown-item" href="#">Actas</a>
             </div>
           </li>
@@ -82,7 +80,7 @@
 
   <a *ngIf="tipo_usuario==2 && director_escuela==1">
    <nav class="navbar navbar-expand-lg" style="background-color:#000a49"> 
-      <a class="navbar-brand text-white" href="#">Home</a>
+      <a class="navbar-brand text-white" routerLink="/director_escuela/{{identificador}}">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -96,7 +94,7 @@
               <a class="dropdown-item" routerLink="/tesis_espera_directorescuela/{{identificador}}">Espera</a>
               <a class="dropdown-item" routerLink="/tesis_inscrita_directorescuela/{{identificador}}">Inscritas</a>
               <a class="dropdown-item" routerLink="/tesis_comision_directorescuela/{{identificador}}">Comision</a>
-                <a class="dropdown-item" href="#">Informes</a>
+                <a class="dropdown-item" routerLink="#">Informes</a>
                 <a class="dropdown-item" href="#">Actas</a>
               </div>
             </li>
@@ -149,29 +147,36 @@
       <form>
 
         <div class="form-group row">
-                <label for="fecha_inicio" class="col-md-4 col-form-label text-md-right">{{ __('Fecha inicio') }}</label>
+                <label for="fecha_inicio" class="col-md-4 col-form-label text-md-right">Fecha Inicio</label>
              <div class="col-md-6">
-             <input id="fecha_inicio" type="date" placeholder="Fecha inicio" class="form-control" name="fecha_inicio"  [(ngModel)]="form.fecha_inicio" [ngModelOptions]="{standalone: true}" required="required">
+             <input id="fecha_inicio" type="date" placeholder="Fecha inicio" class="form-control" name="fecha_inicio"  
+             [(ngModel)]="form.fecha_inicio" [ngModelOptions]="{standalone: true}" required="required">
              </div>
         </div>
-        
+        <!--<input id="id" name="id" type="hidden" [(ngModel)]="form.identificador" [value]="{{identificador}}">-->
         <div class="form-group row">
-            <label for="fecha_fin" class="col-md-4 col-form-label text-md-right">{{ __('Fecha fin') }}</label>
-                            <div class="col-md-6">
-                                <input id="fecha_fin" type="date" placeholder="Fecha fin" class="form-control" name="fecha_fin" [(ngModel)]="form.fecha_fin" [ngModelOptions]="{standalone: true}" required="required">
-                            </div>
-                        </div>
+            <label for="fecha_fin" class="col-md-4 col-form-label text-md-right"> Fecha Fin</label>
+            <div class="col-md-6">
+               <input id="fecha_fin" type="date" placeholder="Fecha fin" class="form-control" name="fecha_fin"      
+               [(ngModel)]="form.fecha_fin" [ngModelOptions]="{standalone: true}" required="required">
+             </div>
+        </div>
         <div class="row">
           <div class="col-md-4"></div>
           <div class="form-group col-md-4">
-            <button type="submit" class="btn btn-primary">Enviar</button>
+            <button (click)=CrearDocWordListaTesisProfesor() type="submit" class="btn btn-primary">Enviar</button>
           </div>
         </div>
       </form>
    </div>
-    <a (click)=CrearDocWord() href="{{ url()->previous() }}" class="btn btn-default">Volver atras</a>
+    <a *ngIf="tipo_usuario==2 && director_escuela==0">
+    <a routerLink="/profesor/{{identificador}}" class="btn btn-default">Volver atras</a>
+	</a>
+	<a *ngIf="tipo_usuario==2 && director_escuela==1">
+    <a  routerLink="/director_escuela/{{identificador}}" class="btn btn-default">Volver atras</a>
+	</a>
   </body>
-  </html>
+
 
   <script>
     
