@@ -14,7 +14,9 @@ export class FondoconcursablecreateComponent implements OnInit {
   identificador:string;
   tipo_usuario:number;
   director_escuela:number;
-  constructor(private fondosconcursablesService: FondosConcursablesService,private router: Router,private usersService: UsersService) { }
+  constructor(private fondosconcursablesService: FondosConcursablesService,private router: Router,private usersService: UsersService) {
+    this.getProfesorDirectorEscuela();
+   }
   fondo_concursable: FondoConcursable= {
 		nombre:null,
   };

@@ -26,6 +26,7 @@ class ComunidadController extends Controller
     {
         
         $comunidad=Comunidad::findorfail($id);
+        DB::table('tesis')->where('tipo_vinculacion','=','Comunidad')->where('nombre_vinculacion','=',$comunidad->nombre)->update(['nombre_vinculacion' => $request->nombre]);
         $comunidad->nombre=$request->nombre;
         $comunidad->update();
         

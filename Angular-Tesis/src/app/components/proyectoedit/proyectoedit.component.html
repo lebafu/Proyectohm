@@ -15,7 +15,7 @@
 /.Navbar-->
   <a *ngIf="tipo_usuario==2 && director_escuela==0">
    <nav class="navbar navbar-expand-lg" style="background-color:#000a49"> 
-    <a class="navbar-brand text-white" href="#">Home</a>
+    <a class="navbar-brand text-white" routerLink="/profesor/{{identificador}}">Home</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -81,7 +81,7 @@
 
   <a *ngIf="tipo_usuario==2 && director_escuela==1">
    <nav class="navbar navbar-expand-lg" style="background-color:#000a49"> 
-      <a class="navbar-brand text-white" href="#">Home</a>
+      <a class="navbar-brand text-white" routerLink="/profesor/{{identificador}}">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -163,3 +163,9 @@
       </div>
     </div>
   </div>
+   <div class="row">
+  <a *ngIf="tipo_usuario==2 && director_escuela==1" routerLink="/proyectos/">Volver atras</a>
+  </div>
+  <div class="row">
+  <a *ngIf="tipo_usuario==2 && director_escuela==0" routerLink="/proyectos/">Volver atras</a>
+  </div>  

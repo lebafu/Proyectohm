@@ -20,6 +20,7 @@ export class FondoconcursableeditComponent implements OnInit {
   identificador:string;
   constructor(private fondosconcursablesService: FondosConcursablesService,private activatedRoute: ActivatedRoute,private usersService: UsersService) {
     this.id=this.activatedRoute.snapshot.params['id'];
+    this.getProfesorDirectorEscuela();
     console.log(this.id);
     if(this.id){
         this.editing=true;

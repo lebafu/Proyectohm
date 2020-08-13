@@ -25,6 +25,7 @@ class ProyectoController extends Controller
     public function update(Request $request,$id)
     {
         $proyecto=Proyecto::findorfail($id);
+        DB::table('tesis')->where('tipo_vinculacion','=','Proyecto')->where('nombre_vinculacion','=',$proyecto->nombre)->update(['nombre_vinculacion' => $request->nombre]);
         $proyecto->nombre=$request->nombre;
         $proyecto->update();
         //echo "Hola desde Update";

@@ -20,6 +20,7 @@ export class ComunidadeditComponent implements OnInit {
   director_escuela:number;
   identificador:string;
   constructor(private comunidadesService: ComunidadesService, private activatedRoute: ActivatedRoute,private usersService: UsersService) { 
+    this.getProfesorDirectorEscuela();
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){

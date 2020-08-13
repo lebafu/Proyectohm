@@ -155,11 +155,17 @@
           </div>
           <div class="form-group row">
             <div class="col-sm-10 offset-2">
-               <button (click)=SaveEmpresa() class="btn btn-primary" >Crear</button>
+               <button (click)=SaveEmpresa() class="btn btn-primary">Crear</button>
             </div>
           </div>
   
         </form>
       </div>
     </div>
+  </div>
+   <div class="row">
+  <a *ngIf="tipo_usuario==2 && director_escuela==1" routerLink="/empresas/">Volver atras</a>
+  </div>
+  <div class="row">
+  <a *ngIf="tipo_usuario==2 && director_escuela==0" routerLink="/empresas/">Volver atras</a>
   </div>

@@ -25,6 +25,7 @@ class EmpresasController extends Controller
     public function update(Request $request,$id)
     {
         $empresa=Empresa::findorfail($id);
+        DB::table('tesis')->where('tipo_vinculacion','=','Empresa')->where('nombre_vinculacion','=',$empresa->nombre)->update(['nombre_vinculacion' => $request->nombre]);
         $empresa->nombre=$request->nombre;
         $empresa->update();
     }

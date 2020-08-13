@@ -13,11 +13,13 @@ export class EmpresacreateComponent implements OnInit {
   tipo_usuario:number;
   director_escuela:number;
   identificador:string;
-  constructor(private empresasService: EmpresasService,private usersService: UsersService) { }
-  empresa: Empresa= {
-		nombre:null,
+   empresa: Empresa= {
+    nombre:null,
   };
   empresas:Empresa[];
+  constructor(private empresasService: EmpresasService,private usersService: UsersService) {
+  this.getProfesorDirectorEscuela(); }
+ 
   ngOnInit(): void {
   }
 

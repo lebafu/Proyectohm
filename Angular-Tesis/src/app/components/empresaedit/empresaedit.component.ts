@@ -19,6 +19,7 @@ export class EmpresaeditComponent implements OnInit {
   director_escuela:number;
   identificador:string;
   constructor(private empresasService: EmpresasService, private activatedRoute: ActivatedRoute,private usersService: UsersService) {
+    this.getProfesorDirectorEscuela();
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){

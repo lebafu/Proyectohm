@@ -13,11 +13,12 @@ export class ComunidadcreateComponent implements OnInit {
   tipo_usuario:number;
   director_escuela:number
   identificador:string;
-  constructor( private comunidadesService: ComunidadesService,private usersService: UsersService) { }
   comunidad: Comunidad= {
-		nombre:null,
+    nombre:null,
   };
   comunidades:Comunidad[];
+  constructor( private comunidadesService: ComunidadesService,private usersService: UsersService) { this.getProfesorDirectorEscuela(); }
+  
   ngOnInit(): void {
   }
   SaveComunidad(){
