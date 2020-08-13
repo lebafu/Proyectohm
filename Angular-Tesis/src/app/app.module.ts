@@ -76,6 +76,7 @@ import { EvaluartesisalumnodirectorescuelaComponent } from './evaluartesisalumno
 import { RequestResetPasswordComponent } from './components/request-reset-password/request-reset-password.component';
 import { WordListaTesisProfesorComponent } from './components/word-lista-tesis-profesor/word-lista-tesis-profesor.component';
 import { ListaTesisCoordinadortesisComponent } from './components/lista-tesis-coordinadortesis/lista-tesis-coordinadortesis.component';
+import { ListaTesisBitacoraCoordinadorComponent } from './components/lista-tesis-bitacora-coordinador/lista-tesis-bitacora-coordinador.component';
 
 
 const routes: Route[]=[
@@ -205,6 +206,7 @@ const routes: Route[]=[
       RequestResetPasswordComponent,
       WordListaTesisProfesorComponent,
       ListaTesisCoordinadortesisComponent,
+      ListaTesisBitacoraCoordinadorComponent,
     ],
     imports: [
       BrowserModule,
