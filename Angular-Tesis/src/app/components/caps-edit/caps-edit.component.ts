@@ -23,7 +23,7 @@ export class CapsEditComponent implements OnInit {
   nombre:string;
   constructor(private Token: TokenService,private tesisService:TesisService,private activatedRoute: ActivatedRoute,private usersService: UsersService) {
   	this.getProfesorDirectorEscuela();
-  	this.getcapitulos();
+  	this.editCapNombre()
   	this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){
@@ -47,10 +47,10 @@ export class CapsEditComponent implements OnInit {
     editCapNombre(){
     console.log(this.editing);
     if(this.editing==true){
-      this.TesisService.put3(this.cap).subscribe((data) => {
+      this.tesisService.put3(this.cap).subscribe((data) => {
       alert('Capitulo Actualizado');
       console.log(data);
-      this.getcapitulos(this.cap.id_pk);
+      this.tesisService.getcapitulos(this.id);
     }, (error) => {
   console.log(error);
   alert('Ocurrio  un error al editar el capitulo');

@@ -44,7 +44,7 @@ export class CapsEditAvancesComponent implements OnInit {
       editCapAvances(){
     console.log(this.editing);
     if(this.editing==true){
-      this.TesisService.put4(this.cap).subscribe((data) => {
+      this.tesisService.put4(this.cap).subscribe((data) => {
       alert('Capitulo Actualizado');
       console.log(data);
     }, (error) => {
