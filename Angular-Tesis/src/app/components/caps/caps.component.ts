@@ -15,6 +15,7 @@ import {User} from 'src/app/interfaces/user';
 export class CapsComponent implements OnInit {
   cap:Tesis_Comision_Capitulos;
   identificador:string;
+  nombre:string;
   id:any // se dice que id tiene algun tipo de dato.
    editing: boolean =false;
     tipo_usuario:number;
@@ -42,7 +43,7 @@ export class CapsComponent implements OnInit {
       console.log(data[0]);
       this.tipo_usuario=data[0].tipo_usuario;
       this.director_escuela=data[0].director_escuela;
-    
+      this.nombre=data[0].name;
    });
 
   }

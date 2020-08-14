@@ -18,6 +18,68 @@
     }
     </style>
 
+<a *ngIf="tipo_usuario==2 && director_escuela==1">
+ <nav class="navbar navbar-expand-lg" style="background-color:#000a49"> 
+      <a class="navbar-brand text-white" href="/director_escuela/{{identificador}}">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav"> 
+            <li ngbDropdown class="nav-item dropdown">
+              <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tesis
+              </a>
+              <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown1" class="dropdown-menu">
+              <a class="dropdown-item" routerLink="/tesis_espera_directorescuela/{{identificador}}">Espera</a>
+              <a class="dropdown-item" routerLink="/tesis_inscrita_directorescuela/{{identificador}}">Inscritas</a>
+              <a class="dropdown-item" routerLink="/tesis_comision_directorescuela/{{identificador}}">Comision</a>
+               <a class="dropdown-item" routerLink="/wordlistaprofesor/{{identificador}}">Informes</a>
+                <a class="dropdown-item" href="#">Actas</a>
+              </div>
+            </li>
+            <li ngbDropdown class="nav-item dropdown">
+              <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Vinculación
+              </a>
+              <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown2" class="dropdown-menu">
+                <a class="dropdown-item" routerLink="/comunidades">Comunidad</a>
+                <a class="dropdown-item" routerLink="/fondosconcursables">Fondos Concursables</a>
+                <a class="dropdown-item" routerLink="/empresas">Empresas</a>
+                <a class="dropdown-item" routerLink="/proyectos">Proyectos</a>
+              </div>
+            </li>
+            <li ngbDropdown class="nav-item dropdown">
+              <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sol Notas Pendientes Profesor
+              </a>
+              <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown3" class="dropdown-menu">
+                <a class="dropdown-item" href="#">Pendientes</a>
+                <a class="dropdown-item" href="#">Prorrogas</a>
+              </div>
+            </li>
+          <li ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sol Notas Director Escuela
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Pendientes</a>
+                <a class="dropdown-item" href="#">Prorrogas</a>
+            </div>
+          </li>
+          <li ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Obtener
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Informes Consulta por Intervalos</a>
+                <a class="dropdown-item" href="#">Lista memos</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </a>
 <a *ngIf="tipo_usuario==3 && director_escuela==0">
    <nav class="navbar navbar-expand-lg" style="background-color:#000a49"> 
       <a class="navbar-brand text-white" routerLink="/coordinador_tesis/{{identificador}}">Home</a>
@@ -144,6 +206,12 @@
          @if(tipo_usuario==2)-->
          <!--<th><a href="{{URL::action('Capitulos_capController@edit_nombres', $cap->id)}}" class="btn btn-primary btn-sm"><span class="far fa-edit fa-sm"></span></a></th>
          @endif-->
+          <a *ngIf="tipo_usuario==2 && director_escuela==0 && cap.profesor_guia==nombre">
+   <td><a routerLink="/capitulos_edit/{{cap.id_pk}}">Caps</a></td>  
+        </a>
+                  <a *ngIf="tipo_usuario==2 && director_escuela==1 && cap.profesor_guia==nombre">
+    <td><a routerLink="/capitulos_edit/{{cap.id_pk}}"><i class="fa fa-pencil" aria-hidden="true" ></i></a></td>
+        </a>
      </tr>
      <tr>
           <td>{{cap.avance_cap1}} %</td>
@@ -170,9 +238,7 @@
       </table>
 </div>
 </div>
- <a *ngIf="tipo_usuario==2 && director_escuela==0">
-<!--<td><a href="{{url('/capitulos_cap/create'.$id)}}" class="fas fa-plus"></a></td>-->
-</a>
+
 </div>
 </div>
 </div>

@@ -24,7 +24,7 @@ class TesisController extends Controller
         //return response()->json($tesis)
     }
 
-   public function wordlistatesisprofe(Request $request)
+   /*public function wordlistatesisprofe(Request $request)
     {
     $fecha_inicio=$request->fecha_inicio;
     $fecha_final=$request->fecha_fin;
@@ -34,7 +34,7 @@ class TesisController extends Controller
 
     return response()->json($tesis);
 
-     }
+     }*/
    
 
 

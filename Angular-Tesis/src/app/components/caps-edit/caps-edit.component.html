@@ -85,7 +85,7 @@
 
 <a *ngIf="tipo_usuario==2 && director_escuela==1 && cap.profesor_guia==nombre">
    <nav class="navbar navbar-expand-lg" style="background-color:#000a49"> 
-      <a class="navbar-brand text-white" href="#">Home</a>
+      <a class="navbar-brand text-white" href="/director_escuela/{{identificador}}">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -161,7 +161,7 @@
                          <div class="form-group row">
                             <label for="cap1" class="col-md-4 col-form-label text-md-right">Nombre Cap1 de Tesis</label>
                             <div class="col-md-6">
-                                <textarea id="cap1" type="text" rows="10" cols="40" placeholder="Nombre cap1 tesis" class="form-control" name="cap1" required="required" value="{{cap.cap1}}">{{cap.cap1}}</textarea>
+                                <textarea id="cap1" type="text" rows="10" cols="40" placeholder="Nombre cap1 tesis" class="form-control" name="cap1" required="required" [(ngModel)]="cap.cap1" value="{{cap.cap1}}">{{cap.cap1}}</textarea>
                             </div>
                         </div>
 
@@ -169,7 +169,7 @@
                          <div class="form-group row">
                             <label for="cap2" class="col-md-4 col-form-label text-md-right">Nombre Cap2 de Tesis</label>
                             <div class="col-md-6">
-                                <textarea id="cap2" type="text" rows="10" cols="40" placeholder="Nombre cap2 tesis" class="form-control" name="cap2" required="required" value="{{cap.cap2}}">{{cap.cap2}}</textarea>
+                                <textarea id="cap2" type="text" rows="10" cols="40" placeholder="Nombre cap2 tesis" class="form-control" name="cap2" required="required" [(ngModel)]="cap.cap2" value="{{cap.cap2}}">{{cap.cap2}}</textarea>
                             </div>
                         </div>
 
@@ -178,7 +178,7 @@
                          <div class="form-group row">
                             <label for="cap3" class="col-md-4 col-form-label text-md-right">Nombre Cap3 de Tesis</label>
                             <div class="col-md-6">
-                                <textarea id="cap3" type="text" rows="10" cols="40" placeholder="Nombre cap3 tesis" class="form-control" name="cap3"></textarea>
+                                <textarea id="cap3" type="text" rows="10" cols="40" [(ngModel)]="cap.cap3" placeholder="Nombre cap3 tesis" class="form-control" name="cap3" [(ngModel)]="cap.cap3"></textarea>
                             </div>
                         </div>
                         </a>
@@ -186,7 +186,7 @@
                              <div class="form-group row">
                             <label for="cap3" class="col-md-4 col-form-label text-md-right">Nombre Cap3 de Tesis</label>
                             <div class="col-md-6">
-                                <textarea id="cap3" type="text" rows="10" cols="40" placeholder="Nombre cap3 tesis" class="form-control" name="cap3"value="{{cap.cap3}}">{{cap.cap3}}</textarea>
+                                <textarea id="cap3" type="text" rows="10" cols="40" [(ngModel)]="cap.cap3" placeholder="Nombre cap3 tesis" class="form-control"  [(ngModel)]="cap.cap3" name="cap3"value="{{cap.cap3}}">{{cap.cap3}}</textarea>
                             </div>
                         </div>
                         </a>
@@ -195,15 +195,16 @@
                          <div class="form-group row">
                             <label for="cap4" class="col-md-4 col-form-label text-md-right">Nombre Cap4 de Tesis</label>
                             <div class="col-md-6">
-                                <textarea id="cap4" type="text" rows="10" cols="40" placeholder="Nombre cap4 tesis" class="form-control" name="cap4"></textarea>
+                                <textarea id="cap4" type="text" [(ngModel)]="cap.cap4" rows="10" cols="40" placeholder="Nombre cap4 tesis" class="form-control" name="cap4"></textarea>
                             </div>
                         </div>
                         </a>
+                        
                         <a *ngIf="cap.cap4!=null">
                              <div class="form-group row">
                             <label for="cap4" class="col-md-4 col-form-label text-md-right">Nombre Cap4 de Tesis</label>
                             <div class="col-md-6">
-                                <textarea id="cap4" type="text" rows="10" cols="40" placeholder="Nombre cap4 tesis" class="form-control" name="cap4"value="{{cap.cap4}}">{{cap.cap4}}</textarea>
+                                <textarea id="cap4" type="text" rows="10" cols="40" placeholder="Nombre cap4 tesis" class="form-control" name="cap4"value="{{cap.cap4}}" [(ngModel)]="cap.cap4">{{cap.cap4}}</textarea>
                             </div>
                         </div>
                         </a>
@@ -213,7 +214,7 @@
                          <div class="form-group row">
                             <label for="cap5" class="col-md-4 col-form-label text-md-right">Nombre Cap5 de Tesis</label>
                             <div class="col-md-6">
-                                <textarea id="cap5" type="text" rows="10" cols="40" placeholder="Nombre cap5 tesis" class="form-control" name="cap5"></textarea>
+                                <textarea id="cap5" type="text" rows="10" cols="40" placeholder="Nombre cap5 tesis" [(ngModel)]="cap.cap5" class="form-control" name="cap5"></textarea>
                             </div>
                         </div>
                         </a>
@@ -221,7 +222,7 @@
                              <div class="form-group row">
                             <label for="cap5" class="col-md-4 col-form-label text-md-right">Nombre Cap5 de Tesis</label>
                             <div class="col-md-6">
-                                <textarea id="cap5" type="text" rows="10" cols="40" placeholder="Nombre cap5 tesis" class="form-control" name="cap5"value="{{cap.cap5}}">{{cap.cap5}}</textarea>
+                                <textarea id="cap5" type="text" rows="10" cols="40" placeholder="Nombre cap5 tesis"  [(ngModel)]="cap.cap6" class="form-control" name="cap5"value="{{cap.cap5}}">{{cap.cap5}}</textarea>
                             </div>
                         </div>
                         </a>
@@ -230,15 +231,15 @@
                          <div class="form-group row">
                             <label for="cap6" class="col-md-4 col-form-label text-md-right">Nombre Cap6 de Tesis</label>
                             <div class="col-md-6">
-                                <textarea id="cap6" type="text" rows="10" cols="40" placeholder="Nombre cap6 tesis" class="form-control" name="cap6"></textarea>
+                                <textarea id="cap6" [(ngModel)]="cap.cap6" type="text" rows="10" cols="40" placeholder="Nombre cap6 tesis" class="form-control" name="cap6"></textarea>
                             </div>
                         </div>
                         </a>
-                        <a *ngIf="cap.cap6==null">
+                        <a *ngIf="cap.cap6!=null">
                              <div class="form-group row">
                             <label for="cap6" class="col-md-4 col-form-label text-md-right">Nombre Cap6 de Tesis</label>
                             <div class="col-md-6">
-                                <textarea id="cap6" type="text" rows="10" cols="40" placeholder="Nombre cap5 tesis" class="form-control" name="cap6"value="{{cap.cap6}}">{{cap.cap6}}</textarea>
+                                <textarea id="cap6" type="text" rows="10" cols="40" [(ngModel)]="cap.cap6" placeholder="Nombre cap5 tesis" class="form-control" name="cap6"value="{{cap.cap6}}">{{cap.cap6}}</textarea>
                             </div>
                         </div>
                         </a>
@@ -247,7 +248,7 @@
                          
                          <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                                <button (click)=editCapNombre() class="btn btn-primary">
                                     Guardar
                                 </button>
 

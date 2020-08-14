@@ -29,8 +29,8 @@ Route::group(['middleware' => []], function () {
 //Route::post('login', [ 'as' => 'login', 'uses' => 'AuthController@login']); 
 //Capitulos de Tesis
 Route::get('/mostrar_capitulos_tesis/{id}', 'Capitulos_TesisController@lista_capitulos_tesis');
-Route::put('/actualizarcapitulosnombres{capitulo}','Capitulos_TesisController@update_nombres');
-Route::put('/actualizarcapitulosavances{capitulo}','Capitulos_TesisController@update_avances');
+Route::put('/actualizarcapitulosnombres/{cap}','Capitulos_TesisController@update_nombres');
+Route::put('/actualizarcapitulosavances/{cap}','Capitulos_TesisController@update_avances');
 
 
 //RUTAS USERS

@@ -1,0 +1,21 @@
+Instrucciones:
+
+1-Abrir carpeta base de datos y importar script a gestor base de datos mysql.
+2-Al abrir la carpeta del backend de laravel, ejecutar comando composer update.
+3-Una vez ejecutado usar el comando php artisan key:generate
+4- En el archivo .env:
+...
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=tesis2
+DB_USERNAME=root
+DB_PASSWORD=
+
+MAIL_DRIVER=smtp
+MAIL_HOST=smtp.gmail.com
+MAIL_PORT=587
+MAIL_USERNAME=leonardo211294@gmail.com
+MAIL_PASSWORD=contraseña
+MAIL_ENCRYPTION=tls
+...

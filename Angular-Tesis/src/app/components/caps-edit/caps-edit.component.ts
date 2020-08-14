@@ -28,7 +28,7 @@ export class CapsEditComponent implements OnInit {
     console.log(this.id);
     if(this.id){
         this.editing=true;
-        this.tesisService.get().subscribe((data: Tesis_Comision_Capitulos[])=>{
+        this.tesisService.getcapitulos(this.id).subscribe((data: Tesis_Comision_Capitulos[])=>{
         this.caps=data;
         this.cap=this.caps.find((u)=>{return u.id==this.id})
         console.log(this.cap);

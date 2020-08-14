@@ -143,6 +143,7 @@ const routes: Route[]=[
   {path:'tesis_inscritas_view_coordinador',component:ListaTesisCoordinadortesisComponent},
   {path:'capitulos_tesis/:id',component:CapsComponent},
   {path:'capitulos_edit/:id', component:CapsEditComponent},
+  {path:'bitacora/:id',component:ListaTesisBitacoraCoordinadorComponent},
   ]
 
   @NgModule({
