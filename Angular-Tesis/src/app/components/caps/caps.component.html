@@ -1,21 +1,24 @@
+
+
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 <style type="text/css">
   .fa:before { color:black; }
 </style>
-<!--<style>
-  /* Este es para los elementos en general */
-  .navbar-light .navbar-nav .nav-link {
+
+<style>
+    /* Este es para los elementos en general */
+    .navbar-light .navbar-nav .nav-link {
     color: orange;
     }
     /*  Este es para el elemento activo lo puedes omitir si asi deseas */
     .navbar-light .navbar-nav .active>.nav-link  {
      color: red;
     }
-</style>
+    </style>
 
-/.Navbar-->
-   <a *ngIf="tipo_usuario==3 && director_escuela==0">
+<a *ngIf="tipo_usuario==3 && director_escuela==0">
    <nav class="navbar navbar-expand-lg" style="background-color:#000a49"> 
       <a class="navbar-brand text-white" routerLink="/coordinador_tesis/{{identificador}}">Home</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -108,67 +111,70 @@
       </div>
       <!--<a class="navbar-brand text-white" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>-->
     </nav>
-  </a>
- <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-10">
-        <div class="card">
-          <div class="card-header">Información Detallada de Tesis</div>
+</a>
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-12"> <!--Con 12 se ocupa todo el ancho de la pantalla-->
+      <div class="card">
+        <div class="card-header">Capitulos</div>
           <div class="card-body">
-      <table class="table table-bordered">
-<b>Nombre Alumno</b>
-<p>{{tesis.nombre_completo}}</p>
-<a *ngIf="tesis.nombre_completo2!=null">
-<p>{{tesis.nombre_completo2}}</p>
-</a>
-<b>Rut</b>
-<p>{{tesis.rut}}</p>
-<a *ngIf="tesis.nombre_completo2!=null">
-<p>{{tesis.rut2}}</p>
-</a>
-<b>Año de Ingreso</b>
-<p>{{tesis.ano_ingreso}}</p>
-<a *ngIf="tesis.nombre_completo2!=null">
-<p>{{tesis.ano_ingreso2}}</p>
-</a>
-<b>Telefono</b>
-<p>{{tesis.telefono1}}</p>
-<a *ngIf="tesis.nombre_completo2!=null">
-<p>{{tesis.telefono2}}</p>
-</a>
 
-<b>Carrera</b>
-<p>{{tesis.carrera}}</p>
+    <table class="table table-bordered">
+    	<tr>
+          <th>{{cap.cap1}}</th>
+          <th>{{cap.cap2}}</th>
+          <th *ngIf="cap.cap3!=null">{{cap.cap3}}</th>
+          <th *ngIf="cap.cap4!=null">{{cap.cap4}}</th>
+          <th *ngIf="cap.cap5!=null">{{cap.cap5}}</th>
+          <th *ngIf="cap.cap6!=null">{{cap.cap6}}</th>
+           <!--@if(cap.cap3!=null)
+         <th>{{cap.cap3}}</th>
+         @endif
+          @if(cap->cap4!=null)
+         <th>{{cap->cap4}}</th>
+         @endif
+         @if(cap->cap5!=null)
+          <th>{{cap->cap5}}</th>
+          @endif
+          @if(cap->cap6!=null)
+         <th>{{cap->cap6}}</th>
+         @endif
+         <th>Fecha</th>
+         @if(tipo_usuario==2)-->
+         <!--<th><a href="{{URL::action('Capitulos_capController@edit_nombres', $cap->id)}}" class="btn btn-primary btn-sm"><span class="far fa-edit fa-sm"></span></a></th>
+         @endif-->
+     </tr>
+     <tr>
+          <td>{{cap.avance_cap1}} %</td>
+          <td>{{cap.avance_cap2}} %</td>
+          <td *ngIf="cap.cap3!=null">{{cap.avance_cap3}} %</td>
+          <td *ngIf="cap.cap4!=null">{{cap.avance_cap4}} %</td>
+          <td *ngIf="cap.cap5!=null">{{cap.avance_cap5}} %</td>
+          <td *ngIf="cap.cap6!=null">{{cap.avance_cap6}} %</td>
+        
+            <!-- <a *ngIf="tipo_usuario==2 && director_escuela==0">
+        <td><a href="/" class="btn btn-primary btn-sm"><span class="far fa-edit fa-sm"></span></a>
+         <form action="{{ route('bitacora.destroy', $cap->id)}}" method="POST">
+          <button type="submit" class="btn btn-danger"><span class="fas fa-trash"></span>
+          
+           {{ method_field('DELETE') }}
+           {{ csrf_field() }}
+            </button>
+           </form>
+         </td>
+         @endif
+        </tr>
+        @endforeach-->
+    </tr>
+      </table>
+</div>
+</div>
+ <a *ngIf="tipo_usuario==2 && director_escuela==0">
+<!--<td><a href="{{url('/capitulos_cap/create'.$id)}}" class="fas fa-plus"></a></td>-->
+</a>
+</div>
+</div>
+</div>
 
-<b>Tipo Trabajo</b>
-<p>{{tesis.tipo}}</p>
-<b>Nombre Vinculacion</b>
-<p>{{tesis.nombre_vinculacion}}</p>
-<b>Tipo Vinculación</b>
-<p>{{tesis.tipo_vinculacion}}</p>
-<b>Nombre Tesis</b>
-<p>{{tesis.nombre_tesis}}</p>
-<b>Area Tesis</b>
-<p>{{tesis.area_tesis}}</p>
-<b>Descripción</b>
-<p>{{tesis.descripcion}}</p>
-
-<b>Objetivos</b>
-<p>{{tesis.objetivos}}</p>
-<b>Contribución</b>
-<p>{{tesis.contribucion}}</p>
-<b>Fecha Petición</b>
-<p>{{tesis.fecha_peticion}}</p>
-<a *ngIf="tesis.profesor1_comision!=null"><b>Profesor 1 Comisión:</b><p>{{tesis.profesor1_comision}}</p></a>
-<a *ngIf="tesis.profesor2_comision!=null "><b>Profesor 2 Comisión:</b><p>{{tesis.profesor2_comision}}</p></a>
-<a *ngIf="tesis.profesor3_comision!=null "><b>Profesor 3 Comisión:</b><p>{{tesis.profesor3_comision}}</p></a>
-<a *ngIf="tesis.profesor1_externo!=null"><b>Profesor 1 Externo de la Comisión:</b><p>{{tesis.profesor1_externo}}</p></a>
-<a *ngIf="tesis.profe2_externo!=null"><b>Profesor 2 Externo de la Comisión:</b><p>{{tesis.profe2_externo}}</p></a>
-<a *ngIf="tesis.nota_tesis!=null"><b>Nota:</b><p>{{tesis.nota_tesis}}</p></a>
-</table>
-</div>
-</div>
-</div>
-</div>
-<a routerLink="/profesor/{{identificador}}">Volver Home</a>
 

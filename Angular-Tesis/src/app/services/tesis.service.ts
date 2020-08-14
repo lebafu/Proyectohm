@@ -97,4 +97,9 @@ export class TesisService {
  getTesisInscrita(){
    return this.httpClient.get(this.API_ENDPOINT + '/tesis_inscritas');
  }
+
+ getcapitulos(id){
+
+   return this.httpClient.get(this.API_ENDPOINT +'/mostrar_capitulos_tesis/'+ id);
+ }
 }

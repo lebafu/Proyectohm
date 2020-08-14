@@ -24,6 +24,7 @@ Route::group(['middleware' => []], function () {
    //Route::post('/sendPasswordResetLink','ResetPasswordController@sendPasswordResetLink');
    Route::post('/sendPasswordResetLink','ResetPasswordController@sendPasswordResetLink');
    Route::post('/changePassword','ChangePasswordController@changePassword');
+   Route::get('/mostrar_capitulos_tesis/{id}', 'Capitulos_TesisController@lista_capitulos_tesis');
 });
 //Route::post('login', [ 'as' => 'login', 'uses' => 'AuthController@login']); 
 

@@ -3,6 +3,8 @@ import {Tesis_Comision_Capitulos} from 'src/app/interfaces/tesis_comision_capitu
 import {ActivatedRoute} from '@angular/router';
 import {TesisService} from 'src/app/services/tesis.service';
 import { TokenService } from 'src/app/services/token.service';
+import {UsersService} from 'src/app/services/users.service';
+import {User} from 'src/app/interfaces/user';
 
 @Component({
   selector: 'app-show2tesisalumno',
@@ -17,8 +19,12 @@ export class Show2tesisalumnoComponent implements OnInit {
   tesistas:Tesis_Comision_Capitulos[];
    cantidad:number;
   nota_tesis:number;
-  constructor(private Token: TokenService,private tesisService: TesisService, private activatedRoute: ActivatedRoute) {
+    tipo_usuario:number;
+  director_escuela:number;
+  constructor(private Token: TokenService,private tesisService: TesisService, private activatedRoute: ActivatedRoute,private usersService: UsersService)
+  {
   	this.identificador=localStorage.getItem('id');
+    this.getTipoUsuario();
     this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
         this.editing=true;
@@ -56,6 +62,17 @@ export class Show2tesisalumnoComponent implements OnInit {
 
 
    ngOnInit(): void {
+  }
+
+     getTipoUsuario(){
+   this.identificador=localStorage.getItem('id'); //Se obtiene id del usuario que ha iniciado sesion//
+   this.usersService.rol(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.tipo_usuario=data[0].tipo_usuario;
+      this.director_escuela=data[0].director_escuela;
+    
+   });
+
   }
 
 }
