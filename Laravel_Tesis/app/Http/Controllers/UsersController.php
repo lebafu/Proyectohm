@@ -24,7 +24,8 @@ class UsersController extends Controller
         foreach($users as $user);
         return response()->json([[
             'tipo_usuario' => $user->tipo_usuario,
-            'director_escuela' => $user->director_escuela
+            'director_escuela' => $user->director_escuela,
+            'name'=> $user->name
         ]]);
 
     }

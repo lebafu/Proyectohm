@@ -1,1 +1,269 @@
-<p>caps-edit works!</p>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+<style type="text/css">
+  .fa:before { color:black; }
+</style>
+
+<style>
+    /* Este es para los elementos en general */
+    .navbar-light .navbar-nav .nav-link {
+    color: orange;
+    }
+    /*  Este es para el elemento activo lo puedes omitir si asi deseas */
+    .navbar-light .navbar-nav .active>.nav-link  {
+     color: red;
+    }
+    </style>
+
+   <a *ngIf="tipo_usuario==2 && director_escuela==0 && cap.profesor_guia==nombre">
+   <nav class="navbar navbar-expand-lg" style="background-color:#000a49"> 
+    <a class="navbar-brand text-white" href="#">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav"> 
+          <li ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Tesis
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown1" class="dropdown-menu">
+              <a class="dropdown-item" routerLink="/tesis_espera_profesor/{{identificador}}">Espera</a>
+              <a class="dropdown-item" href="/tesis_inscrita_profesor/{{identificador}}">Inscritas</a>
+              <a class="dropdown-item" href="/tesis_comision_profesor/{{identificador}}">Comision</a>
+              <a class="dropdown-item" href="#">Informes</a>
+              <a class="dropdown-item" href="#">Actas</a>
+            </div>
+          </li>
+          <li ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Vinculación
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown2" class="dropdown-menu">
+              <a class="dropdown-item" routerLink="/comunidades">Comunidad</a>
+              <a class="dropdown-item" routerLink="/fondosconcursables">Fondos Concursables</a>
+              <a class="dropdown-item" routerLink="/empresas">Empresas</a>
+              <a class="dropdown-item" routerLink="/proyectos">Proyectos</a>
+            </div>
+          </li>
+          <li ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Solicitudes Notas Pendientes Profesor
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown3" class="dropdown-menu">
+              <a class="dropdown-item" href="#">Pendientes</a>
+              <a class="dropdown-item" href="#">Prorrogas</a>
+            </div>
+          </li>
+          <!--<li ngbDropdownclass="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Vinculación
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown2" class="dropdown-menu">
+              <a class="dropdown-item" href="#">Comunidades</a>
+                <a class="dropdown-item" href="#">Empresas</a>
+                <a class="dropdown-item" href="#">Fondos Concursables</a>
+                <a class="dropdown-item" href="#">Proyectos</a>
+            </div>
+          </li>
+          <li ngbDropdownToggle class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Solicitudes de Notas 
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown3" class="dropdown-menu">
+              <a class="dropdown-item" href="#">Pendientes</a>
+                <a class="dropdown-item" href="#">Prorrogas</a>
+            </div>
+          </li>-->
+        </ul>
+      </div>
+      <!--<a class="navbar-brand text-white" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>-->
+    </nav>
+</a>
+
+
+
+<a *ngIf="tipo_usuario==2 && director_escuela==1 && cap.profesor_guia==nombre">
+   <nav class="navbar navbar-expand-lg" style="background-color:#000a49"> 
+      <a class="navbar-brand text-white" href="#">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav"> 
+            <li ngbDropdown class="nav-item dropdown">
+              <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Tesis
+              </a>
+              <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown1" class="dropdown-menu">
+              <a class="dropdown-item" routerLink="/tesis_espera_directorescuela/{{identificador}}">Espera</a>
+              <a class="dropdown-item" routerLink="/tesis_inscrita_directorescuela/{{identificador}}">Inscritas</a>
+              <a class="dropdown-item" routerLink="/tesis_comision_directorescuela/{{identificador}}">Comision</a>
+                <a class="dropdown-item" href="#">Informes</a>
+                <a class="dropdown-item" href="#">Actas</a>
+              </div>
+            </li>
+            <li ngbDropdown class="nav-item dropdown">
+              <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Vinculación
+              </a>
+              <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown2" class="dropdown-menu">
+                <a class="dropdown-item" routerLink="/comunidades">Comunidad</a>
+                <a class="dropdown-item" routerLink="/fondosconcursables">Fondos Concursables</a>
+                <a class="dropdown-item" routerLink="/empresas">Empresas</a>
+                <a class="dropdown-item" routerLink="/proyectos">Proyectos</a>
+              </div>
+            </li>
+            <li ngbDropdown class="nav-item dropdown">
+              <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Sol Notas Pendientes Profesor
+              </a>
+              <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown3" class="dropdown-menu">
+                <a class="dropdown-item" href="#">Pendientes</a>
+                <a class="dropdown-item" href="#">Prorrogas</a>
+              </div>
+            </li>
+          <li ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sol Notas Director Escuela
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Pendientes</a>
+                <a class="dropdown-item" href="#">Prorrogas</a>
+            </div>
+          </li>
+          <li ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle text-white" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Obtener
+            </a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <a class="dropdown-item" href="#">Informes Consulta por Intervalos</a>
+                <a class="dropdown-item" href="#">Lista memos</a>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <!--<a class="navbar-brand text-white" href="#" (click)="logout($event)" *ngIf="loggedIn">Logout</a>-->
+    </nav>
+</a>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Editar Nombres de Capitulos de Tesis</div>
+
+                <div class="card-body">
+                    <form>
+                        
+
+                         <div class="form-group row">
+                            <label for="cap1" class="col-md-4 col-form-label text-md-right">Nombre Cap1 de Tesis</label>
+                            <div class="col-md-6">
+                                <textarea id="cap1" type="text" rows="10" cols="40" placeholder="Nombre cap1 tesis" class="form-control" name="cap1" required="required" value="{{cap.cap1}}">{{cap.cap1}}</textarea>
+                            </div>
+                        </div>
+
+
+                         <div class="form-group row">
+                            <label for="cap2" class="col-md-4 col-form-label text-md-right">Nombre Cap2 de Tesis</label>
+                            <div class="col-md-6">
+                                <textarea id="cap2" type="text" rows="10" cols="40" placeholder="Nombre cap2 tesis" class="form-control" name="cap2" required="required" value="{{cap.cap2}}">{{cap.cap2}}</textarea>
+                            </div>
+                        </div>
+
+
+                        <a *ngIf="cap.cap3==null">
+                         <div class="form-group row">
+                            <label for="cap3" class="col-md-4 col-form-label text-md-right">Nombre Cap3 de Tesis</label>
+                            <div class="col-md-6">
+                                <textarea id="cap3" type="text" rows="10" cols="40" placeholder="Nombre cap3 tesis" class="form-control" name="cap3"></textarea>
+                            </div>
+                        </div>
+                        </a>
+                        <a *ngIf="cap.cap3!=null">
+                             <div class="form-group row">
+                            <label for="cap3" class="col-md-4 col-form-label text-md-right">Nombre Cap3 de Tesis</label>
+                            <div class="col-md-6">
+                                <textarea id="cap3" type="text" rows="10" cols="40" placeholder="Nombre cap3 tesis" class="form-control" name="cap3"value="{{cap.cap3}}">{{cap.cap3}}</textarea>
+                            </div>
+                        </div>
+                        </a>
+
+                         <a *ngIf="cap.cap4==null">
+                         <div class="form-group row">
+                            <label for="cap4" class="col-md-4 col-form-label text-md-right">Nombre Cap4 de Tesis</label>
+                            <div class="col-md-6">
+                                <textarea id="cap4" type="text" rows="10" cols="40" placeholder="Nombre cap4 tesis" class="form-control" name="cap4"></textarea>
+                            </div>
+                        </div>
+                        </a>
+                        <a *ngIf="cap.cap4!=null">
+                             <div class="form-group row">
+                            <label for="cap4" class="col-md-4 col-form-label text-md-right">Nombre Cap4 de Tesis</label>
+                            <div class="col-md-6">
+                                <textarea id="cap4" type="text" rows="10" cols="40" placeholder="Nombre cap4 tesis" class="form-control" name="cap4"value="{{cap.cap4}}">{{cap.cap4}}</textarea>
+                            </div>
+                        </div>
+                        </a>
+                        
+
+                         <a *ngIf="cap.cap5==null">
+                         <div class="form-group row">
+                            <label for="cap5" class="col-md-4 col-form-label text-md-right">Nombre Cap5 de Tesis</label>
+                            <div class="col-md-6">
+                                <textarea id="cap5" type="text" rows="10" cols="40" placeholder="Nombre cap5 tesis" class="form-control" name="cap5"></textarea>
+                            </div>
+                        </div>
+                        </a>
+                        <a *ngIf="cap.cap5!=null">
+                             <div class="form-group row">
+                            <label for="cap5" class="col-md-4 col-form-label text-md-right">Nombre Cap5 de Tesis</label>
+                            <div class="col-md-6">
+                                <textarea id="cap5" type="text" rows="10" cols="40" placeholder="Nombre cap5 tesis" class="form-control" name="cap5"value="{{cap.cap5}}">{{cap.cap5}}</textarea>
+                            </div>
+                        </div>
+                        </a>
+
+                         <a *ngIf="cap.cap6==null">
+                         <div class="form-group row">
+                            <label for="cap6" class="col-md-4 col-form-label text-md-right">Nombre Cap6 de Tesis</label>
+                            <div class="col-md-6">
+                                <textarea id="cap6" type="text" rows="10" cols="40" placeholder="Nombre cap6 tesis" class="form-control" name="cap6"></textarea>
+                            </div>
+                        </div>
+                        </a>
+                        <a *ngIf="cap.cap6==null">
+                             <div class="form-group row">
+                            <label for="cap6" class="col-md-4 col-form-label text-md-right">Nombre Cap6 de Tesis</label>
+                            <div class="col-md-6">
+                                <textarea id="cap6" type="text" rows="10" cols="40" placeholder="Nombre cap5 tesis" class="form-control" name="cap6"value="{{cap.cap6}}">{{cap.cap6}}</textarea>
+                            </div>
+                        </div>
+                        </a>
+                        
+
+                         
+                         <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Guardar
+                                </button>
+
+                                <a href="/profesor/" class="btn">Cancelar</a>
+                                    
+                            </div>
+                       
+
+                                
+           
+                            
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

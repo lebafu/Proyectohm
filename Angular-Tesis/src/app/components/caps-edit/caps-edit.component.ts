@@ -14,11 +14,16 @@ import {User} from 'src/app/interfaces/user';
 })
 export class CapsEditComponent implements OnInit {
   id: any;
+  identificador:string;
   editing: boolean =false;
   caps: Tesis_Comision_Capitulos[];
   cap:Tesis_Comision_Capitulos;
-  constructor(private Token: TokenService,private tesisService:TesisService,private activatedRoute: ActivatedRoute,private usersService: UsersService) 
-  {
+  tipo_usuario:number;
+  director_escuela:number;
+  nombre:string;
+  constructor(private Token: TokenService,private tesisService:TesisService,private activatedRoute: ActivatedRoute,private usersService: UsersService) {
+  	this.getProfesorDirectorEscuela();
+  	this.getcapitulos();
   	this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){
@@ -51,6 +56,18 @@ export class CapsEditComponent implements OnInit {
   alert('Ocurrio  un error al editar el capitulo');
 });
   }
+  }
+
+     getProfesorDirectorEscuela(){
+   this.identificador=localStorage.getItem('id');
+   this.usersService.rol(this.identificador).subscribe((data)=>{
+      console.log(data[0]);
+      this.tipo_usuario=data[0].tipo_usuario;
+      this.director_escuela=data[0].director_escuela;
+      this.nombre=data[0].name;
+    
+   });
+
   }
 
 }
