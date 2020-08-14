@@ -79,6 +79,7 @@ import { ListaTesisCoordinadortesisComponent } from './components/lista-tesis-co
 import { ListaTesisBitacoraCoordinadorComponent } from './components/lista-tesis-bitacora-coordinador/lista-tesis-bitacora-coordinador.component';
 import { CapsComponent } from './components/caps/caps.component';
 import { CapsEditComponent } from './components/caps-edit/caps-edit.component';
+import { CapsEditAvancesComponent } from './components/caps-edit-avances/caps-edit-avances.component';
 
 
 const routes: Route[]=[
@@ -141,6 +142,7 @@ const routes: Route[]=[
   {path:'wordlistaprofesor/:id',component:WordListaTesisProfesorComponent },
   {path:'tesis_inscritas_view_coordinador',component:ListaTesisCoordinadortesisComponent},
   {path:'capitulos_tesis/:id',component:CapsComponent},
+  {path:'capitulos_edit/:id', component:CapsEditComponent},
   ]
 
   @NgModule({
@@ -212,6 +214,7 @@ const routes: Route[]=[
       ListaTesisBitacoraCoordinadorComponent,
       CapsComponent,
       CapsEditComponent,
+      CapsEditAvancesComponent,
     ],
     imports: [
       BrowserModule,

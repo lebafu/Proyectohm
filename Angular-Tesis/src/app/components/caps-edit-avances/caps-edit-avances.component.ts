@@ -1,4 +1,4 @@
-import {Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {TesisService} from 'src/app/services/tesis.service';
 import {Tesis_Comision_Capitulos} from 'src/app/interfaces/tesis_comision_capitulos';
 import {Tesis} from 'src/app/interfaces/tesis';
@@ -7,18 +7,19 @@ import {TokenService } from 'src/app/services/token.service';
 import {UsersService} from 'src/app/services/users.service';
 import {User} from 'src/app/interfaces/user';
 
+
 @Component({
-  selector: 'app-caps-edit',
-  templateUrl: './caps-edit.component.html',
-  styleUrls: ['./caps-edit.component.css']
+  selector: 'app-caps-edit-avances',
+  templateUrl: './caps-edit-avances.component.html',
+  styleUrls: ['./caps-edit-avances.component.css']
 })
-export class CapsEditComponent implements OnInit {
+export class CapsEditAvancesComponent implements OnInit {
   id: any;
   editing: boolean =false;
   caps: Tesis_Comision_Capitulos[];
   cap:Tesis_Comision_Capitulos;
-  constructor(private Token: TokenService,private tesisService:TesisService,private activatedRoute: ActivatedRoute,private usersService: UsersService) 
-  {
+  constructor(private Token: TokenService,private tesisService:TesisService,private activatedRoute: ActivatedRoute,private usersService: UsersService)
+  { 
   	this.id=this.activatedRoute.snapshot.params['id'];
     console.log(this.id);
     if(this.id){
@@ -32,14 +33,10 @@ export class CapsEditComponent implements OnInit {
          });
     }else{
       this.editing=false;
-    }  
-
-   }
-
-  ngOnInit(): void {
+    }
   }
 
-    editCapNombre(){
+      editCapNombre(){
     console.log(this.editing);
     if(this.editing==true){
       this.TesisService.put3(this.cap).subscribe((data) => {
@@ -51,6 +48,9 @@ export class CapsEditComponent implements OnInit {
   alert('Ocurrio  un error al editar el capitulo');
 });
   }
+  }
+
+  ngOnInit(): void {
   }
 
 }

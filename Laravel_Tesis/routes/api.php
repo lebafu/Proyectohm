@@ -24,10 +24,16 @@ Route::group(['middleware' => []], function () {
    //Route::post('/sendPasswordResetLink','ResetPasswordController@sendPasswordResetLink');
    Route::post('/sendPasswordResetLink','ResetPasswordController@sendPasswordResetLink');
    Route::post('/changePassword','ChangePasswordController@changePassword');
-   Route::get('/mostrar_capitulos_tesis/{id}', 'Capitulos_TesisController@lista_capitulos_tesis');
+   
 });
 //Route::post('login', [ 'as' => 'login', 'uses' => 'AuthController@login']); 
+//Capitulos de Tesis
+Route::get('/mostrar_capitulos_tesis/{id}', 'Capitulos_TesisController@lista_capitulos_tesis');
+Route::put('/actualizarcapitulosnombres{capitulo}','Capitulos_TesisController@update_nombres');
+Route::put('/actualizarcapitulosavances{capitulo}','Capitulos_TesisController@update_avances');
 
+
+//RUTAS USERS
 //Route::resource('users','UsersController');
 Route::get('users', 'UsersController@index');
 Route::get('/nombre_alumno/{id}', 'UsersController@getNombreAlumno');

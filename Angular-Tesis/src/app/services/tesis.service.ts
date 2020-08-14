@@ -61,6 +61,18 @@ export class TesisService {
     return this.httpClient.put(this.API_ENDPOINT +'/tesis_editada_profesor/' + tesis.id_pk, tesis,{headers:headers});
   }
 
+  put3(cap:Tesis_Comision_Capitulos){
+    const headers= new HttpHeaders({'Content-Type':'application/json'});
+    console.log(cap);
+    return this.httpClient.put(this.API_ENDPOINT +'/actualizarcapitulosnombres/' + cap.id_pk, cap,{headers:headers});
+  }
+
+  put4(cap:Tesis_Comision_Capitulos){
+    const headers= new HttpHeaders({'Content-Type':'application/json'});
+    console.log(cap);
+    return this.httpClient.put(this.API_ENDPOINT +'/actualizarcapitulosavances/' + cap.id_pk, cap,{headers:headers});
+  }
+
   delete(id)
   {
     console.log(id);

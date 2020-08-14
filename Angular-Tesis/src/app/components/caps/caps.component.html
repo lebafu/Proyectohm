@@ -176,5 +176,13 @@
 </div>
 </div>
 </div>
-
+ <a *ngIf="tipo_usuario==2 && director_escuela==0">
+<a routerLink="/profesor/{{identificador}}">Volver Home</a>
+</a>
+ <a *ngIf="tipo_usuario==2 && director_escuela==1">
+<a routerLink="/director_escuela/{{identificador}}">Volver Home</a>
+</a>
+ <a *ngIf="tipo_usuario==3 && director_escuela==0">
+<a routerLink="/coordinador_tesis/{{identificador}}">Volver Home</a>
+</a>
 
